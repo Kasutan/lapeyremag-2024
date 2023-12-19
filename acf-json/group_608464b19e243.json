@@ -1,0 +1,57 @@
+{
+    "key": "group_608464b19e243",
+    "title": "En-tête de la page",
+    "fields": [
+        {
+            "key": "field_608464c388d03",
+            "label": "Image bannière",
+            "name": "lapeyremag_banniere_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Format recommandé JPG. Taille recommandée : 1920px de large par 388px de haut.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg, jpeg",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1698833105
+}

@@ -1,0 +1,146 @@
+/*--------------------------------------------------------------
+## Site header
+--------------------------------------------------------------*/
+.topbar {
+	align-items: center;
+	background-color: var(--orange);
+	display: flex;
+	justify-content: flex-end;
+	padding:5px var(--padding-x);
+	.search-form {
+		margin-right: 20px;
+		@include bp(lg) {
+			margin-right: 38px;
+		}
+	}
+
+	
+
+}
+.site-header {
+	background-color: var(--blanc);
+	z-index:10;
+}
+
+.main-header {
+	--taille-logos:25rem;
+	align-items: center;
+	display: grid;
+	grid-template-columns: var(--taille-logos) 1fr;
+	padding:22px;
+	position: relative;
+}
+
+.site-title {
+	column-gap:12px;
+	display:grid;
+	grid-template-columns: 93fr 150fr;
+	margin:0;
+}
+.header-navigation {
+	justify-self: end;
+}
+
+
+@include bp(lg) {
+	.main-header {
+		--taille-logos:27rem;
+
+		padding:0 var(--padding-x);
+	}
+	.title-area {
+		max-width: var(--taille-logo);
+		padding:22px 0;
+	}
+	.site-title {
+		column-gap:16px;
+	}
+	.header-navigation {
+		height:100%;
+	}
+}
+
+@include bp(xl) {
+	.main-header {
+		--taille-logos:28.5rem;
+	}
+}
+
+//Header sticky toutes tailles d'écran
+
+
+//Magic numbers
+body {
+	--hauteur-header:129px;
+	@include bp(lg) {
+	}
+	@include bp(xl) {
+	}
+}
+
+.site-header {
+	box-shadow: 0 3px 3px rgba(18,75,90,0.2);
+	position:fixed;
+	left: 0;
+	top: 0;
+	width:100%;
+
+	@include bp(xxl) {
+		left:calc((100vw - var(--largeur-max))/2);
+		width:var(--largeur-max);
+	}
+}
+
+
+.site-main {
+	margin-top: var(--hauteur-header);
+}
+
+#wpadminbar {
+	position: fixed;
+}
+.admin-bar .site-header {
+	top:46px;
+	@include bp(md) {
+		top:32px;
+	}
+}	
+
+
+
+/*--------------------------------------------------------------
+## Ancre pour backtotop
+--------------------------------------------------------------*/
+#main-content {
+	position: relative;
+}
+#haut-page {
+	position: relative;
+	top:-200px;
+}
+/*--------------------------------------------------------------
+## Entry-header
+--------------------------------------------------------------*/
+.page-banniere {	
+	height:var(--hauteur-banniere);
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;	
+	max-width:var(--largeur-max);
+	width:100%;
+	img {
+		height:100%;
+		left:0;
+		position: absolute;
+		top:0;
+		width:100%;
+	}
+}
+
+.entry-title {
+	margin-top: 5.2rem;
+	@include bp(lg) {
+		margin-top: 7.2rem;
+	}
+}
+

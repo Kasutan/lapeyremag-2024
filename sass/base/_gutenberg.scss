@@ -1,0 +1,21 @@
+.wp-block-button__link {
+	border-radius: 0;
+	font-weight: bold;
+}
+
+.block-list-appender button, button.acf-button , .wp-editor-tabs button {
+	min-width:unset;
+	padding:unset;
+	&, &:hover,&:focus {
+		background-color:transparent;
+	}
+}
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	font-family:  "Darker Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

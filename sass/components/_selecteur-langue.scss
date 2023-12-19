@@ -1,0 +1,38 @@
+.selecteur {
+	a {
+		align-items: center;
+		display: flex;
+		text-decoration: none;
+		text-transform: uppercase;
+
+		img {
+			margin-right: 7px;
+			width:25px;
+		}
+		span {
+			display: block;
+			font-size: 1rem;
+			margin:0;
+			position:relative;
+			top:-1px;
+		}
+	}
+}
+
+.topbar .selecteur {
+	a {
+		color:var(--blanc);
+	}
+
+}
+
+.site-footer .selecteur {
+	display: flex;
+	justify-content: flex-end;
+	a {
+		font-size: 1.6rem;
+	}
+	span {
+		top:0;
+	}
+}

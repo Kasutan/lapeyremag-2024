@@ -1,0 +1,102 @@
+form.search-form {
+	align-items:stretch;
+	display: flex;
+	max-width:50rem;
+	label {
+		flex-grow:1;
+	}
+	input.search-field {
+		border:solid 1px var(--orange);
+		border-right:none;
+		height: 42px;
+		padding:0 10px;
+		width:100%;
+
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+	input.search-submit {
+		margin-bottom: 0;
+		min-width: unset;
+
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+
+	&.search-topbar {
+		input.search-field {
+			background-color: rgba(255,255,255,0.4);
+			border:none;
+			color:var(--blanc);
+			font-size: 1.4rem;
+			font-weight: 700;
+			line-height: 1;
+			height: 2rem;
+			padding:0 2px;
+			width:10rem;
+
+			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			color:var(--blanc);
+			opacity:1
+			}
+			&::-moz-placeholder { /* Firefox 19+ */
+			color:var(--blanc);
+			opacity:1
+			}
+			&:-ms-input-placeholder { /* IE 10+ */
+			color:var(--blanc);
+			opacity:1
+			}
+			&:-moz-placeholder { /* Firefox 18- */
+			color:var(--blanc);
+			opacity:1
+			}
+			&::-webkit-search-cancel-button {
+				-webkit-appearance: none;
+			}
+		}
+
+		input.search-submit {
+			background-color: rgba(255,255,255,0.4);
+			background-image: url('icons/loupe.svg');
+			background-repeat: no-repeat;
+			background-size: 11px 10px;
+			background-position: center;
+			border:none;
+			color:transparent;
+			height:2rem;
+			overflow: hidden;
+			padding:0 2px;
+			width:15px;
+		}
+
+		@include bp(lg) {
+			input.search-field {
+				height:21px;
+				padding:0 4px;
+				width:14rem;
+			}
+			input.search-submit {
+				height:21px;
+				padding:0 4px;
+				width:17px;
+			}
+		}
+	}
+}
+
+.search-results {
+	.vignette {
+		margin-bottom: 2rem;
+	}
+}
+
+section.no-results{
+	min-height:50vh;
+	padding-top: 1px;
+	.entry-title {
+		padding-top:var(--margin-y-1);	
+	}
+}

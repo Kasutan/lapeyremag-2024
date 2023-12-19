@@ -1,0 +1,81 @@
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+a.bouton,
+a.wp-block-button__link {
+	--fond-bouton:var(--rouge);
+	--fond-bouton-hover:var(--vert);
+	--texte-bouton:var(--blanc);
+
+	&.vert {
+		--fond-bouton:var(--vert);
+	}
+	&.orange {
+		--fond-bouton:var(--orange);
+	}
+	&.blanc {
+		--fond-bouton:var(--blanc);
+		--texte-bouton:var(--vert);
+		&.has-rouge-color {
+			--texte-bouton:var(--rouge);
+		}
+	}
+	&.pdf {
+		--fond-bouton:transparent;
+		--fond-bouton-hover:transparent;
+		--texte-bouton:var(--blanc);
+		background-image: url('icons/download.svg');
+		background-repeat: no-repeat;
+		background-size: 25px 20px;
+		background-position: 5px center;
+		border:solid 1px var(--blanc);
+		font-size: 1.6rem;
+		font-weight: 500;
+		margin:9px 0;
+		padding:3px 10px 5px 32px;
+		width:11.4rem;
+
+		&:focus {
+			outline:solid 1px var(--blanc);
+		}
+
+	}
+
+
+	@include bouton;
+ 
+	background-color: var(--fond-bouton);
+	&, &:visited {
+		color: var(--texte-bouton);
+	}
+	text-decoration: none;
+	transition: all var(--transition);
+
+	&:hover, &:focus, &:active {
+		background-color: var(--fond-bouton-hover);
+		color: var(--texte-bouton);
+		outline: none;
+		text-decoration: none;
+	}
+	&:focus-visible {
+		outline : dashed 2px var(--fond-bouton);
+		outline-offset: 2px;
+	}
+
+	&:disabled {
+		background-color: lightgrey;
+	}
+	
+}
+
+a.bouton:not(.pdf) {
+	display: block;
+	margin:5rem auto;
+	width:22.2rem;
+}
+
+input[type="submit"] {
+	-webkit-appearance: none;
+}

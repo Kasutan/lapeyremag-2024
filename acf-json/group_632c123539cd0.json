@@ -1,0 +1,64 @@
+{
+    "key": "group_632c123539cd0",
+    "title": "Bloc carrousel d'articles",
+    "fields": [
+        {
+            "key": "field_654201c94b2ad",
+            "label": "Bloc carrousel d'articles",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "Section avec titre et carrousel d'articles pour la page d'accueil",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_632c12351b229",
+            "label": "Titre du carrousel",
+            "name": "titre",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/carrousel-livres"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1701688997,
+    "local_file": "C:UsersofficLocal Siteseauetlumiereapppublic\/wp-content\/themes\/lapeyremag-2024\/acf-json\/group_632c123539cd0.json"
+}

@@ -1,0 +1,73 @@
+{
+    "key": "group_6544c89f72143",
+    "title": "Réglages de la catégorie",
+    "fields": [
+        {
+            "key": "field_6544c8a02b90f",
+            "label": "Couleur associée à cette catégorie",
+            "name": "couleur",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bleu": "bleu",
+                "vert": "vert",
+                "orange": "orange",
+                "rouge": "rouge"
+            },
+            "default_value": "bleu",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_65525f71d468a",
+            "label": "Nom de la catégorie au pluriel (pour le filtre de la page actualités)",
+            "name": "pluriel",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "category"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1701688997,
+    "local_file": "C:UsersofficLocal Siteseauetlumiereapppublic\/wp-content\/themes\/lapeyremag-2024\/acf-json\/group_6544c89f72143.json"
+}

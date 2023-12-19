@@ -1,0 +1,55 @@
+.pagination {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	list-style:none;
+	padding:0 var(--padding-x);
+	margin:0 0 7rem;
+
+	@include bp(lg) {
+		margin-bottom: 10.7rem;
+	}
+
+	li {
+		&::after {
+			color:var(--marron);
+			content: '-';
+			display: inline-block;
+			font-size: 2.5rem;
+			font-weight: 600;
+		}
+		&:last-of-type::after {
+			display: none;
+		}
+	}
+	a.page {
+		color:var(--marron);
+		font-size: 2.5rem;
+		font-weight: 600;
+		margin:0 0.5rem;
+		padding:0.5rem;
+		text-decoration: none;
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
+		
+	}
+
+	li.active a {
+		font-weight: 800;
+		text-decoration: underline;
+	}
+
+	li.disabled a {
+		cursor: default;
+		&:hover, &:focus {
+			border-color:transparent;
+			color:var(--marron);
+			text-decoration: none;
+		}
+	}
+
+	@include bp(xl) {
+		padding:0;
+	}
+}

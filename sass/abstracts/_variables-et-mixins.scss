@@ -1,0 +1,161 @@
+$colors: ( 
+	'blanc':#fff, 
+	'rouge' : #C3472F, 
+	'rouge-texte': #BB2833,
+	'rouge-fond':rgba(195,71,47,0.05),
+	'orange' :#EB910A,
+	'orange-imp':#F7B12D,
+	'orange-cadre':rgba(246,176,45,0.3),
+	'orange-fond':rgba(247,177,45,0.1),
+	'orange-input':#FFF6EB,
+	'bleu':#38A4E0,
+	'cyan':#7cc9c1,
+	'vert':#5D8E5A,
+	'marron':#614D40,
+	'gris-1':rgba(0,0,0,0.9),
+	'texte':rgba(0,0,0,0.9),
+	'gris-2':#1E1E1E,
+	'gris-fond':#F3F3F3,
+	'gris-input':#D9D9D9,
+	'noir' : #000000
+);
+
+
+
+// Breakpoints
+@mixin bp($point) {
+	$sm: "(min-width: 550px)";
+	$md: "(min-width: 768px)";
+	$lg: "(min-width: 1024px)";
+	$xl: "(min-width: 1440px)";
+	$xxl: "(min-width: 1920px)";
+  
+	@if $point == sm {
+	@media #{$sm} { @content; }
+	}
+	@else if $point == md {
+	@media #{$md} { @content; }
+	}
+
+	@else if $point == lg {
+	@media #{$lg} { @content; }
+	}
+  
+	@else if $point == xl {
+	@media #{$xl} { @content; }
+	}
+
+	@else if $point == xxl {
+		@media #{$xxl} { @content; }
+		}
+}
+
+@mixin fs($px) {
+	font-size:calc(#{$px} * var(--taille-texte) / 15);
+}
+
+@mixin box-shadow {
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@mixin bleed {
+	width: 100vw;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	@include bp(xxl) {
+		width:var(--largeur-max);
+	}
+}
+
+@mixin largeur-max {
+	max-width:var(--largeur-max);
+	margin-left:auto;
+	margin-right: auto;
+}
+
+
+@mixin bouton {
+	font-size: 2rem;
+	font-weight: 600;
+	border: none;
+	border-radius: 0;
+	cursor: pointer;
+	display:inline-block;
+	margin: 0 0 1em;
+	padding: 0.7rem 1.3rem;
+	text-align: center;
+	vertical-align: middle;
+}
+
+@mixin screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+	/* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+@mixin placeholder-search {
+	color:#fff;
+	opacity:1;
+}
+
+@mixin object-fit {
+	object-fit: cover;
+	object-position: center;
+	width: 100%;
+}
+
+@mixin fond {
+	height: 100%;
+	left:0;
+	position: absolute;
+	top:0;
+	width:100%;
+}
+
+@mixin decor-sous-titre {
+	position: relative;
+	&::after {
+		background-image: url('icons/sous-titre.png');
+		background-repeat: no-repeat;
+		background-size: contain;
+		content: '';
+		display: block;
+		height: 0.5rem;
+		left: 23px;
+		margin: 10px 0 25px;
+		position: relative;
+		width: 12.1rem;
+	}
+}
+
+@mixin titre-accueil {
+	font-size: 4rem;
+	font-weight: 100;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	b, strong {
+		font-weight: 700;
+	}
+	&::after {
+		background-image: url('/wp-content/themes/lapeyremag-2024/icons/sous-titre-home.png');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		content: '';
+		display: block;
+		height: 4px;
+		margin: 16px 0 40px;
+		position: relative;
+		width: 100%;
+	}
+
+}

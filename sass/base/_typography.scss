@@ -1,0 +1,183 @@
+
+:root {
+	--padding-lien: 7px 12px;
+}
+
+
+html {
+	font-size: 62.5%;
+	/* 1rem = 10px */
+	--taille-texte: 1.5rem;
+	--font-texte: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--font-titre: var(--font-texte);
+}
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: map-get($colors, 'texte'); //si les variables css ne sont pas supportées
+	color: var(--texte);
+	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: var(--font-texte);
+	font-size: 1.6rem; //si les variables css ne sont pas supportées
+	font-size: var(--taille-texte);
+	font-weight: 500;
+	line-height: 1.18;
+	-webkit-font-smoothing: antialiased;
+}
+
+::selection {
+	background: var(--vert);
+	color: var(--blanc);
+}
+
+strong,
+b {
+	font-weight: 700;
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+.medium {
+	font-weight: 500;
+}
+
+
+h1,
+.h1,
+h2,
+h3,
+h4,
+.h2,
+.h3,
+.h4 {
+	font-family: var(--font-titre);
+	font-weight: 700;
+	padding: 0;
+}
+
+h1,
+.h1 {
+	color: var(--orange-imp);
+	font-size: 3.2rem;
+	margin: 0;
+	@include decor-sous-titre;
+}
+
+
+h2,
+.h2 {
+	font-size: 3.2rem;
+	margin: 0 0 0.5em;
+	
+}
+
+h3,
+.h3 {
+	font-size: 2.5rem;
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+
+
+p {
+	margin-bottom: 1em;
+	margin-top: 0;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	border-left: solid 5px var(--orange);
+	font-size: 1.2em;
+	margin: 0 0 1em;
+	padding: 5px 27px;
+
+	cite {
+		font-weight: 700;
+	}
+}
+
+mark,
+ins {
+	background: var(--fond);
+	text-decoration: none;
+}
+
+small,
+.has-small-font-size {
+	font-size: 80%;
+}
+
+.has-regular-font-size {
+	font-size: 120%;
+}
+
+big,
+.has-big-font-size {
+	font-size: 2.5rem;
+
+}
+
+.has-huge-font-size {
+	font-size: 3.2rem;
+}
+
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	@include screen-reader-text;
+}
+
+.screen-reader-text:focus {
+	background-color: var(--fond);
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	display: block;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0s !important;
+		transition-duration: 0s !important;
+	}
+}

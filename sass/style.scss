@@ -1,0 +1,46 @@
+/*!
+Theme Name: lapeyremag-2024
+Theme URI: hhttps://kasutan.pro
+Author: Magalie Castaing
+Author URI: https://kasutan.pro
+Description: Nouveau thème pour refonte du magazine Lapeyre- janvier 2024
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: lapeyremag
+Tags: custom-logo, custom-menu, featured-images
+
+This theme, like WordPress, is licensed under the GPL. 
+Use it to make something cool, have fun, and share what you've learned with others.
+
+kasutan is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+@import "abstracts/variables-et-mixins";
+@import "base/normalize";
+@import "base/utilities";
+@import "base/colors"; 
+@import "base/layout";
+@import "base/typography";
+@import "base/boutons";
+@import "base/elements";
+@import "base/navigation"; 
+@import "base/print";
+@import "base/animations";
+//@import "lib/modaal";
+@import "templates/header";
+@import "templates/footer";
+@import "templates/loop";
+@import "templates/blog";
+@import "templates/page";
+@import "templates/search";
+@import "templates/single";
+@import "components/blocs-natifs";
+@import "components/filtre";
+@import "components/pagination";
+@import "components/post-summary";
+@import "components/selecteur-langue";

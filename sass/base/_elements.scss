@@ -1,0 +1,256 @@
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+.entry-content {
+	p + ul:not([class]), p + ol:not([class]) {
+		margin-top: -1em;
+	}
+
+	ul:not([class]) {
+		list-style: disc;
+		list-style-position: inside;
+		margin-bottom: 1em;
+
+		li {
+			margin-bottom: 0;
+			&::marker {
+				color: var(--noir);
+			}
+		}
+	}
+
+	ol:not([class]) {
+		list-style: decimal;
+		padding-left: 2ch;
+		margin-bottom: 1em;
+	}
+}
+/*
+ul:not([class]),
+ol:not([class]) {
+	margin: 0 0 1.5em 0;
+	padding-left:1em;
+}
+
+ul:not([class])  {
+	list-style: none;
+	padding-left:1em;
+	> li::before {
+		content: '•'; 
+		color: var(--bleu);
+		display: inline-block; 
+		width: 1em;
+		margin-left: -1em		
+	}
+}
+
+ol {
+	list-style: decimal;
+}
+
+li>ul,
+li>ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}*/
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	height: auto;
+	/* Make sure images are scaled correctly. */
+	max-width: 100%;
+	/* Adhere to container width. */
+
+	&.emoji {
+		width: 2ch;
+		display: inline-block;
+		position: relative;
+		top: 3px;
+	}
+}
+
+figure {
+	margin: 1em 0;
+	/* Extra wide images within figure tags don't overflow the content area. */
+	figcaption {
+		text-align: center;
+	}
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	background-color: var(--orange-input);
+	color: var(--noir);
+	border: none;
+	outline-color:var(--orange);
+	min-height:4rem;
+	padding: 3px;
+	padding-left: 10px;
+	
+	&:focus {
+		outline:solid 1px;
+		outline-color:var(--orange);
+	}
+}
+
+
+textarea {
+	width: 100%;
+}
+
+
+.forminator-custom-form {
+	/*Layout*/
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 22px;
+
+	.forminator-row {
+		box-sizing: border-box;
+		margin: 0 !important;
+	}
+	.forminator-col {
+		padding:0 !important;
+	}
+	.forminator-response-message, .forminator-row.pleine-largeur {
+		grid-column-start: 1;
+		grid-column-end: -1;
+	}
+	.forminator-error-message {
+		color:var(--rouge);
+	}
+
+	/*Styles communs à tous les champs*/
+	font-size: 2rem;
+	font-weight: 400;
+	
+
+
+	label {
+		display: block;
+		margin-bottom: 5px;
+	}
+	input[type="text"],
+	input[type="email"],
+	input[type="tel"] {
+		width:100%;
+	}
+
+	
+
+	/*Styles des champs téléphone*/
+
+	.forminator-phone {
+		width:100%;
+	}
+
+	
+	.forminator-row-last
+	{
+		grid-column: 1 / span 2;
+		.forminator-field {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+		}
+
+		button:focus-visible {
+			outline-color:var(--vert);
+		}
+	}
+	.h-captcha {
+		flex-basis: 100%;
+		margin-bottom: 20px;
+	}
+
+	
+	
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+

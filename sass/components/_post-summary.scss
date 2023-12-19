@@ -1,0 +1,101 @@
+//Vignette article pour pages archives (y compris recherche)
+.vignette {
+	
+	margin:0 auto 2.5rem;
+	max-width:43rem;
+	position:relative;
+	text-decoration: none;
+	
+	a {
+		&.lien {
+			display: flex;
+			flex-direction: column;
+			height:100%;
+		}
+	
+		&, &:hover, &:focus {
+			color:var(--blanc);
+			text-decoration: none;
+		}
+	}
+
+	
+	
+	.cat {
+		font-size: 2rem;
+		font-weight: 700;
+		left:0;
+		padding:10px;
+		position: absolute;
+		text-align: center;
+		text-transform: uppercase;
+		top:0;
+		width:100%;
+
+		.fond {
+			@include fond;
+			opacity: 0.8;
+		}
+
+		span {
+			position: relative;
+		}
+	}
+
+	.vignette-image {
+		height:36rem;
+		img {
+			height:100%;
+			object-fit: cover;
+			width:100%;
+		}
+		&.contain {
+			//fallback post sans thumbnail
+			img {
+				margin:auto;
+				object-fit: contain;
+				width:90%;
+			}
+		}
+	}
+	
+
+	
+	.texte {
+		padding: 22px 8px 40px;
+		text-align: center;
+	}
+
+	.titre {
+		font-size: 3rem;
+		font-weight: 800;
+		line-height: 1;
+		margin-bottom: 0;
+	}
+
+	.date {
+		font-size: 1.5rem;
+	}
+
+	.extrait {
+		font-size: 1.8rem;
+		font-weight: 600;
+		padding-top: 1.2rem;
+	}
+
+	@include bp(lg) {
+		.vignette-image {
+			height:unset;
+			overflow: hidden;
+			padding-top: 100%;
+			position: relative;
+			img {
+				@include fond;
+			}
+		}
+		.texte {
+			flex-grow: 1;
+		}
+
+	}
+}

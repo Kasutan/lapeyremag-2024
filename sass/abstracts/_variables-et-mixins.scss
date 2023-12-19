@@ -1,28 +1,116 @@
+
+/*--------------------------------------------------------------
+# Variables couleurs
+--------------------------------------------------------------*/
 $colors: ( 
+	'texte':#212121,
+	'noir-titre':#1F1416,
+	'bleu-fonce':#5D89A2,
+	'bleu-tres-fonce':#3D6881,
+	'sauge':#AAC5B5,
+	'rose':#E6658B, //portes
+	'orange':#E6A74A, //?
+	'ocre':#CC7364,//aménagements
+	'jaune':#D4CE5D, //escaliers
+	'violet':#8779B7,//cuisines
+	'bleu':#6EBACB, //sdb
+	'beige-clair':#F9F4EE,//fonds
+	'beige':#F4EADE,//fond menus footer
+	'rouge':#EB002D, //promotions
+	'gris-800':#424242,//fond logos paiements
 	'blanc':#fff, 
-	'rouge' : #C3472F, 
-	'rouge-texte': #BB2833,
-	'rouge-fond':rgba(195,71,47,0.05),
-	'orange' :#EB910A,
-	'orange-imp':#F7B12D,
-	'orange-cadre':rgba(246,176,45,0.3),
-	'orange-fond':rgba(247,177,45,0.1),
-	'orange-input':#FFF6EB,
-	'bleu':#38A4E0,
-	'cyan':#7cc9c1,
-	'vert':#5D8E5A,
-	'marron':#614D40,
-	'gris-1':rgba(0,0,0,0.9),
-	'texte':rgba(0,0,0,0.9),
-	'gris-2':#1E1E1E,
-	'gris-fond':#F3F3F3,
-	'gris-input':#D9D9D9,
 	'noir' : #000000
 );
 
+@mixin placeholder-search {
+	color:#fff;
+	opacity:1;
+}
 
 
-// Breakpoints
+/*--------------------------------------------------------------
+# Mixins styles de textes
+--------------------------------------------------------------*/
+@mixin font-body-s {
+	font-size: 1.2rem;
+	font-weight: 400;
+	line-height: 1.6rem;
+}
+
+@mixin font-body-m {
+	font-size: 1.4rem;
+	font-weight: 400;
+	line-height: 2rem;
+}
+
+@mixin font-body-l {
+	font-size: 1.4rem;
+	font-weight: 700;
+	line-height: 2rem;
+}
+
+@mixin font-body-xl {
+	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 2.4rem;
+}
+
+@mixin font-headline-xxs {
+	font-size: 1.6rem;
+	font-weight: 700;
+	line-height: 2.4rem;
+}
+
+@mixin font-headline-xs {
+	font-size: 1.6rem;
+	font-weight: 900;
+	line-height: 2.4rem;
+}
+
+@mixin font-headline-s {
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 2.4rem;
+}
+@mixin font-headline-m {
+	font-size: 2.6rem;
+	font-weight: 700;
+	line-height: 3.2rem;
+}
+@mixin font-headline-xl {
+	font-size: 3.2rem;
+	font-weight: 700;
+	line-height: 3.6rem;
+}
+@mixin font-headline-xxl {
+	font-size: 3.2rem;
+	font-weight: 900;
+	line-height: 3.6rem;
+}
+@mixin font-headline-huge {
+	font-size: 6.4rem;
+	font-weight: 900;
+	line-height: 6.8rem;
+}
+@mixin font-caption-m {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.2rem;
+}
+@mixin font-caption-l {
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1rem;
+}
+@mixin font-intro {
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 2.8rem;
+}
+
+/*--------------------------------------------------------------
+# Mixins Breakpoints
+--------------------------------------------------------------*/
 @mixin bp($point) {
 	$sm: "(min-width: 550px)";
 	$md: "(min-width: 768px)";
@@ -50,13 +138,28 @@ $colors: (
 		}
 }
 
-@mixin fs($px) {
-	font-size:calc(#{$px} * var(--taille-texte) / 15);
+
+/*--------------------------------------------------------------
+# Mixins boutons
+--------------------------------------------------------------*/
+@mixin bouton {
+	font-size: 2rem;
+	font-weight: 600;
+	border: none;
+	border-radius: 0;
+	cursor: pointer;
+	display:inline-block;
+	margin: 0 0 1em;
+	padding: 0.7rem 1.3rem;
+	text-align: center;
+	vertical-align: middle;
 }
 
-@mixin box-shadow {
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+
+/*--------------------------------------------------------------
+# Mixins layout
+--------------------------------------------------------------*/
+
 
 @mixin bleed {
 	width: 100vw;
@@ -74,19 +177,6 @@ $colors: (
 }
 
 
-@mixin bouton {
-	font-size: 2rem;
-	font-weight: 600;
-	border: none;
-	border-radius: 0;
-	cursor: pointer;
-	display:inline-block;
-	margin: 0 0 1em;
-	padding: 0.7rem 1.3rem;
-	text-align: center;
-	vertical-align: middle;
-}
-
 @mixin screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -101,10 +191,6 @@ $colors: (
 	/* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
 
-@mixin placeholder-search {
-	color:#fff;
-	opacity:1;
-}
 
 @mixin object-fit {
 	object-fit: cover;
@@ -119,43 +205,4 @@ $colors: (
 	top:0;
 	width:100%;
 }
-
-@mixin decor-sous-titre {
-	position: relative;
-	&::after {
-		background-image: url('icons/sous-titre.png');
-		background-repeat: no-repeat;
-		background-size: contain;
-		content: '';
-		display: block;
-		height: 0.5rem;
-		left: 23px;
-		margin: 10px 0 25px;
-		position: relative;
-		width: 12.1rem;
-	}
-}
-
-@mixin titre-accueil {
-	font-size: 4rem;
-	font-weight: 100;
-	position: relative;
-	text-align: center;
-	text-transform: uppercase;
-	b, strong {
-		font-weight: 700;
-	}
-	&::after {
-		background-image: url('/wp-content/themes/lapeyremag-2024/icons/sous-titre-home.png');
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: center;
-		content: '';
-		display: block;
-		height: 4px;
-		margin: 16px 0 40px;
-		position: relative;
-		width: 100%;
-	}
-
-}
+ 

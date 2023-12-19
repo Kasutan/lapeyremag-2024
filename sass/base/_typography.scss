@@ -59,12 +59,12 @@
 
 
 html {
-	font-size: 62.5%;
-	/* 1rem = 10px */
-	--taille-texte: 1.5rem;
 	--font-texte: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	--font-titre: var(--font-texte);
 }
+
+
+
 
 body,
 button,
@@ -76,32 +76,20 @@ textarea {
 	color: var(--texte);
 	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-family: var(--font-texte);
-	font-size: 1.6rem; //si les variables css ne sont pas supportées
-	font-size: var(--taille-texte);
-	font-weight: 400;
-	line-height: 1.18;
 	-webkit-font-smoothing: antialiased;
+
+	@include font-body-m;
+
+	@include bp(lg) {
+		@include font-body-xl;
+	}
+
 }
 
 ::selection {
-	background: var(--vert);
+	background: var(--bleu-tres-fonce);
 	color: var(--blanc);
 }
-
-strong,
-b {
-	font-weight: 700;
-}
-
-em,
-i {
-	font-style: italic;
-}
-
-.medium {
-	font-weight: 500;
-}
-
 
 h1,
 .h1,
@@ -112,29 +100,36 @@ h4,
 .h3,
 .h4 {
 	font-family: var(--font-titre);
-	font-weight: 700;
+	margin:0;
 	padding: 0;
 }
 
 h1,
 .h1 {
-	color: var(--orange-imp);
-	font-size: 3.2rem;
-	margin: 0;
-	@include decor-sous-titre;
-}
+	@include font-headline-s;
+	@include bp(lg) {
+		@include font-headline-xl;
+	}
 
+	text-align: center;
+	text-transform: uppercase;
+}
 
 h2,
 .h2 {
-	font-size: 3.2rem;
-	margin: 0 0 0.5em;
-
+	@include font-headline-s;
+	@include bp(lg) {
+		@include font-headline-xl;
+	}
+	text-transform: uppercase;
 }
 
 h3,
 .h3 {
-	font-size: 2.5rem;
+	@include font-headline-xs;
+	@include bp(lg) {
+		@include font-headline-m;
+	}
 }
 
 h4,
@@ -143,15 +138,21 @@ h5,
 .h5,
 h6,
 .h6 {
-	font-size: 2rem;
-	font-weight: 700;
+	@include font-headline-xxs;
+	@include bp(lg) {
+		@include font-headline-s;
+	}
 }
-
-
 
 p {
 	margin-bottom: 1em;
 	margin-top: 0;
+}
+
+
+strong,
+b {
+	font-weight: 700;
 }
 
 dfn,
@@ -161,41 +162,63 @@ i {
 	font-style: italic;
 }
 
+//TODO déplacer dans elements ?
 blockquote {
-	border-left: solid 5px var(--orange);
-	font-size: 1.2em;
-	margin: 0 0 1em;
-	padding: 5px 27px;
+	color:var(--bleu-tres-fonce);
+	font-size: 2rem;
+	font-weight: 900;
+	line-height: 2.4rem;
+	margin: 4rem 0;
+	padding: 0 27px;
+	position: relative;
+
+	//TODO quotes marks before & after
 
 	cite {
-		font-weight: 700;
+		display: none;
+	}
+
+	@include bp(lg) {
+		font-size: 2.6rem;
+		line-height: 3.2rem;
+
+		//TODO bleed en desktop
+
+		cite {
+			@include font-body-s;
+			color:var(--texte);
+			display: block;
+			font-style: italic;
+			text-align: right;
+			&::before {
+				content:'-';
+				display: inline-block;
+				margin-right: 1ch;
+			}
+		}
 	}
 }
 
 mark,
 ins {
-	background: var(--fond);
+	background: var(--beige);
 	text-decoration: none;
 }
 
 small,
 .has-small-font-size {
-	font-size: 80%;
+	@include font-body-s;
 }
 
 .has-regular-font-size {
-	font-size: 120%;
+	@include font-body-m;
 }
 
 big,
 .has-big-font-size {
-	font-size: 2.5rem;
-
+	@include font-body-xl;
 }
 
-.has-huge-font-size {
-	font-size: 3.2rem;
-}
 
 
 /*--------------------------------------------------------------

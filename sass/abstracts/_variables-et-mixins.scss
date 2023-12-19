@@ -3,10 +3,9 @@
 # Variables couleurs
 --------------------------------------------------------------*/
 $colors: ( 
-	'texte':#212121,
-	'noir-titre':#1F1416,
-	'bleu-fonce':#5D89A2,
-	'bleu-tres-fonce':#3D6881,
+	'blanc':#fff, 
+	'beige-clair':#F9F4EE,//fonds
+	'beige':#F4EADE,//fond menus footer
 	'sauge':#AAC5B5,
 	'rose':#E6658B, //portes
 	'orange':#E6A74A, //?
@@ -14,11 +13,12 @@ $colors: (
 	'jaune':#D4CE5D, //escaliers
 	'violet':#8779B7,//cuisines
 	'bleu':#6EBACB, //sdb
-	'beige-clair':#F9F4EE,//fonds
-	'beige':#F4EADE,//fond menus footer
+	'bleu-fonce':#5D89A2,
+	'bleu-tres-fonce':#3D6881,
 	'rouge':#EB002D, //promotions
 	'gris-800':#424242,//fond logos paiements
-	'blanc':#fff, 
+	'texte':#212121,
+	'noir-titre':#1F1416,
 	'noir' : #000000
 );
 

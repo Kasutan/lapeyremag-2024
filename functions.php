@@ -116,23 +116,18 @@ if ( ! function_exists( 'kasutan_setup' ) ) :
 		add_theme_support( 'editor-font-sizes', array(
 			array(
 				'name' => __( 'Petite', 'lapeyremag' ),
-				'size' => 13,
+				'size' => 12,
 				'slug' => 'small'
 			),
 			array(
 				'name' => __( 'Normale', 'lapeyremag' ),
-				'size' => 16,
+				'size' => 14,
 				'slug' => 'normal'
 			),
 			array(
 				'name' => __( 'Grande', 'lapeyremag' ),
-				'size' => 25,
+				'size' => 16,
 				'slug' => 'big'
-			),
-			array(
-				'name' => __( 'Très grande', 'lapeyremag' ),
-				'size' => 32,
-				'slug' => 'huge'
 			)
 		) );
 

@@ -143,15 +143,16 @@ $colors: (
 # Mixins boutons
 --------------------------------------------------------------*/
 @mixin bouton {
-	font-size: 2rem;
-	font-weight: 600;
-	border: none;
-	border-radius: 0;
+	@include font-body-l;
+
+	border: solid 1px currentColor;
+	border-radius: 8px;
 	cursor: pointer;
 	display:inline-block;
-	margin: 0 0 1em;
-	padding: 0.7rem 1.3rem;
+	margin: 0;
+	padding: 1rem 1.6rem;
 	text-align: center;
+	text-transform: uppercase;
 	vertical-align: middle;
 }
 

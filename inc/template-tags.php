@@ -59,7 +59,7 @@ function kasutan_get_cat_et_couleur($contexte='archive') {
 
 		$reponse['nom']=$term->name;
 		
-		$reponse['couleur']=esc_attr(get_field('couleur',$term));
+		if(function_exists('get_field')) $reponse['couleur']=esc_attr(get_field('couleur',$term));
 
 		//Construction de l'url : on renvoie vers la page des actus en activant le filtre
 		$actus=get_option( 'page_for_posts' ) ;

@@ -175,12 +175,6 @@ function kasutan_scripts() {
 
 	wp_enqueue_script( 'lapeyremag-scripts', get_template_directory_uri() . '/js/min/main.js', array('jquery','lapeyremag-owl-carousel'), '', true );
 
-	//scripts pour le filtre des actus
-	//TODO garder dans les pages archives catégories enfant pour la pagination ?
-	if(is_home()) {
-		wp_enqueue_script( 'lapeyremag-listjs', get_template_directory_uri() . '/lib/list/list.min.js', array(), '1.0', true );
-		wp_enqueue_script( 'lapeyremag-filtre', get_template_directory_uri() . '/js/min/filtre.js', array('jquery','lapeyremag-listjs'), filemtime( get_template_directory() . '/js/min/filtre.js'), true );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'kasutan_scripts' );
 
@@ -203,10 +197,10 @@ update_option( 'medium_large_size_h', 885 );
 
 
 /**
- * Afficher tous les résultats sans pagination sur page résultats de recherche et sur l'archive principale du blog
+ * Afficher tous les résultats sans pagination sur page résultats de recherche, sur l'archive principale du blog et sur les pages d'archives de catégories
  */
 function kasutan_remove_pagination( $query ) {
-	if ( $query->is_main_query() && (is_home() || get_query_var( 's', 0 ) ) ) {
+	if ( $query->is_main_query() && (is_home() || is_category() || get_query_var( 's', 0 ) ) ) {
 		$query->query_vars['nopaging'] = 1;
 		$query->query_vars['posts_per_page'] = -1;
 	}

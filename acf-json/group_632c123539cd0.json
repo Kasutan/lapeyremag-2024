@@ -39,6 +39,31 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6582cc72dabcd",
+            "label": "Univers",
+            "name": "univers",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "checkbox",
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -46,7 +71,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/carrousel-livres"
+                "value": "acf\/carrousel"
             }
         ]
     ],
@@ -59,6 +84,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701688997,
-    "local_file": "C:UsersofficLocal Siteseauetlumiereapppublic\/wp-content\/themes\/lapeyremag-2024\/acf-json\/group_632c123539cd0.json"
+    "modified": 1703070980
 }

@@ -1,0 +1,1 @@
+!function(e){e(document).ready(function(){var i=new List("archive-filtrable",{valueNames:["categorie"],page:12,pagination:{outerWindow:1,innerWindow:2}});function n(){e(".pagination li").click(function(i){e("html, body").animate({scrollTop:e("#archive-filtrable").offset().top-150},500)})}n(),i.on("updated",function(i){setTimeout(n,1e3)})})}(jQuery);

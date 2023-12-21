@@ -2,11 +2,12 @@
 ## Links
 --------------------------------------------------------------*/
 :root {
-	--transition:0.45s ease-in-out;
+	--transition: 0.45s ease-in-out;
 }
+
 a,
 a:visited {
-	color:var(--texte);
+	color: var(--texte);
 	font-weight: 700;
 	text-decoration: underline;
 	transition: all var(--transition);
@@ -26,6 +27,7 @@ a:focus,
 a:active {
 	outline: 0;
 }
+
 a:focus-visible {
 	outline: medium dotted;
 }
@@ -36,10 +38,11 @@ a:focus-visible {
 --------------------------------------------------------------*/
 .avec-ancre {
 	position: relative;
+
 	.ancre {
-		left:0;
-		position:absolute;
-		top:calc(-1px * var(--header-bottom));
+		left: 0;
+		position: absolute;
+		top: calc(-1px * var(--header-bottom));
 	}
 }
 
@@ -49,37 +52,76 @@ a:focus-visible {
 p.fil-ariane {
 	@include font-caption-m;
 
-	align-items: flex-start;
-	color:var(--gris-600);
+	align-items: center;
+	color: var(--gris-600);
 	display: flex;
-	flex-wrap: wrap;
-	margin-top: 2.4rem;
+	height:6rem;
+	margin-bottom: 0;
+
+	//couper avec ... si trop long
+	.current {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	
+
+
 	a {
-		border-bottom:solid 1px var(--gris-600);
-		color:var(--gris-600);
+		border-bottom: solid 1px var(--gris-600);
+		color: var(--gris-600);
 		font-weight: 400;
 		padding-bottom: 2px;
 		text-decoration: none;
-		&:hover, &:focus {
-			color:var(--texte);
+
+		&:hover,
+		&:focus {
+			color: var(--texte);
 			text-decoration: none;
 		}
 	}
 
 	.sep {
 		display: inline-block;
-		margin:0 0.5ch;
+		margin: 0 0.5ch;
 	}
-	
+
+	.prev {
+		border-bottom: 0;
+		margin-right: 3.5rem;
+	}
+
+	&.desktop {
+		display: none;
+	}
+
+	@include bp(lg) {
+		&.mobile {
+			display: none;
+		}
+
+		&.desktop {
+			align-items: flex-start;
+			display: flex;
+			height:unset;
+			padding-top:2.4rem;
+			padding-bottom: 2.4rem;
+
+		}
+	}
+
 }
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
 
-/*Logique pour afficher/masquer éléments du menu mobile et sous-menus*/ 
+/*Logique pour afficher/masquer éléments du menu mobile et sous-menus*/
 
-.nav-main, .volet-navigation {
+.nav-main,
+.volet-navigation {
 	display: none; // tous les menus sont cachés en mobile
+
 	.menu {
 		display: flex;
 		list-style: none;
@@ -90,54 +132,62 @@ p.fil-ariane {
 
 button.menu-toggle {
 	display: block;
-	height:3.5rem;
-	padding:0;
-	width:3.5rem;
+	height: 3.5rem;
+	padding: 0;
+	width: 3.5rem;
+
 	svg {
-		height:100%;
-		width:100%;
+		height: 100%;
+		width: 100%;
 	}
 
 	&:focus {
 		outline: none;
 	}
-	svg.fermer-menu { //croix pour refermer le menu
-		display:none;
+
+	svg.fermer-menu {
+		//croix pour refermer le menu
+		display: none;
 		transform-origin: center;
 		transform: scale(0.8);
 	}
+
 	//menu mobile ouvert
 	&[aria-expanded=true] {
-		svg.menu { //cacher hamburger 
-			display:none;
+		svg.menu {
+			//cacher hamburger 
+			display: none;
 		}
-		svg.fermer-menu { // afficher croix
-			display:block;
+
+		svg.fermer-menu {
+			// afficher croix
+			display: block;
 		}
 	}
 }
 
-.volet-navigation.toggled { 
+.volet-navigation.toggled {
 	display: flex;
 	flex-direction: column;
-	right:0;
-	max-height:calc(100vh - 129px); //magic number : hauteur du header sticky
-	max-width:40rem;
-	overflow-x:hidden;
-	overflow-y:auto;
+	right: 0;
+	max-height: calc(100vh - 129px); //magic number : hauteur du header sticky
+	max-width: 40rem;
+	overflow-x: hidden;
+	overflow-y: auto;
 	padding: 0;
-	position:absolute;
-	top:100%;
-	width:100%;
+	position: absolute;
+	top: 100%;
+	width: 100%;
 	z-index: 10;
 }
 
-@include bp(lg) { 
+@include bp(lg) {
 	button.menu-toggle {
 		display: none;
 	}
+
 	.nav-main {
-		display:flex;
+		display: flex;
 	}
 }
 
@@ -145,45 +195,50 @@ button.menu-toggle {
 /* Style pictos menu mobile */
 
 .menu-toggle {
-	background:transparent;
-	border:0;
-	margin:0;
-	min-width:unset;
-	padding:0 1rem;
-	&:hover, &:focus, &:active {
-		background:transparent;
+	background: transparent;
+	border: 0;
+	margin: 0;
+	min-width: unset;
+	padding: 0 1rem;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: transparent;
 	}
 
 	svg path {
-		fill:var(--orange);
+		fill: var(--orange);
 	}
-	
+
 }
 
 /* Style liens de menu VOLET NAVIGATION MOBILE */
 .volet-navigation {
-	background-color:var(--blanc);
-	box-shadow: 0 3px 3px rgba(0,0,0,.2);
+	background-color: var(--blanc);
+	box-shadow: 0 3px 3px rgba(0, 0, 0, .2);
 
 	/*Logique affichage sous-menu*/
 	.sub-menu {
 		display: none;
 		//animation JS pour ouvrir/refermer
 	}
+
 	.picto-angle {
 		background-color: transparent;
 		display: inline-block;
-		transition:transform var(--transition);
+		transition: transform var(--transition);
 	}
 
 	button.js-ouvert .picto-angle {
 		transform-origin: center;
-		transform:rotate(90deg);
+		transform: rotate(90deg);
 	}
 
-	
+
 	/*Styles communs menu et sous-menu*/
-	.menu-mobile, .sub-menu {
+	.menu-mobile,
+	.sub-menu {
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
@@ -193,92 +248,105 @@ button.menu-toggle {
 			text-decoration: none;
 		}
 	}
-	
+
 
 	/*Styles éléments de niveau 1*/
-	.menu-mobile > li {
+	.menu-mobile>li {
 		align-items: center;
-		border-bottom:solid 1px var(--orange-cadre);
+		border-bottom: solid 1px var(--orange-cadre);
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 
 		&:last-of-type {
-			border:none;
-		}
-		> a {
-			color:var(--rouge-texte);
-			flex:auto 0 0;
-			padding:1rem 1.6rem;
+			border: none;
 		}
 
-		&.current-menu-item , &.current-menu-ancestor, &.current_page_parent {
+		>a {
+			color: var(--rouge-texte);
+			flex: auto 0 0;
+			padding: 1rem 1.6rem;
+		}
+
+		&.current-menu-item,
+		&.current-menu-ancestor,
+		&.current_page_parent {
 			background-color: var(--orange);
-			& > a {
-				color:var(--blanc);
+
+			&>a {
+				color: var(--blanc);
 			}
 
 			button.ouvrir-sous-menu svg path {
-				fill:var(--blanc);
+				fill: var(--blanc);
 			}
 		}
 
 	}
+
 	button.ouvrir-sous-menu {
 		background-color: transparent;
-		min-width:unset;
+		min-width: unset;
 		margin-bottom: 0;
-		padding:0 1.2rem 0 0;
+		padding: 0 1.2rem 0 0;
 		position: relative;
-		top:2px;
+		top: 2px;
+
 		svg path {
-			fill:var(--rouge-texte);
+			fill: var(--rouge-texte);
 		}
+
 		&:focus {
 			outline: none;
 		}
 	}
+
 	.sub-menu {
 		background-color: #fff;
-		flex-basis:100%;
-		flex-shrink:0;
+		flex-basis: 100%;
+		flex-shrink: 0;
 		padding-top: 0.5rem;
-		padding-left:2.8rem;
+		padding-left: 2.8rem;
+
 		li {
 			margin-bottom: 0.8rem;
 
 			a {
-				color : var(--gris-1);
+				color: var(--gris-1);
 			}
 
 			&.current-menu-item a {
-				color:var(--orange);
+				color: var(--orange);
 			}
 		}
 	}
 }
 
 
-/*Style liens de menus MENU PRINCIPAL */ 
-.nav-main { 
+/*Style liens de menus MENU PRINCIPAL */
+.nav-main {
 
-	& , .nav-primary, .menu {
-		height:100%;
-		width:100%;
+	&,
+	.nav-primary,
+	.menu {
+		height: 100%;
+		width: 100%;
 	}
 
 	.menu {
 		align-items: stretch;
 		justify-content: flex-end;
+
 		li {
 			transition: all var(--transition);
-			&.disable > a {
-				cursor:default;
+
+			&.disable>a {
+				cursor: default;
 			}
 		}
 
 		a {
-			color:var(--rouge-texte);
+			color: var(--rouge-texte);
 			display: block;
 			font-size: 1.8rem;
 			font-weight: 500;
@@ -287,49 +355,54 @@ button.menu-toggle {
 
 		//styles spécifiques aux liens de premier niveau
 
-		& > li {
-			padding:4.5rem 0 0;
-			& > a {
-				border-right:solid 1px var(--orange-cadre);
-				padding:0 1rem 0.5rem;
-				position:relative;
+		&>li {
+			padding: 4.5rem 0 0;
+
+			&>a {
+				border-right: solid 1px var(--orange-cadre);
+				padding: 0 1rem 0.5rem;
+				position: relative;
 				text-align: center;
 			}
-			
+
 			&:last-of-type {
-				& > a {
-					border-right:none;
+				&>a {
+					border-right: none;
 				}
 			}
 
-			&:hover, &:focus-within {
+			&:hover,
+			&:focus-within {
 				background-color: var(--orange);
-				& > a {
-					color:var(--blanc);
+
+				&>a {
+					color: var(--blanc);
 				}
 			}
-			
 
-			&.current-menu-item, &.current-menu-ancestor, 
+
+			&.current-menu-item,
+			&.current-menu-ancestor,
 			&.current_page_parent {
 				background-color: var(--orange);
-				& > a {
-					color:var(--blanc);
+
+				&>a {
+					color: var(--blanc);
 					font-weight: 700;
 				}
 			}
 
-			
+
 
 		}
 
-		
+
 
 
 		//Logique affichage sous-menu
-		.sub-menu { 
+		.sub-menu {
 			float: left;
-			margin-top:0px;
+			margin-top: 0px;
 			position: absolute;
 			top: 90%;
 			top: 100%;
@@ -337,15 +410,21 @@ button.menu-toggle {
 			z-index: 10;
 		}
 
-		> li { //affichage du sous-menu
+		>li {
+			//affichage du sous-menu
 			position: relative;
-			&:hover, &.focus, &:focus-within { //classe .focus ajoutée en JS
+
+			&:hover,
+			&.focus,
+			&:focus-within {
+
+				//classe .focus ajoutée en JS
 				.sub-menu {
-					animation: animSousMenu 0.45s cubic-bezier(0.7,0,0.3,1) both;
-					display:flex;
+					animation: animSousMenu 0.45s cubic-bezier(0.7, 0, 0.3, 1) both;
+					display: flex;
 					flex-direction: column;
-					left:0;
-					opacity:1;
+					left: 0;
+					opacity: 1;
 					max-width: 50rem;
 					min-width: 30rem;
 					max-height: 80vh;
@@ -357,30 +436,35 @@ button.menu-toggle {
 		//Style sous-menu
 		.sub-menu {
 			background-color: #fff;
-			box-shadow: 0 3px 3px rgba(18,75,90,0.2);
-			list-style:none;
-			margin:0;
-			padding:0;
+			box-shadow: 0 3px 3px rgba(18, 75, 90, 0.2);
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
 			li {
-				padding:0;
+				padding: 0;
 			}
+
 			a {
 				display: block;
-				padding : 0.8rem 1.5rem 1.3rem;
+				padding: 0.8rem 1.5rem 1.3rem;
 				transition: all var(--transition);
-				&:hover, &:focus {
-					color:var(--blanc);
+
+				&:hover,
+				&:focus {
+					color: var(--blanc);
 					background-color: var(--orange);
 				}
 			}
+
 			li.current-menu-item a {
 				background-color: var(--orange);
-				color:var(--blanc);
+				color: var(--blanc);
 			}
 		}
 	}
 
-	
+
 
 }
 
@@ -390,15 +474,14 @@ button.menu-toggle {
 
 /*Animations*/
 @keyframes animTrait {
-	from { 
-		width: 0; 
+	from {
+		width: 0;
 	}
 }
 
 @keyframes animSousMenu {
-	from { 
-		opacity:0.4;
-		top: calc(90% + 10px); 
+	from {
+		opacity: 0.4;
+		top: calc(90% + 10px);
 	}
 }
-

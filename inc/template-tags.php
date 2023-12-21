@@ -129,6 +129,7 @@ function kasutan_fil_ariane() {
 	//On construit le desktop et en même temps on stocke l'url du niveau précédent pour le bouton en mobile
 
 	$prev_url=$accueil_url; //Valeur par défaut
+	$prev_name="Accueil";
 
 
 	echo '<p class="fil-ariane desktop">';
@@ -140,10 +141,7 @@ function kasutan_fil_ariane() {
 
 	if(is_page()) {
 		//Pour les pages ordinaires, ajouter le titre de la page
-		printf('<span class="current">%s</span>',
-			strip_tags(get_the_title())
-		);
-
+		$title=strip_tags(get_the_title());
 	} else if(is_category()) {
 		//Pour les catégories d'article
 		$cat=get_queried_object();
@@ -152,17 +150,18 @@ function kasutan_fil_ariane() {
 		//Si la catégorie a un parent, on insère un lien vers son archive
 		if($parent_id) {
 			$parent_link=get_category_link($parent_id);
+			$parent_name=get_cat_name($parent_id);
 			printf('<a href="%s">%s</a><span class="sep">|</span>',
 				$parent_link,
-				get_cat_name($parent_id)
+				$parent_name
 			);
 			$prev_url=$parent_link;
+			$prev_name=$parent_name;
 		}
 
 		//Nom de la catégorie courante
-		printf('<span class="current">%s</span>',
-			strip_tags(single_cat_title( '', false ))
-		);
+		$title=strip_tags(single_cat_title( '', false ));
+
 	} else if(is_single()) {
 		//Liens vers les catégories
 		if(function_exists('kasutan_get_infos_cats')) {
@@ -176,6 +175,8 @@ function kasutan_fil_ariane() {
 			);
 
 			$prev_url=$infos['parent_link'];
+			$prev_name=$infos['parent_name'];
+			
 		}
 		
 		if($infos['child_name'] && $infos['child_link']) {
@@ -185,27 +186,41 @@ function kasutan_fil_ariane() {
 			);
 
 			$prev_url=$infos['child_link'];
+			$prev_name=$infos['child_name'];
+
 		}
 
 		//Nom du post
-		printf('<span class="current">%s</span>',
-			strip_tags(get_the_title())
-		);
+		$title=strip_tags(get_the_title());
 
 	} elseif (is_tag()) {  //archives tags d'articles
-		echo '<span class="current">'.strip_tags(single_tag_title( '', false )).'</span>';
+		$title=strip_tags(single_tag_title( '', false ));
 	} elseif (is_search()) {
-		echo '<span class="current">Recherche : '.get_search_query().'</span>';
+		$title='Recherche : '.get_search_query();
 	} elseif (is_404()) {
-		echo '<span class="current">Page introuvable</span>';
+		$title="Page introuvable";
 
 	}
-	//Fermer la balise du fil d'ariane
+	//Pour tous les contenus, on affiche le titre du contenu courant
+		printf('<span class="current">%s</span>',$title);
+
+	//Fermer la balise du fil d'ariane desktop
 	echo '</p>';
 
-	//TODO single afficher aussi un fil d'ariane spécial pour mobile avec juste le titre coupé et un bouton back qui renvoie vers la catégorie de niveau 2
+	//Afficher aussi un fil d'ariane spécial pour mobile avec juste le titre coupé et un bouton back qui renvoie vers le niveau précédent
 
+	echo '<p class="fil-ariane mobile">';
+
+		printf('<a class="prev" href="%s"><span class="screen-reader-text">%s</span>',$prev_url,$prev_name);
+			echo '<svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M9.26174 0.400169C9.47334 0.608722 9.58337 0.858987 9.58337 1.14262C9.58337 1.42625 9.47334 1.67651 9.26174 1.88507L3.05752 7.99984L9.28713 14.1229C9.4818 14.3148 9.58337 14.5651 9.58337 14.8571C9.58337 15.149 9.47334 15.391 9.26174 15.5995C9.05013 15.8081 8.79621 15.9165 8.50843 15.9165C8.22065 15.9165 7.96672 15.8081 7.75512 15.5995L0.645237 8.5671C0.560596 8.48368 0.501347 8.39192 0.46749 8.29181C0.433634 8.19171 0.416706 8.0916 0.416706 7.97481C0.416706 7.85802 0.433634 7.75792 0.46749 7.65781C0.501347 7.55771 0.560596 7.46594 0.645237 7.38252L7.78051 0.375144C7.97519 0.183275 8.22065 0.0831701 8.50843 0.08317C8.79621 0.08317 9.05013 0.191616 9.26174 0.400169Z" fill="#5D89A2"/>
+			</svg>';
+		echo '</a>';
+
+		printf('<span class="current">&mldr;<span class="sep">|</span>%s</span>',$title);
 	
+	echo '</p>'; // fin du fil d'ariane mobile
+
 }
 
 

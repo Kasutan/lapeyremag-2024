@@ -1448,7 +1448,7 @@ object {
 ## Links
 --------------------------------------------------------------*/
 :root {
-  --transition:0.45s ease-in-out;
+  --transition: 0.45s ease-in-out;
 }
 
 a,
@@ -1495,11 +1495,16 @@ p.fil-ariane {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.2rem;
-  align-items: flex-start;
+  align-items: center;
   color: var(--gris-600);
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 2.4rem;
+  height: 6rem;
+  margin-bottom: 0;
+}
+p.fil-ariane .current {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 p.fil-ariane a {
   border-bottom: solid 1px var(--gris-600);
@@ -1516,15 +1521,36 @@ p.fil-ariane .sep {
   display: inline-block;
   margin: 0 0.5ch;
 }
+p.fil-ariane .prev {
+  border-bottom: 0;
+  margin-right: 3.5rem;
+}
+p.fil-ariane.desktop {
+  display: none;
+}
+@media (min-width: 1024px) {
+  p.fil-ariane.mobile {
+    display: none;
+  }
+  p.fil-ariane.desktop {
+    align-items: flex-start;
+    display: flex;
+    height: unset;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+  }
+}
 
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
 /*Logique pour afficher/masquer éléments du menu mobile et sous-menus*/
-.nav-main, .volet-navigation {
+.nav-main,
+.volet-navigation {
   display: none;
 }
-.nav-main .menu, .volet-navigation .menu {
+.nav-main .menu,
+.volet-navigation .menu {
   display: flex;
   list-style: none;
   margin: 0;
@@ -1614,12 +1640,14 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   transform-origin: center;
   transform: rotate(90deg);
 }
-.volet-navigation .menu-mobile, .volet-navigation .sub-menu {
+.volet-navigation .menu-mobile,
+.volet-navigation .sub-menu {
   list-style: none;
   margin: 0;
   padding-left: 0;
 }
-.volet-navigation .menu-mobile a, .volet-navigation .sub-menu a {
+.volet-navigation .menu-mobile a,
+.volet-navigation .sub-menu a {
   font-weight: bold;
   text-decoration: none;
 }
@@ -1679,7 +1707,9 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 }
 
 /*Style liens de menus MENU PRINCIPAL */
-.nav-main, .nav-main .nav-primary, .nav-main .menu {
+.nav-main,
+.nav-main .nav-primary,
+.nav-main .menu {
   height: 100%;
   width: 100%;
 }

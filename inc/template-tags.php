@@ -43,31 +43,6 @@ function kasutan_affiche_logos($classe='') {
 
 }
 
-/**
- * Entry Category
- *
- */
-function kasutan_get_cat_et_couleur($contexte='archive') {
-	$post_type=get_post_type();
-	$term=false;
-	$reponse=array('nom'=>false,'couleur'=>false,'url'=>false);
-
-	if($post_type==='post') {
-		$term = ea_first_term();
-	}
-	if( !empty( $term ) && ! is_wp_error( $term ) ) {
-
-		$reponse['nom']=$term->name;
-		
-		if(function_exists('get_field')) $reponse['couleur']=esc_attr(get_field('couleur',$term));
-
-		//Construction de l'url : on renvoie vers la page des actus en activant le filtre
-		$actus=get_option( 'page_for_posts' ) ;
-		$reponse['url']=get_the_permalink($actus).'?filtre_cat='.$term->slug;
-	}
-	
-	return $reponse;
-}
 
 /**
  * Liste des catégories séparées par des espaces pour le filtre
@@ -145,98 +120,92 @@ function ea_entry_author() {
 */
 function kasutan_fil_ariane() {
 
-	//On n'affiche pas le fil d'ariane sur la page d'accueil
-	if(is_front_page()) {
-		return;
+	$accueil_url=get_option('lpm_accueil_url');
+	if(empty($accueil_url)) {
+		$accueil_url="https://www.lapeyre.fr/c/magazine";
 	}
 
-	$post_type=get_post_type();
+	//Une version desktop et une version mobile tronquée avec bouton retour
+	//On construit le desktop et en même temps on stocke l'url du niveau précédent pour le bouton en mobile
 
-	echo '<p class="fil-ariane">';
+	$prev_url=$accueil_url; //Valeur par défaut
 
+
+	echo '<p class="fil-ariane desktop">';
 	
-	//Pour tous les contenus : afficher en premier le lien vers l'accueil du site
-	$accueil=get_option('page_on_front'); //Traduit par PLL ✔️
-	printf('<a href="%s">%s</a><span class="sep">></span>',
-		get_the_permalink( $accueil),
-		strip_tags(get_the_title($accueil))
+	//Pour toutes les pages et archives : afficher en premier le lien vers l'accueil du site e-commerce
+	printf('<a href="%s">Accueil</a><span class="sep">|</span>',
+		$accueil_url
 	);
-	
 
-
-	//Afficher la page des actualités pour les articles (single ou archive de catégorie ou archive des articles ou archive de tag)
-	if ( (is_single() && 'post' === $post_type) || is_category() || is_tag() ) :
-		//l'ID de la page est stockée dans les options du site
-		$actus=get_option('page_for_posts'); //Traduit par PLL ✔️
-		if($actus) :
-			printf('<a href="%s">%s</a><span class="sep">></span>',
-				get_the_permalink( $actus),
-				strip_tags(get_the_title($actus))
-			);
-		endif;
-		
-		//Ajouter la catégorie d'article pour les posts single
-		/*
-		if(is_single()) {
-			$term=ea_first_term();
-			if(!empty($term)) {
-				printf('<a href="%s?filtre_cat=%s">%s</a><span class="sep">></span>',
-				get_the_permalink( $actus),
-					$term->slug,
-					$term->name
-				);
-			}
-		}*/
-	endif;
-
-
-	//Afficher le titre de la page courante
-	if(is_page()) : 
-		//Afficher le titre de la page parente s'il y en a une, non cliquable
-		$current=get_post(get_the_ID());
-		$parent=$current->post_parent; 
-		if($parent) :
-			printf('<a href="%s" class="parent">%s</a><span class="sep">></span><span class="current">%s</span>',
-				get_the_permalink($parent),
-				strip_tags(get_the_title($parent)),
-				strip_tags(get_the_title())
-			);
-		else :
-			printf('<span class="current">%s</span>',
-				strip_tags(get_the_title())
-			);
-		endif;
-	elseif(is_single()):
-		//Couper le titre après x carcatères
-		$limite=90;
-		$titre=strip_tags(get_the_title());
-		if(strlen($titre) > $limite) {
-			$espace=strpos($titre,' ',$limite);
-			$titre_coupe=substr($titre,0,$espace);
-			$titre_coupe.='&mldr;'; //on ajoute le caractère pour l'ellipse
-		} else {
-			$titre_coupe=$titre;
-		}
+	if(is_page()) {
+		//Pour les pages ordinaires, ajouter le titre de la page
 		printf('<span class="current">%s</span>',
-			$titre_coupe
+			strip_tags(get_the_title())
 		);
-	elseif (is_category()) :  //archives catégories d'articles
-		echo '<span class="current">'.strip_tags(single_cat_title( '', false )).'</span>';
-	elseif (is_tag()) :  //archives tags d'articles
+
+	} else if(is_category()) {
+		//Pour les catégories d'article
+		$cat=get_queried_object();
+		$parent_id=$cat->parent;
+
+		//Si la catégorie a un parent, on insère un lien vers son archive
+		if($parent_id) {
+			$parent_link=get_category_link($parent_id);
+			printf('<a href="%s">%s</a><span class="sep">|</span>',
+				$parent_link,
+				get_cat_name($parent_id)
+			);
+			$prev_url=$parent_link;
+		}
+
+		//Nom de la catégorie courante
+		printf('<span class="current">%s</span>',
+			strip_tags(single_cat_title( '', false ))
+		);
+	} else if(is_single()) {
+		//Liens vers les catégories
+		if(function_exists('kasutan_get_infos_cats')) {
+			$infos=kasutan_get_infos_cats();
+		}
+
+		if($infos['parent_name'] && $infos['parent_link']) {
+			printf('<a href="%s">%s</a><span class="sep">|</span>',
+				$infos['parent_link'],
+				$infos['parent_name']
+			);
+
+			$prev_url=$infos['parent_link'];
+		}
+		
+		if($infos['child_name'] && $infos['child_link']) {
+			printf('<a href="%s">%s</a><span class="sep">|</span>',
+				$infos['child_link'],
+				$infos['child_name']
+			);
+
+			$prev_url=$infos['child_link'];
+		}
+
+		//Nom du post
+		printf('<span class="current">%s</span>',
+			strip_tags(get_the_title())
+		);
+
+	} elseif (is_tag()) {  //archives tags d'articles
 		echo '<span class="current">'.strip_tags(single_tag_title( '', false )).'</span>';
-	elseif (is_home()) :
-		$actus=get_option('page_for_posts'); //Traduit par PLL ✔️
-		echo '<span class="current">'.strip_tags(get_the_title($actus)).'</span>';
-	elseif (is_search()) :
+	} elseif (is_search()) {
 		echo '<span class="current">Recherche : '.get_search_query().'</span>';
-	elseif (is_404()) :
+	} elseif (is_404()) {
 		echo '<span class="current">Page introuvable</span>';
 
-	endif;
-
+	}
 	//Fermer la balise du fil d'ariane
 	echo '</p>';
 
+	//TODO single afficher aussi un fil d'ariane spécial pour mobile avec juste le titre coupé et un bouton back qui renvoie vers la catégorie de niveau 2
+
+	
 }
 
 

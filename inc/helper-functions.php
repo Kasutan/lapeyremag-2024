@@ -18,68 +18,6 @@ add_filter( 'ea_the_content', 'wpautop'            );
 add_filter( 'ea_the_content', 'shortcode_unautop'  );
 add_filter( 'ea_the_content', 'do_shortcode'       );
 
-/**
- * Get the first term attached to post
- *
- * @param string $taxonomy
- * @param string/int $field, pass false to return object
- * @param int $post_id
- * @return string/object
- */
-function ea_first_term( $args = [] ) {
-
-	$defaults = [
-		'taxonomy'	=> 'category',
-		'field'		=> null,
-		'post_id'	=> null,
-	];
-
-	$args = wp_parse_args( $args, $defaults );
-
-	$post_id = !empty( $args['post_id'] ) ? intval( $args['post_id'] ) : get_the_ID();
-	$field = !empty( $args['field'] ) ? esc_attr( $args['field'] ) : false;
-	$term = false;
-
-	$terms = get_the_terms( $post_id, $args['taxonomy'] );
-
-	if( empty( $terms ) || is_wp_error( $terms ) )
-		return false;
-
-	// If there's only one term, use that
-	if( 1 == count( $terms ) ) {
-		$term = array_shift( $terms );
-
-	// If there's more than one...
-	} else {
-
-		// Sort by term order if available
-		// @uses WP Term Order plugin
-		if( isset( $terms[0]->order ) ) {
-			$list = array();
-			foreach( $terms as $term )
-				$list[$term->order] = $term;
-			ksort( $list, SORT_NUMERIC );
-
-		// Or sort by post count
-		} else {
-			$list = array();
-			foreach( $terms as $term )
-				$list[$term->count] = $term;
-			ksort( $list, SORT_NUMERIC );
-			$list = array_reverse( $list );
-		}
-
-		$term = array_shift( $list );
-	}
-
-	// Output
-	if( !empty( $field ) && isset( $term->$field ) )
-		return $term->$field;
-
-	else
-		return $term;
-}
-
 
 /**
  * Conditional CSS Classes
@@ -92,6 +30,70 @@ function ea_first_term( $args = [] ) {
 function ea_class( $base_classes, $optional_class, $conditional ) {
 	return $conditional ? $base_classes . ' ' . $optional_class : $base_classes;
 }
+
+/**
+ * Récupérer des infos sur les catégories d'un article
+ */
+function kasutan_get_infos_cats($post_id='',$avec_couleur=false) {
+	if(empty($post_id)) {
+		$post_id=get_the_ID();
+	}
+	if(get_post_type($post_id)!=='post') {
+		return false;
+	}
+
+	$categories = get_the_category();
+	if(empty($categories)) {
+		return false;
+	}
+
+	$reponse=array();
+
+	foreach($categories as $term) {
+		$name=$term->name;
+		$term_id=$term->term_id;
+		if(strpos($name,'OLD') > 0) {
+			continue;
+		}
+		
+		//S'il y a plusieurs catégories parentes associées à cet article, on écrasera les infos avec la dernière stockée.
+
+		$parent_id=$term->parent;
+
+		if($parent_id) {
+			$reponse['parent_id']=$parent_id;
+			$reponse['parent_name']=get_cat_name($parent_id);
+			$reponse['parent_link']=get_category_link($parent_id);
+			$reponse['child_name']=$name;
+			$reponse['child_link']=get_category_link($term_id);
+		} else if(!isset($reponse['child_name'])) {
+			//Si on n'a pas déjà trouvé un parent et un enfant, on stocke au moins le parent
+			//Si l'article est uniquement dans une catégorie parente, on pourra quand même afficher quelque chose
+			//Si on trouve une catégorie de niveau 2 dans la suite du foreach, ces infos seront écrasées
+			$reponse['parent_id']=$term_id;
+			$reponse['parent_name']=$name;
+			$reponse['parent_link']=get_category_link($term_id);
+			$reponse['child_name']=false;
+			$reponse['child_link']=false;
+		}
+
+	}
+
+	$reponse['couleur']=false;
+
+	//TODO créer champ ACF et tester
+	if($avec_couleur && $reponse['parent_id'] && function_exists('get_field')) {
+		//on a demandé aussi la couleur associée à la catégorie parente
+		$couleur=get_field('couleur','category_'.$reponse['parent_id']);
+		if($couleur) {
+			$reponse['couleur']=false;
+		}
+	}
+
+	return $reponse;
+
+}
+
 
 /**
  *  Background Image Style

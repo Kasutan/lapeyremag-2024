@@ -27,6 +27,7 @@
   --bleu-fonce: #5D89A2;
   --bleu-tres-fonce: #3D6881;
   --rouge: #EB002D;
+  --gris-600: #757575;
   --gris-800: #424242;
   --texte: #212121;
   --noir-titre: #1F1416;
@@ -304,6 +305,27 @@ a.wp-block-button__link.has-rouge-color {
 }
 a.wp-block-button__link.has-rouge-color:visited, a.wp-block-button__link.has-rouge-color:hover, a.wp-block-button__link.has-rouge-color:focus, a.wp-block-button__link.has-rouge-color:active {
   color: #EB002D;
+}
+
+.has-gris-600-color {
+  color: #757575;
+}
+
+.has-gris-600-background-color {
+  background-color: #757575;
+}
+
+a.wp-block-button__link.has-gris-600-background-color {
+  background-color: #757575;
+}
+a.wp-block-button__link.has-gris-600-background-color:focus-visible {
+  outline-color: #757575;
+}
+a.wp-block-button__link.has-gris-600-color {
+  color: #757575;
+}
+a.wp-block-button__link.has-gris-600-color:visited, a.wp-block-button__link.has-gris-600-color:hover, a.wp-block-button__link.has-gris-600-color:focus, a.wp-block-button__link.has-gris-600-color:active {
+  color: #757575;
 }
 
 .has-gris-800-color {

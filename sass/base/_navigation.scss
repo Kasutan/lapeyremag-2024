@@ -47,21 +47,22 @@ a:focus-visible {
 ## Fil d'ariane
 --------------------------------------------------------------*/
 p.fil-ariane {
-	display: none;
-	@include bp(md) {
-		display:flex;
-	}
-	align-items: center;
-	color:var(--gris-1);
+	@include font-caption-m;
+
+	align-items: flex-start;
+	color:var(--gris-600);
+	display: flex;
 	flex-wrap: wrap;
-	font-weight: 600;
-	font-size: 1.6rem;
-	margin-top: 14px;
+	margin-top: 2.4rem;
 	a {
-		color:var(--gris-1);
+		border-bottom:solid 1px var(--gris-600);
+		color:var(--gris-600);
+		font-weight: 400;
+		padding-bottom: 2px;
 		text-decoration: none;
 		&:hover, &:focus {
-			text-decoration: underline;
+			color:var(--texte);
+			text-decoration: none;
 		}
 	}
 
@@ -69,9 +70,7 @@ p.fil-ariane {
 		display: inline-block;
 		margin:0 0.5ch;
 	}
-	.current {
-		color:var(--orange-imp);
-	}
+	
 }
 /*--------------------------------------------------------------
 ## Menus

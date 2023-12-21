@@ -17,13 +17,14 @@ function kasutan_single_body_class( $classes ) {
 }
 add_filter( 'body_class', 'kasutan_single_body_class' );
 
-// Image bannière 
-add_action( 'tha_entry_top', 'kasutan_actus_banniere', 5 );
-
 
 // Breadcrumbs 
-add_action( 'tha_entry_top', 'kasutan_fil_ariane', 8 );
+add_action( 'tha_entry_top', 'kasutan_fil_ariane', 5 );
 
+
+
+// Image bannière 
+add_action( 'tha_entry_top', 'kasutan_actus_banniere', 10 );
 
 
 //Titre déplacé dans le contenu

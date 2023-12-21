@@ -44,6 +44,9 @@ get_header();
 echo '<div class="ea_content_area_wrap">';
 echo '<main class="site-main">';
 
+	if(function_exists('kasutan_fil_ariane')) {
+		kasutan_fil_ariane();
+	}
 
 	echo '<header class="entry-header">';
 		if($has_parent) printf('<p class="sur-titre parent">%s</p>',$parent_name);

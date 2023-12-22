@@ -1617,7 +1617,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   background: transparent;
 }
 .menu-toggle svg path {
-  fill: var(--orange);
+  fill: var(--sauge);
 }
 
 /* Style liens de menu VOLET NAVIGATION MOBILE */
@@ -1653,7 +1653,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 }
 .volet-navigation .menu-mobile > li {
   align-items: center;
-  border-bottom: solid 1px var(--orange-cadre);
+  border-bottom: solid 1px var(--sauge-cadre);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1667,7 +1667,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   padding: 1rem 1.6rem;
 }
 .volet-navigation .menu-mobile > li.current-menu-item, .volet-navigation .menu-mobile > li.current-menu-ancestor, .volet-navigation .menu-mobile > li.current_page_parent {
-  background-color: var(--orange);
+  background-color: var(--sauge);
 }
 .volet-navigation .menu-mobile > li.current-menu-item > a, .volet-navigation .menu-mobile > li.current-menu-ancestor > a, .volet-navigation .menu-mobile > li.current_page_parent > a {
   color: var(--blanc);
@@ -1703,7 +1703,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   color: var(--gris-1);
 }
 .volet-navigation .sub-menu li.current-menu-item a {
-  color: var(--orange);
+  color: var(--sauge);
 }
 
 /*Style liens de menus MENU PRINCIPAL */
@@ -1726,15 +1726,17 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 .nav-main .menu a {
   color: var(--rouge-texte);
   display: block;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 500;
   text-decoration: none;
 }
 .nav-main .menu > li {
-  padding: 4.5rem 0 0;
+  align-items: center;
+  display: flex;
+  padding: 0;
 }
 .nav-main .menu > li > a {
-  border-right: solid 1px var(--orange-cadre);
+  border-right: solid 1px var(--sauge-cadre);
   padding: 0 1rem 0.5rem;
   position: relative;
   text-align: center;
@@ -1743,17 +1745,13 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   border-right: none;
 }
 .nav-main .menu > li:hover, .nav-main .menu > li:focus-within {
-  background-color: var(--orange);
+  background-color: var(--sauge);
 }
 .nav-main .menu > li:hover > a, .nav-main .menu > li:focus-within > a {
   color: var(--blanc);
 }
 .nav-main .menu > li.current-menu-item, .nav-main .menu > li.current-menu-ancestor, .nav-main .menu > li.current_page_parent {
-  background-color: var(--orange);
-}
-.nav-main .menu > li.current-menu-item > a, .nav-main .menu > li.current-menu-ancestor > a, .nav-main .menu > li.current_page_parent > a {
-  color: var(--blanc);
-  font-weight: 700;
+  background-color: var(--sauge);
 }
 .nav-main .menu .sub-menu {
   float: left;
@@ -1795,10 +1793,10 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 }
 .nav-main .menu .sub-menu a:hover, .nav-main .menu .sub-menu a:focus {
   color: var(--blanc);
-  background-color: var(--orange);
+  background-color: var(--sauge);
 }
 .nav-main .menu .sub-menu li.current-menu-item a {
-  background-color: var(--orange);
+  background-color: var(--sauge);
   color: var(--blanc);
 }
 
@@ -1934,7 +1932,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 --------------------------------------------------------------*/
 .topbar {
   align-items: center;
-  background-color: var(--orange);
+  background-color: var(--sauge);
   display: flex;
   justify-content: flex-end;
   padding: 5px var(--padding-x);
@@ -2072,7 +2070,7 @@ body {
 ## Footer
 --------------------------------------------------------------*/
 .site-footer .main-footer {
-  background-color: var(--blanc);
+  background-color: var(--sauge);
   padding: 3.5rem var(--padding-x) 1.4rem;
   position: relative;
 }
@@ -2366,7 +2364,7 @@ form.search-form label {
   flex-grow: 1;
 }
 form.search-form input.search-field {
-  border: solid 1px var(--orange);
+  border: solid 1px var(--rouge);
   border-right: none;
   height: 42px;
   padding: 0 10px;
@@ -2381,44 +2379,45 @@ form.search-form input.search-submit {
   appearance: none;
 }
 form.search-form.search-topbar input.search-field {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: var(--blanc);
   border: none;
-  color: var(--blanc);
+  color: var(--texte);
   font-size: 1.4rem;
-  font-weight: 700;
   line-height: 1;
   height: 2rem;
   padding: 0 2px;
   width: 10rem;
 }
 form.search-form.search-topbar input.search-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: var(--blanc);
+  color: var(--texte);
   opacity: 1;
 }
 form.search-form.search-topbar input.search-field::-moz-placeholder { /* Firefox 19+ */
-  color: var(--blanc);
+  color: var(--texte);
   opacity: 1;
 }
 form.search-form.search-topbar input.search-field:-ms-input-placeholder { /* IE 10+ */
-  color: var(--blanc);
+  color: var(--texte);
   opacity: 1;
 }
 form.search-form.search-topbar input.search-field:-moz-placeholder { /* Firefox 18- */
-  color: var(--blanc);
+  color: var(--texte);
   opacity: 1;
 }
 form.search-form.search-topbar input.search-field::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 form.search-form.search-topbar input.search-submit {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: transparent;
   background-image: url("icons/loupe.svg");
   background-repeat: no-repeat;
   background-size: 11px 10px;
   background-position: center;
   border: none;
+  border-radius: 0;
   color: transparent;
   height: 2rem;
+  margin-left: 5px;
   overflow: hidden;
   padding: 0 2px;
   width: 15px;

@@ -208,7 +208,7 @@ button.menu-toggle {
 	}
 
 	svg path {
-		fill: var(--orange);
+		fill: var(--sauge);
 	}
 
 }
@@ -253,7 +253,7 @@ button.menu-toggle {
 	/*Styles éléments de niveau 1*/
 	.menu-mobile>li {
 		align-items: center;
-		border-bottom: solid 1px var(--orange-cadre);
+		border-bottom: solid 1px var(--sauge-cadre);
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
@@ -271,7 +271,7 @@ button.menu-toggle {
 		&.current-menu-item,
 		&.current-menu-ancestor,
 		&.current_page_parent {
-			background-color: var(--orange);
+			background-color: var(--sauge);
 
 			&>a {
 				color: var(--blanc);
@@ -316,7 +316,7 @@ button.menu-toggle {
 			}
 
 			&.current-menu-item a {
-				color: var(--orange);
+				color: var(--sauge);
 			}
 		}
 	}
@@ -348,7 +348,7 @@ button.menu-toggle {
 		a {
 			color: var(--rouge-texte);
 			display: block;
-			font-size: 1.8rem;
+			font-size: 1.5rem;
 			font-weight: 500;
 			text-decoration: none;
 		}
@@ -356,10 +356,12 @@ button.menu-toggle {
 		//styles spécifiques aux liens de premier niveau
 
 		&>li {
-			padding: 4.5rem 0 0;
+			align-items: center;
+			display: flex;
+			padding:0;
 
 			&>a {
-				border-right: solid 1px var(--orange-cadre);
+				border-right: solid 1px var(--sauge-cadre);
 				padding: 0 1rem 0.5rem;
 				position: relative;
 				text-align: center;
@@ -373,7 +375,7 @@ button.menu-toggle {
 
 			&:hover,
 			&:focus-within {
-				background-color: var(--orange);
+				background-color: var(--sauge);
 
 				&>a {
 					color: var(--blanc);
@@ -384,11 +386,9 @@ button.menu-toggle {
 			&.current-menu-item,
 			&.current-menu-ancestor,
 			&.current_page_parent {
-				background-color: var(--orange);
+				background-color: var(--sauge);
 
 				&>a {
-					color: var(--blanc);
-					font-weight: 700;
 				}
 			}
 
@@ -453,12 +453,12 @@ button.menu-toggle {
 				&:hover,
 				&:focus {
 					color: var(--blanc);
-					background-color: var(--orange);
+					background-color: var(--sauge);
 				}
 			}
 
 			li.current-menu-item a {
-				background-color: var(--orange);
+				background-color: var(--sauge);
 				color: var(--blanc);
 			}
 		}

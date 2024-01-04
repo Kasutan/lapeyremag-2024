@@ -1,6 +1,53 @@
 /*--------------------------------------------------------------
 ## Site header
 --------------------------------------------------------------*/
+.bandeau-header {
+	background-color: var(--beige);
+	height:46px; //valeur par défaut au chargement de la page, corrigée en JS
+	overflow: hidden;
+	padding: 0px;
+	position: relative;
+
+	@include bp(md) {
+		height:26px; //valeur par défaut au chargement de la page, corrigée en JS
+	}
+
+	li {
+		align-items: center;
+		background-color: var(--beige);
+		color:var(--noir);
+		display: flex;
+		justify-content: center;
+		margin-bottom: 0px;
+		opacity: 0; //ne pas voir les messages non actifs au chargement de la page
+		padding: 3px var(--padding-x);
+		position: absolute;
+		text-align: center;
+		top: 100%;
+		transition: top 0.5s linear;
+		width: 100%;
+		z-index: 0;
+		&.active {
+			opacity: 1;
+			position: relative;
+			top: 0;
+			z-index: 2;
+		}
+		&.last-active {
+			position: absolute;
+			top: -100%;
+			z-index: 1;
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+		a {
+			color: inherit;
+			text-decoration: underline;
+		}
+	}
+}
 .topbar {
 	align-items: center;
 	background-color: var(--sauge);

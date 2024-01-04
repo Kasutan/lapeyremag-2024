@@ -3,6 +3,38 @@
 	$( document ).ready(function() {
 		var width=$(window).width();
 
+
+		/****Défilement du bandeau supérieur */
+		var messages=$('.bandeau-header li');
+		if(messages.length>1) {
+			//il y a plusieurs messages (s'il n'y en a qu'un, pas de défilement)
+
+			//Trouver le message le plus haut
+			var max=0;
+			$(messages).each(function(index, elem) {
+				if($(elem).outerHeight() > max) {
+					max=$(elem).outerHeight();
+				}
+			});
+			//imposer la hauteur max au bandeau et à chaque message
+			$('.bandeau-header, .bandeau-header li').css('height',max+'px');
+
+
+			//corriger data-next pour le dernier message
+			$('.bandeau-header li:last-of-type').attr('data-next',"0");
+
+			
+	
+	
+			setInterval(function(){ 
+				$('.bandeau-header li.last-active').removeClass();
+				var active = $('.bandeau-header li.active');
+				var next=$(active).attr('data-next');
+				$(active).addClass('last-active');
+				$('.bandeau-header li[data-position='+next+']').addClass('active');
+			}, 7000);
+				
+		}
 		
 		/********* Ouvrir-fermer les sous-menus mobile **********/
 		var ouvrirSousMenu=$('.volet-navigation .ouvrir-sous-menu');

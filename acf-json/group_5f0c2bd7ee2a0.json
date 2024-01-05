@@ -365,6 +365,42 @@
                     "placeholder": ""
                 }
             ]
+        },
+        {
+            "key": "field_6598519679757",
+            "label": "Footer : politique de confidentialité",
+            "name": "lapeyre_footer_confidentialite",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_65985530e7497",
+            "label": "Footer : lien vers l'espace pro",
+            "name": "lapeyre_footer_pro",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -385,5 +421,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704480523
+    "modified": 1704482125
 }

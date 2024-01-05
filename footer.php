@@ -12,6 +12,9 @@ echo '</div>'; // .site-inner
 tha_footer_before();
 echo '<footer class="site-footer">';
 tha_footer_top();
+	echo '<div class="main-footer">';
+		do_action('kasutan_main_footer');
+	echo '</div>';
 tha_footer_bottom();
 echo '</footer>';
 tha_footer_after();

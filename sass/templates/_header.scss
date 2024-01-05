@@ -84,9 +84,7 @@
 	grid-template-columns: 93fr 150fr;
 	margin:0;
 }
-.header-navigation {
-	justify-self: end;
-}
+
 
 
 @include bp(lg) {
@@ -102,9 +100,7 @@
 	.site-title {
 		column-gap:16px;
 	}
-	.header-navigation {
-		height:100%;
-	}
+	
 }
 
 @include bp(xl) {

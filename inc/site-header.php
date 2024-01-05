@@ -1,5 +1,30 @@
 <?php
+/*************************
+ * Actions sur le header
+ **************************/
+
 add_action('tha_header_top','kasutan_header_bandeau',5);
+//callback définie plus bas dans ce fichier
+
+add_action('kasutan_main_header','kasutan_mobile_nav',5);
+//callback définie dans navigation.php
+
+add_action('kasutan_main_header','kasutan_header_logo',10);
+//callback définie plus bas dans ce fichier
+
+add_action('kasutan_main_header','kasutan_header_recherche',20);
+//callback définie plus bas dans ce fichier
+
+add_action('kasutan_main_header','kasutan_header_pictos',30);
+//callback définie plus bas dans ce fichier
+
+add_action('kasutan_main_header','kasutan_desktop_nav',40);
+//callback définie dans navigation.php
+
+
+/*************************
+ * Définitions des callbacks
+ **************************/
 function kasutan_header_bandeau() {
 	$bandeau=get_option('lapeyre_headers_bandeau',false);
 	if($bandeau && is_array($bandeau)) :
@@ -88,10 +113,6 @@ function kasutan_header_bandeau() {
 	endif;
 }
 
-add_action('kasutan_main_header','kasutan_navigation',5);
-//cf navigation.php
-
-add_action('kasutan_main_header','kasutan_header_logo',10);
 function kasutan_header_logo() {
 	//Url du site parent : option ACF BO 
 	$url_home=get_option('options_lapeyre_cible_logo',false);
@@ -105,8 +126,6 @@ function kasutan_header_logo() {
 	}
 }
 
-
-add_action('kasutan_main_header','kasutan_header_recherche',20);
 function kasutan_header_recherche() {
 
 	$aria="Formulaire de recherche dans l\'en-tête";
@@ -137,8 +156,6 @@ function kasutan_header_recherche() {
 	);
 }
 
-
-add_action('kasutan_main_header','kasutan_header_pictos',30);
 function kasutan_header_pictos() {
 	if(!function_exists('get_field')) {
 		return;
@@ -184,3 +201,4 @@ function kasutan_header_pictos() {
 		}
 	echo '</div>';
 }
+

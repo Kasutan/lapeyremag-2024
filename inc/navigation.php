@@ -33,21 +33,13 @@ class etcode_sublevel_walker extends Walker_Nav_Menu
 *
 */
 
-function kasutan_navigation() {
-	echo '<div class="header-navigation">';
-
-
-		//Navigation mobile
-		kasutan_mobile_nav();
-
-		//Navigation desktop
-		echo '<nav id="site-navigation" class="nav-main" aria-label="menu principal">';
-			if( has_nav_menu( 'primary' ) ) {
-				wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container_class' => 'nav-primary' ) );
-			}
-			
-		echo '</nav>';
-	echo '</div>';
+function kasutan_desktop_nav() {
+	echo '<nav id="site-navigation" class="nav-main" aria-label="menu principal">';
+		if( has_nav_menu( 'primary' ) ) {
+			wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container_class' => 'nav-primary' ) );
+		}
+		
+	echo '</nav>';
 }
 
 

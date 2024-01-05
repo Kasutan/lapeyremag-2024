@@ -68,18 +68,6 @@ function kasutan_header_bandeau() {
 
 			if($show && !empty($text)) {
 				$messages[]=$text;
-				$classe="";
-				$next=$position+1; //sera faux pour le dernier message, corrigé en JS
-				if($position === 1) {
-					$classe="active";
-				}
-				printf('<li class="%s" data-position="%s" data-next="%s" >%s</li>',
-					$classe,
-					$position,
-					$next,
-					$text
-				);
-				$position++;
 			}
 
 		endforeach;

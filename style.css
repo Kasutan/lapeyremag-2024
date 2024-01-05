@@ -299,6 +299,7 @@ p, h1, h2, h3, h4, h5, h6 {
   --bleu: #6EBACB;
   --bleu-fonce: #5D89A2;
   --bleu-tres-fonce: #3D6881;
+  --bleu-tres-clair: #EFF3F6;
   --rouge: #EB002D;
   --gris-300: #E0E0E0;
   --gris-600: #757575;
@@ -558,6 +559,27 @@ a.wp-block-button__link.has-bleu-tres-fonce-color {
 }
 a.wp-block-button__link.has-bleu-tres-fonce-color:visited, a.wp-block-button__link.has-bleu-tres-fonce-color:hover, a.wp-block-button__link.has-bleu-tres-fonce-color:focus, a.wp-block-button__link.has-bleu-tres-fonce-color:active {
   color: #3D6881;
+}
+
+.has-bleu-tres-clair-color {
+  color: #EFF3F6;
+}
+
+.has-bleu-tres-clair-background-color {
+  background-color: #EFF3F6;
+}
+
+a.wp-block-button__link.has-bleu-tres-clair-background-color {
+  background-color: #EFF3F6;
+}
+a.wp-block-button__link.has-bleu-tres-clair-background-color:focus-visible {
+  outline-color: #EFF3F6;
+}
+a.wp-block-button__link.has-bleu-tres-clair-color {
+  color: #EFF3F6;
+}
+a.wp-block-button__link.has-bleu-tres-clair-color:visited, a.wp-block-button__link.has-bleu-tres-clair-color:hover, a.wp-block-button__link.has-bleu-tres-clair-color:focus, a.wp-block-button__link.has-bleu-tres-clair-color:active {
+  color: #EFF3F6;
 }
 
 .has-rouge-color {
@@ -1727,6 +1749,10 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 }
 
 /*Style liens de menus MENU PRINCIPAL */
+.nav-main {
+  background-color: var(--bleu-tres-clair);
+  padding: 1.2rem 4.4rem;
+}
 .nav-main,
 .nav-main .nav-primary,
 .nav-main .menu {
@@ -1735,7 +1761,6 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 }
 .nav-main .menu {
   align-items: stretch;
-  justify-content: flex-end;
 }
 .nav-main .menu li {
   transition: all var(--transition);
@@ -1947,8 +1972,13 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
     -webkit-animation: none;
   }
 }
+.site-header {
+  background-color: var(--blanc);
+  z-index: 10;
+}
+
 /*--------------------------------------------------------------
-## Site header
+## Bandeau header
 --------------------------------------------------------------*/
 .bandeau-header {
   background-color: var(--beige);
@@ -1997,11 +2027,9 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   text-decoration: underline;
 }
 
-.site-header {
-  background-color: var(--blanc);
-  z-index: 10;
-}
-
+/*--------------------------------------------------------------
+## Main header
+--------------------------------------------------------------*/
 .main-header {
   --taille-logo:12.6rem;
   align-items: center;
@@ -2050,20 +2078,20 @@ form.search-form.search-header, .pictos-header .magasin {
 
 @media (min-width: 1024px) {
   .main-header {
-    --taille-logos:27rem;
-    padding: 0 var(--padding-x);
+    --taille-logo:21.3rem;
+    grid-template-columns: var(--taille-logo) auto auto;
+    grid-template-rows: auto auto;
+    padding: 0;
   }
-  .title-area {
-    max-width: var(--taille-logo);
-    padding: 22px 0;
+  form.search-form.search-header, .pictos-header .magasin {
+    display: flex;
   }
-  .site-title {
-    column-gap: 16px;
+  .pictos-header .label-compte {
+    display: inline-block;
   }
-}
-@media (min-width: 1440px) {
-  .main-header {
-    --taille-logos:28.5rem;
+  .nav-main {
+    grid-column: 1/span 3;
+    grid-row: 2;
   }
 }
 body {

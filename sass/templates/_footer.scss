@@ -40,4 +40,33 @@
 		}
 	}
 
+	.social {
+		background-color: var(--beige-clair);
+		padding:var(--padding-y-2) var(--padding-x);
+		text-align: center;
+		.titre {
+			@include font-headline-s;
+			margin-bottom: 8px;
+			text-transform: uppercase;
+		}
+		.sous-titre {
+			margin-bottom: 1.6rem;
+		}
+		nav.reseaux {
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			a {
+				align-items: center;
+				border:solid 1px var(--gris-500);
+				border-radius: 8px;;
+				display: flex;
+				height:4.4rem;
+				justify-content: center;
+				margin:0 8px;
+				width:4.4rem;
+			}
+		}
+	}
+
 }

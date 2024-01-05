@@ -155,7 +155,7 @@
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -239,6 +239,132 @@
                     "parent_repeater": "field_65983ebf5f969"
                 }
             ]
+        },
+        {
+            "key": "field_659848def8968",
+            "label": "Footer : bloc \"suivez-nous\"",
+            "name": "lapeyre_footer_social",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_65984902f8969",
+                    "label": "Titre",
+                    "name": "titre",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Suivez-nous",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6598490cf896a",
+                    "label": "Sous-titre",
+                    "name": "sous-titre",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Sur nos réseaux, retrouvez nos actualités, nos inspirations et\r\nnos conseils pour réaliser vos projets de rénovation.",
+                    "maxlength": "",
+                    "rows": 3,
+                    "placeholder": "",
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_65984934f896b",
+                    "label": "Lien vers Facebook",
+                    "name": "facebook",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/www.facebook.com\/Lapeyre",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_65984972edebe",
+                    "label": "Lien vers Pinterest",
+                    "name": "pinterest",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/www.pinterest.com\/lapeyre\/",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_65984989edebf",
+                    "label": "Lien vers Instagram",
+                    "name": "instagram",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/www.instagram.com\/lapeyreofficiel\/",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_659849a0edec0",
+                    "label": "Lien vers YouTube",
+                    "name": "youtube",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/www.youtube.com\/c\/lapeyre",
+                    "placeholder": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -259,5 +385,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704477270
+    "modified": 1704480523
 }

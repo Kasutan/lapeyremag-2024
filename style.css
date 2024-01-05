@@ -2079,7 +2079,7 @@ form.search-form.search-header, .pictos-header .magasin {
 @media (min-width: 1024px) {
   .main-header {
     --taille-logo:21.3rem;
-    grid-template-columns: var(--taille-logo) auto auto;
+    grid-template-columns: var(--taille-logo) 1fr auto;
     grid-template-rows: auto auto;
     padding: 0;
   }
@@ -2458,17 +2458,14 @@ body {
 }
 
 form.search-form {
-  align-items: stretch;
+  align-items: center;
   display: flex;
-  max-width: 50rem;
+  height: 4rem;
 }
 form.search-form label {
   flex-grow: 1;
 }
 form.search-form input.search-field {
-  border: solid 1px var(--rouge);
-  border-right: none;
-  height: 42px;
   padding: 0 10px;
   width: 100%;
   -webkit-appearance: none;
@@ -2480,30 +2477,32 @@ form.search-form input.search-submit {
   -webkit-appearance: none;
   appearance: none;
 }
+form.search-form.search-header {
+  border: solid 1px var(--gris-300);
+  border-radius: 8px;
+  margin: 0 2rem;
+}
 form.search-form.search-header input.search-field {
-  background-color: var(--blanc);
   border: none;
   color: var(--texte);
   font-size: 1.4rem;
-  line-height: 1;
-  height: 2rem;
-  padding: 0 2px;
-  width: 10rem;
+  line-height: 2rem;
+  padding: 0;
 }
 form.search-form.search-header input.search-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: var(--texte);
+  color: var(--gris-600);
   opacity: 1;
 }
 form.search-form.search-header input.search-field::-moz-placeholder { /* Firefox 19+ */
-  color: var(--texte);
+  color: var(--gris-600);
   opacity: 1;
 }
 form.search-form.search-header input.search-field:-ms-input-placeholder { /* IE 10+ */
-  color: var(--texte);
+  color: var(--gris-600);
   opacity: 1;
 }
 form.search-form.search-header input.search-field:-moz-placeholder { /* Firefox 18- */
-  color: var(--texte);
+  color: var(--gris-600);
   opacity: 1;
 }
 form.search-form.search-header input.search-field::-webkit-search-cancel-button {
@@ -2513,22 +2512,22 @@ form.search-form.search-header input.search-submit {
   background-color: transparent;
   background-image: url("icons/loupe.svg");
   background-repeat: no-repeat;
-  background-size: 11px 10px;
   background-position: center;
+  background-size: contain;
   border: none;
   border-radius: 0;
   color: transparent;
-  height: 2rem;
-  margin-left: 5px;
+  height: 2.4rem;
+  margin-left: 1.5rem;
+  margin-right: 1.1rem;
   overflow: hidden;
-  padding: 0 2px;
-  width: 15px;
+  padding: 0;
+  width: 2.4rem;
 }
 @media (min-width: 1024px) {
   form.search-form.search-header input.search-field {
     height: 21px;
     padding: 0 4px;
-    width: 14rem;
   }
   form.search-form.search-header input.search-submit {
     height: 21px;

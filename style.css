@@ -1974,6 +1974,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 }
 .site-header {
   background-color: var(--blanc);
+  border-bottom: solid 1px var(--gris-300);
   z-index: 10;
 }
 
@@ -2111,36 +2112,34 @@ form.search-form.search-header, .pictos-header .magasin {
     top: -1px;
   }
 }
+/*--------------------------------------------------------------
+## Header sticky au scroll vers le haut
+--------------------------------------------------------------*/
 body {
   --hauteur-header:129px;
 }
-.site-header {
-  border-bottom: solid 1px var(--gris-300);
+.js-sticky-header .site-header {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
 }
 @media (min-width: 1920px) {
-  .site-header {
+  .js-sticky-header .site-header {
     left: calc((100vw - var(--largeur-max)) / 2);
     width: var(--largeur-max);
   }
-}
-
-.site-main {
-  margin-top: var(--hauteur-header);
 }
 
 #wpadminbar {
   position: fixed;
 }
 
-.admin-bar .site-header {
+.admin-bar.js-sticky-header .site-header {
   top: 46px;
 }
 @media (min-width: 768px) {
-  .admin-bar .site-header {
+  .admin-bar.js-sticky-header .site-header {
     top: 32px;
   }
 }

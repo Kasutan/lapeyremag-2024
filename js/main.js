@@ -58,7 +58,27 @@
 			});
 		}
 		
-		
+		/********* Header sticky on scroll up **********/
+
+		var lastScrollTop = 0, delta = 5;
+		var header=$('.site-header');
+		var inner=$('.site-inner');
+		var headerHeight=$(header).outerHeight();
+		$(window).scroll(function(){
+			var nowScrollTop = $(this).scrollTop();
+			if(Math.abs(lastScrollTop - nowScrollTop) >= delta){
+				if (nowScrollTop > lastScrollTop){
+					//Scrolling down
+					$('body').removeClass('js-sticky-header');
+					$(inner).css('margin-top',0);
+				} else {
+					//Scrolling up
+					$('body').addClass('js-sticky-header');
+					$(inner).css('margin-top',headerHeight+'px');
+				}
+			lastScrollTop = nowScrollTop;
+			}
+		});
 
 
 

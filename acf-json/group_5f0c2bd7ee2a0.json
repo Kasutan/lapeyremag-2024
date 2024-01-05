@@ -3,54 +3,21 @@
     "title": "Options générales",
     "fields": [
         {
-            "key": "field_653928f8ec7b6",
-            "label": "Premier logo",
-            "name": "lapeyremag_logo_1",
+            "key": "field_6597e1f4090a5",
+            "label": "URL cible du logo",
+            "name": "lapeyre_cible_logo",
             "aria-label": "",
-            "type": "image",
+            "type": "url",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "png",
-            "preview_size": "thumbnail"
-        },
-        {
-            "key": "field_65392904ec7b7",
-            "label": "Deuxième logo",
-            "name": "lapeyremag_logo_2",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "png",
-            "preview_size": "thumbnail"
+            "default_value": "https:\/\/www.lapeyre.fr\/",
+            "placeholder": ""
         },
         {
             "key": "field_60a0e771c0bde",
@@ -59,7 +26,7 @@
             "aria-label": "",
             "type": "image",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -96,5 +63,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1703072007
+    "modified": 1704452626
 }

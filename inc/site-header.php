@@ -88,10 +88,26 @@ function kasutan_header_bandeau() {
 	endif;
 }
 
+add_action('kasutan_main_header','kasutan_navigation',5);
+//cf navigation.php
 
-add_action('tha_header_top','kasutan_header_top',10);
-function kasutan_header_top() {
-	echo '<div class="topbar">';
+add_action('kasutan_main_header','kasutan_header_logo',10);
+function kasutan_header_logo() {
+	//Url du site parent : option ACF BO 
+	$url_home=get_option('options_lapeyre_cible_logo',false);
+	if(!$url_home) {
+		$url_home="https://www.lapeyre.fr";
+	}
+	//Url de l'image : appel API puis option WP
+	$logo=get_option('lapeyre_headers_logo',false);
+	if($logo && is_array($logo) && array_key_exists('url',$logo) && !empty($logo['url'])) {
+		printf('<a class="site-title" href="%s"><img src="%s" alt="Logo Lapeyre" width="213" height="68" /></a>',$url_home,$logo['url']);
+	}
+}
+
+
+add_action('kasutan_main_header','kasutan_header_recherche',20);
+function kasutan_header_recherche() {
 
 	$aria="Formulaire de recherche dans l\'en-tête";
 	$label="Saisissez vos mots-clés";
@@ -114,7 +130,10 @@ function kasutan_header_top() {
 		$placeholder,
 		$submit
 	);
-	
-	
-	echo '</div>';
+}
+
+
+add_action('kasutan_main_header','kasutan_header_pictos',30);
+function kasutan_header_pictos() {
+	echo 'pictos ici';
 }

@@ -32,19 +32,7 @@ echo '<div class="site-container">';
 	echo '<a class="skip-link screen-reader-text" href="#main-content">' . esc_html__( 'Aller directement au contenu', 'lapeyremag' ) . '</a>';
 		tha_header_top();
 
-			echo '<div class="main-header">';
-
-				echo '<div class="title-area">';
-					if(function_exists('kasutan_affiche_logos')) {
-						kasutan_affiche_logos("site-title");
-					}
-				echo '</div>';
-
-				if(function_exists('kasutan_navigation')) {
-					kasutan_navigation();
-				}
-
-			echo '</div>';
+			do_action('kasutan_main_header');
 			
 		tha_header_bottom();
 	echo '</header>';

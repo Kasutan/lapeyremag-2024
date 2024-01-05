@@ -32,8 +32,10 @@ echo '<div class="site-container">';
 	echo '<a class="skip-link screen-reader-text" href="#main-content">' . esc_html__( 'Aller directement au contenu', 'lapeyremag' ) . '</a>';
 		tha_header_top();
 
-			do_action('kasutan_main_header');
-			
+			echo '<div class="main-header">';
+				do_action('kasutan_main_header');
+			echo '</div>';
+
 		tha_header_bottom();
 	echo '</header>';
 	tha_header_after();

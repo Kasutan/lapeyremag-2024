@@ -48,41 +48,54 @@
 		}
 	}
 }
-.topbar {
-	align-items: center;
-	background-color: var(--sauge);
-	display: flex;
-	justify-content: flex-end;
-	padding:5px var(--padding-x);
-	.search-form {
-		margin-right: 20px;
-		@include bp(lg) {
-			margin-right: 38px;
-		}
-	}
 
-	
-
-}
 .site-header {
 	background-color: var(--blanc);
 	z-index:10;
 }
 
 .main-header {
-	--taille-logos:25rem;
+	--taille-logo:12.6rem;
 	align-items: center;
 	display: grid;
-	grid-template-columns: var(--taille-logos) 1fr;
-	padding:22px;
+	grid-template-columns: 1fr var(--taille-logo) 1fr;
+	padding:0 2.3rem;
 	position: relative;
 }
+.logo {
+	max-width:var(--taille-logo);
+}
+form.search-form.search-header, .pictos-header .magasin {
+	display: none;
+}
 
-.site-title {
-	column-gap:12px;
-	display:grid;
-	grid-template-columns: 93fr 150fr;
-	margin:0;
+.pictos-header {
+	align-items: center;
+	display: flex;
+	justify-content: flex-end;
+	a {
+		align-items: center;
+		display: flex;
+		margin-right:1.4rem;
+		position: relative;
+		&::after {
+			background-color: var(--gris-300);
+			content:' ';
+			display: inline-block;
+			height:2.4rem;
+			margin-left: 1.4rem;
+			width:1px;
+		}
+		&:last-of-type {
+			margin-right: 0;
+			&::after {
+				display: none;
+			}
+		}
+	}
+	.label-compte {
+		display: none;
+	}
 }
 
 
@@ -122,7 +135,7 @@ body {
 }
 
 .site-header {
-	box-shadow: 0 3px 3px rgba(18,75,90,0.2);
+	border-bottom:solid 1px var(--gris-300);
 	position:fixed;
 	left: 0;
 	top: 0;

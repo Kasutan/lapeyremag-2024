@@ -300,6 +300,7 @@ p, h1, h2, h3, h4, h5, h6 {
   --bleu-fonce: #5D89A2;
   --bleu-tres-fonce: #3D6881;
   --rouge: #EB002D;
+  --gris-300: #E0E0E0;
   --gris-600: #757575;
   --gris-800: #424242;
   --texte: #212121;
@@ -578,6 +579,27 @@ a.wp-block-button__link.has-rouge-color {
 }
 a.wp-block-button__link.has-rouge-color:visited, a.wp-block-button__link.has-rouge-color:hover, a.wp-block-button__link.has-rouge-color:focus, a.wp-block-button__link.has-rouge-color:active {
   color: #EB002D;
+}
+
+.has-gris-300-color {
+  color: #E0E0E0;
+}
+
+.has-gris-300-background-color {
+  background-color: #E0E0E0;
+}
+
+a.wp-block-button__link.has-gris-300-background-color {
+  background-color: #E0E0E0;
+}
+a.wp-block-button__link.has-gris-300-background-color:focus-visible {
+  outline-color: #E0E0E0;
+}
+a.wp-block-button__link.has-gris-300-color {
+  color: #E0E0E0;
+}
+a.wp-block-button__link.has-gris-300-color:visited, a.wp-block-button__link.has-gris-300-color:hover, a.wp-block-button__link.has-gris-300-color:focus, a.wp-block-button__link.has-gris-300-color:active {
+  color: #E0E0E0;
 }
 
 .has-gris-600-color {
@@ -1559,21 +1581,19 @@ p.fil-ariane.desktop {
 
 button.menu-toggle {
   display: block;
-  height: 3.5rem;
+  height: 3rem;
   padding: 0;
-  width: 3.5rem;
+  width: 3rem;
 }
 button.menu-toggle svg {
-  height: 100%;
-  width: 100%;
+  height: 1.2rem;
+  width: 1.8rem;
 }
 button.menu-toggle:focus {
   outline: none;
 }
 button.menu-toggle svg.fermer-menu {
   display: none;
-  transform-origin: center;
-  transform: scale(0.8);
 }
 button.menu-toggle[aria-expanded=true] svg.menu {
   display: none;
@@ -1587,7 +1607,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   flex-direction: column;
   right: 0;
   max-height: calc(100vh - 129px);
-  max-width: 40rem;
+  max-width: 100vw;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0;
@@ -1617,7 +1637,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   background: transparent;
 }
 .menu-toggle svg path {
-  fill: var(--sauge);
+  fill: var(--gris-800);
 }
 
 /* Style liens de menu VOLET NAVIGATION MOBILE */
@@ -1813,7 +1833,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   }
 }
 @media print {
-  .topbar,
+  .banniere-header,
   .main-navigation,
   .page-header,
   .entry-header,
@@ -1977,45 +1997,55 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   text-decoration: underline;
 }
 
-.topbar {
-  align-items: center;
-  background-color: var(--sauge);
-  display: flex;
-  justify-content: flex-end;
-  padding: 5px var(--padding-x);
-}
-.topbar .search-form {
-  margin-right: 20px;
-}
-@media (min-width: 1024px) {
-  .topbar .search-form {
-    margin-right: 38px;
-  }
-}
-
 .site-header {
   background-color: var(--blanc);
   z-index: 10;
 }
 
 .main-header {
-  --taille-logos:25rem;
+  --taille-logo:12.6rem;
   align-items: center;
   display: grid;
-  grid-template-columns: var(--taille-logos) 1fr;
-  padding: 22px;
+  grid-template-columns: 1fr var(--taille-logo) 1fr;
+  padding: 0 2.3rem;
   position: relative;
 }
 
-.site-title {
-  column-gap: 12px;
-  display: grid;
-  grid-template-columns: 93fr 150fr;
-  margin: 0;
+.logo {
+  max-width: var(--taille-logo);
 }
 
-.header-navigation {
-  justify-self: end;
+form.search-form.search-header, .pictos-header .magasin {
+  display: none;
+}
+
+.pictos-header {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+.pictos-header a {
+  align-items: center;
+  display: flex;
+  margin-right: 1.4rem;
+  position: relative;
+}
+.pictos-header a::after {
+  background-color: var(--gris-300);
+  content: " ";
+  display: inline-block;
+  height: 2.4rem;
+  margin-left: 1.4rem;
+  width: 1px;
+}
+.pictos-header a:last-of-type {
+  margin-right: 0;
+}
+.pictos-header a:last-of-type::after {
+  display: none;
+}
+.pictos-header .label-compte {
+  display: none;
 }
 
 @media (min-width: 1024px) {
@@ -2030,9 +2060,6 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
   .site-title {
     column-gap: 16px;
   }
-  .header-navigation {
-    height: 100%;
-  }
 }
 @media (min-width: 1440px) {
   .main-header {
@@ -2043,7 +2070,7 @@ body {
   --hauteur-header:129px;
 }
 .site-header {
-  box-shadow: 0 3px 3px rgba(18, 75, 90, 0.2);
+  border-bottom: solid 1px var(--gris-300);
   position: fixed;
   left: 0;
   top: 0;
@@ -2425,7 +2452,7 @@ form.search-form input.search-submit {
   -webkit-appearance: none;
   appearance: none;
 }
-form.search-form.search-topbar input.search-field {
+form.search-form.search-header input.search-field {
   background-color: var(--blanc);
   border: none;
   color: var(--texte);
@@ -2435,26 +2462,26 @@ form.search-form.search-topbar input.search-field {
   padding: 0 2px;
   width: 10rem;
 }
-form.search-form.search-topbar input.search-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+form.search-form.search-header input.search-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: var(--texte);
   opacity: 1;
 }
-form.search-form.search-topbar input.search-field::-moz-placeholder { /* Firefox 19+ */
+form.search-form.search-header input.search-field::-moz-placeholder { /* Firefox 19+ */
   color: var(--texte);
   opacity: 1;
 }
-form.search-form.search-topbar input.search-field:-ms-input-placeholder { /* IE 10+ */
+form.search-form.search-header input.search-field:-ms-input-placeholder { /* IE 10+ */
   color: var(--texte);
   opacity: 1;
 }
-form.search-form.search-topbar input.search-field:-moz-placeholder { /* Firefox 18- */
+form.search-form.search-header input.search-field:-moz-placeholder { /* Firefox 18- */
   color: var(--texte);
   opacity: 1;
 }
-form.search-form.search-topbar input.search-field::-webkit-search-cancel-button {
+form.search-form.search-header input.search-field::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
-form.search-form.search-topbar input.search-submit {
+form.search-form.search-header input.search-submit {
   background-color: transparent;
   background-image: url("icons/loupe.svg");
   background-repeat: no-repeat;
@@ -2470,12 +2497,12 @@ form.search-form.search-topbar input.search-submit {
   width: 15px;
 }
 @media (min-width: 1024px) {
-  form.search-form.search-topbar input.search-field {
+  form.search-form.search-header input.search-field {
     height: 21px;
     padding: 0 4px;
     width: 14rem;
   }
-  form.search-form.search-topbar input.search-submit {
+  form.search-form.search-header input.search-submit {
     height: 21px;
     padding: 0 4px;
     width: 17px;

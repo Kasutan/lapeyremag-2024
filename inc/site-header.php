@@ -112,23 +112,27 @@ function kasutan_header_recherche() {
 	$aria="Formulaire de recherche dans l\'en-tête";
 	$label="Saisissez vos mots-clés";
 	$submit="Déclencher la recherche";
-	$placeholder="Rechercher";
+	$placeholder=get_option('options_lapeyre_recherche_placeholder',false);
+	if(!$placeholder) {
+		$placeholder="Rechercher un produit, un service, un tutoriel...";
+	}
 	$action="/";
 
 	
 
 	printf('<form role="search" method="get" class="search-form search-topbar" action="%s" aria-label="%s">
+			<input class="search-submit" value="%s" type="submit">
 			<label>
 				<span class="screen-reader-text">%s</span>
 				<input class="search-field" 
-				placeholder="%s" value="" name="s" type="search"></label>
-			<input class="search-submit" value="%s" type="submit">
+				placeholder="%s" value="" name="s" type="search">
+			</label>
 		</form>',
 		$action,
 		$aria,
+		$submit,
 		$label,
-		$placeholder,
-		$submit
+		$placeholder
 	);
 }
 

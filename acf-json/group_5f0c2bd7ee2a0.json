@@ -63,6 +63,115 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6597e5af66625",
+            "label": "Pictos du header",
+            "name": "lapeyre_topbar_pictos",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_6597e5d066626",
+                    "label": "Label Choix magasin",
+                    "name": "label_magasin",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Choisir mon magasin",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6597e857ad454",
+                    "label": "Label Compte",
+                    "name": "label_compte",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Mon compte",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6597e5f566627",
+                    "label": "Cible choix magasin",
+                    "name": "cible_magasin",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/www.lapeyre.fr\/tous-les-magasins",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_6597e886ad455",
+                    "label": "Cible compte",
+                    "name": "cible_compte",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/www.lapeyre.fr\/LogonForm",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_6597e893ad456",
+                    "label": "Cible panier",
+                    "name": "cible_panier",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/www.lapeyre.fr\/TunnelShopCartView",
+                    "placeholder": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -83,5 +192,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704453145
+    "modified": 1704454341
 }

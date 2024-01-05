@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_6597e1f4090a5",
-            "label": "URL cible du logo",
+            "label": "Header : URL cible du logo",
             "name": "lapeyre_cible_logo",
             "aria-label": "",
             "type": "url",
@@ -20,33 +20,8 @@
             "placeholder": ""
         },
         {
-            "key": "field_60a0e771c0bde",
-            "label": "Image bannière par défaut",
-            "name": "lapeyremag_bg_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "jpg, jpeg",
-            "preview_size": "thumbnail"
-        },
-        {
             "key": "field_6597e3d0d8840",
-            "label": "Placeholder du champ de recherche",
+            "label": "Header : placeholder du champ de recherche",
             "name": "lapeyre_recherche_placeholder",
             "aria-label": "",
             "type": "text",
@@ -66,7 +41,7 @@
         },
         {
             "key": "field_6597e5af66625",
-            "label": "Pictos du header",
+            "label": "Header : liens avec pictos",
             "name": "lapeyre_topbar_pictos",
             "aria-label": "",
             "type": "group",
@@ -172,6 +147,98 @@
                     "placeholder": ""
                 }
             ]
+        },
+        {
+            "key": "field_65983ebf5f969",
+            "label": "Footer : icônes avantages",
+            "name": "lapeyre_footer_icones",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 1,
+            "max": 4,
+            "collapsed": "field_65983f035f96b",
+            "button_label": "Ajouter un élément",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_65983eec5f96a",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_65983ebf5f969"
+                },
+                {
+                    "key": "field_65983f035f96b",
+                    "label": "Titre",
+                    "name": "titre",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65983ebf5f969"
+                },
+                {
+                    "key": "field_65983f0c5f96c",
+                    "label": "Sous-titre",
+                    "name": "sous-titre",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65983ebf5f969"
+                }
+            ]
         }
     ],
     "location": [
@@ -192,5 +259,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704454341
+    "modified": 1704477270
 }

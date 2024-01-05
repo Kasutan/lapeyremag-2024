@@ -1,263 +1,43 @@
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
-
-
 .site-footer {
 
-	.main-footer {
-		background-color: var(--sauge);
-		padding: 3.5rem var(--padding-x) 1.4rem;
-		position: relative;
+	.avantages {
+		column-gap:1.2rem;
+		display:grid;
+		justify-content: center;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr 1fr;
+		padding:var(--padding-y-2) var(--padding-x);
+		row-gap:4rem;
 
-		.logos-footer {
-			display: grid;
-			grid-template-columns: 1.5fr 2.5fr;
-			column-gap: 2rem;
-			justify-content: center;
-			margin-bottom: 3rem;
-		}
-
-		.menu {
-			li {
-				margin-bottom: 0.4rem;
-				a {
-					color: var(--marron);
-					font-size: 2rem;
-					font-weight: 600;
-					text-decoration: none;
-					text-transform: none;
-			
-					&:hover,
-					&:focus {
-						text-decoration: underline;
-					}
-			
-				}
-				&.current-menu-item , &.current-menu-ancestor, &.current_page_parent {
-					& > a {
-						color:var(--rouge-texte);
-					}
-				}
-			}
-		}
-		
-		@include bp(sm) {
-			.logos-footer {
-				grid-template-columns: 139px 225px;
-			}
-			.colonnes-footer {
-				display: grid;
-				grid-template-columns: repeat(2,16rem);
-				column-gap: 2rem;
-				justify-content: center;
-
-			}
-		
-		}
-
-		@include bp(md) {
-			display: grid;
-			grid-template-columns: 39rem 1fr;
-			column-gap: 2rem;
-			.colonnes-footer {
-				grid-template-columns: repeat(2,1fr);
-			}
-
-			.selecteur {
-				grid-column: 2;
-			}
-		
-		}
-
-		@include bp(lg) {
-			column-gap:6rem;
-			
-		}
-		@include bp(xl) {
-			column-gap:12rem;
-
-			.selecteur {
-				position: relative;
-				right:-5rem;
-			}
-		}
-	
-	}
-
-	
-
-
-	.copyright {
-		background-color: var(--rouge);
-		text-align: center;
-		padding:0.5rem var(--padding-x) 1rem;
-		span,
-		a {
-			color: var(--blanc);
-			display: inline-block;
-			font-size: 1.6rem;
-			font-weight: 600;
-		}
-		.sep {
-			display: none;
-		}
-		a {
-			text-decoration: none;
-			&:hover, &:focus {
-				text-decoration: underline;
-			}
-		}
-		.menu {
+		li {
+			align-items: center;
 			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			li {
-				&::after {
-					color:var(--blanc);
-					content:' - ';
-					margin: 0 4px;
-				}
-				&:last-of-type::after {
-					display: none;
-				}
-			}
-		}
-		@include bp(md) {
-			display: flex;
-			justify-content: center;
-			.menu li:last-of-type::after {
-				display: inline-block;
-			}
-			.sep {
-				display: inline-block;
-				margin: 0 4px;
-			}
+			flex-direction: column;
+			font-size: 1.2rem;
+			line-height:1.6rem;
+			text-align: center;
 		}
 
-		@include bp(lg) {
-			span, a {
-				font-weight: 400;
-			}
-		}
-	}
-}
-
-/*--------------------------------------------------------------
-## Bandeau d'inscription à la newsletter
---------------------------------------------------------------*/
-
-.newsletter {
-	@include bleed;
-	padding:3rem var(--padding-x);
-	position: relative;
-	.image, .overlay {
-		height:100%;
-		left:0;
-		position: absolute;
-		top:0;
-		width:100%;
 		img {
-			height: 100%;
-			object-fit: cover;
-			object-position: center;
-			width: 100%;
+			height:8rem;
+			margin-bottom: 1.2rem;
+			object-fit: contain;
+			width:8rem;
 		}
-		&.desktop {
-			display: none;
+
+		@include bp(sm) {
+			grid-template-columns: repeat(2, 21rem);
+
+		}
+
+		@include bp(lg) {
+			column-gap: 3rem;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: 1fr;
 		}
 	}
 
-	.overlay {
-		background-color: var(--noir);
-		opacity: 0.5;
-	}
-	.titre-section {
-		color:var(--blanc);
-		display: block;
-		font-size: 3.2rem;
-		font-weight: 700;
-		margin-bottom: 3.5rem;
-		position: relative;
-		text-align: center;
-	}
-	.form-wrap {
-		position: relative;
-	}
-	.forminator-field {
-		text-align: center;
-	}
-	input[type="email"] {
-		background-color: #D9D9D9;
-		border:none;
-		display: block;
-		color:var(--noir);
-		margin:0 auto 1rem;
-		padding-left: 1rem;
-		text-align: left;
-		width: 29rem;
-
-		&:focus {
-			border: solid 2px var(--orange);
-		}
-	}
-	label {
-		@include screen-reader-text;
-	}
-	button.forminator-button-submit {
-		background-color: var(--orange);
-		font-weight: 700;
-		text-transform: uppercase;
-	}
-	.forminator-error-message, .forminator-response-message {
-		color:var(--blanc);
-		font-size: 2rem;
-		font-weight: 700;
-		text-align: center;
-	}
-	.forminator-custom-form {
-		display: block;
-	}
-	.forminator-custom-form .forminator-row-last {
-		grid-column: unset;
-		.forminator-field {
-			justify-content: center;
-		}
-	}
-	@media screen and (max-width:500px) {
-		.titre-section.h1 {
-			text-decoration: none;
-			&::before {
-				display: none;
-			}
-		}	
-	}
-
-	@include bp(lg) {
-		.image {
-			&.mobile {
-				display: none;
-			}
-			&.desktop {
-				display: block;
-			}
-		}
-		.form-wrap .forminator-custom-form {
-			column-gap:36px;
-			display: grid;
-			grid-template-columns: 1fr 14rem;
-			margin:0 auto;
-			max-width:70rem;
-		}
-		.forminator-response-message {
-			grid-column: 1 / span 2;
-		}
-		input[type="email"] {
-			margin:0 0 1rem;
-			width:100%;
-		}
-		input[type="email"], button.forminator-button-submit {
-			height:4.3rem;
-		}
-	}
 }

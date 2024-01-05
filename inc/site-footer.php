@@ -1,41 +1,33 @@
 <?php
 
 
-/**
- * Footer above
- *
- */
+/*************************
+ * Actions sur le footer
+ **************************/
 
-//add_action('tha_footer_before','kasutan_footer_before');
-function kasutan_footer_before() {
-	if(!function_exists('get_field')) {
+add_action( 'tha_footer_top', 'kasutan_footer_icones',10 );
+add_action( 'tha_footer_top', 'kasutan_footer_social',20 );
+add_action( 'tha_footer_top', 'kasutan_footer_sitemap',30 );
+add_action( 'tha_footer_top', 'kasutan_footer_confidentialite',40 );
+add_action( 'tha_footer_top', 'kasutan_footer_paiement',50 );
+add_action( 'tha_footer_top', 'kasutan_footer_liens',60 );
+
+
+/*************************
+ * Icones avantages
+ **************************/
+function kasutan_footer_icones() {
+	if(!function_exists('have_rows') || !have_rows('lapeyre_footer_icones','options')) {
 		return;
 	}
-}
+	echo '<ul class="avantages">';
+		while(have_rows('lapeyre_footer_icones','options')) : the_row();
+			$image=esc_attr(get_sub_field('image'));
+			$titre=wp_kses_post(get_sub_field('titre'));
+			$sous_titre=wp_kses_post(get_sub_field('sous-titre'));
 
-/**
- * Footer top
- *
- */
+			printf('<li class="avantage">%s <strong>%s</strong> <span>%s</span></li>',wp_get_attachment_image($image),$titre,$sous_titre);
 
-add_action( 'tha_footer_top', 'kasutan_main_footer' );
-function kasutan_main_footer() {
-
-
-	echo '<div class="main-footer">';
-
-		echo '<code>Footer à intégrer</code>';
-
-	echo '</div>';
-}
-
-
-/**
-* Footer bottom
-*
-*/
-//add_action( 'tha_footer_bottom', 'kasutan_copyright' );
-function kasutan_copyright() {
-
-	
+		endwhile;
+	echo '</ul>';
 }

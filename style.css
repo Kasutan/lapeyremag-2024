@@ -2053,10 +2053,14 @@ form.search-form.search-header, .pictos-header .magasin {
   justify-content: flex-end;
 }
 .pictos-header a {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2rem;
   align-items: center;
   display: flex;
   margin-right: 1.4rem;
   position: relative;
+  text-decoration: none;
 }
 .pictos-header a::after {
   background-color: var(--gris-300);
@@ -2079,19 +2083,32 @@ form.search-form.search-header, .pictos-header .magasin {
 @media (min-width: 1024px) {
   .main-header {
     --taille-logo:21.3rem;
-    grid-template-columns: var(--taille-logo) 1fr auto;
+    grid-template-columns: var(--taille-logo) 1fr 43rem;
     grid-template-rows: auto auto;
     padding: 0;
   }
-  form.search-form.search-header, .pictos-header .magasin {
+  form.search-form.search-header {
+    display: flex;
+  }
+  .nav-main {
+    grid-column: 1/span 3;
+    grid-row: 2;
+  }
+  .pictos-header {
+    padding-right: 4.4rem;
+  }
+  .pictos-header .magasin {
     display: flex;
   }
   .pictos-header .label-compte {
     display: inline-block;
   }
-  .nav-main {
-    grid-column: 1/span 3;
-    grid-row: 2;
+  .pictos-header span {
+    margin-left: 8px;
+  }
+  .pictos-header svg {
+    position: relative;
+    top: -1px;
   }
 }
 body {

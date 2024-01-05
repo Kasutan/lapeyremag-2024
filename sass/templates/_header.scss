@@ -77,10 +77,13 @@ form.search-form.search-header, .pictos-header .magasin {
 	display: flex;
 	justify-content: flex-end;
 	a {
+		@include font-body-m;
 		align-items: center;
 		display: flex;
 		margin-right:1.4rem;
 		position: relative;
+		text-decoration: none;
+
 		&::after {
 			background-color: var(--gris-300);
 			content:' ';
@@ -106,22 +109,36 @@ form.search-form.search-header, .pictos-header .magasin {
 @include bp(lg) {
 	.main-header {
 		--taille-logo:21.3rem;
-		grid-template-columns: var(--taille-logo) 1fr auto;
+		grid-template-columns: var(--taille-logo) 1fr 43rem;
 		grid-template-rows:auto auto;
 		padding:0;
 	}
 
-	form.search-form.search-header, .pictos-header .magasin {
+	form.search-form.search-header {
 		display: flex;
-	}
-
-	.pictos-header .label-compte {
-		display: inline-block;
 	}
 
 	.nav-main {
 		grid-column: 1 / span 3;
 		grid-row:2;
+	}
+
+	.pictos-header {
+		padding-right: 4.4rem;
+		
+		.magasin {
+			display: flex;
+		}
+		.label-compte {
+			display: inline-block;
+		}
+		span {
+			margin-left: 8px;
+		}
+		svg {
+			position: relative;
+			top:-1px;
+		}
 	}
 
 	

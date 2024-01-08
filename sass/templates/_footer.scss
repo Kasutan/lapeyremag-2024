@@ -1,8 +1,7 @@
-/*--------------------------------------------------------------
-## Footer
---------------------------------------------------------------*/
 .site-footer {
-
+/*--------------------------------------------------------------
+*	Avantages
+--------------------------------------------------------------*/
 	.avantages {
 		column-gap:1.2rem;
 		display:grid;
@@ -40,6 +39,9 @@
 		}
 	}
 
+/*--------------------------------------------------------------
+*	Social / Suivez-nous
+--------------------------------------------------------------*/
 	.social {
 		background-color: var(--beige-clair);
 		padding:var(--padding-y-2) var(--padding-x);
@@ -55,6 +57,9 @@
 		
 	}
 
+/*--------------------------------------------------------------
+*	Main footer
+--------------------------------------------------------------*/
 	.main-footer {
 		background-color: var(--beige);
 		padding:2rem var(--padding-x);
@@ -117,5 +122,71 @@
 			margin-top: 0;
 		}
 	}
+	
+/*--------------------------------------------------------------
+*	Sitemap (dans main footer)
+--------------------------------------------------------------*/
 
+	.sitemap {
+		.titre-col {
+			display: none;
+		}
+		.col {
+			border-bottom:solid 1px var(--gris-500);
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 1.6rem;
+
+			&:last-of-type {
+				border-bottom: none;
+			}
+
+			a {
+				font-weight: 400;
+				margin-bottom: 1.6rem;
+				text-decoration: none;
+				&:hover, &:focus {
+					color:var(--texte);
+					text-decoration: underline;
+				}
+			}
+			
+		}
+		.toggle-col {
+			align-items: center;
+			border:none;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 1.6rem;
+			padding:0;
+			width:100%;
+
+			svg {
+				transition:all var(--transition);
+			}
+
+
+			&:hover,&:focus {
+				background-color:transparent;
+				color:var(--bleu-tres-fonce);
+				svg path {
+					fill:var(--bleu-tres-fonce);
+				}
+			}
+			
+			&[aria-expanded="true"] svg {
+				transform:rotateZ(180deg);
+			}
+		}
+
+		@include bp(lg) {
+			.titre-col {
+				@include font-body-l;
+				display: block;
+				margin-bottom: 1.6rem;
+				text-transform: uppercase;
+			}
+		}
+	}
 }
+

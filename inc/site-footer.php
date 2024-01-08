@@ -96,6 +96,9 @@ function kasutan_footer_sitemap() {
 		$titre=wp_kses_post($titres[$index_titre]);
 
 		printf('<div class="col-wrap">');
+			//Titre simple en desktop
+			printf('<p class="titre-col">%s</p>',$titre);
+			
 			//Bouton pour volet escamotable en mobile
 			printf('<button class="toggle-col" id="sitemap-toggle-%s" aria-expanded="true" aria-controls="sitemap-%s"><span>%s</span>',$i,$i,$titre);
 				if(function_exists('kasutan_picto')) {
@@ -103,8 +106,7 @@ function kasutan_footer_sitemap() {
 				}
 			echo '</button>';
 
-			//Titre simple en desktop
-			printf('<p class="titre-col">%s</p>',$titre);
+			
 
 			printf('<nav class="col col-%s" id="sitemap-%s">',$i,$i,$i);
 

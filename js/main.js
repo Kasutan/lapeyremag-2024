@@ -81,6 +81,37 @@
 		});
 
 
+		/********* Ouvrir-fermer les colonnes du sitemap **********/
+		//En mobile uniquement 
+		if(width < 768) {
+			var toggleCol=$('.sitemap .toggle-col');
+			var cols=$('.sitemap .col');
+
+			//Au chargement de la page, fermer toutes les colonnes en JS
+			$(toggleCol).attr('aria-expanded','false');
+			$(cols).slideUp();
+			
+			if(toggleCol.length>0) {
+				toggleCol.click(function(e) {
+					var col=$('#'+$(this).attr('aria-controls'));
+
+					if($(this).attr('aria-expanded')==='true') {
+						//le sous-menu était ouvert, on le referme
+						$(this).attr('aria-expanded','false');
+						$(col).slideUp();
+					} else {
+						//on referme toutes les colonnes
+						$(toggleCol).attr('aria-expanded','false');
+						$(cols).slideUp();
+
+						//on ouvre la colonne demandée
+						$(this).attr('aria-expanded','true');
+						$(col).slideDown();
+					}
+				});
+			}
+		}
+		
 
 		
 		

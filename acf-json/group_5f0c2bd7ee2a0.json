@@ -499,6 +499,34 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_659c3df5fd45c",
+            "label": "Footer : logos des moyens de paiement",
+            "name": "lapeyre_footer_paiement",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "Au format PNG, images blanches",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -519,5 +547,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704732197
+    "modified": 1704738346
 }

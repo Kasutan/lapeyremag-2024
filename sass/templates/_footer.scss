@@ -216,5 +216,53 @@
 		}
 		
 	}
+
+/*************************
+ * Logos paiement
+ **************************/
+	.paiement {
+		background-color: var(--gris-800);
+		overflow-x: auto;
+		padding:3.2rem var(--padding-x);
+
+		.logos-wrap {
+			align-items: center;
+			display: flex;
+			justify-content: flex-start;
+		}
+		img {
+			flex-grow:0;
+			height:1.6rem;
+				//Hack grossir certains logos
+				//TODO se baser sur l'attribut alt ?
+				&:nth-of-type(2),&:nth-of-type(5) {
+					height:2.6rem;
+				}
+			object-fit: contain;
+			margin-right: 2.4rem;
+			width:auto;
+		}
+
+		.spacer {
+			flex:0 0 3rem;
+			height:3rem;
+			width:3rem;
+		}
+
+		@media screen and (min-width:370px) {
+			.logos-wrap {
+				justify-content: center;
+			}
+			img {
+				&:last-child {
+					margin-right: 0;
+				}
+				
+			}
+			.spacer {
+				display: none;
+			}
+		}
+	}
 }
 

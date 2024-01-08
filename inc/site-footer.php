@@ -98,7 +98,7 @@ function kasutan_footer_sitemap() {
 		printf('<div class="col-wrap">');
 			//Titre simple en desktop
 			printf('<p class="titre-col">%s</p>',$titre);
-			
+
 			//Bouton pour volet escamotable en mobile
 			printf('<button class="toggle-col" id="sitemap-toggle-%s" aria-expanded="true" aria-controls="sitemap-%s"><span>%s</span>',$i,$i,$titre);
 				if(function_exists('kasutan_picto')) {
@@ -200,7 +200,17 @@ function kasutan_footer_paiement() {
 	if(!function_exists('get_field')) {
 		return;
 	}
-	echo '<div><p>Logos paiement ici</p></div>';
+	$logos=get_field('lapeyre_footer_paiement','options');
+	if(empty($logos)) {
+		return;
+	}
+
+	echo '<div class="paiement"><div class="logos-wrap">';
+		foreach($logos as $logo) {
+			echo wp_get_attachment_image($logo, 'small');
+		}
+		echo '<div class="spacer"></div>';
+	echo '</div></div>';
 }
 
 

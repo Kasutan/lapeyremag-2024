@@ -90,7 +90,8 @@
 			//Au chargement de la page, fermer toutes les colonnes en JS
 			$(toggleCol).attr('aria-expanded','false');
 			$(cols).slideUp();
-			
+
+
 			if(toggleCol.length>0) {
 				toggleCol.click(function(e) {
 					var col=$('#'+$(this).attr('aria-controls'));
@@ -111,6 +112,28 @@
 				});
 			}
 		}
+
+		/********* Ajustements quand on redimensionne la fenêtre **********/
+		
+		
+		function ajusteOnResize() {
+			var newWidth=window.innerWidth;
+			if(newWidth > 768) {
+				//Montrer toutes les colonnes du sitemap
+				$('.sitemap .col').show();
+			} else {
+				//Refermer toutes les colonnes du sitemap qui devraient être fermées
+				$('.sitemap .col').each(function() {
+					var control=$(this).siblings('.toggle-col');
+					if($(control).attr('aria-expanded')==="false") {
+						$(this).slideUp();
+					}
+				})
+
+			}
+		}
+		
+		window.onresize = ajusteOnResize;
 		
 
 	}); //fin document ready

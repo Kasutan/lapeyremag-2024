@@ -2206,9 +2206,20 @@ body {
   }
 }
 
-/*--------------------------------------------------------------
-## Footer
---------------------------------------------------------------*/
+.site-footer {
+  /*--------------------------------------------------------------
+  *	Avantages
+  --------------------------------------------------------------*/
+  /*--------------------------------------------------------------
+  *	Social / Suivez-nous
+  --------------------------------------------------------------*/
+  /*--------------------------------------------------------------
+  *	Main footer
+  --------------------------------------------------------------*/
+  /*--------------------------------------------------------------
+  *	Sitemap (dans main footer)
+  --------------------------------------------------------------*/
+}
 .site-footer .avantages {
   column-gap: 1.2rem;
   display: grid;
@@ -2314,6 +2325,59 @@ body {
 @media (min-width: 1024px) {
   .site-footer .bouton.pro {
     margin-top: 0;
+  }
+}
+.site-footer .sitemap .titre-col {
+  display: none;
+}
+.site-footer .sitemap .col {
+  border-bottom: solid 1px var(--gris-500);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.6rem;
+}
+.site-footer .sitemap .col:last-of-type {
+  border-bottom: none;
+}
+.site-footer .sitemap .col a {
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  text-decoration: none;
+}
+.site-footer .sitemap .col a:hover, .site-footer .sitemap .col a:focus {
+  color: var(--texte);
+  text-decoration: underline;
+}
+.site-footer .sitemap .toggle-col {
+  align-items: center;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+  padding: 0;
+  width: 100%;
+}
+.site-footer .sitemap .toggle-col svg {
+  transition: all var(--transition);
+}
+.site-footer .sitemap .toggle-col:hover, .site-footer .sitemap .toggle-col:focus {
+  background-color: transparent;
+  color: var(--bleu-tres-fonce);
+}
+.site-footer .sitemap .toggle-col:hover svg path, .site-footer .sitemap .toggle-col:focus svg path {
+  fill: var(--bleu-tres-fonce);
+}
+.site-footer .sitemap .toggle-col[aria-expanded=true] svg {
+  transform: rotateZ(180deg);
+}
+@media (min-width: 1024px) {
+  .site-footer .sitemap .titre-col {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 2rem;
+    display: block;
+    margin-bottom: 1.6rem;
+    text-transform: uppercase;
   }
 }
 

@@ -70,8 +70,87 @@ function kasutan_footer_sitemap() {
 	if(!function_exists('get_field')) {
 		return;
 	}
-	//Attention escamotables en mobile
-	echo '<div><p>Sitemap ici</p></div>';
+
+	//Elements obtenus par API
+	$sitemap=get_option('lapeyre_headers_sitemap',false);
+	$produits=get_option('lapeyre_headers_produits',false);
+	$nav_header=get_option('lapeyre_headers_navigation1',false); //Pour le lien promotion
+
+	//Titres statiques saisis dans page option en BO
+	$titres=get_field('lapeyre_footer_cols','options');
+
+	//Pour afficher le sitemap on a besoin des titres et d'au moins une colonne
+	if((empty($sitemap) && empty($produits)) || empty($titres)) {
+		return;
+	}
+	
+	echo '<div class="sitemap">';
+
+	
+	for($i=1;$i<=4;$i++) {
+		$index_titre='titre_'.$i;
+		$index_col=$i-2;
+		if(empty($titres[$index_titre])) {
+			continue;
+		}
+		$titre=wp_kses_post($titres[$index_titre]);
+
+		printf('<div class="col-wrap">');
+			//Bouton pour volet escamotable en mobile
+			printf('<button class="toggle-col" id="sitemap-toggle-%s" aria-expanded="true" aria-controls="sitemap-%s"><span>%s</span>',$i,$i,$titre);
+				if(function_exists('kasutan_picto')) {
+					echo kasutan_picto(array('icon'=>'chevron-bas'));
+				}
+			echo '</button>';
+
+			//Titre simple en desktop
+			printf('<p class="titre-col">%s</p>',$titre);
+
+			printf('<nav class="col col-%s" id="sitemap-%s">',$i,$i,$i);
+
+			if($i===1) {
+
+				//Parmi la navigation du header, on affiche ici ceux dont la classe est Promo
+				foreach($nav_header as $lien) {
+					if($lien->class==="Promo") {
+						printf('<a href="%s" class="Promo">%s</a>',$lien->href,$lien->text);
+					}
+				}
+
+				if(!empty($produits)) {
+					foreach($produits as $produit) {
+						printf('<a href="%s">%s</a>',$produit->permalink,$produit->name);
+					}
+				}
+
+			} else if(!empty($sitemap[$index_col])){
+				$liens=$sitemap[$index_col];
+
+				foreach($liens as $lien) {
+					$attr='';
+
+					if($lien->target != "none") {
+						$attr='target="_blanc" rel="noopener noreferrer"';
+					}
+
+					printf('<a href="%s" %s>%s</a>',$lien->href,$attr,$lien->text);
+				}
+			}
+
+
+			
+
+
+			echo '</nav>';
+
+
+		echo '</div>';
+
+		$col1=false;
+	}
+
+
+	echo '</div>';
 }
 
 /*************************

@@ -2230,6 +2230,9 @@ body {
   /*************************
    * Logos paiement
    **************************/
+  /*************************
+   * Copyright et Liens
+   **************************/
 }
 .site-footer .avantages {
   column-gap: 1.2rem;
@@ -2456,6 +2459,32 @@ body {
   .site-footer .paiement .spacer {
     display: none;
   }
+}
+.site-footer .bottom-footer {
+  background-color: var(--texte);
+  padding: 3.2rem 2rem 1.6rem;
+}
+.site-footer .bottom-footer .liens-wrap {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 78rem;
+}
+.site-footer .bottom-footer span, .site-footer .bottom-footer a {
+  color: var(--blanc);
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  margin: 0 1.2rem 1.6rem;
+}
+.site-footer .bottom-footer a {
+  font-weight: 400;
+  text-decoration: none;
+}
+.site-footer .bottom-footer a:hover, .site-footer .bottom-footer a:focus {
+  color: var(--blanc);
+  text-decoration: underline;
 }
 
 .loop {

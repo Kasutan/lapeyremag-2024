@@ -218,8 +218,22 @@ function kasutan_footer_paiement() {
  * Copyright et Liens
  **************************/
 function kasutan_footer_liens() {
-	if(!function_exists('get_field')) {
-		return;
-	}
-	echo '<div><p>Copyright et liens</p></div>';
+	//Elements obtenus par API
+	$liens=get_option('lapeyre_headers_footer_links',false);
+
+	echo '<div class="bottom-footer"><div class="liens-wrap">';
+		printf('<span><strong>&copy;%s Lapeyre</strong></span>',date('Y'));
+		if(!empty($liens)) {
+			foreach($liens as $lien) {
+				$attr='';
+
+				if($lien->target != "none") {
+					$attr='target="_blanc" rel="noopener noreferrer"';
+				}
+
+				printf('<a href="%s" %s>%s</a>',$lien->href,$attr,$lien->text);
+			}
+		}
+
+	echo '</div></div>';
 }

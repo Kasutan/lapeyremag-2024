@@ -2064,6 +2064,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 .main-header {
   --taille-logo:12.6rem;
   align-items: center;
+  background-color: var(--blanc);
   display: grid;
   grid-template-columns: 1fr var(--taille-logo) 1fr;
   padding: 0 2.3rem;
@@ -2145,14 +2146,22 @@ form.search-form.search-header, .pictos-header .magasin {
 /*--------------------------------------------------------------
 ## Header sticky au scroll vers le haut
 --------------------------------------------------------------*/
-body {
-  --hauteur-header:129px;
+:root {
+  --hauteur-header:89px;
 }
+
+.site-header {
+  top: 0;
+  transition: transform 0.2s linear;
+}
+
 .js-sticky-header .site-header {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
+  transform: translateY(var(--hauteur-header));
+  top: calc(-1 * var(--hauteur-header));
 }
 @media (min-width: 1920px) {
   .js-sticky-header .site-header {
@@ -2160,17 +2169,20 @@ body {
     width: var(--largeur-max);
   }
 }
+.js-sticky-header .site-inner {
+  margin-top: var(--hauteur-header);
+}
 
 #wpadminbar {
   position: fixed;
 }
 
 .admin-bar.js-sticky-header .site-header {
-  top: 46px;
+  top: calc(-1 * var(--hauteur-header) + 46px);
 }
 @media (min-width: 768px) {
   .admin-bar.js-sticky-header .site-header {
-    top: 32px;
+    top: calc(-1 * var(--hauteur-header) + 32px);
   }
 }
 

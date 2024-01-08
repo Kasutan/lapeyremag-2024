@@ -61,6 +61,7 @@
 .main-header {
 	--taille-logo:12.6rem;
 	align-items: center;
+	background-color: var(--blanc);
 	display: grid;
 	grid-template-columns: 1fr var(--taille-logo) 1fr;
 	padding:0 2.3rem;
@@ -151,35 +152,46 @@ form.search-form.search-header, .pictos-header .magasin {
 ## Header sticky au scroll vers le haut
 --------------------------------------------------------------*/
 
-//Magic numbers
-body {
-	--hauteur-header:129px;
-	@include bp(lg) {
-	}
-	@include bp(xl) {
-	}
+:root {
+	--hauteur-header:89px;
 }
-
-.js-sticky-header .site-header {
-	//TODO animer ?
-	position:fixed;
-	left: 0;
-	top: 0;
-	width:100%;
-
-	@include bp(xxl) {
-		left:calc((100vw - var(--largeur-max))/2);
-		width:var(--largeur-max);
-	}
+.site-header {
+	top:0;
+	transition: transform .2s linear;
 }
+.js-sticky-header {
+	.site-header {
+		position:fixed;
+		left: 0;
+		top: 0;
+		width:100%;
+	
+		transform: translateY(var(--hauteur-header));
+		top: calc(-1 * var(--hauteur-header));
+	
+		@include bp(xxl) {
+			left:calc((100vw - var(--largeur-max))/2);
+			width:var(--largeur-max);
+		}
+	}
 
+	.site-inner {
+		margin-top:var(--hauteur-header);
+	}
+	
+}
 #wpadminbar {
 	position: fixed;
 }
-.admin-bar.js-sticky-header .site-header {
-	top:46px;
+.admin-bar.js-sticky-header {
+	.site-header {
+		top:calc(-1 * var(--hauteur-header) + 46px);
+	}
+	
 	@include bp(md) {
-		top:32px;
+		.site-header {
+			top:calc(-1 * var(--hauteur-header) + 32px);
+		}
 	}
 }	
 

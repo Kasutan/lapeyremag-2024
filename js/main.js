@@ -2,8 +2,7 @@
 
 	$( document ).ready(function() {
 		var width=$(window).width();
-
-
+		
 		/****Défilement du bandeau supérieur */
 		var messages=$('.bandeau-header li');
 		if(messages.length>1) {
@@ -62,19 +61,23 @@
 
 		var lastScrollTop = 0, delta = 5;
 		var header=$('.site-header');
-		var inner=$('.site-inner');
 		var headerHeight=$(header).outerHeight();
+
+		let root = document.documentElement;
+		root.style.setProperty('--hauteur-header',headerHeight+'px');
+
 		$(window).scroll(function(){
 			var nowScrollTop = $(this).scrollTop();
-			if(Math.abs(lastScrollTop - nowScrollTop) >= delta){
+			if(nowScrollTop < headerHeight ) {
+				$('body').removeClass('js-sticky-header');
+			} else if(Math.abs(lastScrollTop - nowScrollTop) >= delta){
 				if (nowScrollTop > lastScrollTop){
 					//Scrolling down
+					//Si on avait déjà collé le header, on le décolle
 					$('body').removeClass('js-sticky-header');
-					$(inner).css('margin-top',0);
 				} else {
 					//Scrolling up
 					$('body').addClass('js-sticky-header');
-					$(inner).css('margin-top',headerHeight+'px');
 				}
 			lastScrollTop = nowScrollTop;
 			}
@@ -131,6 +134,10 @@
 				})
 
 			}
+
+			//Ajuster aussi hauteur header
+			headerHeight=$(header).outerHeight();
+			root.style.setProperty('--hauteur-header',headerHeight+'px');
 		}
 		
 		window.onresize = ajusteOnResize;

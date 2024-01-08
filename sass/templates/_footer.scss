@@ -62,7 +62,7 @@
 --------------------------------------------------------------*/
 	.main-footer {
 		background-color: var(--beige);
-		padding:2rem var(--padding-x);
+		padding:2rem var(--padding-x-lg);
 
 		& > div {
 			padding:4rem 0;
@@ -73,7 +73,7 @@
 
 		--g:3rem;
 		@include bp(lg) {
-			padding:0 var(--padding-x);
+			padding:0 var(--padding-x-lg);
 			& > div {
 				padding:6rem 0;
 			}
@@ -131,16 +131,16 @@
 		.titre-col {
 			display: none;
 		}
-		.col {
+		.col-wrap {
 			border-bottom:solid 1px var(--gris-500);
-			display: flex;
-			flex-direction: column;
 			margin-bottom: 1.6rem;
-
 			&:last-of-type {
 				border-bottom: none;
 			}
-
+		}
+		.col {
+			display: flex;
+			flex-direction: column;
 			a {
 				font-weight: 400;
 				margin-bottom: 1.6rem;
@@ -179,7 +179,20 @@
 			}
 		}
 
-		@include bp(lg) {
+		@include bp(md) {
+			column-gap:2.4rem;
+			display: grid;
+			grid-template-columns: repeat(2,1fr);
+
+			.col-wrap {
+				&:nth-of-type(3) {
+					border-bottom: none;
+				}
+			}
+
+			.toggle-col {
+				display: none;
+			}
 			.titre-col {
 				@include font-body-l;
 				display: block;
@@ -187,6 +200,21 @@
 				text-transform: uppercase;
 			}
 		}
+
+		@include bp(lg) {
+			grid-template-columns: repeat(4,1fr);
+			.col-wrap {
+				border-bottom:none;
+				margin-bottom: 0;
+			}
+			.col a {
+				@include font-body-m;
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+		}
+		
 	}
 }
 

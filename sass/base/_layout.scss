@@ -15,6 +15,7 @@ body {
 	--padding-y-2: 6rem;
 	--padding-x:2.5rem;
 	--padding-x-pleine-largeur:0;
+	--padding-x-lg:var(--padding-x);
 	--largeur-max:1920px;
 	--hauteur-h1:84px;
 
@@ -37,10 +38,17 @@ body {
 	@include bp(lg) {
 		--padding-x: calc(50vw - 930px/2);
 		--margin-y:9rem;
+		--padding-x-lg:4.6vw;
+	}
+
+	@include bp(xl) {
+		--padding-x-lg: calc(50vw - 1120px/2);
+
 	}
 
 	@include bp(xxl) {
 		--padding-x: calc((var(--largeur-max) - 930px)/2);
+		--padding-x-lg: calc((var(--largeur-max) - 1120px)/2);
 		--padding-x-pleine-largeur : calc(50vw - var(--largeur-max)/2);
 	}
 }

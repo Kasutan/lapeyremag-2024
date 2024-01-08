@@ -113,9 +113,6 @@
 		}
 		
 
-		
-		
-
 	}); //fin document ready
 })( jQuery );
 

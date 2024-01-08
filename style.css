@@ -765,6 +765,7 @@ body {
   --padding-y-2: 6rem;
   --padding-x:2.5rem;
   --padding-x-pleine-largeur:0;
+  --padding-x-lg:var(--padding-x);
   --largeur-max:1920px;
   --hauteur-h1:84px;
   /*Valeurs en dur pour les navigateurs qui ne supportent pas clamp*/
@@ -785,11 +786,18 @@ body {
   :root {
     --padding-x: calc(50vw - 930px/2);
     --margin-y:9rem;
+    --padding-x-lg:4.6vw;
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+    --padding-x-lg: calc(50vw - 1120px/2);
   }
 }
 @media (min-width: 1920px) {
   :root {
     --padding-x: calc((var(--largeur-max) - 930px)/2);
+    --padding-x-lg: calc((var(--largeur-max) - 1120px)/2);
     --padding-x-pleine-largeur: calc(50vw - var(--largeur-max)/2);
   }
 }
@@ -2272,7 +2280,7 @@ body {
 }
 .site-footer .main-footer {
   background-color: var(--beige);
-  padding: 2rem var(--padding-x);
+  padding: 2rem var(--padding-x-lg);
   --g:3rem;
 }
 .site-footer .main-footer > div {
@@ -2283,7 +2291,7 @@ body {
 }
 @media (min-width: 1024px) {
   .site-footer .main-footer {
-    padding: 0 var(--padding-x);
+    padding: 0 var(--padding-x-lg);
   }
   .site-footer .main-footer > div {
     padding: 6rem 0;
@@ -2330,14 +2338,16 @@ body {
 .site-footer .sitemap .titre-col {
   display: none;
 }
-.site-footer .sitemap .col {
+.site-footer .sitemap .col-wrap {
   border-bottom: solid 1px var(--gris-500);
-  display: flex;
-  flex-direction: column;
   margin-bottom: 1.6rem;
 }
-.site-footer .sitemap .col:last-of-type {
+.site-footer .sitemap .col-wrap:last-of-type {
   border-bottom: none;
+}
+.site-footer .sitemap .col {
+  display: flex;
+  flex-direction: column;
 }
 .site-footer .sitemap .col a {
   font-weight: 400;
@@ -2370,7 +2380,18 @@ body {
 .site-footer .sitemap .toggle-col[aria-expanded=true] svg {
   transform: rotateZ(180deg);
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
+  .site-footer .sitemap {
+    column-gap: 2.4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .site-footer .sitemap .col-wrap:nth-of-type(3) {
+    border-bottom: none;
+  }
+  .site-footer .sitemap .toggle-col {
+    display: none;
+  }
   .site-footer .sitemap .titre-col {
     font-size: 1.4rem;
     font-weight: 700;
@@ -2378,6 +2399,23 @@ body {
     display: block;
     margin-bottom: 1.6rem;
     text-transform: uppercase;
+  }
+}
+@media (min-width: 1024px) {
+  .site-footer .sitemap {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .site-footer .sitemap .col-wrap {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .site-footer .sitemap .col a {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+  }
+  .site-footer .sitemap .col a:last-of-type {
+    margin-bottom: 0;
   }
 }
 

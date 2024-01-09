@@ -181,15 +181,7 @@ class BE_ACF_Customizations {
 		if( ! function_exists('acf_register_block_type') )
 			return;
 
-		/*********Bloc carrousel-livres ***************/
-		$this->helper_register_block_type( 
-			'carrousel',
-			'Bloc carrousel d\'articles',
-			'Section avec titre et carrousel d\'articles et diverses options (TODO)',
-			'tagcloud', 
-			true, //besoin de JS pour le carrousel
-			array('carrousel','slider')
-		);
+		
 		
 	}
 }

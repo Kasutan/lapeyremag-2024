@@ -12,6 +12,7 @@
 $balise_vignette='li';
 $balise_titre='h2';
 $featured=false;
+$index=1;
 if(!empty($args)) {
 	if(array_key_exists('tag',$args)) {
 		$balise_vignette=$args['tag'];
@@ -22,8 +23,10 @@ if(!empty($args)) {
 	if(array_key_exists('featured',$args)) {
 		$featured=$args['featured'];
 	}
+	if(array_key_exists('index',$args)) {
+		$index=$args['index'];
+	}
 }
-
 if($balise_vignette==='div') {
 	//on est dans le carousel
 	$balise_titre='h3';
@@ -66,7 +69,7 @@ if($infos['child_name']) {
 }
 
 
-printf('<%s class="%s">',$balise_vignette,$class);
+printf('<%s class="%s" data-index="%s">',$balise_vignette,$class,$index);
 
 	
 	printf('<a href="%s" class="lien">',$url);

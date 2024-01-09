@@ -1,0 +1,40 @@
+/*--------------------------------------------------------------
+# Variables couleurs
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins styles de textes
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins boutons
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins layout
+--------------------------------------------------------------*/
+.acf-featured {
+  --pt:6rem;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--beige);
+  padding: var(--pt) var(--padding-x-lg);
+}
+@media (min-width: 1920px) {
+  .acf-featured {
+    width: var(--largeur-max);
+  }
+}
+.acf-featured .titre-section {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+.acf-featured .vignette.featured {
+  margin-bottom: 2rem;
+}
+@media (min-width: 1024px) {
+  .acf-featured {
+    --pt:8rem;
+  }
+}

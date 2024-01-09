@@ -181,7 +181,15 @@ class BE_ACF_Customizations {
 		if( ! function_exists('acf_register_block_type') )
 			return;
 
-		
+		/*********Bloc featured***************/
+		$this->helper_register_block_type( 
+			'featured',
+			'Bloc à la une (accueil)',
+			'Section avec titre et 4 articles à la une (un pleine largeur et trois en-dessous).',
+			'tagcloud', 
+			false,
+			array('featured','une','accueil')
+		);
 		
 	}
 }

@@ -1,0 +1,23 @@
+@import "./././sass/abstracts/variables-et-mixins";
+
+.acf-featured {
+	--pt:6rem;
+	@include bleed;
+	background-color: var(--beige);
+	padding:var(--pt) var(--padding-x-lg);
+
+	.titre-section {
+		margin-bottom: 4rem;
+		text-align: center;
+	}
+
+	.vignette.featured {
+		margin-bottom: 2rem;
+	}
+
+	//Styles du slider dans un composant SASS (réutilisés dans d'autres blocs)
+
+	@include bp(lg) {
+		--pt:8rem;
+	}
+}

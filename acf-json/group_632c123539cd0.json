@@ -1,14 +1,14 @@
 {
     "key": "group_632c123539cd0",
-    "title": "Bloc carrousel d'articles",
+    "title": "Bloc à la une (accueil)",
     "fields": [
         {
             "key": "field_654201c94b2ad",
-            "label": "Bloc carrousel d'articles",
+            "label": "Bloc à la une (accueil)",
             "name": "",
             "aria-label": "",
             "type": "accordion",
-            "instructions": "Section avec titre et carrousel d'articles pour la page d'accueil",
+            "instructions": "Section avec titre et 4 articles à la une (un pleine largeur et trois en-dessous).",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -27,7 +27,7 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -41,28 +41,33 @@
             "append": ""
         },
         {
-            "key": "field_6582cc72dabcd",
-            "label": "Univers",
-            "name": "univers",
+            "key": "field_659d957af6b66",
+            "label": "Articles",
+            "name": "posts",
             "aria-label": "",
-            "type": "taxonomy",
+            "type": "relationship",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "category",
-            "add_term": 0,
-            "save_terms": 0,
-            "load_terms": 0,
+            "post_type": [
+                "post"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
             "return_format": "id",
-            "field_type": "checkbox",
+            "min": "",
+            "max": 4,
+            "elements": "",
             "bidirectional": 0,
-            "multiple": 0,
-            "allow_null": 0,
             "bidirectional_target": []
         }
     ],
@@ -71,7 +76,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/carrousel"
+                "value": "acf\/featured"
             }
         ]
     ],
@@ -84,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1703070980
+    "modified": 1704826301
 }

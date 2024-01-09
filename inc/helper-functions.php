@@ -80,13 +80,11 @@ function kasutan_get_infos_cats($post_id='',$avec_couleur=false) {
 	}
 
 	$reponse['couleur']=false;
-
-	//TODO créer champ ACF et tester
 	if($avec_couleur && $reponse['parent_id'] && function_exists('get_field')) {
 		//on a demandé aussi la couleur associée à la catégorie parente
 		$couleur=get_field('couleur','category_'.$reponse['parent_id']);
 		if($couleur) {
-			$reponse['couleur']=false;
+			$reponse['couleur']=$couleur;
 		}
 	}
 

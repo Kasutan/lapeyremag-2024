@@ -75,10 +75,10 @@ function ea_post_summary_title() {
 }
 
 /**
- * Post Summary Image
+ * Affiche l'image vignette d'un article
  *
  */
-function kasutan_vignette_image( $size = 'medium' ) {
+function kasutan_vignette_image( $size = 'medium_large') {
 	/*On cherche une image à afficher*/ 
 	$image_id=get_theme_mod( 'custom_logo' ); //défaut : le logo du site
 	$classe='contain';
@@ -87,24 +87,41 @@ function kasutan_vignette_image( $size = 'medium' ) {
 		$classe='';
 	} else if(function_exists('get_field')) {
 
-		$banniere=get_field('lapeyremag_banniere_image');
+		$banniere=get_field('lapeyre_banniere_image');
 		if($banniere) {
 			$image_id=$banniere;
 			$classe='';
 		} else {
-			$logo=get_field('lapeyremag_logo_1','option');
 			if($logo) {
 				$image_id=$logo;
-				$classe='contain';
+				$classe='logo';
 			}
 		}
 	}
+
 
 	printf('<div class="vignette-image %s">%s</div>',
 		$classe,
 		wp_get_attachment_image( $image_id, $size )
 	);
 }
+
+/**
+ * Afficher le temps de lecture d'un article
+ */
+function kasutan_affiche_temps() {
+	$picto='';
+	if(function_exists('kasutan_picto')) {
+		$picto=sprintf('<span class="picto">%s</span>',kasutan_picto(array('icon'=>'horloge')));
+	}
+	$content=get_the_content();
+	$mots=str_word_count($content);
+	$temps=$mots / 200; // 200 mots par minute
+	$temps=round($temps);
+	printf('<p class="temps">%s <strong>%s min </strong>de temps de lecture</p>',$picto,$temps);
+
+}
+
 
 /**
  * Entry Author

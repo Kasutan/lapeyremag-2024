@@ -17,12 +17,14 @@
                 "id": ""
             },
             "choices": {
+                "rose": "rose",
+                "ocre": "ocre",
+                "jaune": "jaune",
+                "violet": "violet",
                 "bleu": "bleu",
-                "vert": "vert",
-                "orange": "orange",
-                "rouge": "rouge"
+                "sauge": "sauge"
             },
-            "default_value": "bleu",
+            "default_value": "sauge",
             "return_format": "value",
             "allow_null": 0,
             "other_choice": 0,
@@ -68,6 +70,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1703070810,
-    "local_file": "C:UsersofficLocal Siteslapeyreapppublic\/wp-content\/themes\/lapeyremag-2024\/acf-json\/group_6544c89f72143.json"
+    "modified": 1704809527
 }

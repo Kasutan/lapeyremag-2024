@@ -1,0 +1,145 @@
+//Vignette article pour pages archives (y compris recherche)
+.vignette {
+	border:solid 1px var(--gris-400);
+	border-radius:8px;
+	margin:0 auto; // par défaut. Les marges et les gaps sont ajoutés dans loop ou dans le bloc
+	max-width:36rem;
+	overflow:hidden;
+	position:relative;
+	text-decoration: none;
+	
+	a {
+		&.lien {
+			display: flex;
+			flex-direction: column;
+			height:100%;
+		}
+	
+		&, &:hover, &:focus {
+			color:var(--texte);
+			text-decoration: none;
+		}
+	}
+
+
+	.vignette-image {
+		height:20rem;
+		img {
+			height:100%;
+			object-fit: cover;
+			width:100%;
+		}
+		&.logo {
+			//fallback post sans thumbnail
+			img {
+				margin:auto;
+				object-fit: contain;
+				width:90%;
+			}
+		}
+	}
+
+	.texte {
+		background-color: var(--blanc);
+		padding: 2rem;
+	}
+
+	.tag {
+		@include font-caption-l;
+		padding:0.4rem 0.8rem;
+	}
+
+	.univers {
+		border-radius: 0;
+		border-bottom-right-radius: 8px;
+		color:var(--blanc);
+		left:0;
+		position: absolute;
+		top:0;
+	}
+
+	.type {
+		border:solid 1px var(--gris-300);
+		border-radius: 300px;
+	}
+
+	.titre {
+		@include font-headline-xxs;
+		margin-bottom: 1.2rem;
+		margin-top: 8px;
+		text-transform: unset;
+	}
+
+	.temps {
+		@include font-body-s;
+		align-items: center;
+		display: flex;
+		.picto {
+			margin-right: 6px;
+			width:2rem;
+		}
+		strong {
+			margin-right: 0.5ch;
+		}
+	}
+
+	//TODO déplacer dans le bloc à la une
+	&.featured {
+		height:40rem;
+		max-width:unset;
+		.vignette-image {
+			height:100%;
+		}
+		.texte {
+			background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+			color:var(--blanc);
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			left:0;
+			height: 100%;
+			position: absolute;
+			top:0;
+			width:100%;
+		}
+		.tags {
+			align-items: center;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.tag {
+			margin-right: 0.8rem;
+		}
+		.titre {
+			@include font-headline-m;
+			margin-bottom: 1.8rem;
+			max-width:72rem;
+			@include bp(lg) {
+				@include font-headline-xl;
+			}
+		}
+		.univers {
+			border-radius: 300px;
+			position: relative;
+		}
+		.temps {
+			@include font-body-l;
+			.picto {
+				margin-right: 8px;
+				width:2.4rem;
+				svg {
+					width:100%;
+					path {
+						fill:var(--blanc);
+					}
+				} 
+			}
+		} 
+
+	}
+
+	@include bp(lg) {
+		
+		
+	}
+}

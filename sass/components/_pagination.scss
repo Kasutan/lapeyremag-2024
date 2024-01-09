@@ -1,55 +1,81 @@
-.pagination {
+.pagination-wrap {
+	@include font-body-m;
 	align-items: center;
+	border-top: solid 1px var(--gris-600);
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	list-style:none;
-	padding:0 var(--padding-x);
-	margin:0 0 7rem;
+	padding:2rem 0 6rem;
+	margin:0 var(--padding-x-lg);
 
-	@include bp(lg) {
-		margin-bottom: 10.7rem;
-	}
-
-	li {
-		&::after {
-			color:var(--marron);
-			content: '-';
-			display: inline-block;
-			font-size: 2.5rem;
-			font-weight: 600;
-		}
-		&:last-of-type::after {
-			display: none;
+	.count {
+		align-items: center;
+		color:#5E6574;
+		display: flex;
+		strong {
+			color:var(--texte);
+			margin-right: 0.6ch;
 		}
 	}
-	a.page {
-		color:var(--marron);
-		font-size: 2.5rem;
-		font-weight: 600;
-		margin:0 0.5rem;
-		padding:0.5rem;
+
+	.pagination-list {
+		align-items: center;
+		color:var(--gris-600);
+		display: flex;
+		justify-content: center;
+	}
+	.pagination {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+	}
+
+	a.page, a.nav {
+		--c:2.4rem;
+		align-items: center;
+		background-color: transparent;
+		border-radius: 4px;
+		color:var(--gris-600);
+		display: flex;
+		font-weight: normal;
+		height:var(--c);
+		justify-content: center;
+		margin:0 0.4rem;
 		text-decoration: none;
+		width:var(--c);
 		&:hover, &:focus {
-			text-decoration: underline;
+			background-color: var(--bleu-fonce);
+			color:var(--blanc);
+			svg path {
+				fill:var(--blanc);
+			}
 		}
 		
 	}
 
 	li.active a {
-		font-weight: 800;
-		text-decoration: underline;
+		background-color: var(--bleu-fonce);
+		color:var(--blanc);
+		font-weight: 700;
 	}
 
-	li.disabled a {
+	li.disabled a.page, a.nav.disabled {
 		cursor: default;
 		&:hover, &:focus {
+			background-color: transparent;
 			border-color:transparent;
-			color:var(--marron);
+			color:var(--gris-600);
 			text-decoration: none;
+			svg path {
+				fill:#757575;
+			}
 		}
 	}
 
-	@include bp(xl) {
-		padding:0;
+	@include bp(lg) {
+		flex-direction: row-reverse;
+		padding-bottom: 8rem;
 	}
+
+	
 }

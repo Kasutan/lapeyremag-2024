@@ -2585,38 +2585,32 @@ form.search-form.search-header, .pictos-header .magasin {
 }
 
 .loop {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
   list-style: none;
-  padding-top: 3rem;
+  padding: 3.2rem 2rem 0;
 }
-@media (min-width: 1920px) {
+.loop .vignette {
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
   .loop {
-    width: var(--largeur-max);
+    column-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3.5rem var(--padding-x) 0;
+  }
+  .loop .vignette {
+    max-width: unset;
+    width: 100%;
   }
 }
 @media (min-width: 1024px) {
   .loop {
     display: grid;
-    grid-template-columns: repeat(4, 25%);
-    padding-top: 4.5rem;
-    margin-bottom: 4.6rem;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 4rem var(--padding-x-lg) 0;
   }
   .loop .vignette {
-    margin-bottom: 0;
-    max-width: 360px;
-    width: 100%;
-  }
-}
-@media (min-width: 1440px) {
-  .loop {
-    padding: 4.5rem calc((100vw - 1440px) / 2) 0;
-  }
-}
-@media (min-width: 1920px) {
-  .loop {
-    padding: 4.5rem 240px 0;
+    margin-bottom: 4rem;
   }
 }
 
@@ -2969,55 +2963,80 @@ section.no-results .entry-title {
   }
 }
 
-.pagination {
+.pagination-wrap {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2rem;
+  align-items: center;
+  border-top: solid 1px var(--gris-600);
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 2rem 0 6rem;
+  margin: 0 var(--padding-x-lg);
+}
+.pagination-wrap .count {
+  align-items: center;
+  color: #5E6574;
+  display: flex;
+}
+.pagination-wrap .count strong {
+  color: var(--texte);
+  margin-right: 0.6ch;
+}
+.pagination-wrap .pagination-list {
+  align-items: center;
+  color: var(--gris-600);
+  display: flex;
+  justify-content: center;
+}
+.pagination-wrap .pagination {
   align-items: center;
   display: flex;
   justify-content: center;
-  list-style: none;
-  padding: 0 var(--padding-x);
-  margin: 0 0 7rem;
 }
-@media (min-width: 1024px) {
-  .pagination {
-    margin-bottom: 10.7rem;
-  }
-}
-.pagination li::after {
-  color: var(--marron);
-  content: "-";
-  display: inline-block;
-  font-size: 2.5rem;
-  font-weight: 600;
-}
-.pagination li:last-of-type::after {
-  display: none;
-}
-.pagination a.page {
-  color: var(--marron);
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin: 0 0.5rem;
-  padding: 0.5rem;
+.pagination-wrap a.page, .pagination-wrap a.nav {
+  --c:2.4rem;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 4px;
+  color: var(--gris-600);
+  display: flex;
+  font-weight: normal;
+  height: var(--c);
+  justify-content: center;
+  margin: 0 0.4rem;
   text-decoration: none;
+  width: var(--c);
 }
-.pagination a.page:hover, .pagination a.page:focus {
-  text-decoration: underline;
+.pagination-wrap a.page:hover, .pagination-wrap a.page:focus, .pagination-wrap a.nav:hover, .pagination-wrap a.nav:focus {
+  background-color: var(--bleu-fonce);
+  color: var(--blanc);
 }
-.pagination li.active a {
-  font-weight: 800;
-  text-decoration: underline;
+.pagination-wrap a.page:hover svg path, .pagination-wrap a.page:focus svg path, .pagination-wrap a.nav:hover svg path, .pagination-wrap a.nav:focus svg path {
+  fill: var(--blanc);
 }
-.pagination li.disabled a {
+.pagination-wrap li.active a {
+  background-color: var(--bleu-fonce);
+  color: var(--blanc);
+  font-weight: 700;
+}
+.pagination-wrap li.disabled a.page, .pagination-wrap a.nav.disabled {
   cursor: default;
 }
-.pagination li.disabled a:hover, .pagination li.disabled a:focus {
+.pagination-wrap li.disabled a.page:hover, .pagination-wrap li.disabled a.page:focus, .pagination-wrap a.nav.disabled:hover, .pagination-wrap a.nav.disabled:focus {
+  background-color: transparent;
   border-color: transparent;
-  color: var(--marron);
+  color: var(--gris-600);
   text-decoration: none;
 }
-@media (min-width: 1440px) {
-  .pagination {
-    padding: 0;
+.pagination-wrap li.disabled a.page:hover svg path, .pagination-wrap li.disabled a.page:focus svg path, .pagination-wrap a.nav.disabled:hover svg path, .pagination-wrap a.nav.disabled:focus svg path {
+  fill: #757575;
+}
+@media (min-width: 1024px) {
+  .pagination-wrap {
+    flex-direction: row-reverse;
+    padding-bottom: 8rem;
   }
 }
 

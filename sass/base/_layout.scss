@@ -39,9 +39,8 @@ body {
 		--hauteur-banniere : 400px; 
 	}
 
-	@include bp(xl) {
+	@media screen and (min-width:1230px) {
 		--padding-x-lg: calc(50vw - 1120px/2);
-
 	}
 
 	@include bp(xxl) {

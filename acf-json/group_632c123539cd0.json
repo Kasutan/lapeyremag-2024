@@ -41,8 +41,32 @@
             "append": ""
         },
         {
+            "key": "field_659d9ad1f03f5",
+            "label": "Article pleine largeur",
+            "name": "article_principal",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_659d957af6b66",
-            "label": "Articles",
+            "label": "Autres articles",
             "name": "posts",
             "aria-label": "",
             "type": "relationship",
@@ -65,7 +89,7 @@
             ],
             "return_format": "id",
             "min": "",
-            "max": 4,
+            "max": 3,
             "elements": "",
             "bidirectional": 0,
             "bidirectional_target": []
@@ -89,5 +113,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704826301
+    "modified": 1704827759
 }

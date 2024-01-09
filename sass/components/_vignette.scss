@@ -9,6 +9,8 @@
 	text-decoration: none;
 	
 	a {
+		display: flex;
+		flex-direction: column;
 		&.lien {
 			display: flex;
 			flex-direction: column;
@@ -41,6 +43,7 @@
 
 	.texte {
 		background-color: var(--blanc);
+		flex-grow:1;
 		padding: 2rem;
 	}
 

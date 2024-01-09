@@ -1,0 +1,58 @@
+.slider-wrap {
+	--w:28rem;
+	--d:0.8rem;
+
+	overflow-x: auto;
+	position: relative;
+	.slider {
+		display:flex;
+		left:0;
+		position: relative;
+		transition:left var(--transition);
+	}
+	.vignette {
+		flex:0 0 var(--w);
+		margin-right: 2rem;
+		max-width:var(--w);
+	}
+
+	@include bp(md) {
+		--w:32rem;
+	}
+
+	@include bp(lg) {
+		--w:36rem;
+	}
+
+	.nav-slider {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 2rem;
+	}
+	button.nav {
+		background-color: transparent;
+		border:none;
+		svg path {
+			fill:var(--texte);
+		}
+		&:focus, &:hover {
+			svg path {
+				fill:var(--bleu-tres-fonce);
+			}
+		}
+	}
+	button.dot {
+		border:solid 1px var(--texte);
+		height:var(--d);
+		margin:0 0.4rem;
+		padding:0;
+		width:var(--d);
+		&:hover, &:focus {
+			border-color:var(--bleu-tres-fonce);
+		}
+		&.active {
+			background-color: var(--texte);
+		}
+	}
+}

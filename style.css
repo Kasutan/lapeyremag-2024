@@ -810,7 +810,7 @@ body {
     --hauteur-banniere: 400px;
   }
 }
-@media (min-width: 1440px) {
+@media screen and (min-width: 1230px) {
   :root {
     --padding-x-lg: calc(50vw - 1120px/2);
   }
@@ -3056,6 +3056,63 @@ nav.reseaux a {
   width: 4.4rem;
 }
 
+.slider-wrap {
+  --w:28rem;
+  --d:0.8rem;
+  overflow-x: auto;
+  position: relative;
+}
+.slider-wrap .slider {
+  display: flex;
+  left: 0;
+  position: relative;
+  transition: left var(--transition);
+}
+.slider-wrap .vignette {
+  flex: 0 0 var(--w);
+  margin-right: 2rem;
+  max-width: var(--w);
+}
+@media (min-width: 768px) {
+  .slider-wrap {
+    --w:32rem;
+  }
+}
+@media (min-width: 1024px) {
+  .slider-wrap {
+    --w:36rem;
+  }
+}
+.slider-wrap .nav-slider {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.slider-wrap button.nav {
+  background-color: transparent;
+  border: none;
+}
+.slider-wrap button.nav svg path {
+  fill: var(--texte);
+}
+.slider-wrap button.nav:focus svg path, .slider-wrap button.nav:hover svg path {
+  fill: var(--bleu-tres-fonce);
+}
+.slider-wrap button.dot {
+  border: solid 1px var(--texte);
+  height: var(--d);
+  margin: 0 0.4rem;
+  padding: 0;
+  width: var(--d);
+}
+.slider-wrap button.dot:hover, .slider-wrap button.dot:focus {
+  border-color: var(--bleu-tres-fonce);
+}
+.slider-wrap button.dot.active {
+  background-color: var(--texte);
+}
+
 .vignette {
   border: solid 1px var(--gris-400);
   border-radius: 8px;
@@ -3064,6 +3121,10 @@ nav.reseaux a {
   overflow: hidden;
   position: relative;
   text-decoration: none;
+}
+.vignette a {
+  display: flex;
+  flex-direction: column;
 }
 .vignette a.lien {
   display: flex;
@@ -3089,6 +3150,7 @@ nav.reseaux a {
 }
 .vignette .texte {
   background-color: var(--blanc);
+  flex-grow: 1;
   padding: 2rem;
 }
 .vignette .tag {

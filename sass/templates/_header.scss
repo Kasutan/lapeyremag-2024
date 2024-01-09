@@ -212,19 +212,79 @@ form.search-form.search-header, .pictos-header .magasin {
 /*--------------------------------------------------------------
 ## Entry-header
 --------------------------------------------------------------*/
-.page-banniere {	
+.page-banniere {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 	height:var(--hauteur-banniere);
+	justify-content: center;
 	overflow: hidden;
 	margin: 0 auto;
+	padding:var(--padding-y-1) 2rem;
 	position: relative;	
 	max-width:var(--largeur-max);
 	width:100%;
+
 	img {
+		height:100%;
+		left:0;
+		object-fit: cover;
+		object-position: center center;
+		position: absolute;
+		top:0;
+		width:100%;
+		&.desktop {
+			display: none;
+		}
+	}
+
+	.overlay {
+		background-color: rgba(77, 51, 16, 0.4);
 		height:100%;
 		left:0;
 		position: absolute;
 		top:0;
 		width:100%;
+	}
+
+	.entry-title, .sous-titre {
+		color:var(--blanc);
+		margin:0;
+		position: relative;
+	}
+
+	.entry-title {
+		@include font-headline-xxl;
+		text-transform: uppercase;
+	}
+
+	.sous-titre {
+		@include font-headline-xxs;
+		margin-top: 1.2rem;
+	}
+
+	@include bp(md) {
+		img {
+			&.mobile {
+				display: none;
+			}
+			&.desktop {
+				display: block;
+			}
+		}
+	}
+
+	@include bp(lg) {
+		.entry-title {
+			font-size: 6.4rem;
+			font-weight: 900;
+			line-height: 6.8rem;
+		}
+
+		.sous-titre {
+			@include font-headline-s;
+			margin-top: 1.6rem;
+		}
 	}
 }
 
@@ -232,6 +292,13 @@ form.search-form.search-header, .pictos-header .magasin {
 	margin-top: 5.2rem;
 	@include bp(lg) {
 		margin-top: 7.2rem;
+	}
+
+	&.sans-banniere {
+		margin-bottom: 5.2rem;
+		@include bp(lg) {
+			margin-bottom: 7.2rem;
+		}
 	}
 }
 

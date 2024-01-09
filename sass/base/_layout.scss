@@ -22,23 +22,21 @@ body {
 	//--header-height:80px;
 	//--max-width-xl:1900px;
 
-	/*Valeurs en dur pour les navigateurs qui ne supportent pas clamp*/
-	--hauteur-banniere :381px; 
-	--hauteur-bannier-home:450px;
-	
-	@supports(height:clamp(560px,78vw,1083px)) {
-		--hauteur-banniere :clamp(154px,26vw,381px);
-	}
-
+	--hauteur-banniere : 250px; 
 
 	@include bp(sm) {
 		--padding-x : 4.6vw;
+	}
+
+	@include bp(md) {
+		--hauteur-banniere : 325px; 
 	}
 	
 	@include bp(lg) {
 		--padding-x: calc(50vw - 930px/2);
 		--margin-y:9rem;
 		--padding-x-lg:4.6vw;
+		--hauteur-banniere : 400px; 
 	}
 
 	@include bp(xl) {

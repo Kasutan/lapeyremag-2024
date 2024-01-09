@@ -191,8 +191,8 @@ add_action( 'wp_enqueue_scripts', 'kasutan_scripts' );
 
 */
 add_image_size('banniere',1920,0,false);
-update_option( 'medium_large_size_w', 790 ); 
-update_option( 'medium_large_size_h', 885 );
+update_option( 'medium_large_size_w', 768 ); 
+update_option( 'medium_large_size_h', 0 );
 
 
 

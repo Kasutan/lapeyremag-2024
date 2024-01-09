@@ -4,11 +4,11 @@
     "fields": [
         {
             "key": "field_608464c388d03",
-            "label": "Image bannière",
-            "name": "lapeyremag_banniere_image",
+            "label": "Image bannière desktop",
+            "name": "lapeyre_banniere_image",
             "aria-label": "",
             "type": "image",
-            "instructions": "Format recommandé JPG. Taille recommandée : 1920px de large par 388px de haut.",
+            "instructions": "Format recommandé JPG. Taille recommandée : 1920px de large par 600px de haut.\r\nSi cette image est absente, on affichera simplement le titre en noir sur fond blanc.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -26,16 +26,74 @@
             "max_size": "",
             "mime_types": "jpg, jpeg",
             "preview_size": "medium"
+        },
+        {
+            "key": "field_659d1ef1eda5b",
+            "label": "Image bannière mobile",
+            "name": "lapeyre_banniere_image_mobile",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Format recommandé JPG. Taille recommandée : 768px de large par 512px de haut.\r\nSi cette image est absente, on utilisera l'image bannière desktop (mais elle sera zoomée)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg, jpeg",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_659d1703c07fb",
+            "label": "Titre de la bannière",
+            "name": "lapeyre_banniere_titre",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Si ce champ est vide, on utilisera le titre de la page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_659d17e9c07fc",
+            "label": "Sous-titre de la bannière",
+            "name": "lapeyre_banniere_sous_titre",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Si ce champ est vide, on utilisera le titre de la page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": "br"
         }
     ],
     "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
         [
             {
                 "param": "post_type",
@@ -53,6 +111,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1703070810,
-    "local_file": "C:UsersofficLocal Siteslapeyreapppublic\/wp-content\/themes\/lapeyremag-2024\/acf-json\/group_608464b19e243.json"
+    "modified": 1704795941
 }

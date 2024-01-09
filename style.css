@@ -3092,6 +3092,7 @@ nav.reseaux a {
 .slider-wrap button.nav {
   background-color: transparent;
   border: none;
+  padding: 0;
 }
 .slider-wrap button.nav svg path {
   fill: var(--texte);

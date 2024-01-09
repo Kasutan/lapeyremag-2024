@@ -116,6 +116,69 @@
 			}
 		}
 
+
+		/********* Défilement des sliders articles **********/
+		//Vérifier si on a besoin de la navigation
+		var sliders=$('.slider-wrap');
+		maybeHideSliderNav();
+		function maybeHideSliderNav() {
+			if(sliders.length <= 0) {
+				return;
+			}
+			$(sliders).each(function(){
+				var vignettes=$(this).find('.vignette');
+				var nb=vignettes.length;
+				var vWidth=$(vignettes).outerWidth();
+				var sliderWidth=vWidth*nb+20*(nb-1);
+				if(sliderWidth <= $(this).outerWidth()) {
+					$(this).find('.nav-slider').hide();
+				} else {
+					$(this).find('.nav-slider').show();
+				}
+			});
+		}
+
+		
+		var flecheSlider=$('.fleche-produits');
+		if(flecheSlider.length>0) {
+			flecheSlider.click(function (e) { 
+				var block=$(this).parents('.acf-block-boutique-produits-slider');
+				var slider=$(block).find('ul.products');
+				var flecheGauche=$(block).find('.gauche');
+				var flecheDroite=$(block).find('.droite');
+
+				var active=parseInt(slider.attr('data-active'));
+				var direction=parseInt($(this).attr("data-direction"));
+				var newSlide=active+direction;
+				var slideWidth=$(slider).find('.product').outerWidth() + 10;
+
+				var interieurWidth=$(block).find('.interieur').innerWidth();
+				var nombre=$(block).find('li.product').length;
+				var nombreVisibles=parseInt(interieurWidth / slideWidth);
+				if(nombre > nombreVisibles) {
+					var derniere = nombre - nombreVisibles + 1;
+				} else {
+					var derniere = nombre;
+				}
+
+				if(newSlide >= 0 && newSlide < derniere) {
+					var newLeft=-1 * newSlide * slideWidth;
+					slider.css('left',newLeft);
+					slider.attr('data-active',newSlide);
+				}
+				if(newSlide == 0) {
+					$(flecheGauche).attr('disabled',true);
+					$(flecheDroite).attr('disabled',false);
+				} else if(newSlide == derniere) {
+					$(flecheGauche).attr('disabled',false);
+					$(flecheDroite).attr('disabled',true);
+				} else {
+					$(flecheGauche).attr('disabled',false);
+					$(flecheDroite).attr('disabled',false);
+				}
+			});
+		}
+
 		/********* Ajustements quand on redimensionne la fenêtre **********/
 		
 		
@@ -138,6 +201,10 @@
 			//Ajuster aussi hauteur header
 			headerHeight=$(header).outerHeight();
 			root.style.setProperty('--hauteur-header',headerHeight+'px');
+
+			//Vérifier si on a besoin de la navigation des sliders
+			maybeHideSliderNav();
+
 		}
 		
 		window.onresize = ajusteOnResize;

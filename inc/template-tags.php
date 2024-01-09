@@ -126,25 +126,22 @@ function kasutan_affiche_temps() {
 /**
  * Afficher un slider d'articles
  */
-function kasutan_affiche_slider($posts,$featured=false) {
+function kasutan_affiche_slider($posts) {
 	if(empty($posts)) {
 		return;
 	}
 
-	$count=0;
+	$index=0;
+	$total=count($posts);
 	global $post; 
 	
-	echo '<div class="slider-wrap">';
+	printf('<div class="slider-wrap" data-total="%s">',$total);
 		echo '<ul class="slider">';
 		foreach ($posts as $post_id) {
-			$count++;
+			$index++;
 			$post = get_post($post_id); 
 			setup_postdata($post);
-			if($featured && $count===1) {
-				get_template_part( 'partials/archive', null,array('balise_title'=>'h3','index'=>$count,'featured'=>true) );
-			} else {
-				get_template_part( 'partials/archive', null,array('balise_title'=>'h3','index'=>$count) );
-			}
+			get_template_part( 'partials/archive', null,array('balise_title'=>'h3','index'=>$index) );
 		}
 		wp_reset_postdata();
 		echo '</ul>';
@@ -157,7 +154,7 @@ function kasutan_affiche_slider($posts,$featured=false) {
 			</svg>
 		</button>
 		<ul class="dots">
-			<?php for($i=1;$i<=$count;$i++) {
+			<?php for($i=1;$i<=$index;$i++) {
 				printf('<button class="dot" data-target="slide-%s"><span class="sr-text">Faire défiler vers la slide %s</span></button>',$i,$i);
 			} ?>
 		</ul>

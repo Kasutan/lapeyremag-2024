@@ -131,8 +131,8 @@ function kasutan_footer_sitemap() {
 				foreach($liens as $lien) {
 					$attr='';
 
-					if($lien->target != "none") {
-						$attr='target="_blanc" rel="noopener noreferrer"';
+					if($lien->target !== "None") {
+						$attr='target="_blank" rel="noopener noreferrer"';
 					}
 
 					printf('<a href="%s" %s>%s</a>',$lien->href,$attr,$lien->text);

@@ -12,7 +12,58 @@
 	}
 
 	.vignette.featured {
+		height:40rem;
 		margin-bottom: 2rem;
+		max-width:unset;
+		.vignette-image {
+			height:100%;
+		}
+		.texte {
+			background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+			color:var(--blanc);
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			left:0;
+			height: 100%;
+			position: absolute;
+			top:0;
+			width:100%;
+		}
+		.tags {
+			align-items: center;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.tag {
+			margin-right: 0.8rem;
+		}
+		.titre {
+			@include font-headline-m;
+			margin-bottom: 1.8rem;
+			max-width:72rem;
+			@include bp(lg) {
+				@include font-headline-xl;
+			}
+		}
+		.univers {
+			border-radius: 300px;
+			position: relative;
+		}
+		.temps {
+			@include font-body-l;
+			.picto {
+				margin-right: 8px;
+				width:2.4rem;
+				svg {
+					width:100%;
+					path {
+						fill:var(--blanc);
+					}
+				} 
+			}
+		} 
+
 	}
 
 	//Styles du slider dans un composant SASS (réutilisés dans d'autres blocs)

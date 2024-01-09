@@ -31,7 +31,65 @@
   text-align: center;
 }
 .acf-featured .vignette.featured {
+  height: 40rem;
   margin-bottom: 2rem;
+  max-width: unset;
+}
+.acf-featured .vignette.featured .vignette-image {
+  height: 100%;
+}
+.acf-featured .vignette.featured .texte {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  color: var(--blanc);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.acf-featured .vignette.featured .tags {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.acf-featured .vignette.featured .tag {
+  margin-right: 0.8rem;
+}
+.acf-featured .vignette.featured .titre {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 3.2rem;
+  margin-bottom: 1.8rem;
+  max-width: 72rem;
+}
+@media (min-width: 1024px) {
+  .acf-featured .vignette.featured .titre {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+  }
+}
+.acf-featured .vignette.featured .univers {
+  border-radius: 300px;
+  position: relative;
+}
+.acf-featured .vignette.featured .temps {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+.acf-featured .vignette.featured .temps .picto {
+  margin-right: 8px;
+  width: 2.4rem;
+}
+.acf-featured .vignette.featured .temps .picto svg {
+  width: 100%;
+}
+.acf-featured .vignette.featured .temps .picto svg path {
+  fill: var(--blanc);
 }
 @media (min-width: 1024px) {
   .acf-featured {

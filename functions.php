@@ -156,6 +156,7 @@ add_theme_support( 'disable-custom-colors' );
  * Enqueue scripts and styles.
  */
 function kasutan_scripts() {
+	//TODO enlever les scripts OWL si on ne s'en sert pas finalement
 	wp_enqueue_style( 'lapeyremag-owl-carousel', get_template_directory_uri() . '/lib/owlcarousel/owl.carousel.min.css',array(),'2.3.4');
 	wp_enqueue_style( 'lapeyremag-style', get_stylesheet_uri(),array(), filemtime( get_template_directory() . '/style.css' ) );
 	

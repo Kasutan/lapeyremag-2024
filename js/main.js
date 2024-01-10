@@ -138,33 +138,68 @@
 			});
 		}
 
-		
-		var flecheSlider=$('.fleche-produits');
+		//Navigation par les flèches
+		var flecheSlider=$('.fleche-slider');
 		if(flecheSlider.length>0) {
 			flecheSlider.click(function (e) { 
-				var block=$(this).parents('.acf-block-boutique-produits-slider');
-				var slider=$(block).find('ul.products');
+				var block=$(this).parents('.slider-wrap');
+				var slider=$(block).find('.slider');
 				var flecheGauche=$(block).find('.gauche');
 				var flecheDroite=$(block).find('.droite');
+				var dots=$(block).find('.dot');
 
-				var active=parseInt(slider.attr('data-active'));
+				var active=parseInt($(block).attr('data-active'));
 				var direction=parseInt($(this).attr("data-direction"));
 				var newSlide=active+direction;
-				var slideWidth=$(slider).find('.product').outerWidth() + 10;
+				var slideWidth=$(slider).find('.vignette').outerWidth() + 20;
 
-				var interieurWidth=$(block).find('.interieur').innerWidth();
-				var nombre=$(block).find('li.product').length;
-				var nombreVisibles=parseInt(interieurWidth / slideWidth);
-				if(nombre > nombreVisibles) {
-					var derniere = nombre - nombreVisibles + 1;
-				} else {
-					var derniere = nombre;
-				}
+				var total = parseInt(block.attr('data-total'));
+				var derniere=total - 1;
 
-				if(newSlide >= 0 && newSlide < derniere) {
+				if(newSlide >= 0 && newSlide <= derniere) {
 					var newLeft=-1 * newSlide * slideWidth;
 					slider.css('left',newLeft);
-					slider.attr('data-active',newSlide);
+					block.attr('data-active',newSlide);
+					//actualiser les dots
+					$(dots).removeClass('active');
+					$(block).find('.dot[data-target="'+newSlide+'"]').addClass('active');
+				}
+				if(newSlide == 0) {
+					$(flecheGauche).attr('disabled',true);
+					$(flecheDroite).attr('disabled',false);
+				} else if(newSlide == derniere) {
+					$(flecheGauche).attr('disabled',false);
+					$(flecheDroite).attr('disabled',true);
+				} else {
+					$(flecheGauche).attr('disabled',false);
+					$(flecheDroite).attr('disabled',false);
+				}
+			});
+		}
+
+		//Navigation par les dots
+		var dotSlider=$('.slider-wrap .dot');
+		if(dotSlider.length>0) {
+			dotSlider.click(function (e) { 
+				var block=$(this).parents('.slider-wrap');
+				var slider=$(block).find('.slider');
+				var flecheGauche=$(block).find('.gauche');
+				var flecheDroite=$(block).find('.droite');
+				var dots=$(block).find('.dot');
+
+				var newSlide=$(this).attr("data-target");
+				var slideWidth=$(slider).find('.vignette').outerWidth() + 20;
+
+				var total = parseInt(block.attr('data-total'));
+				var derniere=total - 1;
+
+				if(newSlide >= 0 && newSlide <= derniere) {
+					var newLeft=-1 * newSlide * slideWidth;
+					slider.css('left',newLeft);
+					block.attr('data-active',newSlide);
+					//actualiser les dots
+					$(dots).removeClass('active');
+					$(block).find('.dot[data-target="slide-'+newSlide+'"]').addClass('active');
 				}
 				if(newSlide == 0) {
 					$(flecheGauche).attr('disabled',true);

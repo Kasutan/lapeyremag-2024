@@ -3059,6 +3059,9 @@ nav.reseaux a {
 .slider-wrap {
   --w:28rem;
   --d:0.8rem;
+  overflow-x: hidden;
+}
+.slider-wrap .slider-drag {
   overflow-x: auto;
   position: relative;
 }
@@ -3082,23 +3085,38 @@ nav.reseaux a {
   .slider-wrap {
     --w:36rem;
   }
+  .slider-wrap .slider-drag {
+    overflow-x: hidden;
+  }
 }
 .slider-wrap .nav-slider {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
-.slider-wrap button.nav {
+.slider-wrap button.fleche-slider {
   background-color: transparent;
   border: none;
-  padding: 0;
+  padding: 0.5rem;
 }
-.slider-wrap button.nav svg path {
+.slider-wrap button.fleche-slider svg path {
   fill: var(--texte);
 }
-.slider-wrap button.nav:focus svg path, .slider-wrap button.nav:hover svg path {
+.slider-wrap button.fleche-slider.gauche {
+  padding-left: 0;
+}
+.slider-wrap button.fleche-slider.droite {
+  padding-right: 0;
+}
+.slider-wrap button.fleche-slider:hover svg path {
   fill: var(--bleu-tres-fonce);
+}
+.slider-wrap button.fleche-slider:disabled {
+  cursor: default;
+}
+.slider-wrap button.fleche-slider:disabled svg path {
+  fill: var(--gris-300);
 }
 .slider-wrap button.dot {
   border: solid 1px var(--texte);
@@ -3107,10 +3125,10 @@ nav.reseaux a {
   padding: 0;
   width: var(--d);
 }
-.slider-wrap button.dot:hover, .slider-wrap button.dot:focus {
+.slider-wrap button.dot:hover {
   border-color: var(--bleu-tres-fonce);
 }
-.slider-wrap button.dot.active {
+.slider-wrap button.dot:focus, .slider-wrap button.dot.active {
   background-color: var(--texte);
 }
 

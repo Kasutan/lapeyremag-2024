@@ -2,8 +2,11 @@
 	--w:28rem;
 	--d:0.8rem;
 
-	overflow-x: auto;
-	position: relative;
+	overflow-x:hidden;
+	.slider-drag {
+		overflow-x: auto; //Pour permettre drag en mobile TODO TESTER
+		position: relative;
+	}
 	.slider {
 		display:flex;
 		left:0;
@@ -22,24 +25,39 @@
 
 	@include bp(lg) {
 		--w:36rem;
+		.slider-drag {
+			overflow-x: hidden;
+		}
 	}
 
 	.nav-slider {
 		align-items: center;
 		display: flex;
 		justify-content: space-between;
-		margin-top: 2rem;
+		margin-top: 1.5rem;
 	}
-	button.nav {
+	button.fleche-slider {
 		background-color: transparent;
 		border:none;
-		padding:0;
+		padding:0.5rem;
 		svg path {
 			fill:var(--texte);
 		}
-		&:focus, &:hover {
+		&.gauche {
+			padding-left: 0;
+		}
+		&.droite {
+			padding-right: 0;
+		}
+		&:hover {
 			svg path {
 				fill:var(--bleu-tres-fonce);
+			}
+		}
+		&:disabled {
+			cursor: default;
+			svg path {
+				fill:var(--gris-300);
 			}
 		}
 	}
@@ -49,10 +67,10 @@
 		margin:0 0.4rem;
 		padding:0;
 		width:var(--d);
-		&:hover, &:focus {
+		&:hover {
 			border-color:var(--bleu-tres-fonce);
 		}
-		&.active {
+		&:focus, &.active {
 			background-color: var(--texte);
 		}
 	}

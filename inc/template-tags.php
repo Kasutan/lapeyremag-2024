@@ -135,30 +135,33 @@ function kasutan_affiche_slider($posts) {
 	$total=count($posts);
 	global $post; 
 	
-	printf('<div class="slider-wrap" data-total="%s">',$total);
-		echo '<ul class="slider">';
+	printf('<div class="slider-wrap" data-total="%s" data-active="0">',$total);
+		echo '<div class="slider-drag"><ul class="slider">';
 		foreach ($posts as $post_id) {
-			$index++;
 			$post = get_post($post_id); 
 			setup_postdata($post);
 			get_template_part( 'partials/archive', null,array('balise_title'=>'h3','index'=>$index) );
+			$index++;
 		}
 		wp_reset_postdata();
-		echo '</ul>';
+		echo '</ul></div>';
 		echo '<div class="nav-slider">';
 		?>
-		<button class="pagination-prev disabled nav" data-direction="-1">
+		<button class="fleche-slider gauche" data-direction="-1" disabled>
 			<span class="sr-text">Faire défiler vers la slide précédente</span>
 			<svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M0.75 6.00492C0.75 5.8769 0.769817 5.74888 0.809451 5.63071C0.849085 5.51253 0.918445 5.40421 1.01753 5.30573L5.60518 0.756043C5.78354 0.578782 6.01143 0.5 6.27896 0.5C6.54649 0.5 6.7843 0.598478 6.96265 0.785586C7.14101 0.972695 7.24009 1.18935 7.24009 1.47493C7.24009 1.76052 7.15091 1.98702 6.96265 2.16428L3.09832 6.00492L6.99238 9.86526C7.17073 10.0524 7.25 10.2789 7.25 10.5448C7.25 10.8107 7.15091 11.0372 6.96265 11.2243C6.77439 11.4114 6.54649 11.5 6.26905 11.5C5.99162 11.5 5.75381 11.4114 5.57546 11.2243L1.01753 6.69427C0.918445 6.59579 0.849085 6.48747 0.809451 6.36929C0.769817 6.25112 0.75 6.13295 0.75 5.99508L0.75 6.00492Z" fill="#757575"/>
 			</svg>
 		</button>
 		<ul class="dots">
-			<?php for($i=1;$i<=$index;$i++) {
-				printf('<button class="dot" data-target="slide-%s"><span class="sr-text">Faire défiler vers la slide %s</span></button>',$i,$i);
+			<?php 
+			$class_dot="active";//uniquement pour le premier bouton
+			for($i=0;$i<$total;$i++) {
+				printf('<button class="dot %s" data-target="%s"><span class="sr-text">Faire défiler vers la slide %s</span></button>',$class_dot,$i,$i+1);
+				$class_dot="";
 			} ?>
 		</ul>
-		<button class="pagination-next nav" data-direction="+1">
+		<button class="fleche-slider droite" data-direction="+1">
 			<span class="sr-text">Faire défiler vers la slide suivante</span>
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M15.25 11.9951C15.25 12.1231 15.2302 12.2511 15.1905 12.3693C15.1509 12.4875 15.0816 12.5958 14.9825 12.6943L10.3948 17.244C10.2165 17.4212 9.98857 17.5 9.72104 17.5C9.45351 17.5 9.2157 17.4015 9.03735 17.2144C8.85899 17.0273 8.75991 16.8107 8.75991 16.5251C8.75991 16.2395 8.84909 16.013 9.03735 15.8357L12.9017 11.9951L9.00762 8.13474C8.82927 7.94763 8.75 7.72113 8.75 7.45524C8.75 7.18935 8.84908 6.96285 9.03735 6.77574C9.22561 6.58863 9.45351 6.5 9.73094 6.5C10.0084 6.5 10.2462 6.58863 10.4245 6.77574L14.9825 11.3057C15.0816 11.4042 15.1509 11.5125 15.1905 11.6307C15.2302 11.7489 15.25 11.8671 15.25 12.0049L15.25 11.9951Z" fill="#757575"/>

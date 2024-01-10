@@ -2033,7 +2033,7 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 ## Bandeau header
 --------------------------------------------------------------*/
 .bandeau-header {
-  background-color: var(--beige);
+  background-color: rgb(37, 36, 39);
   height: 46px;
   overflow: hidden;
   padding: 0px;
@@ -2046,8 +2046,8 @@ button.menu-toggle[aria-expanded=true] svg.fermer-menu {
 }
 .bandeau-header li {
   align-items: center;
-  background-color: var(--beige);
-  color: var(--noir);
+  background-color: rgb(37, 36, 39);
+  color: var(--blanc);
   display: flex;
   justify-content: center;
   margin-bottom: 0px;

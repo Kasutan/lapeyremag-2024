@@ -8,7 +8,7 @@
 ## Bandeau header
 --------------------------------------------------------------*/
 .bandeau-header {
-	background-color: var(--beige);
+	background-color: rgb(37, 36, 39);
 	height:46px; //valeur par défaut au chargement de la page, corrigée en JS
 	overflow: hidden;
 	padding: 0px;
@@ -20,8 +20,8 @@
 
 	li {
 		align-items: center;
-		background-color: var(--beige);
-		color:var(--noir);
+		background-color: rgb(37, 36, 39);
+		color:var(--blanc);
 		display: flex;
 		justify-content: center;
 		margin-bottom: 0px;

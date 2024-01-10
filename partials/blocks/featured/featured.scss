@@ -5,6 +5,11 @@
 	@include bleed;
 	background-color: var(--beige);
 	padding:var(--pt) var(--padding-x-lg);
+	padding-right:0; //pour effet post coupé par l'écran
+
+	.titre-section, .vignette.featured, .nav-slider {
+		margin-right:var(--padding-x-lg); //pour compenser padding-right 0 sur le parent
+	}
 
 	.titre-section {
 		margin-bottom: 4rem;
@@ -70,5 +75,9 @@
 
 	@include bp(lg) {
 		--pt:8rem;
+		padding-right: var(--padding-x-lg);
+		.titre-section, .vignette.featured, .nav-slider {
+			margin-right:0;
+		}
 	}
 }

@@ -3059,7 +3059,7 @@ nav.reseaux a {
 .slider-wrap {
   --w:28rem;
   --d:0.8rem;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 .slider-wrap .slider-drag {
   overflow-x: auto;
@@ -3084,9 +3084,6 @@ nav.reseaux a {
 @media (min-width: 1024px) {
   .slider-wrap {
     --w:36rem;
-  }
-  .slider-wrap .slider-drag {
-    overflow-x: hidden;
   }
 }
 .slider-wrap .nav-slider {

@@ -2,7 +2,7 @@
 	--w:28rem;
 	--d:0.8rem;
 
-	overflow-x:hidden;
+	overflow-x:visible;
 	.slider-drag {
 		overflow-x: auto; //Pour permettre drag en mobile TODO TESTER
 		position: relative;
@@ -25,9 +25,6 @@
 
 	@include bp(lg) {
 		--w:36rem;
-		.slider-drag {
-			overflow-x: hidden;
-		}
 	}
 
 	.nav-slider {

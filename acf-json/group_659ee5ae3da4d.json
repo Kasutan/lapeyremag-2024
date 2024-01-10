@@ -1,0 +1,109 @@
+{
+    "key": "group_659ee5ae3da4d",
+    "title": "Bloc navigation par types d'article",
+    "fields": [
+        {
+            "key": "field_659ee5ae42d2a",
+            "label": "Bloc navigation par types d'article",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "Section avec titre, sous-titre et, pour chaque type d'article, 1 picto et texte cliquable.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_659ee5ae468c2",
+            "label": "Titre de la section",
+            "name": "titre",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "L’expertise Lapeyre pour tous vos besoins",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_659ee5ecaa9a2",
+            "label": "Sous-titre de la section",
+            "name": "sous_titre",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Tous nos contenus sont là pour vous aider à réaliser vos projets, étape par étape.",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_659ee619aa9a3",
+            "label": "Exclure un type d'article de la navigation ?",
+            "name": "exclure",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "tendance": "exclure la page des tendances",
+                "guide": "exclure la page des guides pratiques",
+                "tutoriel": "exclure la page des tutoriels"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 1,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/nav-page-type"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1704912522
+}

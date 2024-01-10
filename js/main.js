@@ -132,6 +132,9 @@
 				var sliderWidth=vWidth*nb+20*(nb-1);
 				if(sliderWidth <= $(this).outerWidth()) {
 					$(this).find('.nav-slider').hide();
+					//reset la position du slider
+					$(this).find('.slider').css('left',0);
+					$(this).find('.slider-drag').css('left',0);
 				} else {
 					$(this).find('.nav-slider').show();
 				}
@@ -210,6 +213,19 @@
 				} else {
 					$(flecheGauche).attr('disabled',false);
 					$(flecheDroite).attr('disabled',false);
+				}
+			});
+		}
+
+		/********* Cas particulier du slider de navigation par type de page**********/
+		var sliderNavPage=$('.nav-page-type .slider-wrap');
+		if(sliderNavPage.length > 0) {
+			$(sliderNavPage).each(function(){
+				if($(this).attr('data-total')==3) {
+					console.log('avec 3 slides');
+					$(this).find('.dot:nth-child(2)').trigger("click");
+					$(this).find('.dot:nth-child(2)').addClass("active");
+
 				}
 			});
 		}

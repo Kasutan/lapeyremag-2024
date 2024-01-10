@@ -1,0 +1,86 @@
+@import "./././sass/abstracts/variables-et-mixins";
+
+.nav-page-type {
+	--pt:6rem;
+	--pw:16.2rem;
+	@include bleed;
+	padding:var(--pt) 0;
+
+	.titre-section {
+		margin-bottom: 1.2rem;
+		padding:0 var(--padding-x-lg);
+		text-align: center;
+	}
+
+	.sous-titre {
+		@include font-body-m;
+		padding:0 var(--padding-x-lg);
+		margin-bottom: 4rem;
+		padding:0 var(--padding-x-lg);
+		text-align: center;
+	}
+
+
+	.slider {
+		justify-content: center;
+	}
+
+
+	.slide {
+		align-items: center;
+		display: flex;
+		flex:0 0 var(--pw);
+		flex-direction: column;
+		margin: 0 2rem 2rem;
+		max-width:var(--pw);
+		&:last-child() {
+			margin-right: 0;
+		}
+	}
+
+	a.slide {
+		@include font-body-s;
+		font-weight: 700;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	img {
+		height:10rem;
+		margin-bottom: 1.2rem;
+		object-fit: contain;
+		object-position: center center;
+		width:10rem;
+	}
+
+	.slider-wrap[data-total="3"] .slider-drag {
+		left:calc(50vw - var(--pw)/2 - 4rem); //pour centrer la 2e slide
+		overflow:visible; //mais il ne sera plus draggable
+		.slider {
+			justify-content: flex-start;
+		}
+		.slide {
+			margin-bottom: 0;
+		}
+	}
+
+	@include bp(md) {
+		.slide {
+			margin-bottom: 0;
+		}
+		.slider {
+			justify-content: space-around !important;
+			left:0 !important;
+			padding:0 var(--padding-x);
+		}
+
+		.slider-wrap[data-total="3"] .slider-drag {
+			left:0;
+			overflow:visible; //mais il ne sera plus draggable
+		}
+	}
+
+	@include bp(lg) {
+		--pt:8rem;
+	}
+} 

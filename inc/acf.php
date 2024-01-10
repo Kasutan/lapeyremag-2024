@@ -200,6 +200,16 @@ class BE_ACF_Customizations {
 			false,
 			array('univers','slider','accueil')
 		);
+
+		/*********Bloc nav-page-type***************/
+		$this->helper_register_block_type( 
+			'nav-page-type',
+			'Bloc navigation par types d\'article',
+			'Section avec titre, sous-titre et, pour chaque type d\'article, 1 picto et texte cliquable.',
+			'tagcloud', 
+			false,
+			array('type','navigation','accueil')
+		);
 		
 	}
 }

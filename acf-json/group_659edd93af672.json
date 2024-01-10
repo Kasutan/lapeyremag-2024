@@ -50,7 +50,7 @@
                     "label": "Page de ce type d'article",
                     "name": "page",
                     "aria-label": "",
-                    "type": "page_link",
+                    "type": "post_object",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -64,9 +64,12 @@
                     ],
                     "post_status": "",
                     "taxonomy": "",
-                    "allow_archives": 0,
+                    "return_format": "object",
                     "multiple": 0,
                     "allow_null": 0,
+                    "bidirectional": 0,
+                    "ui": 1,
+                    "bidirectional_target": [],
                     "parent_repeater": "field_659edd93bec53"
                 },
                 {
@@ -137,5 +140,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704911434
+    "modified": 1704912694
 }

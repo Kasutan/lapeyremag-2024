@@ -1,6 +1,6 @@
 {
     "key": "group_5f0c2bd7ee2a0",
-    "title": "Options générales",
+    "title": "En-tête et pied de page",
     "fields": [
         {
             "key": "field_6597e1f4090a5",
@@ -547,5 +547,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704738346
+    "modified": 1704910211
 }

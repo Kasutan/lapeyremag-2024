@@ -1,10 +1,10 @@
 {
-    "key": "group_608464b19e243",
-    "title": "En-tête de la page",
+    "key": "group_659ee0ada54c7",
+    "title": "En-tête de la page d'un type d'article",
     "fields": [
         {
-            "key": "field_608464c388d03",
-            "label": "Image bannière desktop",
+            "key": "field_659ee0adac1fe",
+            "label": "Image bannière",
             "name": "lapeyre_banniere_image",
             "aria-label": "",
             "type": "image",
@@ -28,32 +28,7 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_659d1ef1eda5b",
-            "label": "Image bannière mobile",
-            "name": "lapeyre_banniere_image_mobile",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Format recommandé JPG. Taille recommandée : 768px de large par 512px de haut.\r\nSi cette image est absente, on utilisera l'image bannière desktop (mais elle sera zoomée)",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "jpg, jpeg",
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_659d1703c07fb",
+            "key": "field_659ee0adb3909",
             "label": "Titre de la bannière",
             "name": "lapeyre_banniere_titre",
             "aria-label": "",
@@ -73,7 +48,7 @@
             "new_lines": "br"
         },
         {
-            "key": "field_659d17e9c07fc",
+            "key": "field_659ee0adb752f",
             "label": "Sous-titre de la bannière",
             "name": "lapeyre_banniere_sous_titre",
             "aria-label": "",
@@ -91,6 +66,32 @@
             "rows": 2,
             "placeholder": "",
             "new_lines": "br"
+        },
+        {
+            "key": "field_659ee0dbd794f",
+            "label": "Couleur de fond de la bannière",
+            "name": "couleur",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "rose": "rose",
+                "jaune": "jaune",
+                "bleu": "bleu"
+            },
+            "default_value": "rose",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -102,7 +103,7 @@
             },
             {
                 "param": "page_template",
-                "operator": "!=",
+                "operator": "==",
                 "value": "type-article.php"
             }
         ]
@@ -116,5 +117,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704911015
+    "modified": 1704911313
 }

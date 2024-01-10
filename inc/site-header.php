@@ -110,7 +110,12 @@ function kasutan_header_logo() {
 	//Url de l'image : appel API puis option WP
 	$logo=get_option('lapeyre_headers_logo',false);
 	if($logo && is_array($logo) && array_key_exists('url',$logo) && !empty($logo['url'])) {
-		printf('<a class="logo" href="%s"><img src="%s" alt="Logo Lapeyre" width="213" height="68" /></a>',$url_home,$logo['url']);
+		//Récupérer ratio image API
+		$height=71; // fallback
+		if($logo['height'] && $logo['width']) {
+			$height=round($logo['height'] * 213 / $logo['width']);
+		}
+		printf('<a class="logo" href="%s"><img src="%s" alt="Logo Lapeyre" width="213" height="%s" /></a>',$url_home,$logo['url'],$height);
 	}
 }
 

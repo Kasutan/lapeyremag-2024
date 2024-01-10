@@ -92,8 +92,8 @@ if ( ! function_exists( 'kasutan_setup' ) ) :
 		 */
 		//TODO supprimer
 		add_theme_support( 'custom-logo', array(
-			'height'      => 46,
-			'width'       => 93,
+			'height'      => 71,
+			'width'       => 213,
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );

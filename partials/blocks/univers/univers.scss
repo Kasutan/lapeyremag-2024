@@ -1,0 +1,136 @@
+@import "./././sass/abstracts/variables-et-mixins";
+
+.acf-univers {
+	--pt:6rem;
+	@include bleed;
+	background-color: var(--beige-clair);
+	padding:var(--pt) 0;
+
+	.titre-section {
+		margin-bottom: 1.2rem;
+		padding:0 var(--padding-x-lg);
+		text-align: center;
+	}
+
+	.sous-titre {
+		@include font-body-m;
+		padding:0 var(--padding-x-lg);
+		margin-bottom: 4rem;
+		padding:0 var(--padding-x-lg);
+		text-align: center;
+	}
+
+	.univers {
+		margin-bottom: 4rem;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.nav-univers {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1.2rem;
+		padding:0 1.6rem;
+		text-align: center;
+
+		.bouton {
+			display: none;
+		}
+
+	}
+
+	.titre-univers {
+		@include font-headline-xs;
+		color:#1F1416;
+		margin-bottom: 2rem;
+		text-transform: uppercase;
+	}
+
+	.label-types {
+		margin-bottom: 0.8rem;
+	}
+
+	a.type {
+		@include font-body-m;
+		background-color: var(--blanc);
+		border:solid 1px var(--gris-400);
+		border-radius: 100px;
+		display: inline-block;
+		margin-right: 0.8rem;
+		margin-bottom: 0.8rem;
+		padding:2px 12px;
+		text-decoration: none;
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+
+	.bouton-wrap {
+		display: flex;
+		justify-content: center;
+		padding:0 var(--padding-x-lg);
+
+	}
+
+	//Styles du slider dans un composant SASS (réutilisés dans d'autres blocs)
+	//Ici on ajoute juste quelques ajustements spécifiques au bloc ACF
+	.slider-wrap {
+		margin-bottom: 2rem;
+		padding-left: var(--padding-x-lg);
+	}
+	.nav-slider {
+		padding-right: var(--padding-x-lg);
+	}
+
+	@include bp(lg) {
+		--pt:8rem;
+		padding-bottom: 4.8rem;
+
+		.titre-section {
+			margin-bottom: 3.2rem;
+		}
+
+		.nav-univers {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			grid-template-rows: auto auto;
+			margin-bottom: 2rem;
+			padding:0 var(--padding-x-lg);
+			text-align: left;
+			.bouton {
+				display: block;
+				grid-column: 2;
+				grid-row:1;
+			}
+		}
+
+		.titre-univers {
+			@include font-headline-s;
+			margin-bottom: 0;
+		}
+
+		.nav-types {
+			align-items: center;
+			display: flex;
+			grid-column: 1;
+			grid-row: 2;
+			margin-top: 1.6rem;
+		}
+
+		.label-types {
+			margin-bottom: 0;
+			margin-right: 1.6rem;
+		}
+
+		a.type {
+			margin-bottom: 0;
+		}
+
+		.bouton-wrap {
+			display: none;
+		}
+
+	}
+}

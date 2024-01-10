@@ -188,7 +188,17 @@ class BE_ACF_Customizations {
 			'Section avec titre et 4 articles à la une (un pleine largeur et trois en-dessous).',
 			'tagcloud', 
 			false,
-			array('featured','une','accueil')
+			array('featured','une','accueil','slider')
+		);
+
+		/*********Bloc univers***************/
+		$this->helper_register_block_type( 
+			'univers',
+			'Bloc articles par univers (accueil)',
+			'Section avec titre, sous-titre et, pour chaque univers, 1 slider des articles les plus récents.',
+			'tagcloud', 
+			false,
+			array('univers','slider','accueil')
 		);
 		
 	}

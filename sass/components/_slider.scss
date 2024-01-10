@@ -15,17 +15,11 @@
 	}
 	.vignette {
 		flex:0 0 var(--w);
+		margin-left: 0;
 		margin-right: 2rem;
 		max-width:var(--w);
 	}
 
-	@include bp(md) {
-		--w:32rem;
-	}
-
-	@include bp(lg) {
-		--w:36rem;
-	}
 
 	.nav-slider {
 		align-items: center;
@@ -37,13 +31,20 @@
 		background-color: transparent;
 		border:none;
 		padding:0.5rem;
-		svg path {
-			fill:var(--texte);
+		svg {
+			position: relative;
+			top:2px;
+			width:2.4rem;
+			path {
+				fill:var(--texte);
+			}
 		}
 		&.gauche {
+			margin-right: 7px;
 			padding-left: 0;
 		}
 		&.droite {
+			margin-left: 7px;
 			padding-right: 0;
 		}
 		&:hover {
@@ -69,6 +70,22 @@
 		}
 		&:focus, &.active {
 			background-color: var(--texte);
+		}
+	}
+
+	@include bp(md) {
+		--w:32rem;
+
+		.nav-slider {
+			justify-content: center;
+		}
+	}
+
+	@include bp(lg) {
+		--w:36rem;
+
+		.slider-drag {
+			overflow-x: visible; //éviter barre de défilement visible en desktop
 		}
 	}
 }

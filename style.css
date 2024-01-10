@@ -3073,18 +3073,9 @@ nav.reseaux a {
 }
 .slider-wrap .vignette {
   flex: 0 0 var(--w);
+  margin-left: 0;
   margin-right: 2rem;
   max-width: var(--w);
-}
-@media (min-width: 768px) {
-  .slider-wrap {
-    --w:32rem;
-  }
-}
-@media (min-width: 1024px) {
-  .slider-wrap {
-    --w:36rem;
-  }
 }
 .slider-wrap .nav-slider {
   align-items: center;
@@ -3097,13 +3088,20 @@ nav.reseaux a {
   border: none;
   padding: 0.5rem;
 }
+.slider-wrap button.fleche-slider svg {
+  position: relative;
+  top: 2px;
+  width: 2.4rem;
+}
 .slider-wrap button.fleche-slider svg path {
   fill: var(--texte);
 }
 .slider-wrap button.fleche-slider.gauche {
+  margin-right: 7px;
   padding-left: 0;
 }
 .slider-wrap button.fleche-slider.droite {
+  margin-left: 7px;
   padding-right: 0;
 }
 .slider-wrap button.fleche-slider:hover svg path {
@@ -3127,6 +3125,22 @@ nav.reseaux a {
 }
 .slider-wrap button.dot:focus, .slider-wrap button.dot.active {
   background-color: var(--texte);
+}
+@media (min-width: 768px) {
+  .slider-wrap {
+    --w:32rem;
+  }
+  .slider-wrap .nav-slider {
+    justify-content: center;
+  }
+}
+@media (min-width: 1024px) {
+  .slider-wrap {
+    --w:36rem;
+  }
+  .slider-wrap .slider-drag {
+    overflow-x: visible;
+  }
 }
 
 .vignette {

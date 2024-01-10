@@ -126,9 +126,9 @@
 				return;
 			}
 			$(sliders).each(function(){
-				var vignettes=$(this).find('.vignette');
-				var nb=vignettes.length;
-				var vWidth=$(vignettes).outerWidth();
+				var slides=$(this).find('.slide');
+				var nb=slides.length;
+				var vWidth=$(slides).outerWidth();
 				var sliderWidth=vWidth*nb+20*(nb-1);
 				if(sliderWidth <= $(this).outerWidth()) {
 					$(this).find('.nav-slider').hide();
@@ -151,7 +151,7 @@
 				var active=parseInt($(block).attr('data-active'));
 				var direction=parseInt($(this).attr("data-direction"));
 				var newSlide=active+direction;
-				var slideWidth=$(slider).find('.vignette').outerWidth() + 20;
+				var slideWidth=$(slider).find('.slide').outerWidth() + 20;
 
 				var total = parseInt(block.attr('data-total'));
 				var derniere=total - 1;
@@ -188,7 +188,7 @@
 				var dots=$(block).find('.dot');
 
 				var newSlide=$(this).attr("data-target");
-				var slideWidth=$(slider).find('.vignette').outerWidth() + 20;
+				var slideWidth=$(slider).find('.slide').outerWidth() + 20;
 
 				var total = parseInt(block.attr('data-total'));
 				var derniere=total - 1;

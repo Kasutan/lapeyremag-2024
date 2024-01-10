@@ -140,12 +140,21 @@ function kasutan_affiche_slider($posts) {
 		foreach ($posts as $post_id) {
 			$post = get_post($post_id); 
 			setup_postdata($post);
-			get_template_part( 'partials/archive', null,array('balise_title'=>'h3','index'=>$index) );
+			get_template_part( 'partials/archive', null,array('balise_title'=>'h3','index'=>$index,'slider'=>true) );
 			$index++;
 		}
+		//TODO pour les sliders du bloc univers, on aurait besoin de balise_title h4
 		wp_reset_postdata();
 		echo '</ul></div>';
-		echo '<div class="nav-slider">';
+		kasutan_affiche_nav_slider($total);
+	echo '</div>'; //.slider-wrap
+}
+
+/**
+ * Afficher les boutons de navigation d'un slider (articles ou pages)
+ */
+function kasutan_affiche_nav_slider($total) {
+	echo '<div class="nav-slider">';
 		?>
 		<button class="fleche-slider gauche" data-direction="-1" disabled>
 			<span class="sr-text">Faire défiler vers la slide précédente</span>
@@ -169,11 +178,7 @@ function kasutan_affiche_slider($posts) {
 		</button>
 		<?php
 		echo '</div>'; //.nav-slider
-	echo '</div>'; //.slider-wrap
 }
-
-
-
 
 /**
  * Entry Author

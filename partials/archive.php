@@ -12,6 +12,7 @@
 $balise_vignette='li';
 $balise_titre='h2';
 $featured=false;
+$slider=false;
 $index=1;
 if(!empty($args)) {
 	if(array_key_exists('tag',$args)) {
@@ -26,11 +27,11 @@ if(!empty($args)) {
 	if(array_key_exists('index',$args)) {
 		$index=$args['index'];
 	}
+	if(array_key_exists('slider',$args)) {
+		$slider=$args['slider'];
+	}
 }
-if($balise_vignette==='div') {
-	//on est dans le carousel
-	$balise_titre='h3';
-}
+
 
 //Préparer les infos sur le post
 $infos=array('parent_name'=>false,'child_name'=>false,'couleur'=>false);
@@ -46,6 +47,9 @@ $taille="medium_large";
 if($featured) {
 	$class.=" featured";
 	$taille='large';
+}
+if($slider) {
+	$class.=' slide';
 }
 
 //Préparer les tags univers (catgéorie parente) et type d'article (catégorie enfant)

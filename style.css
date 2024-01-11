@@ -2220,7 +2220,7 @@ form.search-form.search-header, .pictos-header .magasin {
 }
 
 /*--------------------------------------------------------------
-## Entry-header
+## Page banniere
 --------------------------------------------------------------*/
 .page-banniere {
   align-items: center;
@@ -2255,7 +2255,7 @@ form.search-form.search-header, .pictos-header .magasin {
   top: 0;
   width: 100%;
 }
-.page-banniere .entry-title, .page-banniere .sous-titre {
+.page-banniere .entry-title, .page-banniere .sous-titre, .page-banniere .sur-titre {
   color: var(--blanc);
   margin: 0;
   position: relative;
@@ -2271,6 +2271,14 @@ form.search-form.search-header, .pictos-header .magasin {
   font-weight: 700;
   line-height: 2.4rem;
   margin-top: 1.2rem;
+}
+.page-banniere .sur-titre {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  text-transform: uppercase;
 }
 @media (min-width: 768px) {
   .page-banniere img.mobile {
@@ -2291,6 +2299,12 @@ form.search-form.search-header, .pictos-header .magasin {
     font-weight: 700;
     line-height: 2.4rem;
     margin-top: 1.6rem;
+  }
+  .page-banniere .sur-titre {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+    margin-bottom: 1.2rem;
   }
 }
 
@@ -2582,6 +2596,25 @@ form.search-form.search-header, .pictos-header .magasin {
 .site-footer .bottom-footer a:hover, .site-footer .bottom-footer a:focus {
   color: var(--blanc);
   text-decoration: underline;
+}
+
+.titre-loop {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  color: #1F1416;
+  margin-top: 6rem;
+  padding: 0 var(--padding-x-lg);
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (min-width: 1024px) {
+  .titre-loop {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 3.2rem;
+    margin-top: 8rem;
+  }
 }
 
 .loop {

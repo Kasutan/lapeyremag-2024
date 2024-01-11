@@ -22,6 +22,7 @@
 */
 
 $cat=get_queried_object();
+$term_id=$cat->term_id;
 $name=$cat->name;
 
 $parent_id=$cat->parent;
@@ -38,40 +39,78 @@ if($parent_id) {
 	);
 }
 
+$image=false;
+$titre=$name;
+$titre_loop=$name.' '.$parent_name;
+
+if(function_exists('get_field')) {
+	//Bannière : dans les champs ACF de la catégorie
+	$image=esc_attr(get_field('lapeyre_banniere_image','category_'.$term_id));
+
+	//Phrase intro et titre pour à la tendance : dans les réglages du site
+	if($has_parent && have_rows('lapeyre_types_articles','option')) {
+		while(have_rows('lapeyre_types_articles','option')) : the_row();
+
+		$key=esc_attr(get_sub_field('key'));
+		if(strpos(strtolower($name),$key) !== false) {
+			//On a trouvé le type qui correspond à la catégorie actuelle
+
+			// Pour avoir le titre avec article
+			$page=get_sub_field('page');
+			if($page) $titre=get_the_title($page); 
+
+			//Phrase composée d'un chaine liée au type d'article et du nom de la catégorie parente
+			$intro=wp_kses_post(get_sub_field('intro'));
+			if($intro) $titre_loop=$intro.' '.$parent_name;
+		}
+
+		endwhile;
+	}
+
+}
+
 get_header();
 
 
 echo '<div class="ea_content_area_wrap">';
 echo '<main class="site-main">';
 
-	if(function_exists('kasutan_fil_ariane')) {
-		kasutan_fil_ariane();
-	}
-
 	echo '<header class="entry-header">';
-		if($has_parent) printf('<p class="sur-titre parent">%s</p>',$parent_name);
+		if(function_exists('kasutan_fil_ariane')) {
+			kasutan_fil_ariane();
+		}
+		echo '<div class="page-banniere">';
+			if($image) echo wp_get_attachment_image($image,'banniere');
+			
+			echo '<div class="overlay"></div>';
 		
-		echo '<h1 class="entry-title">' . $name . '</h1>';
+			if($has_parent) printf('<p class="sur-titre parent">%s</p>',$parent_name);
 		
-		if(!$has_parent) echo '<p class="sous-titre">Phrase intro cat parent ici (get_field)</p>';
+			echo '<h1 class="entry-title">' . $titre . '</h1>';
+		
+			if(!$has_parent) echo '<p class="sous-titre">Phrase intro cat parent ici (get_field)</p>';
 
-		echo '<p>image banniere ici (get_field)</p>';
+		echo '</div>'; //fermer banniere
+
+		
 	echo '</header>';
 
 
 	if($has_parent) {
-		echo '<p>Phrase intro cat enfant ici (get_field)</p>';
+		
 
 		if ( have_posts() ) :
 
 			echo '<div id="archive-filtrable">';
+				if($titre_loop) printf('<h2 class="titre-loop">%s</h2>',$titre_loop);
+
 				echo '<ul class="loop list">';
 
 				/* Start the Loop */
 				$count=0;
 				while ( have_posts() ) : the_post();
 					$count++;
-					get_template_part( 'partials/archive');
+					get_template_part( 'partials/archive',null,array('balise_title'=>'h3'));
 				endwhile;
 		
 				echo '</ul>';

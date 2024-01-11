@@ -8,7 +8,7 @@
             "name": "lapeyre_types_articles",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Ces réglages sont utilisés pour le bloc navigation par type d'article, le titre des sections dans les pages Univers et l'en-tête des pages Univers x type d'article.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -140,5 +140,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704912694
+    "modified": 1704966785
 }

@@ -8,7 +8,7 @@
             "name": "",
             "aria-label": "",
             "type": "accordion",
-            "instructions": "Section avec titre, sous-titre et, pour chaque type d'article, 1 picto et texte cliquable.",
+            "instructions": "Section avec titre, sous-titre et, pour chaque type d'article, 1 picto et texte cliquable.\r\nLe picto et le lien associés à chaque type sont modifiables dans Réglages du site Lapeyre.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -105,5 +105,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704912522
+    "modified": 1704966661
 }

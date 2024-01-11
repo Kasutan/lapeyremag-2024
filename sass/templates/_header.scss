@@ -210,7 +210,7 @@ form.search-form.search-header, .pictos-header .magasin {
 	top:-200px;
 }
 /*--------------------------------------------------------------
-## Entry-header
+## Page banniere
 --------------------------------------------------------------*/
 .page-banniere {
 	align-items: center;
@@ -247,7 +247,7 @@ form.search-form.search-header, .pictos-header .magasin {
 		width:100%;
 	}
 
-	.entry-title, .sous-titre {
+	.entry-title, .sous-titre, .sur-titre {
 		color:var(--blanc);
 		margin:0;
 		position: relative;
@@ -261,6 +261,13 @@ form.search-form.search-header, .pictos-header .magasin {
 	.sous-titre {
 		@include font-headline-xxs;
 		margin-top: 1.2rem;
+	}
+
+	.sur-titre {
+		@include font-headline-s;
+		margin-bottom: 0.8rem;
+		text-align: center;
+		text-transform: uppercase;
 	}
 
 	@include bp(md) {
@@ -284,6 +291,11 @@ form.search-form.search-header, .pictos-header .magasin {
 		.sous-titre {
 			@include font-headline-s;
 			margin-top: 1.6rem;
+		}
+
+		.sur-titre {
+			@include font-headline-xl;
+			margin-bottom: 1.2rem;
 		}
 	}
 }

@@ -1,3 +1,17 @@
+.titre-loop {
+	@include font-headline-s;
+	color:#1F1416;
+	margin-top: 6rem;
+	padding:0 var(--padding-x-lg);
+	text-align: center;
+	text-transform: uppercase;
+
+	@include bp(lg) {
+		@include font-headline-m;
+		margin-top: 8rem;
+	}
+}
+
 .loop {
 	list-style:none;
 	padding:3.2rem 2rem 0;

@@ -41,10 +41,11 @@ if($parent_id) {
 
 $image=$sous_titre=false;
 $titre=$name;
-$titre_loop=$name.' '.$parent_name;
+if($has_parent) $titre_loop=$name.' '.$parent_name;
+$titres_sections=array();
 
 if(function_exists('get_field')) {
-	//Bannière : dans les champs ACF de la catégorie
+	//Bannière parent ou enfant : dans les champs ACF de la catégorie
 	$image=esc_attr(get_field('lapeyre_banniere_image','category_'.$term_id));
 
 	//Sous-titre pour la catégorie parent : dans les champs ACF de la catégorie
@@ -52,6 +53,16 @@ if(function_exists('get_field')) {
 		$sous_titre=wp_kses_post(get_field('lapeyre_banniere_sous_titre','category_'.$term_id));
 	}
 
+	//Titres des sous-catégories pour la catégorie parent : dans les réglages du site
+	if(have_rows('lapeyre_types_articles','option')) {
+		while(have_rows('lapeyre_types_articles','option')) : the_row();
+			$key=esc_attr(get_sub_field('key'));
+			$page=get_sub_field('page');
+			if($key && $page) {
+				$titres_sections[$key]=get_the_title($page);
+			}
+		endwhile;
+	}
 
 	//Titre header et titre de la boucle pour la catégorie enfant : dans les réglages du site
 	if($has_parent && have_rows('lapeyre_types_articles','option')) {
@@ -155,12 +166,57 @@ echo '<main class="site-main">';
 
 		echo '<div class="container has-beige-clair-background-color">';
 
-		$types=['guide','tendance','tutoriel'];
-		foreach($types as $type) {
-			printf('<section>Les 3 derniers articles de la sous-catégorie avec mot-clé %s dans cet univers %s + lien vers page archive univers x type d\'article</section>',$type,$name);
+		$enfants=get_term_children($term_id, 'category');
+
+		if($enfants) {
+			foreach($enfants as $cat_id) {
+				$cat=get_term($cat_id);
+				$nom_enfant=$cat->name;
+
+				$posts=new WP_Query(array(
+					'cat'=>$cat_id,
+					'posts_per_page'=>3
+				));
+				if($posts->have_posts()) {
+
+					//Préparer les éléments dynamiques de la section
+					$bouton=sprintf('<a href="%s" class="bouton">%s</a>',get_term_link($cat),'Tout découvrir');
+
+					//Titre de la section par défaut = nom de la catégorie
+					$titre_section=$nom_enfant; 
+
+					//Titre de la section si on le trouve = nom de la page de ce type d'articles
+					if($titres_sections) {
+						foreach($titres_sections as $key=>$titre_page) {
+							if(strpos(strtolower($nom_enfant),$key) !== false) {
+								$titre_section=$titre_page;
+							}
+						}
+					}
+
+					echo '<section class="section-cat">';
+						echo '<div class="nav-cat">';
+							printf('<h2 class="titre-cat">%s</h2>',$titre_section);
+							echo $bouton; //desktop uniquement
+
+						echo '</div>'; //.nav-cat
+
+						echo '<ul class="loop archive-cat">';
+							while($posts->have_posts()) {
+								$posts->the_post();
+								get_template_part( 'partials/archive', null,array('balise_title'=>'h3'));
+							}
+							wp_reset_postdata();
+
+						echo '</ul>';
+
+						printf('<div class="bouton-wrap">%s</div>',$bouton); //mobile uniquement
+
+					echo '</section>';
+				}
+			}
 		}
-		//TODO : après avoir mis les sous-catégories dans l'ordre, appeler tout simplement les catégories enfants de la catégorie actuelle. Pour chaque sous-catégorie, on retr
-		echo '</div>';
+
 
 		printf('<section> Voulez-vous découvrir autres articles ? Navigation vers archive univers de niveau 1. Exclure la page univers actuelle de la navigation</section>');
 	}

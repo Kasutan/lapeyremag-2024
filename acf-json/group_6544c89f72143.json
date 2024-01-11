@@ -1,6 +1,6 @@
 {
     "key": "group_6544c89f72143",
-    "title": "Réglages de la catégorie parente",
+    "title": "Réglages de la catégorie",
     "fields": [
         {
             "key": "field_659fbbc5988d2",
@@ -55,6 +55,26 @@
             "other_choice": 0,
             "layout": "vertical",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_659fc87fd7aab",
+            "label": "Sous-titre de la banniere pour cet univers",
+            "name": "lapeyre_banniere_sous_titre",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Uniquement utilisé pour les catégories parentes (Univers). Ce réglage peut rester vide pour les catégories enfant (Guides, Tutoriels...)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Toutes nos idées pour démarrer votre projet en toute sérénité",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -75,5 +95,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704970302
+    "modified": 1704970490
 }

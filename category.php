@@ -39,7 +39,7 @@ if($parent_id) {
 	);
 }
 
-$image=false;
+$image=$sous_titre=false;
 $titre=$name;
 $titre_loop=$name.' '.$parent_name;
 
@@ -47,7 +47,13 @@ if(function_exists('get_field')) {
 	//Bannière : dans les champs ACF de la catégorie
 	$image=esc_attr(get_field('lapeyre_banniere_image','category_'.$term_id));
 
-	//Phrase intro et titre pour à la tendance : dans les réglages du site
+	//Sous-titre pour la catégorie parent : dans les champs ACF de la catégorie
+	if(!$has_parent) {
+		$sous_titre=wp_kses_post(get_field('lapeyre_banniere_sous_titre','category_'.$term_id));
+	}
+
+
+	//Titre header et titre de la boucle pour la catégorie enfant : dans les réglages du site
 	if($has_parent && have_rows('lapeyre_types_articles','option')) {
 		while(have_rows('lapeyre_types_articles','option')) : the_row();
 
@@ -66,6 +72,7 @@ if(function_exists('get_field')) {
 
 		endwhile;
 	}
+
 
 }
 
@@ -88,7 +95,7 @@ echo '<main class="site-main">';
 		
 			echo '<h1 class="entry-title">' . $titre . '</h1>';
 		
-			if(!$has_parent) echo '<p class="sous-titre">Phrase intro cat parent ici (get_field)</p>';
+			if(!$has_parent && $sous_titre) printf('<p class="sous-titre">%s</p>',$sous_titre);
 
 		echo '</div>'; //fermer banniere
 

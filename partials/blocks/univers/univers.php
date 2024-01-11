@@ -46,11 +46,11 @@ if(!empty($univers) && function_exists('kasutan_affiche_slider')) :
 				$bouton=sprintf('<a href="%s" class="bouton">%s</a>',$lien,$label_bouton);
 				$types=get_term_children($term_id,'category');
 
-				echo '<div class="univers">';
+				echo '<div class="section-cat">';
 
-					echo '<div class="nav-univers">';
+					echo '<div class="nav-cat">';
 
-						printf('<h3 class="titre-univers">%s</h3>',$term->name);
+						printf('<h3 class="titre-cat">%s</h3>',$term->name);
 					
 						echo '<div class="nav-types">';
 							printf('<p class="label-types">%s</p>',$label_types);
@@ -62,7 +62,7 @@ if(!empty($univers) && function_exists('kasutan_affiche_slider')) :
 					
 						echo $bouton; //desktop uniquement
 					
-					echo '</div>';//.nav-univers
+					echo '</div>';//.nav-cat
 					
 					kasutan_affiche_slider($posts);
 

@@ -1,10 +1,10 @@
-.univers {
+.section-cat {
 	margin-bottom: 4rem;
 	&:last-child {
 		margin-bottom: 0;
 	}
 
-	.nav-univers {
+	.nav-cat {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
@@ -18,7 +18,7 @@
 
 	}
 
-	.titre-univers {
+	.titre-cat {
 		@include font-headline-xs;
 		color:#1F1416;
 		margin-bottom: 2rem;
@@ -33,7 +33,7 @@
 	}
 
 	@include bp(lg) {
-		.nav-univers {
+		.nav-cat {
 			display: grid;
 			grid-template-columns: 1fr auto;
 			grid-template-rows: auto auto;
@@ -47,7 +47,7 @@
 			}
 		}
 
-		.titre-univers {
+		.titre-cat {
 			@include font-headline-s;
 			margin-bottom: 0;
 		}

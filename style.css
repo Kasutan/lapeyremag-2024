@@ -830,8 +830,8 @@ body {
 }
 
 .site-main .fil-ariane, .site-main .entry-title {
-  padding-left: var(--padding-x);
-  padding-right: var(--padding-x);
+  padding-left: var(--padding-x-lg);
+  padding-right: var(--padding-x-lg);
 }
 
 body .entry-content {

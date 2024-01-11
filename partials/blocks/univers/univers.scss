@@ -20,33 +20,9 @@
 		text-align: center;
 	}
 
-	.univers {
-		margin-bottom: 4rem;
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+	//Style des blocs par catégories et de leur navigation dans un composant SASS section-cat (réutilisés dans l'archive de la catégorie parente)
 
-	.nav-univers {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		margin-bottom: 1.2rem;
-		padding:0 1.6rem;
-		text-align: center;
-
-		.bouton {
-			display: none;
-		}
-
-	}
-
-	.titre-univers {
-		@include font-headline-xs;
-		color:#1F1416;
-		margin-bottom: 2rem;
-		text-transform: uppercase;
-	}
+	//On ne garde ici que les styles des tags
 
 	.label-types {
 		margin-bottom: 0.8rem;
@@ -67,12 +43,7 @@
 		}
 	}
 
-	.bouton-wrap {
-		display: flex;
-		justify-content: center;
-		padding:0 var(--padding-x-lg);
 
-	}
 
 	//Styles du slider dans un composant SASS (réutilisés dans d'autres blocs)
 	//Ici on ajoute juste quelques ajustements spécifiques au bloc ACF
@@ -92,24 +63,7 @@
 			margin-bottom: 3.2rem;
 		}
 
-		.nav-univers {
-			display: grid;
-			grid-template-columns: 1fr auto;
-			grid-template-rows: auto auto;
-			margin-bottom: 2rem;
-			padding:0 var(--padding-x-lg);
-			text-align: left;
-			.bouton {
-				display: block;
-				grid-column: 2;
-				grid-row:1;
-			}
-		}
-
-		.titre-univers {
-			@include font-headline-s;
-			margin-bottom: 0;
-		}
+		
 
 		.nav-types {
 			align-items: center;
@@ -128,9 +82,7 @@
 			margin-bottom: 0;
 		}
 
-		.bouton-wrap {
-			display: none;
-		}
+		
 
 	}
 }

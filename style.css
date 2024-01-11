@@ -3089,6 +3089,61 @@ nav.reseaux a {
   width: 4.4rem;
 }
 
+.univers {
+  margin-bottom: 4rem;
+}
+.univers:last-child {
+  margin-bottom: 0;
+}
+.univers .nav-univers {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+  padding: 0 1.6rem;
+  text-align: center;
+}
+.univers .nav-univers .bouton {
+  display: none;
+}
+.univers .titre-univers {
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 2.4rem;
+  color: #1F1416;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.univers .bouton-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--padding-x-lg);
+}
+@media (min-width: 1024px) {
+  .univers .nav-univers {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    margin-bottom: 2rem;
+    padding: 0 var(--padding-x-lg);
+    text-align: left;
+  }
+  .univers .nav-univers .bouton {
+    display: block;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .univers .titre-univers {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    margin-bottom: 0;
+  }
+  .univers .bouton-wrap {
+    display: none;
+  }
+}
+
 .slider-wrap {
   --w:28rem;
   --d:0.8rem;

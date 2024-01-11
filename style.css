@@ -2262,112 +2262,6 @@ form.search-form.search-header, .pictos-header .magasin {
   top: -200px;
 }
 
-/*--------------------------------------------------------------
-## Page banniere
---------------------------------------------------------------*/
-.page-banniere {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: var(--hauteur-banniere);
-  justify-content: center;
-  overflow: hidden;
-  margin: 0 auto;
-  padding: var(--padding-y-1) 2rem;
-  position: relative;
-  max-width: var(--largeur-max);
-  width: 100%;
-}
-.page-banniere img {
-  height: 100%;
-  left: 0;
-  object-fit: cover;
-  object-position: center center;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.page-banniere img.desktop {
-  display: none;
-}
-.page-banniere .overlay {
-  background-color: rgba(77, 51, 16, 0.4);
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.page-banniere .entry-title, .page-banniere .sous-titre, .page-banniere .sur-titre {
-  color: var(--blanc);
-  margin: 0;
-  position: relative;
-}
-.page-banniere .entry-title {
-  font-size: 3.2rem;
-  font-weight: 900;
-  line-height: 3.6rem;
-  text-transform: uppercase;
-}
-.page-banniere .sous-titre {
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 2.4rem;
-  margin-top: 1.2rem;
-}
-.page-banniere .sur-titre {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 2.4rem;
-  margin-bottom: 0.8rem;
-  text-align: center;
-  text-transform: uppercase;
-}
-@media (min-width: 768px) {
-  .page-banniere img.mobile {
-    display: none;
-  }
-  .page-banniere img.desktop {
-    display: block;
-  }
-}
-@media (min-width: 1024px) {
-  .page-banniere .entry-title {
-    font-size: 6.4rem;
-    font-weight: 900;
-    line-height: 6.8rem;
-  }
-  .page-banniere .sous-titre {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 2.4rem;
-    margin-top: 1.6rem;
-  }
-  .page-banniere .sur-titre {
-    font-size: 3.2rem;
-    font-weight: 700;
-    line-height: 3.6rem;
-    margin-bottom: 1.2rem;
-  }
-}
-
-.entry-title {
-  margin-top: 5.2rem;
-}
-@media (min-width: 1024px) {
-  .entry-title {
-    margin-top: 7.2rem;
-  }
-}
-.entry-title.sans-banniere {
-  margin-bottom: 5.2rem;
-}
-@media (min-width: 1024px) {
-  .entry-title.sans-banniere {
-    margin-bottom: 7.2rem;
-  }
-}
-
 .site-footer {
   /*--------------------------------------------------------------
   *	Avantages
@@ -2869,6 +2763,195 @@ section.no-results .entry-title {
   .single-post .entry-content .col {
     padding: 5rem;
     padding-right: calc(100% - 52rem);
+  }
+}
+
+/*--------------------------------------------------------------
+## Page banniere pour les pages ordinaires
+--------------------------------------------------------------*/
+.page-banniere {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: var(--hauteur-banniere);
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: var(--padding-y-1) 2rem;
+  position: relative;
+  max-width: var(--largeur-max);
+  width: 100%;
+}
+.page-banniere img {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  object-position: center center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.page-banniere img.desktop {
+  display: none;
+}
+.page-banniere .overlay {
+  background-color: rgba(77, 51, 16, 0.4);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.page-banniere .entry-title, .page-banniere .sous-titre, .page-banniere .sur-titre {
+  color: var(--blanc);
+  margin: 0;
+  position: relative;
+}
+.page-banniere .entry-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 3.6rem;
+  text-transform: uppercase;
+}
+.page-banniere .sous-titre {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-top: 1.2rem;
+}
+.page-banniere .sur-titre {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .page-banniere img.mobile {
+    display: none;
+  }
+  .page-banniere img.desktop {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
+  .page-banniere .entry-title {
+    font-size: 6.4rem;
+    font-weight: 900;
+    line-height: 6.8rem;
+  }
+  .page-banniere .sous-titre {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    margin-top: 1.6rem;
+  }
+  .page-banniere .sur-titre {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+.entry-title {
+  margin-top: 5.2rem;
+}
+@media (min-width: 1024px) {
+  .entry-title {
+    margin-top: 7.2rem;
+  }
+}
+.entry-title.sans-banniere {
+  margin-bottom: 5.2rem;
+}
+@media (min-width: 1024px) {
+  .entry-title.sans-banniere {
+    margin-bottom: 7.2rem;
+  }
+}
+
+/*--------------------------------------------------------------
+## Page banniere pour les pages avec le modèle Page d'un type d'article
+--------------------------------------------------------------*/
+.page-banniere-type {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: var(--hauteur-banniere);
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: var(--padding-y-1) 2rem;
+  position: relative;
+  max-width: var(--largeur-max);
+  width: 100%;
+}
+.page-banniere-type .image {
+  display: flex;
+  height: 100%;
+  left: 0;
+  opacity: 0.4;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.page-banniere-type .image img {
+  height: 100%;
+}
+.page-banniere-type .entry-title, .page-banniere-type .sous-titre {
+  margin: 0;
+  position: relative;
+  text-align: center;
+}
+.page-banniere-type .entry-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 3.6rem;
+  text-transform: uppercase;
+}
+.page-banniere-type .sous-titre {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-top: 1.2rem;
+}
+@media (min-width: 1024px) {
+  .page-banniere-type {
+    --wimg:30%;
+    align-items: flex-start;
+    padding-left: var(--padding-x-lg);
+    padding-right: calc(var(--padding-x-lg) + var(--wimg));
+    text-align: left;
+  }
+  .page-banniere-type .image {
+    left: unset;
+    opacity: 1;
+    right: var(--padding-x-lg);
+    width: var(--wimg);
+  }
+  .page-banniere-type .image img {
+    object-fit: contain;
+  }
+  .page-banniere-type .entry-title {
+    font-size: 6.4rem;
+    font-weight: 900;
+    line-height: 6.8rem;
+    padding: 0;
+    text-align: left;
+  }
+  .page-banniere-type .sous-titre {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    margin-top: 1.6rem;
+  }
+}
+@media (min-width: 1440px) {
+  .page-banniere-type {
+    --wimg:47rem;
   }
 }
 

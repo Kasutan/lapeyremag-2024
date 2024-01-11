@@ -78,7 +78,7 @@
             "name": "lapeyre_banniere_sous_titre",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Si ce champ est vide, on utilisera le titre de la page",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -116,5 +116,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704911015
+    "modified": 1704986087
 }

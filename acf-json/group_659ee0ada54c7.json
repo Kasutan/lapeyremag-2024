@@ -8,7 +8,7 @@
             "name": "lapeyre_banniere_image",
             "aria-label": "",
             "type": "image",
-            "instructions": "Format recommandé JPG. Taille recommandée : 1920px de large par 600px de haut.\r\nSi cette image est absente, on affichera simplement le titre en noir sur fond blanc.",
+            "instructions": "Format recommandé PNG ou SVG. Taille recommandée : 470px de large par 400px de haut.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -24,7 +24,7 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": "jpg, jpeg",
+            "mime_types": "",
             "preview_size": "medium"
         },
         {
@@ -53,7 +53,7 @@
             "name": "lapeyre_banniere_sous_titre",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Si ce champ est vide, on utilisera le titre de la page",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -70,9 +70,9 @@
         {
             "key": "field_659ee0dbd794f",
             "label": "Couleur de fond de la bannière",
-            "name": "couleur",
+            "name": "lapeyre_banniere_couleur",
             "aria-label": "",
-            "type": "radio",
+            "type": "color_picker",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -81,17 +81,9 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "rose": "rose",
-                "jaune": "jaune",
-                "bleu": "bleu"
-            },
-            "default_value": "rose",
-            "return_format": "value",
-            "allow_null": 0,
-            "other_choice": 0,
-            "layout": "vertical",
-            "save_other_choice": 0
+            "default_value": "#F4EADE",
+            "enable_opacity": 0,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -117,5 +109,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704911313
+    "modified": 1704985258
 }

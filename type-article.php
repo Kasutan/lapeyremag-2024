@@ -6,7 +6,7 @@ add_action( 'tha_entry_top', 'kasutan_fil_ariane', 5 );
 
 
 // Bannière auto contenant le titre de la page (2 versions, page simple et page spéciale type d'article)
-add_action( 'tha_entry_top', 'kasutan_page_banniere', 10 );
+add_action( 'tha_entry_top', 'kasutan_page_banniere_type', 10 );
 
 
 

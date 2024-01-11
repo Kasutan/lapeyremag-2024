@@ -358,6 +358,39 @@ function kasutan_page_banniere($page_id=false,$use_defaut=false) {
 	}
 }
 
+
+/**
+* Image banniere pour les pages avec le modèle Page d'un type d'article
+*
+*/
+function kasutan_page_banniere_type() {
+
+	$image_id=$titre=$sous_titre=$couleur="";
+	if(function_exists('get_field')) {
+		$image_id=esc_attr(get_field('lapeyre_banniere_image'));
+		$couleur=esc_attr(get_field('lapeyre_banniere_couleur'));
+		$titre=wp_kses_post(get_field('lapeyre_banniere_titre'));
+		$sous_titre=wp_kses_post(get_field('lapeyre_banniere_sous_titre'));
+	}
+
+	if(empty($titre)) {
+		$titre=get_the_title();
+	}
+
+	if(empty($couleur)) {
+		$couleur="transparent";
+	}
+
+	printf('<div class="page-banniere-type" style="background-color:%s">',$couleur);
+		echo '<div class="image">';
+			echo wp_get_attachment_image( $image_id, 'full',false,array('decoding'=>'async','loading'=>'eager'));
+		echo '</div>';
+		printf('<h1 class="entry-title">%s</h1>',$titre);
+		if($sous_titre) printf('<p class="sous-titre">%s</p>',$sous_titre);
+	echo '</div>';
+	
+}
+
 /**
 * Image banniere pour les actus + utilisée aussi pour la recherche
 *

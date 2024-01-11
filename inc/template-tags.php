@@ -325,6 +325,7 @@ function kasutan_page_titre() {
 function kasutan_page_banniere($page_id=false,$use_defaut=false) {
 	//TODO supprimer les arguments
 	//TODO variante pour page spéciale type d'article (option dans le groupe de champs ou modèle de page ?)
+	//TODO simplifier (une seule image desktop et mobile si on la demande au bon format)
 
 	$image_id=$image_mobile_id=$titre=$sous_titre="";
 	if(function_exists('get_field')) {

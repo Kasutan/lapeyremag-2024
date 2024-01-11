@@ -1,0 +1,110 @@
+{
+    "key": "group_65a0094b6f67b",
+    "title": "Bloc articles par sous-catégries (pade d'un type d'article)",
+    "fields": [
+        {
+            "key": "field_65a0094b7546b",
+            "label": "Bloc articles par sous-catégries (pade d'un type d'article)",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "Section avec sélection de sous-catégories. Pour chaque sous-catégorie, affichage du titre de l'univers et du slider des articles les plus récents.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_65a0094b8064a",
+            "label": "Sous-catégories",
+            "name": "cats",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Choisir seulement des sous-catégories, une seule sous-catégorie par univers. \r\nL'ordre des univers est modifiable dans Articles > Ordre des taxonomies.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "checkbox",
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_65a0094b83fa7",
+            "label": "Nombre d'articles à afficher dans chaque slider",
+            "name": "nb",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 12,
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65a0094b8b38d",
+            "label": "Label du bouton",
+            "name": "label_bouton",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Tout découvrir",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/types"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1704987082
+}

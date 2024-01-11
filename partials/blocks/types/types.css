@@ -1,0 +1,58 @@
+/*--------------------------------------------------------------
+# Variables couleurs
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins styles de textes
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins boutons
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins layout
+--------------------------------------------------------------*/
+.acf-types {
+  --pt:6rem;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--beige-clair);
+  padding: var(--pt) 0;
+}
+@media (min-width: 1920px) {
+  .acf-types {
+    width: var(--largeur-max);
+  }
+}
+.acf-types .titre-section {
+  margin-bottom: 1.2rem;
+  padding: 0 var(--padding-x-lg);
+  text-align: center;
+}
+.acf-types .sous-titre {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2rem;
+  padding: 0 var(--padding-x-lg);
+  margin-bottom: 4rem;
+  padding: 0 var(--padding-x-lg);
+  text-align: center;
+}
+.acf-types .slider-wrap {
+  margin-bottom: 2rem;
+  padding-left: var(--padding-x-lg);
+}
+.acf-types .nav-slider {
+  padding-right: var(--padding-x-lg);
+}
+@media (min-width: 1024px) {
+  .acf-types {
+    --pt:8rem;
+    padding-bottom: 4.8rem;
+  }
+  .acf-types .titre-section {
+    margin-bottom: 3.2rem;
+  }
+}

@@ -201,6 +201,16 @@ class BE_ACF_Customizations {
 			array('univers','slider','accueil')
 		);
 
+		/*********Bloc types***************/
+		$this->helper_register_block_type( 
+			'types',
+			'Bloc articles par sous-catégries (page d\'un type d\'article)',
+			'Section avec sélection de sous-catégories. Pour chaque sous-catégorie, affichage du titre de l\'univers et du slider des articles les plus récents.',
+			'tagcloud', 
+			false,
+			array('slider','type','categorie','sous-categorie')
+		);
+
 		/*********Bloc nav-page-type***************/
 		$this->helper_register_block_type( 
 			'nav-page-type',

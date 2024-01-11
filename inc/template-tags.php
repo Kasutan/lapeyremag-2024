@@ -126,7 +126,7 @@ function kasutan_affiche_temps() {
 /**
  * Afficher un slider d'articles
  */
-function kasutan_affiche_slider($posts) {
+function kasutan_affiche_slider($posts,$tag_titre='h3') {
 	if(empty($posts)) {
 		return;
 	}
@@ -140,7 +140,7 @@ function kasutan_affiche_slider($posts) {
 		foreach ($posts as $post_id) {
 			$post = get_post($post_id); 
 			setup_postdata($post);
-			get_template_part( 'partials/archive', null,array('balise_title'=>'h3','index'=>$index,'slider'=>true) );
+			get_template_part( 'partials/archive', null,array('tag_titre'=>$tag_titre,'index'=>$index,'slider'=>true) );
 			$index++;
 		}
 		//TODO pour les sliders du bloc univers, on aurait besoin de balise_title h4

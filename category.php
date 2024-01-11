@@ -203,7 +203,7 @@ echo '<main class="site-main">';
 						echo '<ul class="loop archive-cat">';
 							while($posts->have_posts()) {
 								$posts->the_post();
-								get_template_part( 'partials/archive', null,array('balise_title'=>'h3'));
+								get_template_part( 'partials/archive', null,array('tag_titre'=>'h3'));
 							}
 							wp_reset_postdata();
 

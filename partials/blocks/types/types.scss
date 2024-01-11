@@ -1,0 +1,45 @@
+@import "./././sass/abstracts/variables-et-mixins";
+
+.acf-types {
+	--pt:6rem;
+	@include bleed;
+	background-color: var(--beige-clair);
+	padding:var(--pt) 0;
+
+	.titre-section {
+		margin-bottom: 1.2rem;
+		padding:0 var(--padding-x-lg);
+		text-align: center;
+	}
+
+	.sous-titre {
+		@include font-body-m;
+		padding:0 var(--padding-x-lg);
+		margin-bottom: 4rem;
+		padding:0 var(--padding-x-lg);
+		text-align: center;
+	}
+
+	//Style des blocs par catégories et de leur navigation dans un composant SASS section-cat (réutilisés dans l'archive de la catégorie parente)
+
+	
+	//Styles du slider dans un composant SASS (réutilisés dans d'autres blocs)
+	//Ici on ajoute juste quelques ajustements spécifiques au bloc ACF
+	.slider-wrap {
+		margin-bottom: 2rem;
+		padding-left: var(--padding-x-lg);
+	}
+	.nav-slider {
+		padding-right: var(--padding-x-lg);
+	}
+
+	@include bp(lg) {
+		--pt:8rem;
+		padding-bottom: 4.8rem;
+
+		.titre-section {
+			margin-bottom: 3.2rem;
+		}
+
+	}
+}

@@ -1,6 +1,6 @@
 <?php 
 /**
-* Template pour le bloc univers
+* Template pour le bloc types
 *
 * @param   array $block The block settings and attributes.
 * @param   string $content The block inner HTML (empty).
@@ -14,26 +14,26 @@ if(array_key_exists('className',$block)) {
 } else $className='';
 
 
-$titre=wp_kses_post( get_field('titre') );
-$sous_titre=wp_kses_post( get_field('sous_titre') );
-$univers=get_field('univers');
+
+$cats=get_field('cats');
 $nb=esc_attr(get_field('nombre'));
-$label_types=wp_kses_post( get_field('label_types') );
 $label_bouton=wp_kses_post( get_field('label_bouton') );
 
-if(!empty($univers) && function_exists('kasutan_affiche_slider')) :
-	printf('<section class="acf-univers %s">', $className);
+if(!empty($cats) && function_exists('kasutan_affiche_slider')) :
+	printf('<section class="acf-types %s">', $className);
 
-		printf('<h2 class="titre-section">%s</h2>',$titre);
-		if($sous_titre) printf('<p class="sous-titre">%s</p>',$sous_titre);
 		
-		foreach($univers as $term) {
+		foreach($cats as $term) {
 			$term_id=$term->term_id;
 
-			//Vérifier qu'on a bien un univers = une catégorie parente
-			if($term->parent) {
+			$parent=$term->parent;
+			//Vérifier qu'on a bien une sous-catégorie
+			if(!$parent) {
 				continue;
 			}
+
+			$parent_term=get_term($parent);
+			$titre_cat=$parent_term->name;
 			
 			$posts=get_posts(array(
 				'numberposts'=>$nb,
@@ -50,21 +50,13 @@ if(!empty($univers) && function_exists('kasutan_affiche_slider')) :
 
 					echo '<div class="nav-cat">';
 
-						printf('<h3 class="titre-cat">%s</h3>',$term->name);
-					
-						echo '<div class="nav-types">';
-							printf('<p class="label-types">%s</p>',$label_types);
-							foreach($types as $type_id) {
-								$type=get_term($type_id);
-								printf('<a href="%s" class="type">%s</a>',get_term_link($type),$type->name);
-							}
-						echo '</div>'; //.nav-types
+						printf('<h2 class="titre-cat">%s</h2>',$titre_cat);
 					
 						echo $bouton; //desktop uniquement
 					
 					echo '</div>';//.nav-cat
 					
-					kasutan_affiche_slider($posts,'h4');
+					kasutan_affiche_slider($posts,'h3');
 
 					printf('<div class="bouton-wrap">%s</div>',$bouton); //mobile uniquement
 

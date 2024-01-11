@@ -42,7 +42,8 @@
 }
 .acf-types .slider-wrap {
   margin-bottom: 2rem;
-  padding-left: var(--padding-x-lg);
+  margin-left: var(--padding-x-lg);
+  overflow-x: hidden;
 }
 .acf-types .nav-slider {
   padding-right: var(--padding-x-lg);

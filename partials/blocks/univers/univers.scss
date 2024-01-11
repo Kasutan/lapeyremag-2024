@@ -49,7 +49,8 @@
 	//Ici on ajoute juste quelques ajustements spécifiques au bloc ACF
 	.slider-wrap {
 		margin-bottom: 2rem;
-		padding-left: var(--padding-x-lg);
+		margin-left: var(--padding-x-lg);
+		overflow-x: hidden;
 	}
 	.nav-slider {
 		padding-right: var(--padding-x-lg);

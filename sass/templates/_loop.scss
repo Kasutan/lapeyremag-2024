@@ -31,7 +31,6 @@
 		}
 	}
 	@include bp(lg) {
-		display: grid;
 		grid-template-columns: repeat(3,1fr);
 		padding: 4rem var(--padding-x-lg) 0;
 		.vignette {

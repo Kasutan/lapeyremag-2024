@@ -164,7 +164,6 @@ echo '<main class="site-main">';
 
 	} else {
 
-		echo '<div class="container has-beige-clair-background-color">';
 
 		$enfants=get_term_children($term_id, 'category');
 

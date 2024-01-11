@@ -1,0 +1,46 @@
+.category {
+	--pt:6rem;
+	.section-cat {
+		background-color: var(--beige-clair);
+		padding-bottom: 6rem;
+		&:first-of-type {
+			padding-top: var(--pt);
+		}
+
+		.nav-cat {
+			margin-bottom: 0;
+		}
+
+		.titre-cat {
+			@include font-headline-s;
+			font-weight: 700;
+		}
+
+		.loop {
+			padding-top:0;
+		}
+
+		@include bp(md) {
+			//On n'a que 3 articles donc on les garde sur 1 seul col au lieu de 2 en tablette
+			.loop {
+				display: block;
+				.vignette {
+					max-width: 36rem;
+				}
+			}
+		}
+		@include bp(lg) {
+			padding-bottom: 0; //on utilise le margin-bottom des vignettes
+			.nav-cat {
+				margin-bottom: 2.4rem;
+			}
+			.loop {
+				column-gap:2rem;
+				display: grid;
+			}
+		}
+	}
+
+	
+	
+}

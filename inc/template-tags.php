@@ -122,6 +122,41 @@ function kasutan_affiche_temps() {
 
 }
 
+/**
+ * Afficher les tags univers et type d'article
+ * A partir des infos catégories
+ */
+function kasutan_affiche_post_tags($infos) {
+	
+	//Préparer les tags univers (catgéorie parente) et type d'article (catégorie enfant)
+	$tag_univers=$tag_type=false;
+
+	if($infos['parent_name']) {
+		if($infos['couleur']) {
+			$couleur=$infos['couleur'];
+		} else {
+			$couleur='rose';
+	}
+
+	$tag_univers=sprintf('<span class="tag univers has-%s-background-color">%s</span>',
+		$couleur,
+		$infos['parent_name']
+	);
+}
+
+	if($infos['child_name']) {
+		$tag_type=sprintf('<span class="tag type">%s</span>',$infos['child_name']);
+	}
+
+	if($tag_univers || $tag_type) {
+		echo '<div class="tags">';
+			if($tag_univers) echo $tag_univers;
+			if($tag_type) echo $tag_type;
+		echo '</div>';
+}
+
+}
+
 
 /**
  * Afficher un slider d'articles
@@ -392,8 +427,56 @@ function kasutan_page_banniere_type() {
 }
 
 /**
-* Image banniere pour les actus + utilisée aussi pour la recherche
+* Image banniere pour les articles
 *
+*/
+function kasutan_single_banniere() {
+
+	
+	$image_id=$date_modif="";
+	if(function_exists('get_field')) {
+		$image_id=esc_attr(get_field('lapeyre_banniere_image'));
+		$date_modif=esc_attr(get_field('lapeyre_date_modif')); //TODO champ ACF avec retour au bon format
+	}
+
+	$infos=array();
+	if(function_exists('kasutan_get_infos_cats')) {
+		$infos=kasutan_get_infos_cats($post_id,true);
+	}
+
+	
+
+	printf('<div class="page-banniere-single">');
+		if($image_id) {
+			echo '<div class="image">';
+				echo wp_get_attachment_image( $image_id, 'banniere',false,array('decoding'=>'async','loading'=>'eager'));
+			echo '</div>';
+		}
+		//TODO image banniere défaut ?
+		echo '<div class="overlay"></div>';
+
+		echo '<div class="encart">';
+
+			//tags univers et type article
+			if(function_exists('kasutan_affiche_post_tags')) {
+				kasutan_affiche_post_tags($infos);
+			}
+			
+			printf('<h1 class="single-title">%s</h1>',get_the_title());
+			//TODO dates
+
+			echo '<div class="dates">';
+				printf('<p>écrit le : <strong>%s</strong></p>', get_the_date('d F Y'));
+				if($date_modif)	printf('<p>modifié le : <strong>%s</strong></p>',$date_modif);
+
+			echo '</div>';//.dates
+		echo '</div>'; //.encart
+	echo '</div>';
+}
+
+/**
+* Image banniere pour les actus + utilisée aussi pour la recherche
+* TODO : encore utile ?
 */
 function kasutan_actus_banniere() {
 	if(!function_exists('get_field')) {

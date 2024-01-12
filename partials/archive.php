@@ -52,27 +52,6 @@ if($slider) {
 	$class.=' slide';
 }
 
-//Préparer les tags univers (catgéorie parente) et type d'article (catégorie enfant)
-$tag_univers=$tag_type=false;
-
-if($infos['parent_name']) {
-	if($infos['couleur']) {
-		$couleur=$infos['couleur'];
-	} else {
-		$couleur='rose';
-	}
-
-	$tag_univers=sprintf('<span class="tag univers has-%s-background-color">%s</span>',
-		$couleur,
-		$infos['parent_name']
-	);
-}
-
-if($infos['child_name']) {
-	$tag_type=sprintf('<span class="tag type">%s</span>',$infos['child_name']);
-}
-
-
 printf('<%s class="%s" data-index="%s">',$balise_vignette,$class,$index);
 
 	
@@ -85,13 +64,10 @@ printf('<%s class="%s" data-index="%s">',$balise_vignette,$class,$index);
 		echo '</div>';
 		printf('<div class="texte">');
 
-			if($tag_univers || $tag_type) {
-				echo '<div class="tags">';
-					if($tag_univers) echo $tag_univers;
-					if($tag_type) echo $tag_type;
-				echo '</div>';
+			if(function_exists('kasutan_affiche_post_tags')) {
+				kasutan_affiche_post_tags($infos);
 			}
-		
+
 			printf('<%s class="titre">%s</%s>',$balise_titre,get_the_title(),$balise_titre);
 
 			if(function_exists('kasutan_affiche_temps')) {

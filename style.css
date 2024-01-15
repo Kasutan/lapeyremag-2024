@@ -2691,12 +2691,6 @@ section.no-results .entry-title {
 .single-post .entry-content {
   background-color: var(--beige-clair);
 }
-.single-post .intro {
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 2.4rem;
-  margin-bottom: 4rem;
-}
 .single-post .single-metas {
   border-bottom: solid 1px var(--gris-400);
   margin-bottom: 4rem;
@@ -2719,6 +2713,36 @@ section.no-results .entry-title {
 .single-post p.temps strong {
   margin-right: 0.5ch;
 }
+.single-post .intro {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-bottom: 4rem;
+}
+@media (min-width: 1024px) {
+  .single-post {
+    --height-encart:27.8rem;
+  }
+  .single-post .single-metas {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8rem;
+  }
+  .single-post .intro, .single-post .sommaire {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8rem;
+    max-width: 60rem;
+  }
+  .single-post .intro {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    line-height: 2.8rem;
+  }
+}
+
 /*--------------------------------------------------------------
 ## Page banniere pour les pages ordinaires
 --------------------------------------------------------------*/
@@ -2980,7 +3004,7 @@ section.no-results .entry-title {
   color: var(--blanc);
 }
 .page-banniere-single .tag:last-of-type {
-  margin-bottom: 2.4rem;
+  margin-bottom: 2rem;
 }
 .page-banniere-single .single-title {
   font-size: 2rem;
@@ -3002,31 +3026,34 @@ section.no-results .entry-title {
 .page-banniere-single .dates p:last-of-type {
   margin-top: 4px;
 }
-@media (min-width: 768px) {
-  .page-banniere-single img.mobile {
-    display: none;
-  }
-  .page-banniere-single img.desktop {
-    display: block;
-  }
-}
 @media (min-width: 1024px) {
-  .page-banniere-single .entry-title {
-    font-size: 6.4rem;
-    font-weight: 900;
-    line-height: 6.8rem;
+  .page-banniere-single .encart {
+    padding: 6rem;
   }
-  .page-banniere-single .sous-titre {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 2.4rem;
-    margin-top: 1.6rem;
+  .page-banniere-single .tag:last-of-type {
+    margin-bottom: 2.4rem;
   }
-  .page-banniere-single .sur-titre {
+  .page-banniere-single .single-title {
     font-size: 3.2rem;
     font-weight: 700;
     line-height: 3.6rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 2.4rem;
+  }
+  .page-banniere-single .dates {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .page-banniere-single .dates p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+  }
+  .page-banniere-single .dates p:last-of-type {
+    border-left: solid 1px var(--gris-400);
+    margin-top: 0;
+    margin-left: 2rem;
+    padding-left: 2rem;
   }
 }
 

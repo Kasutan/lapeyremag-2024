@@ -273,7 +273,7 @@
 			color:var(--blanc);
 		}
 		&:last-of-type {
-			margin-bottom: 2.4rem;
+			margin-bottom: 2rem;
 		}
 	}
 
@@ -300,33 +300,36 @@
 
 
 	@include bp(md) {
-		img {
-			&.mobile {
-				display: none;
-			}
-
-			&.desktop {
-				display: block;
-			}
-		}
+	
 	}
 
 	@include bp(lg) {
-		.entry-title {
-			font-size: 6.4rem;
-			font-weight: 900;
-			line-height: 6.8rem;
+		.encart {
+			padding:6rem;
 		}
-
-		.sous-titre {
-			@include font-headline-s;
-			margin-top: 1.6rem;
+		.tag:last-of-type {
+			margin-bottom: 2.4rem;
 		}
-
-		.sur-titre {
+		.single-title {
 			@include font-headline-xl;
-			margin-bottom: 1.2rem;
+			margin-bottom: 2.4rem;
 		}
+
+		.dates {
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			p {
+				@include font-body-m;
+				&:last-of-type {
+					border-left:solid 1px var(--gris-400);
+					margin-top: 0;
+					margin-left: 2rem;
+					padding-left: 2rem;
+				}
+			}
+		}
+		
 	}
 }
 

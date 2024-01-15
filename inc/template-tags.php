@@ -519,7 +519,8 @@ function kasutan_actus_banniere() {
 * simplesharingbuttons.com
 */
 function kasutan_boutons_partage($avec_titre,$media="") {
-	$lien=urlencode(get_the_permalink());
+	$permalink_brut=get_the_permalink();
+	$lien=urlencode($permalink_brut);
 	$titre=urlencode(get_the_title());
 	if(!empty($media)) $media=urldecode($media);
 
@@ -548,7 +549,7 @@ function kasutan_boutons_partage($avec_titre,$media="") {
 	echo '<div class="partage social">';
 		if($titre) printf('<p class="titre-partage">%s</p>',$titre);
 		echo '<nav class="reseaux">';
-			printf('<button class="copier" title="Copier le lien">%s</button>',kasutan_picto(array('icon'=>'lien')));
+			printf('<button class="copier" id="copier-url" title="Copier le lien" data-url="%s">%s</button>',$permalink_brut,kasutan_picto(array('icon'=>'lien')));
 			foreach($canaux as $canal) {
 				printf('<a href="%s" class="%s" title="%s" target="_blank" rel="noopener noreferrer">%s</a>',$urls[$canal],$canal,$labels[$canal],
 				kasutan_picto(array('icon'=>$canal)));

@@ -176,6 +176,13 @@ function kasutan_scripts() {
 
 	wp_enqueue_script( 'lapeyremag-scripts', get_template_directory_uri() . '/js/min/main.js', array('jquery','lapeyremag-owl-carousel'), '', true );
 
+	if(is_single()) {
+		wp_enqueue_script( 'lapeyremag-single-scripts', get_template_directory_uri() . '/js/min/single.js', array('jquery'), '', true );
+	}
+	
+
+
+
 }
 add_action( 'wp_enqueue_scripts', 'kasutan_scripts' );
 

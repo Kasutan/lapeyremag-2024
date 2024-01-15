@@ -10,9 +10,8 @@
 	--height-encart:26rem;
 
 	div.entry-content {
-		padding-bottom: var(--margin-y);
 		padding-top: calc(2.4rem + var(--height-encart)/2);
-
+		padding-bottom: 6.4rem;
 	}
 
 	.entry-content {
@@ -47,12 +46,24 @@
 		margin-bottom: 4rem;
 	}
 
+	.titre-partage {
+		@include font-body-l;
+		border-top:solid 1px var(--gris-400);
+		margin-top: 4rem;
+		margin-bottom: 2rem;
+		padding-top: 2rem;
+		text-align: center;
+	}
+
 	@include bp(md) {
 		
 	}
 
 	@include bp(lg) {
 		--height-encart:27.8rem;
+		div.entry-content {
+			padding-bottom: 8rem;
+		}
 		.single-metas {
 			align-items: center;
 			display: flex;
@@ -70,6 +81,11 @@
 		.intro {
 			@include font-headline-s;
 			line-height: 2.8rem;
+		}
+
+		.titre-partage {
+			margin:8rem auto 2rem;
+			max-width:7.2rem;
 		}
 	}
 }

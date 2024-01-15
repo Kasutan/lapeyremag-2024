@@ -34,22 +34,30 @@ function kasutan_single_entry_content_before() {
 		return;
 	}
 
-	printf('<div class="flex-center has-jaune-background-color">TODO boutons de partage et temps de lecture<br>Résumé<br>Sommaire</div>');
+	//TODO parser l'article pour trouver la première image et tous les titres - ou JS ?
 
-	if(function_exists('kasutan_affiche_temps')) {
-		kasutan_affiche_temps();
-	}
-	//titre 
-	//printf('<h1 class="single-title">%s</h1>',get_the_title());
+	echo '<div class="single-metas">';
 
-	//date 
+		if(function_exists('kasutan_boutons_partage')) {
+			kasutan_boutons_partage($avec_titre=false,$media=""); 
+		}
+
+		if(function_exists('kasutan_affiche_temps')) {
+			kasutan_affiche_temps();
+		}
+	echo '</div>';
+
+	printf('<div class="extrait">%s</div>',get_the_excerpt());
+
+	printf('<div class="flex-center has-jaune-background-color">TODO Sommaire</div>');
 
 }
 
 add_action('tha_entry_content_after','kasutan_single_entry_content_after');
 function kasutan_single_entry_content_after(){
-	
-	printf('<div class="flex-center has-jaune-background-color">TODO boutons de partage</div>');
+	if(function_exists('kasutan_boutons_partage')) {
+		kasutan_boutons_partage($avec_titre=true,$media=""); 
+	}
 }
 
 

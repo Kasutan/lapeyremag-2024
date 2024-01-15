@@ -463,7 +463,6 @@ function kasutan_single_banniere() {
 			}
 			
 			printf('<h1 class="single-title">%s</h1>',get_the_title());
-			//TODO dates
 
 			echo '<div class="dates">';
 				printf('<p>écrit le : <strong>%s</strong></p>', get_the_date('d F Y'));
@@ -507,6 +506,51 @@ function kasutan_actus_banniere() {
 
 	kasutan_page_banniere($actus);
 }
+
+
+/**
+* Boutons de partage pour un single
+* simplesharingbuttons.com
+*/
+function kasutan_boutons_partage($avec_titre,$media="") {
+	$lien=urlencode(get_the_permalink());
+	$titre=urlencode(get_the_title());
+	if(!empty($media)) $media=urldecode($media);
+
+	$canaux=['facebook','pinterest','x']; //dans l'ordre où les liens seront affichés
+	$urls=array();
+
+	$urls['facebook']='https://www.facebook.com/sharer/sharer.php?u='.$lien.'&quote='.$titre;
+
+	$urls['x']='https://twitter.com/intent/tweet?source='.$lien.'&text='.$titre;
+
+	$urls['pinterest']="http://pinterest.com/pin/create/button/?url=".$lien.'&media='.$media;
+
+
+	$labels=array();
+	$labels['facebook']=__('Partager sur Facebook','lapeyremag');
+	$labels['x']=__('Partager sur X','lapeyremag');
+	$labels['pinterest']=__('&Eacute;pingler sur Pinterest','lapeyremag');
+
+	$titre=false;
+	if($avec_titre && function_exists('get_field')) {
+		$titre=wp_kses_post(get_field('lapeyre_titre_partage','option'));
+	}
+	if($avec_titre && !$titre) {
+		$titre=__('Ces conseils vous plaisent ? Parlez-en autour de vous.','lapeyremag');
+	}
+	echo '<div class="partage social">';
+		if($titre) printf('<p class="titre-partage">%s</p>',$titre);
+		echo '<nav class="reseaux">';
+			printf('<button class="copier" title="Copier le lien">%s</button>',kasutan_picto(array('icon'=>'lien')));
+			foreach($canaux as $canal) {
+				printf('<a href="%s" class="%s" title="%s" target="_blank" rel="noopener noreferrer">%s</a>',$urls[$canal],$canal,$labels[$canal],
+				kasutan_picto(array('icon'=>$canal)));
+			}
+		echo '</nav>';
+	echo '</div>';
+}
+
 
 
 /**

@@ -54,7 +54,7 @@ function kasutan_single_entry_content_before() {
 
 	if($intro) printf('<div class="intro">%s</div>',$intro);
 
-	printf('<div class="flex-center has-jaune-background-color" style="margin-bottom:4rem">TODO Sommaire (flottant en mobile) </div>');
+	printf('<div class="flex-center has-jaune-background-color sommaire" style="margin-bottom:4rem">TODO Sommaire (flottant en mobile) </div>');
 
 }
 

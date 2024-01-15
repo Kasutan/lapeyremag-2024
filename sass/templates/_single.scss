@@ -69,6 +69,9 @@
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: 8rem;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 93rem;
 		}
 
 		.intro,.sommaire {
@@ -85,7 +88,7 @@
 
 		.titre-partage {
 			margin:8rem auto 2rem;
-			max-width:7.2rem;
+			max-width:72rem;
 		}
 	}
 }

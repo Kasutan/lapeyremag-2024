@@ -251,6 +251,7 @@
 		position: relative;
 		text-align: center;
 		top: calc(0.5*var(--height-encart));
+		width: 100%;
 	}
 
 	.tags {
@@ -293,18 +294,21 @@
 			font-weight: 700;
 		}
 
-		&:last-of-type {
+		&:nth-of-type(2){
 			margin-top: 4px;
 		}
 	}
 
 
 	@include bp(md) {
-	
+		padding: 0 var(--padding-x);
 	}
 
 	@include bp(lg) {
 		.encart {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 93rem;
 			padding:6rem;
 		}
 		.tag:last-of-type {
@@ -321,7 +325,7 @@
 			justify-content: center;
 			p {
 				@include font-body-m;
-				&:last-of-type {
+				&:nth-of-type(2) {
 					border-left:solid 1px var(--gris-400);
 					margin-top: 0;
 					margin-left: 2rem;

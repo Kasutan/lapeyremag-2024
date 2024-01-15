@@ -3,6 +3,31 @@
     "title": "Réglages de l'article",
     "fields": [
         {
+            "key": "field_65a5959b1869e",
+            "label": "Image bannière",
+            "name": "lapeyre_banniere_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Format JPG, taille recommandée 1920px de large x 1280px de haut",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
             "key": "field_65a576c0722e8",
             "label": "Date de modification",
             "name": "lapeyre_date_modif",
@@ -59,5 +84,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705343274
+    "modified": 1705350649
 }

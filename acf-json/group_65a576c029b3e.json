@@ -1,0 +1,63 @@
+{
+    "key": "group_65a576c029b3e",
+    "title": "Réglages de l'article",
+    "fields": [
+        {
+            "key": "field_65a576c0722e8",
+            "label": "Date de modification",
+            "name": "lapeyre_date_modif",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d F Y",
+            "return_format": "d F Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_65a578f6a4adb",
+            "label": "Introduction affichée au-dessus du sommaire",
+            "name": "lapeyre_intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "br"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1705343274
+}

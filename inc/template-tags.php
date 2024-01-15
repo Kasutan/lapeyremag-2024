@@ -436,8 +436,15 @@ function kasutan_single_banniere() {
 	$image_id=$date_modif="";
 	if(function_exists('get_field')) {
 		$image_id=esc_attr(get_field('lapeyre_banniere_image'));
-		$date_modif=esc_attr(get_field('lapeyre_date_modif')); //TODO champ ACF avec retour au bon format
+		$date_modif=esc_attr(get_field('lapeyre_date_modif')); 
+
+
+		if(!$image_id) {
+			$image_id=esc_attr(get_field('lapeyre_banniere_defaut','option'));
+		}
 	}
+
+
 
 	$infos=array();
 	if(function_exists('kasutan_get_infos_cats')) {
@@ -452,7 +459,6 @@ function kasutan_single_banniere() {
 				echo wp_get_attachment_image( $image_id, 'banniere',false,array('decoding'=>'async','loading'=>'eager'));
 			echo '</div>';
 		}
-		//TODO image banniere défaut ?
 		echo '<div class="overlay"></div>';
 
 		echo '<div class="encart">';

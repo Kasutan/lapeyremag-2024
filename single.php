@@ -47,9 +47,14 @@ function kasutan_single_entry_content_before() {
 		}
 	echo '</div>';
 
-	printf('<div class="extrait">%s</div>',get_the_excerpt());
+	$intro="";
+	if(function_exists('get_field')) {
+		$intro=wp_kses_post(get_field('lapeyre_intro'));
+	}
 
-	printf('<div class="flex-center has-jaune-background-color">TODO Sommaire</div>');
+	if($intro) printf('<div class="intro">%s</div>',$intro);
+
+	printf('<div class="flex-center has-jaune-background-color" style="margin-bottom:4rem">TODO Sommaire (flottant en mobile) </div>');
 
 }
 

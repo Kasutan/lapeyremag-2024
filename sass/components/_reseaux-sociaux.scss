@@ -2,7 +2,7 @@ nav.reseaux {
 	align-items: center;
 	display: flex;
 	justify-content: center;
-	a {
+	a, button {
 		align-items: center;
 		border:solid 1px var(--gris-500);
 		border-radius: 8px;;
@@ -11,5 +11,11 @@ nav.reseaux {
 		justify-content: center;
 		margin:0 8px;
 		width:4.4rem;
+	}
+	button {
+		padding:0;
+		&:hover,&:focus {
+			background-color: transparent;
+		}
 	}
 }

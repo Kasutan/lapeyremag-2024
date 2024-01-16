@@ -39,6 +39,7 @@
 		if(titres.length > 0) {
 			//Ajouter des ancres et des numéros aux titres et remplir la liste de liens
 			var liens=$('#liens-sommaire');
+			var bouton=$('#toggle-sommaire');
 			$(titres).each(function(index,elem) {
 				$(elem).attr('id','ancre-'+index);
 				var nom=$(elem).html();
@@ -48,8 +49,14 @@
 				$(liens).append('<li><a href="#ancre-'+index+'">'+newNom+'</a></li>');
 			})
 
-			//Refermer le sommaire
-			$(liens).slideUp();
+			//Refermer le sommaire en mobile uniquement
+			if(width<1014) {
+				fermerSommaire(liens,bouton);
+				//Au clic sur un lien interne en mobile, refermer le sommaire
+				$(liens).find('a').click(function() {
+					fermerSommaire(liens,bouton);
+				})
+			}
 
 			//Au clic sur le bouton, toggle
 			$('#toggle-sommaire').click(function(){
@@ -63,9 +70,14 @@
 					$(liens).slideDown();
 				}
 			})
+			
 		}
 
-		
+		function fermerSommaire(liens,bouton) {
+			$(liens).slideUp();
+			$(bouton).attr('aria-expanded','false');
+			
+		}
 	
 	}); //fin document ready
 })( jQuery );

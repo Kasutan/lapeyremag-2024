@@ -54,7 +54,7 @@ function kasutan_single_entry_content_before() {
 	if($intro) printf('<div class="intro">%s</div>',$intro);
 
 	if(function_exists('kasutan_picto')) {
-		printf('<div class="sommaire" id="sommaire-single"><button id="toggle-sommaire" class="toggle" aria-expanded="false" aria-controls="liens-sommaire"><span class="menu">%s</span> <span>Sommaire</span> <span class="chevron">%s</span></button><nav><ol id="liens-sommaire" class="liens"></ol></nav></div>',
+		printf('<div class="sommaire" id="sommaire-single"><button id="toggle-sommaire" class="toggle" aria-expanded="true" aria-controls="liens-sommaire"><span class="menu">%s</span> <span>Sommaire</span> <span class="chevron">%s</span></button><nav><ol id="liens-sommaire" class="liens"></ol></nav></div>',
 			kasutan_picto(array('icon'=>'menu')),
 			kasutan_picto(array('icon'=>'chevron-bas'))
 		);

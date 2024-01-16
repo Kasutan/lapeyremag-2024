@@ -81,8 +81,9 @@
 		.liens {
 			li {
 				border-top:solid 1px var(--gris-300);
-				padding:0.8rem 1.2rem;
+				padding:0.8rem 1.2rem 1.2rem;
 				a {
+					@include font-body-l;
 					align-items: flex-start;
 					display: flex;
 					text-decoration:none;
@@ -142,6 +143,19 @@
 			margin-right: auto;
 			margin-bottom: 8rem;
 			max-width:60rem;
+		}
+
+		.sommaire {
+			background-color: unset;
+			border-radius: 0;
+			border:solid 1px var(--gris-300);
+			border-left:0;
+			border-right:0;
+			box-shadow: none;
+			left:unset;
+			padding:0;
+			position: relative;
+			top:unset;
 		}
 
 		.intro {

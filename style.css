@@ -2751,9 +2751,12 @@ section.no-results .entry-title {
 }
 .single-post .sommaire .liens li {
   border-top: solid 1px var(--gris-300);
-  padding: 0.8rem 1.2rem;
+  padding: 0.8rem 1.2rem 1.2rem;
 }
 .single-post .sommaire .liens li a {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2rem;
   align-items: flex-start;
   display: flex;
   text-decoration: none;
@@ -2805,6 +2808,18 @@ section.no-results .entry-title {
     margin-right: auto;
     margin-bottom: 8rem;
     max-width: 60rem;
+  }
+  .single-post .sommaire {
+    background-color: unset;
+    border-radius: 0;
+    border: solid 1px var(--gris-300);
+    border-left: 0;
+    border-right: 0;
+    box-shadow: none;
+    left: unset;
+    padding: 0;
+    position: relative;
+    top: unset;
   }
   .single-post .intro {
     font-size: 2rem;

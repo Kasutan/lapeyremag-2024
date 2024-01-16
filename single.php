@@ -77,7 +77,9 @@ function kasutan_single_entry_bottom(){
 	
 	printf('<div class="flex-center has-beige-background-color">TODO Prêt à lancer votre projet ? (réutilisable)</div>');
 
-	printf('<div class="flex-center has-jaune-background-color">TODO Voulez-vous découvrir d\'autres articles ? (réutilisable)</div>');
+	if(function_exists('kasutan_affiche_nav_univers')) {
+		kasutan_affiche_nav_univers();
+	}
 
 }
 

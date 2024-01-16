@@ -42,7 +42,7 @@
 			var bouton=$('#toggle-sommaire');
 			$(titres).each(function(index,elem) {
 				$(elem).attr('id','ancre-'+index);
-				var nom=$(elem).html();
+				var nom=$(elem).text();	//Pour enlever les balises internes au H2
 				var num=parseInt(index+1);
 				var newNom='<span class="num">'+num+'</span><span class="nom">'+nom+'</span>';
 				$(elem).html(newNom);

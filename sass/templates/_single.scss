@@ -86,11 +86,12 @@
 					@include font-body-l;
 					align-items: flex-start;
 					display: flex;
+					font-weight: 700;
 					text-decoration:none;
 
 					.num {
 						display: inline-block;
-						margin-right: 2rem;
+						margin-right: 1rem;
 						text-align: center;
 						width:2.4rem;
 					}

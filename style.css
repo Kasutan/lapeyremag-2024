@@ -2759,11 +2759,12 @@ section.no-results .entry-title {
   line-height: 2rem;
   align-items: flex-start;
   display: flex;
+  font-weight: 700;
   text-decoration: none;
 }
 .single-post .sommaire .liens li a .num {
   display: inline-block;
-  margin-right: 2rem;
+  margin-right: 1rem;
   text-align: center;
   width: 2.4rem;
 }

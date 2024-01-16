@@ -2768,6 +2768,9 @@ section.no-results .entry-title {
   text-align: center;
   width: 2.4rem;
 }
+.single-post .sommaire .liens li a .num2 {
+  display: none;
+}
 .single-post .sommaire .liens li a .nom {
   display: inline-block;
   text-decoration: underline;
@@ -2787,6 +2790,28 @@ section.no-results .entry-title {
   margin-bottom: 2rem;
   padding-top: 2rem;
   text-align: center;
+}
+.single-post h2.avec-num {
+  align-items: flex-start;
+  display: flex;
+  margin-bottom: 2.4rem;
+  margin-top: 4rem;
+  position: relative;
+}
+.single-post h2.avec-num .num {
+  color: var(--beige-clair);
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 4.8rem;
+}
+.single-post h2.avec-num .num1 {
+  -webkit-text-stroke: 1px var(--texte);
+  margin-right: 1.4rem;
+}
+.single-post h2.avec-num .num2 {
+  left: 0;
+  position: absolute;
+  top: 0;
 }
 @media (min-width: 1024px) {
   .single-post {
@@ -2821,6 +2846,7 @@ section.no-results .entry-title {
     padding: 0;
     position: relative;
     top: unset;
+    z-index: unset;
   }
   .single-post .intro {
     font-size: 2rem;
@@ -2831,6 +2857,15 @@ section.no-results .entry-title {
   .single-post .titre-partage {
     margin: 8rem auto 2rem;
     max-width: 72rem;
+  }
+  .single-post h2.avec-num {
+    margin-bottom: 4rem;
+    margin-top: 8rem;
+  }
+  .single-post h2.avec-num .num {
+    font-size: 8.4rem;
+    line-height: 7.2rem;
+    margin-right: 2.4rem;
   }
 }
 

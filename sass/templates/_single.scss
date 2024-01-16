@@ -95,6 +95,9 @@
 						text-align: center;
 						width:2.4rem;
 					}
+					.num2 {
+						display: none;
+					}
 					.nom {
 						display: inline-block;
 						text-decoration: underline;
@@ -118,6 +121,33 @@
 		margin-bottom: 2rem;
 		padding-top: 2rem;
 		text-align: center;
+	}
+
+	//Numéros devant les titres h2
+	h2.avec-num {
+		align-items: flex-start;
+		display: flex;
+		margin-bottom: 2.4rem;
+		margin-top: 4rem;
+		position: relative;
+
+		.num {
+			color:var(--beige-clair);
+			font-size: 6rem;
+			font-weight: 900;
+			line-height: 4.8rem;
+		}
+		.num1 {
+			-webkit-text-stroke: 1px var(--texte);
+			margin-right: 1.4rem;
+		}
+		.num2 {
+			left:0;
+			position:absolute;
+			top:0;
+		}
+		
+
 	}
 
 	@include bp(md) {
@@ -157,6 +187,7 @@
 			padding:0;
 			position: relative;
 			top:unset;
+			z-index:unset;
 		}
 
 		.intro {
@@ -167,6 +198,16 @@
 		.titre-partage {
 			margin:8rem auto 2rem;
 			max-width:72rem;
+		}
+
+		h2.avec-num {
+			margin-bottom: 4rem;
+			margin-top: 8rem;
+			.num {
+				font-size: 8.4rem;
+				line-height: 7.2rem;
+				margin-right: 2.4rem;
+			}
 		}
 	}
 }

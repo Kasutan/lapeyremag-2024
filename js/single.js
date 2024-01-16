@@ -42,9 +42,10 @@
 			var bouton=$('#toggle-sommaire');
 			$(titres).each(function(index,elem) {
 				$(elem).attr('id','ancre-'+index);
+				$(elem).addClass('avec-num');
 				var nom=$(elem).text();	//Pour enlever les balises internes au H2
 				var num=parseInt(index+1);
-				var newNom='<span class="num">'+num+'</span><span class="nom">'+nom+'</span>';
+				var newNom='<span class="num num1">'+num+'</span><span class="num num2">'+num+'</span><span class="nom">'+nom+'</span>';
 				$(elem).html(newNom);
 				$(liens).append('<li><a href="#ancre-'+index+'">'+newNom+'</a></li>');
 			})

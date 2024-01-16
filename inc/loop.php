@@ -23,8 +23,7 @@ function ea_default_loop() {
 			tha_entry_before();
 
 			$partial = apply_filters( 'ea_loop_partial', is_singular() ? 'content' : 'archive' );
-			$context = apply_filters( 'ea_loop_partial_context', is_search() ? 'search' : get_post_type() );
-			get_template_part( 'partials/' . $partial, $context );
+			get_template_part( 'partials/' . $partial);
 
 			tha_entry_after();
 

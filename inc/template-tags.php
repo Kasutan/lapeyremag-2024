@@ -9,71 +9,6 @@
 **/
 
 
-//TODO supprimer code inutile
-
-/**
- * Logos pour l'en-tête et le pied de page
- *
- */
-
-function kasutan_affiche_logos($classe='') {
-	$url="/";
-	
-	$logo_1=$logo_2=false;
-	if(function_exists('get_field')) {
-		$logo_1=esc_attr(get_field('lapeyremag_logo_1','option'));
-		$logo_2=esc_attr(get_field('lapeyremag_logo_2','option'));
-	}
-	if(!$logo_1 && !$logo_2) {
-		$logo_1=get_theme_mod( 'custom_logo' );
-	}
-	if($logo_1) {
-		$tag_2='';
-		if($logo_2) {
-			$tag_2=wp_get_attachment_image($logo_2,'medium');
-		}
-		printf('<a class="%s" href="%s">%s%s</a>',
-			$classe,$url,wp_get_attachment_image($logo_1,'medium'),$tag_2
-		);
-	} else {
-		printf('<a class="%s" href="%s">%s</a>',
-		$classe,$url,get_bloginfo('name')
-	);
-	}
-
-}
-
-
-/**
- * Liste des catégories séparées par des espaces pour le filtre
- *
- */
-
-function kasutan_cat_pour_filtre() {
-	$terms = get_the_terms( get_the_ID(), 'category');
-	if( empty( $terms ) || is_wp_error( $terms ) ) {
-		return '';
-	}
-
-	$slugs=array();
-	foreach($terms as $term) {
-		$slugs[]=$term->slug;
-	}
-
-	printf('<span class="categorie screen-reader-text">%s</span>',implode(' ',$slugs));
-}
-
-
-/**
- * Post Summary Title
- *
- */
-function ea_post_summary_title() {
-	global $wp_query;
-	$tag = ( is_singular() || -1 === $wp_query->current_post ) ? 'h3' : 'h2';
-	echo '<' . $tag . ' class="post-summary__title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></' . $tag . '>';
-}
-
 /**
  * Affiche l'image vignette d'un article
  *
@@ -178,7 +113,6 @@ function kasutan_affiche_slider($posts,$tag_titre='h3') {
 			get_template_part( 'partials/archive', null,array('tag_titre'=>$tag_titre,'index'=>$index,'slider'=>true) );
 			$index++;
 		}
-		//TODO pour les sliders du bloc univers, on aurait besoin de balise_title h4
 		wp_reset_postdata();
 		echo '</ul></div>';
 		kasutan_affiche_nav_slider($total);
@@ -213,15 +147,6 @@ function kasutan_affiche_nav_slider($total) {
 		</button>
 		<?php
 		echo '</div>'; //.nav-slider
-}
-
-/**
- * Entry Author
- *
- */
-function ea_entry_author() {
-	$id = get_the_author_meta( 'ID' );
-	echo '<p class="entry-author"><a href="' . get_author_posts_url( $id ) . '" aria-hidden="true" tabindex="-1">' . get_avatar( $id, 40 ) . '</a><em>by</em> <a href="' . get_author_posts_url( $id ) . '">' . get_the_author() . '</a></p>';
 }
 
 /**
@@ -332,34 +257,11 @@ function kasutan_fil_ariane() {
 
 }
 
-
-/**
-* Affiche le titre des pages ordinaires
-*
-*/
-function kasutan_page_titre() {
-	$masquer=false;
-	$classe="entry-title";
-	$titre=get_the_title();
-	if(function_exists('get_field') && esc_attr(get_field('lapeyremag_masquer_titre'))==='oui') {
-		$masquer=true;
-	}
-	if(is_front_page(  )) {
-		$masquer=true;
-	}
-	if($masquer) {
-		$classe.=" screen-reader-text";
-	}
-	printf('<h1 class="%s">%s</h1>',$classe,$titre);
-}
-
 /**
 * Image banniere pour les pages ordinaires
 *
 */
-function kasutan_page_banniere($page_id=false,$use_defaut=false) {
-	//TODO supprimer les arguments
-	//TODO variante pour page spéciale type d'article (option dans le groupe de champs ou modèle de page ?)
+function kasutan_page_banniere() {
 	//TODO simplifier (une seule image desktop et mobile si on la demande au bon format)
 
 	$image_id=$image_mobile_id=$titre=$sous_titre="";
@@ -372,11 +274,8 @@ function kasutan_page_banniere($page_id=false,$use_defaut=false) {
 
 	if(empty($titre)) {
 		$titre=get_the_title();
-		//TODO adapter pour recherche et 404
 	}
 	
-
-
 	if(empty($image_id)) {
 		printf('<h1 class="entry-title sans-banniere">%s</h1>',$titre);
 	} else {
@@ -480,41 +379,6 @@ function kasutan_single_banniere() {
 }
 
 /**
-* Image banniere pour les actus + utilisée aussi pour la recherche
-* TODO : encore utile ?
-*/
-function kasutan_actus_banniere() {
-	if(!function_exists('get_field')) {
-		return;
-	}
-
-
-	if(is_single()) {
-		//On est sur un post single, on vérifie s'il a sa propre image bannière
-		$image_id=esc_attr(get_field('lapeyremag_banniere_image'));
-		if(!$image_id) {
-			//si le post n'a pas d'image bannière on utilise l'image par défaut
-			$image_id=esc_attr(get_field('lapeyremag_bg_image','option'));//image par défaut
-		}
-
-		kasutan_page_banniere(get_the_ID());
-		return;
-	} 
-
-	if(is_search()) {
-		
-		kasutan_page_banniere(false,true);
-		return;
-	}
-
-	//On est sur une page d'archive, on affiche la bannière de la page des actualités
-	$actus=get_option('page_for_posts'); 
-
-	kasutan_page_banniere($actus);
-}
-
-
-/**
 * Boutons de partage pour un single
 * simplesharingbuttons.com
 */
@@ -566,74 +430,3 @@ function kasutan_boutons_partage($avec_titre) {
 		echo '</nav>';
 	echo '</div>';
 }
-
-
-
-/**
-* Filtre par catégories pour les archives de blog
-*
-*/
-function kasutan_affiche_filtre_articles() {
-	echo '<p class="screen-reader-text">Filtrer les actualités</p>';
-	echo '<form class="filtre-archive" id="filtre-liste">';
-		$terms=get_terms( array(
-			'taxonomy' => 'category'
-			) 
-		);
-
-		$label_all="Toutes";
-		
-
-		
-
-		?>
-		<input type="radio" id="toutes" name="filtre-categorie" value="toutes" checked>
-		<?php
-		printf('<label for="toutes" class="toutes">%s</label>',$label_all);
-		foreach($terms as $term) : 
-			
-
-
-			$pluriel=false;
-			if(function_exists('get_field')) {
-				$pluriel=esc_attr(get_field('pluriel',$term));
-			}
-			if(!$pluriel) {
-				$pluriel=$term->name;
-			}
-
-
-			
-
-			printf('<input type="radio" id="%s" name="filtre-categorie" value="%s">',
-				$term->slug,
-				$term->slug
-			);
-			printf('<label for="%s">%s</label>',
-				$term->slug,
-				$pluriel
-			);
-		endforeach;
-		?>
-		
-	</form>
-<?php
-}
-
-
-
-
-/**
- * Change the excerpt more string
- */
-function kasutan_excerpt_more( $more ) {
-	return '&hellip; >>>';
-}
-add_filter( 'excerpt_more', 'kasutan_excerpt_more' );
-
-function kasutan__excerpt_length( $length ) {
-
-	return 22;
-	
-}
-add_filter( 'excerpt_length', 'kasutan__excerpt_length', 999 );

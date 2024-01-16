@@ -9,10 +9,6 @@ add_action( 'tha_entry_top', 'kasutan_fil_ariane', 5 );
 add_action( 'tha_entry_top', 'kasutan_page_banniere_type', 10 );
 
 
-
-// Page title
-//add_action( 'tha_entry_top', 'kasutan_page_titre', 10 );
-
 // Build the page
 require get_template_directory() . '/index.php';
 

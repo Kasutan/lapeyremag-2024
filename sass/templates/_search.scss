@@ -87,6 +87,28 @@ form.search-form {
 	}
 }
 
+.entry-content .search-form {
+	flex-wrap:wrap;
+	
+	label {
+		margin-right: 2rem;
+	}
+	.search-field {
+		border:solid 1px var(--gris-300);
+		border-radius: 8px;
+		height:4.2rem;
+	}
+
+	label, .search-submit {
+		margin-bottom: 2rem;
+	}
+}
+.error404, .search-no-results {
+	.entry-title {
+		margin-bottom: 4rem;
+	}
+}
+
 .search-results {
 	.vignette {
 		margin-bottom: 2rem;

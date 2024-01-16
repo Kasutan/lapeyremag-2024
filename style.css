@@ -2662,6 +2662,25 @@ form.search-form.search-header input.search-submit {
   }
 }
 
+.entry-content .search-form {
+  flex-wrap: wrap;
+}
+.entry-content .search-form label {
+  margin-right: 2rem;
+}
+.entry-content .search-form .search-field {
+  border: solid 1px var(--gris-300);
+  border-radius: 8px;
+  height: 4.2rem;
+}
+.entry-content .search-form label, .entry-content .search-form .search-submit {
+  margin-bottom: 2rem;
+}
+
+.error404 .entry-title, .search-no-results .entry-title {
+  margin-bottom: 4rem;
+}
+
 .search-results .vignette {
   margin-bottom: 2rem;
 }

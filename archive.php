@@ -32,7 +32,7 @@ function ea_archive_header() {
 		$title = get_the_title( get_option( 'page_for_posts' ) );
 
 	} elseif( is_search() ) {
-		$title = 'Résultats de recherche';
+		$title = 'Votre recherche&nbsp;: '.get_search_query();
 
 	} elseif( is_archive() ) {
 		$title = get_the_archive_title();
@@ -48,21 +48,10 @@ function ea_archive_header() {
 	do_action ('ea_archive_header_after' );
 	echo '</header>';
 
-	echo '<div class="container">';
-
-		if(is_home() && function_exists('kasutan_affiche_filtre_articles')) {
-			echo '<div id="archive-filtrable">';
-				kasutan_affiche_filtre_articles();
-				echo '<ul class="loop list">';
-		} else { 
-			echo '<ul class="loop">';
-		}
+		echo '<ul class="loop">';
+		
 
 }
-
-// Banniere
-add_action( 'ea_archive_header_before', 'kasutan_actus_banniere', 5 );
-
 
 // Breadcrumbs
 add_action( 'ea_archive_header_before', 'kasutan_fil_ariane', 10 );
@@ -71,11 +60,6 @@ add_action( 'ea_archive_header_before', 'kasutan_fil_ariane', 10 );
 add_action( 'tha_content_while_after', 'ea_archive_while_after',10 );
 function ea_archive_while_after() {
 	echo '</ul> <!--end .loop-->';
-	if(is_home() && function_exists('kasutan_affiche_filtre_articles')) {
-		echo '<ul class="pagination"></ul>';
-		echo '</div>'; // end #archive-filtrable
-	}
-	echo '</div>'; //end .container
 }
 // Build the page
 require get_template_directory() . '/index.php';

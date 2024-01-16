@@ -38,7 +38,7 @@ function kasutan_single_entry_content_before() {
 	echo '<div class="single-metas">';
 
 		if(function_exists('kasutan_boutons_partage')) {
-			kasutan_boutons_partage($avec_titre=false,$media=""); 
+			kasutan_boutons_partage($avec_titre=false); 
 		}
 
 		if(function_exists('kasutan_affiche_temps')) {
@@ -65,7 +65,7 @@ function kasutan_single_entry_content_before() {
 add_action('tha_entry_content_after','kasutan_single_entry_content_after');
 function kasutan_single_entry_content_after(){
 	if(function_exists('kasutan_boutons_partage')) {
-		kasutan_boutons_partage($avec_titre=true,$media=""); 
+		kasutan_boutons_partage($avec_titre=true); 
 	}
 }
 

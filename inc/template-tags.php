@@ -518,11 +518,16 @@ function kasutan_actus_banniere() {
 * Boutons de partage pour un single
 * simplesharingbuttons.com
 */
-function kasutan_boutons_partage($avec_titre,$media="") {
+function kasutan_boutons_partage($avec_titre) {
 	$permalink_brut=get_the_permalink();
 	$lien=urlencode($permalink_brut);
 	$titre=urlencode(get_the_title());
-	if(!empty($media)) $media=urldecode($media);
+
+	$media=false;
+	if(has_post_thumbnail()) {
+		$media=get_the_post_thumbnail_url(null, 'large');
+	}
+	if(!empty($media)) $media=urlencode($media);
 
 	$canaux=['facebook','pinterest','x']; //dans l'ordre où les liens seront affichés
 	$urls=array();
@@ -531,7 +536,11 @@ function kasutan_boutons_partage($avec_titre,$media="") {
 
 	$urls['x']='https://twitter.com/intent/tweet?source='.$lien.'&text='.$titre;
 
-	$urls['pinterest']="http://pinterest.com/pin/create/button/?url=".$lien.'&media='.$media;
+	$urls['pinterest']="http://pinterest.com/pin/create/button/?url=".$lien;
+
+	if($media) {
+		$urls['pinterest'].='&media='.$media;
+	}
 
 
 	$labels=array();

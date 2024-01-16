@@ -34,6 +34,37 @@
 			})
 		}
 
+		/****************** Sommaire auto *************************/	
+		var titres=$('.entry-content h2');
+		if(titres.length > 0) {
+			//Ajouter des ancres et des numéros aux titres et remplir la liste de liens
+			var liens=$('#liens-sommaire');
+			$(titres).each(function(index,elem) {
+				$(elem).attr('id','ancre-'+index);
+				var nom=$(elem).html();
+				var num=parseInt(index+1);
+				var newNom='<span class="num">'+num+'</span><span class="nom">'+nom+'</span>';
+				$(elem).html(newNom);
+				$(liens).append('<li><a href="#ancre-'+index+'">'+newNom+'</a></li>');
+			})
+
+			//Refermer le sommaire
+			$(liens).slideUp();
+
+			//Au clic sur le bouton, toggle
+			$('#toggle-sommaire').click(function(){
+				if($(this).attr('aria-expanded')==='true') {
+					//le sommaire était ouvert, on le referme
+					$(this).attr('aria-expanded','false');
+					$(liens).slideUp();
+				} else {
+					//on ouvre le sommaire
+					$(this).attr('aria-expanded','true');
+					$(liens).slideDown();
+				}
+			})
+		}
+
 		
 	
 	}); //fin document ready

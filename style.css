@@ -2713,6 +2713,61 @@ section.no-results .entry-title {
 .single-post p.temps strong {
   margin-right: 0.5ch;
 }
+.single-post .sommaire {
+  background-color: var(--blanc);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  bottom: 0;
+  box-shadow: 0px -2px 6px 0px rgba(37, 36, 39, 0.25);
+  left: 0;
+  padding: 0.4rem;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+}
+.single-post .sommaire .toggle {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--bleu-tres-fonce);
+  display: flex;
+  padding: 1rem;
+  text-transform: unset;
+  width: 100%;
+}
+.single-post .sommaire .toggle .menu {
+  margin-right: 1rem;
+}
+.single-post .sommaire .toggle .menu path {
+  fill: var(--bleu-tres-fonce);
+}
+.single-post .sommaire .toggle .chevron {
+  margin-left: auto;
+  transition: all var(--transition);
+}
+.single-post .sommaire .toggle[aria-expanded=true] .chevron {
+  transform: rotateZ(180deg);
+}
+.single-post .sommaire .liens li {
+  border-top: solid 1px var(--gris-300);
+  padding: 0.8rem 1.2rem;
+}
+.single-post .sommaire .liens li a {
+  align-items: flex-start;
+  display: flex;
+  text-decoration: none;
+}
+.single-post .sommaire .liens li a .num {
+  display: inline-block;
+  margin-right: 2rem;
+  text-align: center;
+  width: 2.4rem;
+}
+.single-post .sommaire .liens li a .nom {
+  display: inline-block;
+  text-decoration: underline;
+}
 .single-post .intro {
   font-size: 1.6rem;
   font-weight: 700;

@@ -34,7 +34,6 @@ function kasutan_single_entry_content_before() {
 		return;
 	}
 
-	//TODO parser l'article pour trouver la première image et tous les titres - ou JS ?
 
 	echo '<div class="single-metas">';
 
@@ -54,8 +53,13 @@ function kasutan_single_entry_content_before() {
 
 	if($intro) printf('<div class="intro">%s</div>',$intro);
 
-	printf('<div class="flex-center has-jaune-background-color sommaire" style="margin-bottom:4rem">TODO Sommaire (flottant en mobile) </div>');
-
+	if(function_exists('kasutan_picto')) {
+		printf('<div class="sommaire" id="sommaire-single"><button id="toggle-sommaire" class="toggle" aria-expanded="false" aria-controls="liens-sommaire"><span class="menu">%s</span> <span>Sommaire</span> <span class="chevron">%s</span></button><nav><ol id="liens-sommaire" class="liens"></ol></nav></div>',
+			kasutan_picto(array('icon'=>'menu')),
+			kasutan_picto(array('icon'=>'chevron-bas'))
+		);
+	}
+	
 }
 
 add_action('tha_entry_content_after','kasutan_single_entry_content_after');

@@ -211,6 +211,16 @@ class BE_ACF_Customizations {
 			array('slider','type','categorie','sous-categorie')
 		);
 
+		/*********Bloc populaires***************/
+		$this->helper_register_block_type( 
+			'populaires',
+			'Bloc articles les plus consultés (accueil)',
+			'Section avec titre et slider des articles les plus consultés.',
+			'tagcloud', 
+			false,
+			array('populaire','slider','accueil','consulte','consulté')
+		);
+
 		/*********Bloc nav-page-type***************/
 		$this->helper_register_block_type( 
 			'nav-page-type',

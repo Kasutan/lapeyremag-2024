@@ -1,0 +1,76 @@
+@import "./././sass/abstracts/variables-et-mixins";
+
+.acf-populaires {
+	--pt:6rem;
+	@include bleed;
+	background-color: var(--sauge);
+	padding:var(--pt) 0;
+
+	.titre-section {
+		color:var(--blanc);
+		margin-bottom: 4rem;
+		padding:0 var(--padding-x-lg);
+		text-align: center;
+	}
+	.slider-wrap {
+		margin-left: var(--padding-x-lg);
+		overflow-x: hidden;
+		button.fleche-slider {
+			svg path {
+				fill:var(--blanc);
+			}
+			&:hover {
+				svg path {
+					fill:var(--bleu-tres-fonce);
+				}
+			}
+			&:disabled {
+				svg path {
+					fill:var(--gris-400);
+				}
+			}
+		}
+		button.dot {
+			border:solid 1px var(--blanc);
+			&:hover {
+				border-color:var(--bleu-tres-fonce);
+			}
+			&:focus, &.active {
+				background-color: var(--blanc);
+			}
+		}
+	}
+	.slider {
+		margin-bottom: 2rem;
+	}
+	.nav-slider {
+		padding-right: var(--padding-x-lg);
+	}
+
+	counter-reset:article;
+	.vignette-image {
+		position: relative;
+	}
+	.vignette-image::after {
+		bottom:-3px;
+		color:var(--blanc);
+		counter-increment: article;
+		content:counter(article);
+		font-size: 12rem;
+		font-weight: 900;
+		left:0;
+		line-height: 9.2rem;
+		position: absolute;
+		
+	}
+
+	@include bp(lg) {
+		padding:8rem 0;
+		.titre-section {
+			@include font-headline-m;
+		}
+		.slider {
+			margin-bottom: 0;
+		}
+	}
+}

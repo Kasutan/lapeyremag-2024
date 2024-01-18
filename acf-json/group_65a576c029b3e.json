@@ -64,6 +64,28 @@
             "rows": "",
             "placeholder": "",
             "new_lines": "br"
+        },
+        {
+            "key": "field_65a9667937c65",
+            "label": "Nombre de vues",
+            "name": "lapeyre_vues",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Incrémenté automatiquement à chaque affichage de l'article, mais peut être modifié manuellement ici.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -84,5 +106,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705350649
+    "modified": 1705600692
 }

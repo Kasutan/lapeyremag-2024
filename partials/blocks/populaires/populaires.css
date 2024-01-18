@@ -1,0 +1,90 @@
+/*--------------------------------------------------------------
+# Variables couleurs
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins styles de textes
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins boutons
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixins layout
+--------------------------------------------------------------*/
+.acf-populaires {
+  --pt:6rem;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--sauge);
+  padding: var(--pt) 0;
+  counter-reset: article;
+}
+@media (min-width: 1920px) {
+  .acf-populaires {
+    width: var(--largeur-max);
+  }
+}
+.acf-populaires .titre-section {
+  color: var(--blanc);
+  margin-bottom: 4rem;
+  padding: 0 var(--padding-x-lg);
+  text-align: center;
+}
+.acf-populaires .slider-wrap {
+  margin-left: var(--padding-x-lg);
+  overflow-x: hidden;
+}
+.acf-populaires .slider-wrap button.fleche-slider svg path {
+  fill: var(--blanc);
+}
+.acf-populaires .slider-wrap button.fleche-slider:hover svg path {
+  fill: var(--bleu-tres-fonce);
+}
+.acf-populaires .slider-wrap button.fleche-slider:disabled svg path {
+  fill: var(--gris-400);
+}
+.acf-populaires .slider-wrap button.dot {
+  border: solid 1px var(--blanc);
+}
+.acf-populaires .slider-wrap button.dot:hover {
+  border-color: var(--bleu-tres-fonce);
+}
+.acf-populaires .slider-wrap button.dot:focus, .acf-populaires .slider-wrap button.dot.active {
+  background-color: var(--blanc);
+}
+.acf-populaires .slider {
+  margin-bottom: 2rem;
+}
+.acf-populaires .nav-slider {
+  padding-right: var(--padding-x-lg);
+}
+.acf-populaires .vignette-image {
+  position: relative;
+}
+.acf-populaires .vignette-image::after {
+  bottom: -3px;
+  color: var(--blanc);
+  counter-increment: article;
+  content: counter(article);
+  font-size: 12rem;
+  font-weight: 900;
+  left: 0;
+  line-height: 9.2rem;
+  position: absolute;
+}
+@media (min-width: 1024px) {
+  .acf-populaires {
+    padding: 8rem 0;
+  }
+  .acf-populaires .titre-section {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 3.2rem;
+  }
+  .acf-populaires .slider {
+    margin-bottom: 0;
+  }
+}

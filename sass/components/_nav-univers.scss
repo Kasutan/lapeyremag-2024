@@ -1,0 +1,53 @@
+.nav-univers {
+	background-color: #fff;
+	padding:6rem var(--padding-x-lg);
+	--ws:14.3rem;
+	.titre-section {
+		@include font-headline-s;
+		margin-bottom: 4rem;
+		text-align: center;
+	}
+
+	.slide {
+		background-color: #FAFAFA;
+		border: 1px solid var(--gris-400);
+		border-radius: 8px;
+		flex:0 0 var(--ws);
+		margin-right: 2rem;
+		margin-bottom: 2rem;
+		padding:0.8rem;
+		width:var(--ws);
+	}
+	a.slide {
+		text-decoration: none;
+	}
+	img {
+		aspect-ratio: 1;
+		margin-bottom: 0.8rem;
+	}
+	.nom {
+		@include font-body-s;
+		font-weight: 700;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	.slider.js-center {
+		justify-content: center;
+		.slide {
+			margin-bottom: 0;
+		}
+		.slide:last-of-type{
+			margin-right: 0;
+		}
+	}
+
+	@include bp(lg) {
+		padding:8rem var(--padding-x-lg);
+
+		.titre-section {
+			@include font-headline-m;
+		}
+	}
+
+}

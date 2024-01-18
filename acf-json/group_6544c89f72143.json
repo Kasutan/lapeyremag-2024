@@ -28,6 +28,31 @@
             "preview_size": "banniere"
         },
         {
+            "key": "field_65a87acd859c0",
+            "label": "Vignette pour la navigation par univers",
+            "name": "lapeyre_vignette",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Format JPG, carré. Uniquement utilisé pour les catégories parentes (Univers). Ce réglage peut rester vide pour les catégories enfant (Guides, Tutoriels...)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "thumbnail"
+        },
+        {
             "key": "field_6544c8a02b90f",
             "label": "Couleur associée à cet univers",
             "name": "couleur",
@@ -95,5 +120,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704970490
+    "modified": 1705540546
 }

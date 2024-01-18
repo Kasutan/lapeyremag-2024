@@ -117,7 +117,7 @@
 		}
 
 
-		/********* Défilement des sliders articles **********/
+		/********* Défilement des sliders articles ou autres objets **********/
 		//Vérifier si on a besoin de la navigation
 		var sliders=$('.slider-wrap');
 		maybeHideSliderNav();
@@ -135,8 +135,13 @@
 					//reset la position du slider
 					$(this).find('.slider').css('left',0);
 					$(this).find('.slider-drag').css('left',0);
+					//Cas particulier du slider par univers
+					$(this).find('.slider-univers').addClass('js-center');
+					
 				} else {
 					$(this).find('.nav-slider').show();
+					//Cas particulier du slider par univers
+					$(this).find('.slider-univers').removeClass('js-center');
 				}
 			});
 		}
@@ -222,7 +227,6 @@
 		if(sliderNavPage.length > 0) {
 			$(sliderNavPage).each(function(){
 				if($(this).attr('data-total')==3) {
-					console.log('avec 3 slides');
 					$(this).find('.dot:nth-child(2)').trigger("click");
 					$(this).find('.dot:nth-child(2)').addClass("active");
 

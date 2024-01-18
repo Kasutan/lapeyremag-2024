@@ -432,7 +432,6 @@ function kasutan_boutons_partage($avec_titre) {
 }
 
 //Navigation par univers
-//TODO : tester exclusion, créer champs ACF, ajouter navigation et html slides (slider en mobile)
 function kasutan_affiche_nav_univers($exclure=false) {
 	if(!function_exists('get_field')) {
 		return;
@@ -442,44 +441,54 @@ function kasutan_affiche_nav_univers($exclure=false) {
 
 	if(!empty($cats)) {
 		$titre=wp_kses_post(get_field('lapeyre_nav_univers_titre','option'));
+		//Préparer les vignettes univers et les compter
+		$total=0;
+		ob_start();
+		foreach($cats as $cat) {
+			$term_id=$cat->term_id;
+			$nom=$cat->name;
+			$lien=get_term_link($cat);
+
+			if($cat->parent) {
+				//C'est une catégorie enfant
+				continue;
+			}
+			if($exclure && $term_id===$exclure) {
+				//C'est la catégorie qu'on voulait exclure
+				continue;
+			}
+			if(strpos(strtolower($nom),'old')!==false) {
+				//C'est une ancienne catégorie
+				continue;
+			}
+
+			//On va afficher cette vignette
+			$total++;
+			
+			$image_id=false;
+			$image_id=esc_attr(get_field('lapeyre_vignette','category_'.$term_id));
+			if(!$image_id) {
+				$image_id=esc_attr(get_field('lapeyre_banniere_image','category_'.$term_id));
+			}
+			if(!$image_id) {
+				$image_id=esc_attr(get_field('lapeyre_banniere_defaut','option'));
+			}
+			
+			printf('<a href="%s" class="slide">%s <div class="nom">%s</div></a>',
+				$lien,
+				wp_get_attachment_image($image_id, "small"),
+				$nom
+			);
+		}
+		$vignettes=ob_get_clean();
 		echo '<section class="nav-univers">';
 			if($titre) printf('<p class="h2 titre-section">%s</p>',$titre);
-			echo '<nav>';
-			foreach($cats as $cat) {
-				$term_id=$cat->term_id;
-				$nom=$cat->name;
-				$lien=get_term_link($cat);
-
-				if($cat->parent) {
-					//C'est une catégorie enfant
-					continue;
-				}
-				if($term_id===$exclure) {
-					//C'est la catégorie qu'on voulait exclure
-					continue;
-				}
-				if(strpos('old',strtolower($nom))!==false) {
-					//C'est une ancienne catégorie
-					continue;
-				}
-
-				
-				$image_id=false;
-				$image_id=esc_attr(get_field('lapeyre_vignette','category_'.$term_id));
-				if(!$image_id) {
-					$image_id=esc_attr(get_field('lapeyre_banniere_image','category_'.$term_id));
-				}
-				if(!$image_id) {
-					$image_id=esc_attr(get_field('lapeyre_banniere_defaut','option'));
-				}
-				
-				printf('<a href="%s" class="vignette-univers">%s <span class="nom">%s</span></a>',
-					$lien,
-					wp_get_attachment_image($image_id, "small"),
-					$nom
-				);
-			}
-			echo '</nav>';
+			printf('<div class="slider-wrap" data-total="%s" data-active="0">',$total);
+				echo '<div class="slider-drag"><nav class="slider slider-univers">';
+					echo $vignettes;
+				echo '</nav></div>';
+				kasutan_affiche_nav_slider($total);
+			echo '</div>'; //.slider-wrap
 		echo '</section>';
 	}
 }

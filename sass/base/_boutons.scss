@@ -70,7 +70,7 @@ input[type="submit"] {
 		display: flex;
 		margin-left: auto;
 		margin-top: 0;
-		padding:0;
+		padding:0 0 1.2rem;
 		.bouton {
 			@include font-body-s;
 			font-weight: 700;

@@ -1307,7 +1307,7 @@ input[type=submit] {
     display: flex;
     margin-left: auto;
     margin-top: 0;
-    padding: 0;
+    padding: 0 0 1.2rem;
   }
   .main-header .boutons .bouton {
     font-size: 1.2rem;
@@ -1837,55 +1837,45 @@ button.menu-toggle:focus {
 
 /*Style liens de menus MENU PRINCIPAL */
 .nav-main {
+  align-items: stretch;
   background-color: var(--bleu-tres-clair);
-  padding: 1.2rem 4.4rem;
-}
-.nav-main,
-.nav-main .nav-primary,
-.nav-main .menu {
   height: 100%;
+  padding: 1.2rem 4.4rem 0;
   width: 100%;
 }
-.nav-main .menu {
-  align-items: stretch;
+@media (min-width: 1024px) {
+  .nav-main {
+    display: flex;
+  }
 }
-.nav-main .menu li {
-  transition: all var(--transition);
-}
-.nav-main .menu li.disable > a {
-  cursor: default;
-}
-.nav-main .menu a {
-  color: var(--rouge-texte);
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 500;
+.nav-main a {
   text-decoration: none;
 }
-.nav-main .menu > li {
-  align-items: center;
+.nav-main > a {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  align-items: flex-start;
+  border-bottom: solid 4px var(--sauge);
   display: flex;
-  padding: 0;
+  margin-right: 3.2rem;
+  text-transform: uppercase;
 }
-.nav-main .menu > li > a {
-  border-right: solid 1px var(--sauge-cadre);
-  padding: 0 1rem 0.5rem;
-  position: relative;
-  text-align: center;
+.nav-main > a.promo {
+  color: var(--rouge);
 }
-.nav-main .menu > li:last-of-type > a {
-  border-right: none;
+.nav-main > a.event {
+  color: var(--bleu-fonce);
 }
-.nav-main .menu > li:hover, .nav-main .menu > li:focus-within {
-  background-color: var(--sauge);
+.nav-main > a:hover, .nav-main > a:focus {
+  color: rgb(37, 36, 39);
+  font-weight: 700;
 }
-.nav-main .menu > li:hover > a, .nav-main .menu > li:focus-within > a {
-  color: var(--blanc);
+.nav-main .gwbmpc .expanded-menu-hover::after {
+  transform: scaleX(1);
+  transform-origin: left center 0px;
 }
-.nav-main .menu > li.current-menu-item, .nav-main .menu > li.current-menu-ancestor, .nav-main .menu > li.current_page_parent {
-  background-color: var(--sauge);
-}
-.nav-main .menu .sub-menu {
+.nav-main .sub-menu {
   float: left;
   margin-top: 0px;
   position: absolute;
@@ -1894,10 +1884,10 @@ button.menu-toggle:focus {
   left: -999em;
   z-index: 10;
 }
-.nav-main .menu > li {
+.nav-main > li {
   position: relative;
 }
-.nav-main .menu > li:hover .sub-menu, .nav-main .menu > li.focus .sub-menu, .nav-main .menu > li:focus-within .sub-menu {
+.nav-main > li:hover .sub-menu, .nav-main > li.focus .sub-menu, .nav-main > li:focus-within .sub-menu {
   animation: animSousMenu 0.45s cubic-bezier(0.7, 0, 0.3, 1) both;
   display: flex;
   flex-direction: column;
@@ -1908,26 +1898,26 @@ button.menu-toggle:focus {
   max-height: 80vh;
   overflow-y: auto;
 }
-.nav-main .menu .sub-menu {
+.nav-main .sub-menu {
   background-color: #fff;
   box-shadow: 0 3px 3px rgba(18, 75, 90, 0.2);
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.nav-main .menu .sub-menu li {
+.nav-main .sub-menu li {
   padding: 0;
 }
-.nav-main .menu .sub-menu a {
+.nav-main .sub-menu a {
   display: block;
   padding: 0.8rem 1.5rem 1.3rem;
   transition: all var(--transition);
 }
-.nav-main .menu .sub-menu a:hover, .nav-main .menu .sub-menu a:focus {
+.nav-main .sub-menu a:hover, .nav-main .sub-menu a:focus {
   color: var(--blanc);
   background-color: var(--sauge);
 }
-.nav-main .menu .sub-menu li.current-menu-item a {
+.nav-main .sub-menu li.current-menu-item a {
   background-color: var(--sauge);
   color: var(--blanc);
 }

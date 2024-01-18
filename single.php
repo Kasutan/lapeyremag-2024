@@ -76,18 +76,21 @@ function kasutan_single_entry_bottom(){
 	$infos=array();
 	$parent_id=false;
 	$parent_name=false;
+	$child_name=false;
 	if(function_exists('kasutan_get_infos_cats')) {
 		$infos=kasutan_get_infos_cats();
 	}
-	if(!empty($infos) && isset($infos['parent_id'])) {
-		$parent_id=$infos['parent_id'];
-		$parent_name=$infos['parent_name'];
+	if(!empty($infos)) {
+		if (isset($infos['parent_id'])) $parent_id=$infos['parent_id'];
+		if(isset($infos['parent_name'])) $parent_name=$infos['parent_name'];
+		if(isset($infos['child_name'])) $child_name=$infos['child_name'];
 	}
 
 
 	printf('<div class="flex-center has-bleu-background-color">TODO Ces articles pourraient aussi vous intéresser</div>');
 	
-	if($parent_id && function_exists('kasutan_affiche_projet')) {
+	//Section projet affichée uniquement pour les articles de type guide pratique
+	if($child_name && strpos(strtolower($child_name),'guide')!==false && $parent_id && function_exists('kasutan_affiche_projet')) {
 		kasutan_affiche_projet($parent_id,$parent_name);
 	}
 

@@ -121,10 +121,8 @@ p.fil-ariane {
 
 /*Logique pour afficher/masquer éléments du menu mobile et sous-menus*/
 
-.nav-main,
-.volet-navigation {
+.nav-main {
 	display: none; // tous les menus sont cachés en mobile
-
 	.menu {
 		display: flex;
 		list-style: none;
@@ -147,40 +145,41 @@ button.menu-toggle {
 	&:focus {
 		outline: none;
 	}
-
-	svg.fermer-menu {
-		//croix pour refermer le menu
-		display: none;
-		
-	}
-
-	//menu mobile ouvert
-	&[aria-expanded=true] {
-		svg.menu {
-			//cacher hamburger 
-			display: none;
-		}
-
-		svg.fermer-menu {
-			// afficher croix
-			display: block;
-		}
+}
+#menu-close {
+	height: unset;
+	padding: 0.8rem;
+	position:absolute;
+	width: width;
+	right:2rem;
+	top:2rem;
+	svg {
+		height: 1.6rem;
+		width: 1.6rem;
 	}
 }
 
-.volet-navigation.toggled {
+.volet-navigation {
 	display: flex;
 	flex-direction: column;
-	right: 0;
-	max-height: calc(100vh - 129px); //magic number : hauteur du header sticky
-	max-width: 100vw;
+	height:100%;
+	left:-100%;
+	max-width: 31.5rem;
 	overflow-x: hidden;
 	overflow-y: auto;
-	padding: 0;
-	position: absolute;
-	top: 100%;
-	width: 100%;
-	z-index: 10;
+	padding: 6.4rem 0 2rem; //pour placer la croix pour fermer
+	position: fixed;
+	top: 0;
+	transition:left var(--transition);
+	z-index: 25; //au-dessus du header sticky et du sommaire
+}
+.volet-navigation.toggled {
+	left:0;
+}
+
+.admin-bar .volet-navigation {
+	height:calc(100% - 46px);
+	top:46px;
 }
 
 @include bp(lg) {

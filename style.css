@@ -1280,6 +1280,7 @@ input[type=submit] {
 --------------------------------------------------------------*/
 .main-header .boutons {
   margin-top: auto;
+  padding: 0 2rem;
 }
 .main-header .boutons .bouton {
   align-items: center;
@@ -1306,6 +1307,7 @@ input[type=submit] {
     display: flex;
     margin-left: auto;
     margin-top: 0;
+    padding: 0;
   }
   .main-header .boutons .bouton {
     font-size: 1.2rem;
@@ -1670,12 +1672,10 @@ p.fil-ariane.desktop {
 ## Menus
 --------------------------------------------------------------*/
 /*Logique pour afficher/masquer éléments du menu mobile et sous-menus*/
-.nav-main,
-.volet-navigation {
+.nav-main {
   display: none;
 }
-.nav-main .menu,
-.volet-navigation .menu {
+.nav-main .menu {
   display: flex;
   list-style: none;
   margin: 0;
@@ -1695,29 +1695,42 @@ button.menu-toggle svg {
 button.menu-toggle:focus {
   outline: none;
 }
-button.menu-toggle svg.fermer-menu {
-  display: none;
+
+#menu-close {
+  height: unset;
+  padding: 0.8rem;
+  position: absolute;
+  width: width;
+  right: 2rem;
+  top: 2rem;
 }
-button.menu-toggle[aria-expanded=true] svg.menu {
-  display: none;
+#menu-close svg {
+  height: 1.6rem;
+  width: 1.6rem;
 }
-button.menu-toggle[aria-expanded=true] svg.fermer-menu {
-  display: block;
+
+.volet-navigation {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  left: -100%;
+  max-width: 31.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 6.4rem 0 2rem;
+  position: fixed;
+  top: 0;
+  transition: left var(--transition);
+  z-index: 25;
 }
 
 .volet-navigation.toggled {
-  display: flex;
-  flex-direction: column;
-  right: 0;
-  max-height: calc(100vh - 129px);
-  max-width: 100vw;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 0;
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  z-index: 10;
+  left: 0;
+}
+
+.admin-bar .volet-navigation {
+  height: calc(100% - 46px);
+  top: 46px;
 }
 
 @media (min-width: 1024px) {

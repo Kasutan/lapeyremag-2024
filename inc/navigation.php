@@ -35,11 +35,13 @@ function kasutan_desktop_nav() {
 
 function kasutan_mobile_nav() {
 	?>
-	<button class="menu-toggle picto" id="menu-toggle" aria-controls="volet-navigation"  aria-label="Menu">
+	<button class="menu-toggle picto" id="menu-toggle" aria-controls="volet-navigation"  aria-label="Ouvrir volet de navigation">
 		<?php echo kasutan_picto(array('icon'=>'menu', 'class'=>'menu', 'size'=>'28'));?>
-		<?php echo kasutan_picto(array('icon'=>'close', 'class' => 'fermer-menu','size'=>'28'));?>
 	</button>
 	<div class="volet-navigation"  id="volet-navigation">
+		<button class="menu-toggle picto" id="menu-close"  aria-label="Fermer volet de navigation">
+			<?php echo kasutan_picto(array('icon'=>'close', 'class' => 'fermer-menu','size'=>'28'));?>
+		</button>
 		<nav class="nav-menu">
 		<?php
 		printf('<a href="#" id="ouvrir-menu-mobile"><span>Produits</span>%s</a>',kasutan_picto(array('icon'=>'chevron-droite')));

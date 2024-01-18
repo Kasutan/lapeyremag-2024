@@ -42,6 +42,7 @@ input[type="submit"] {
 
 .main-header .boutons {
 	margin-top: auto;
+	padding:0 2rem;
 	.bouton {
 		align-items: center;
 		display: flex;
@@ -69,6 +70,7 @@ input[type="submit"] {
 		display: flex;
 		margin-left: auto;
 		margin-top: 0;
+		padding:0;
 		.bouton {
 			@include font-body-s;
 			font-weight: 700;

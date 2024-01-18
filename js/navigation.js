@@ -27,17 +27,17 @@
 
 
 	button.onclick = function() {
-		if ( -1 !== volet.className.indexOf( 'toggled' ) ) {
-			volet.className = volet.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			volet.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			volet.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			volet.setAttribute( 'aria-expanded', 'true' );
-		}
+		volet.className += ' toggled';
+		button.setAttribute( 'aria-expanded', 'true' );
+		volet.setAttribute( 'aria-expanded', 'true' );
 	};
 
+	var buttonClose=document.getElementById( 'menu-close' );
+	buttonClose.onclick = function() {
+		volet.className = volet.className.replace( ' toggled', '' );
+		button.setAttribute( 'aria-expanded', 'false' );
+		volet.setAttribute( 'aria-expanded', 'false' );
+	};
 	// Get all the link elements within the menu.
 	links    = volet.getElementsByTagName( 'a' );
 

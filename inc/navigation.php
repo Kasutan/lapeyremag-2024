@@ -42,7 +42,7 @@ function kasutan_mobile_nav() {
 		<button class="menu-toggle picto" id="menu-close"  aria-label="Fermer volet de navigation">
 			<?php echo kasutan_picto(array('icon'=>'close', 'class' => 'fermer-menu','size'=>'28'));?>
 		</button>
-		<nav class="nav-menu">
+		<nav class="menu-mobile">
 		<?php
 		printf('<a href="#" id="ouvrir-menu-mobile"><span>Produits</span>%s</a>',kasutan_picto(array('icon'=>'chevron-droite')));
 		kasutan_affiche_navigation1();

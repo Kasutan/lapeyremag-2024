@@ -228,7 +228,7 @@ function kasutan_footer_liens() {
 				$attr='';
 
 				if($lien->target != "none") {
-					$attr='target="_blanc" rel="noopener noreferrer"';
+					$attr='target="_blank" rel="noopener noreferrer"';
 				}
 
 				printf('<a href="%s" %s>%s</a>',$lien->href,$attr,$lien->text);

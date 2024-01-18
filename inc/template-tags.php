@@ -352,7 +352,7 @@ function kasutan_single_banniere() {
 
 	
 
-	printf('<div class="page-banniere-single">');
+	printf('<div class="page-banniere-single" data-post-id="%s">',get_the_ID());
 		if($image_id) {
 			echo '<div class="image">';
 				echo wp_get_attachment_image( $image_id, 'banniere',false,array('decoding'=>'async','loading'=>'eager'));

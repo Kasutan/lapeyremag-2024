@@ -80,7 +80,28 @@
 			
 		}
 
-		/****************** TODO compteur de visites en AJAX *************************/	
+		/****************** compteur de visites en AJAX *************************/	
+		var post=$('.page-banniere-single').attr('data-post-id');
+		$.ajax({
+			type: "POST",
+			url: lapeyremagVars.ajax_url,
+			data: {
+				nonce: lapeyremagVars.nonce,
+				action: 'kasutan_incremente_vues',
+				data: {
+					post: post,
+				},
+			},
+			success: function(response){
+				//Success
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+				//Error
+				console.log('erreur ajax',errorThrown);
+				//$(errorMessage).show();				
+			},
+			timeout: 60000
+		});
 
 	
 	}); //fin document ready

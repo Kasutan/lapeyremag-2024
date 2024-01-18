@@ -27,6 +27,7 @@ include_once( get_template_directory() . '/inc/site-footer.php' );
 
 // Functionality
 include_once( get_template_directory() . '/inc/login-logo.php' );
+include_once( get_template_directory() . '/inc/compteur-vues.php' );
 
 
 // Plugin Support
@@ -177,7 +178,16 @@ function kasutan_scripts() {
 	wp_enqueue_script( 'lapeyremag-scripts', get_template_directory_uri() . '/js/min/main.js', array('jquery','lapeyremag-owl-carousel'), '', true );
 
 	if(is_single()) {
-		wp_enqueue_script( 'lapeyremag-single-scripts', get_template_directory_uri() . '/js/min/single.js', array('jquery'), '', true );
+		wp_enqueue_script( 'lapeyremag-single-scripts', get_template_directory_uri() . '/js/min/single.js', array('jquery'), filemtime( get_template_directory() . '/js/min/single.js'), true );
+
+		wp_localize_script(
+			'lapeyremag-single-scripts',
+			'lapeyremagVars',
+			array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'nonce' => wp_create_nonce('lapeyremag_nonce'),
+			)
+		);
 	}
 	
 

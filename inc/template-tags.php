@@ -431,6 +431,39 @@ function kasutan_boutons_partage($avec_titre) {
 	echo '</div>';
 }
 
+/**
+* Articles related pour un single
+* 
+*/
+function kasutan_affiche_related($term_id) {
+	if(!function_exists('kasutan_affiche_slider')) {
+		return;
+	}
+	$exclude=array();
+	$exclude[]=get_the_ID();
+	$posts=get_posts(array(
+		'numberposts'=>12,
+		'category'=>$term_id,
+		'fields'=>'ids',
+		'post__not_in'=>$exclude
+	));
+
+	if(empty($posts)) {
+		return;
+	}
+
+	$titre=false;
+	if(function_exists('get_field')) {
+		$titre=wp_kses_post(get_field('lapeyre_related_titre','option'));
+	}
+
+	echo '<section class="related">';
+		if($titre) printf('<p class="h2 titre-section">%s</p>',$titre);
+		kasutan_affiche_slider($posts,'h2');
+	echo '</section>';
+}
+
+
 //Navigation par univers
 //Avec une variante si !$key -> liens vers les sous-catégories de type $key mais avec avec image et nom de la catégorie parente
 function kasutan_affiche_nav_univers($exclure=false,$key=false) {

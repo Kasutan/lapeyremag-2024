@@ -3576,6 +3576,58 @@ section.no-results .entry-title {
   }
 }
 
+.related {
+  background-color: var(--bleu-tres-fonce);
+  padding: 6rem 0;
+}
+.related .titre-section {
+  color: var(--blanc);
+  margin-bottom: 4rem;
+  padding: 0 var(--padding-x-lg);
+  text-align: center;
+}
+.related .slider-wrap {
+  margin-left: var(--padding-x-lg);
+  overflow-x: hidden;
+}
+.related .slider-wrap button.fleche-slider svg path {
+  fill: var(--blanc);
+}
+.related .slider-wrap button.fleche-slider:hover svg path {
+  fill: var(--gris-400);
+}
+.related .slider-wrap button.fleche-slider:disabled svg path {
+  fill: var(--bleu-fonce);
+}
+.related .slider-wrap button.dot {
+  border: solid 1px var(--blanc);
+}
+.related .slider-wrap button.dot:hover {
+  border-color: var(--gris-400);
+}
+.related .slider-wrap button.dot:focus, .related .slider-wrap button.dot.active {
+  background-color: var(--blanc);
+}
+.related .slider {
+  margin-bottom: 2rem;
+}
+.related .nav-slider {
+  padding-right: var(--padding-x-lg);
+}
+@media (min-width: 1024px) {
+  .related {
+    padding: 8rem 0;
+  }
+  .related .titre-section {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 3.2rem;
+  }
+  .related .slider {
+    margin-bottom: 0;
+  }
+}
+
 nav.reseaux {
   align-items: center;
   display: flex;

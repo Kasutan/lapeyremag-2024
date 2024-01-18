@@ -87,7 +87,10 @@ function kasutan_single_entry_bottom(){
 	}
 
 
-	printf('<div class="flex-center has-bleu-background-color">TODO Ces articles pourraient aussi vous intéresser</div>');
+	if(function_exists('kasutan_affiche_related')) {
+		kasutan_affiche_related($parent_id);
+		//Si besoin des articles de même univers ET de même type : récupérer child_id et le passer en paramètre à la place de parent_id
+	}
 	
 	//Section projet affichée uniquement pour les articles de type guide pratique
 	if($child_name && strpos(strtolower($child_name),'guide')!==false && $parent_id && function_exists('kasutan_affiche_projet')) {

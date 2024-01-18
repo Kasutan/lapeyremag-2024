@@ -46,6 +46,26 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium"
+        },
+        {
+            "key": "field_65a8970bb6cc4",
+            "label": "Titre de la section \"ces articles pourraient aussi vous intéresser\"",
+            "name": "lapeyre_related_titre",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Ces articles pourraient aussi vous intéresser",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -66,5 +86,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705342564
+    "modified": 1705547564
 }

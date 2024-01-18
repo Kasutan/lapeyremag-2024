@@ -1,0 +1,56 @@
+.related {
+	background-color: var(--bleu-tres-fonce);
+	padding:6rem 0;
+
+	.titre-section {
+		color:var(--blanc);
+		margin-bottom: 4rem;
+		padding:0 var(--padding-x-lg);
+		text-align: center;
+	}
+
+	.slider-wrap {
+		margin-left: var(--padding-x-lg);
+		overflow-x: hidden;
+		button.fleche-slider {
+			svg path {
+				fill:var(--blanc);
+			}
+			&:hover {
+				svg path {
+					fill:var(--gris-400);
+				}
+			}
+			&:disabled {
+				svg path {
+					fill:var(--bleu-fonce);
+				}
+			}
+		}
+		button.dot {
+			border:solid 1px var(--blanc);
+			&:hover {
+				border-color:var(--gris-400);
+			}
+			&:focus, &.active {
+				background-color: var(--blanc);
+			}
+		}
+	}
+	.slider {
+		margin-bottom: 2rem;
+	}
+	.nav-slider {
+		padding-right: var(--padding-x-lg);
+	}
+
+	@include bp(lg) {
+		padding:8rem 0;
+		.titre-section {
+			@include font-headline-m;
+		}
+		.slider {
+			margin-bottom: 0;
+		}
+	}
+}

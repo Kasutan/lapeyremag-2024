@@ -3528,6 +3528,54 @@ section.no-results .entry-title {
   }
 }
 
+.projet {
+  background-color: var(--beige-clair);
+  padding: 6rem var(--padding-x-lg);
+}
+.projet img {
+  margin: 0 auto 2.4rem;
+}
+.projet .nom {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 3.6rem;
+  margin-bottom: 2.4rem;
+  text-transform: uppercase;
+}
+.projet .titre {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  color: var(--bleu-fonce);
+  margin-bottom: 1.6rem;
+}
+.projet .desc {
+  margin-bottom: 3.2rem;
+}
+.projet .bouton {
+  display: block;
+}
+@media (min-width: 1024px) {
+  .projet {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 8rem var(--padding-x-lg) 4.6rem;
+  }
+  .projet .texte {
+    padding-left: 4rem;
+  }
+  .projet .bouton {
+    display: inline-block;
+    min-width: 15rem;
+  }
+}
+@media (min-width: 1440px) {
+  .projet .texte {
+    padding-left: 11.5rem;
+  }
+}
+
 nav.reseaux {
   align-items: center;
   display: flex;

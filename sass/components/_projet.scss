@@ -1,0 +1,45 @@
+.projet {
+	background-color: var(--beige-clair);
+	padding:6rem var(--padding-x-lg);
+
+	img {
+		margin:0 auto 2.4rem;
+	}
+	.nom {
+		@include font-headline-xxl;
+		margin-bottom: 2.4rem;
+		text-transform: uppercase;
+	}
+	.titre {
+		@include font-headline-s;
+		color:var(--bleu-fonce);
+		margin-bottom: 1.6rem;
+	}
+	.desc {
+		margin-bottom: 3.2rem;
+	}
+	.bouton {
+		display: block;
+	}
+	@include bp(lg) {
+		align-items: center;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		padding:8rem var(--padding-x-lg) 4.6rem;
+
+		.texte {
+			padding-left: 4rem;
+		}
+
+		.bouton {
+			display: inline-block;
+			min-width: 15rem;
+		}
+	}
+
+	@include bp(xl) {
+		.texte {
+			padding-left: 11.5rem;
+		}
+	}
+}

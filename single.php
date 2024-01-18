@@ -75,17 +75,21 @@ function kasutan_single_entry_bottom(){
 	//Récupérer term_id de l'univers de cet article
 	$infos=array();
 	$parent_id=false;
+	$parent_name=false;
 	if(function_exists('kasutan_get_infos_cats')) {
 		$infos=kasutan_get_infos_cats();
 	}
 	if(!empty($infos) && isset($infos['parent_id'])) {
 		$parent_id=$infos['parent_id'];
+		$parent_name=$infos['parent_name'];
 	}
 
 
 	printf('<div class="flex-center has-bleu-background-color">TODO Ces articles pourraient aussi vous intéresser</div>');
 	
-	printf('<div class="flex-center has-beige-background-color">TODO Prêt à lancer votre projet ? (réutilisable)</div>');
+	if($parent_id && function_exists('kasutan_affiche_projet')) {
+		kasutan_affiche_projet($parent_id,$parent_name);
+	}
 
 	if(function_exists('kasutan_affiche_nav_univers')) {
 		kasutan_affiche_nav_univers($parent_id);

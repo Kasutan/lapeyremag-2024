@@ -347,7 +347,7 @@ function kasutan_single_banniere() {
 
 	$infos=array();
 	if(function_exists('kasutan_get_infos_cats')) {
-		$infos=kasutan_get_infos_cats($post_id,true);
+		$infos=kasutan_get_infos_cats('',true);
 	}
 
 	
@@ -508,4 +508,42 @@ function kasutan_affiche_nav_univers($exclure=false,$key=false) {
 			echo '</div>'; //.slider-wrap
 		echo '</section>';
 	}
+}
+
+//Section projet pour un univers
+function kasutan_affiche_projet($term_id,$nom) {
+	if(!function_exists('get_field')) {
+		return;
+	}
+	$projet=get_field('lapeyre_projet','category_'.$term_id); //champ ACF de type groupe
+
+	if(empty($projet)) {
+		return;
+	}
+	$image=esc_attr($projet['image']);
+	$titre=wp_kses_post($projet['titre']);
+	$desc=wp_kses_post($projet['descriptif']);
+	$lien=$projet['bouton'];
+
+	//On a besoin au moins du lien et du titre pour afficher la section
+	if(empty($titre) || empty($lien)) {
+		return;
+	}
+
+	echo '<section class="projet">';
+		if($image) {
+			echo wp_get_attachment_image($image, 'large');
+		}
+		echo '<div class="texte">';
+			printf('<p class="nom">%s</p>',$nom);
+			printf('<p class="titre">%s</p>',$titre);
+			if($desc) printf('<div class="desc">%s</div>',$desc);
+			printf('<a href="%s" class="bouton bleu" target="%s" rel="noopener noreferrer">%s</a>',
+				esc_url($lien['url']),
+				esc_attr($lien['target']),
+				wp_kses_post( $lien['title'] )
+			);
+		echo '</div>';
+	echo '</section>';
+
 }

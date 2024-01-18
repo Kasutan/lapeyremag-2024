@@ -1248,9 +1248,7 @@ a.bouton:active,
 a.wp-block-button__link:hover,
 a.wp-block-button__link:focus,
 a.wp-block-button__link:active {
-  background-color: var(--bleu-tres-fonce);
-  border-color: var(--bleu-tres-fonce);
-  color: var(--blanc);
+  border-radius: 25px;
   text-decoration: none;
 }
 button:focus-visible,
@@ -1272,28 +1270,60 @@ a.wp-block-button__link.bleu {
   border-color: var(--bleu-fonce);
   color: var(--blanc);
 }
-button.bleu:hover, button.bleu:focus, button.bleu:active,
-input[type=button].bleu:hover,
-input[type=button].bleu:focus,
-input[type=button].bleu:active,
-input[type=reset].bleu:hover,
-input[type=reset].bleu:focus,
-input[type=reset].bleu:active,
-input[type=submit].bleu:hover,
-input[type=submit].bleu:focus,
-input[type=submit].bleu:active,
-a.bouton.bleu:hover,
-a.bouton.bleu:focus,
-a.bouton.bleu:active,
-a.wp-block-button__link.bleu:hover,
-a.wp-block-button__link.bleu:focus,
-a.wp-block-button__link.bleu:active {
-  background-color: var(--bleu-tres-fonce);
-  border-color: var(--bleu-tres-fonce);
-}
 
 input[type=submit] {
   -webkit-appearance: none;
+}
+
+/*--------------------------------------------------------------
+## Boutons bleus dans le header
+--------------------------------------------------------------*/
+.main-header .boutons {
+  margin-top: auto;
+}
+.main-header .boutons .bouton {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  padding: 0.8rem 1.2rem;
+}
+.main-header .boutons .bouton svg {
+  margin-right: 6px;
+}
+.main-header .boutons .bouton.ecoute {
+  border: 1px solid rgba(93, 137, 162, 0.5);
+  color: rgb(93, 137, 162);
+}
+.main-header .boutons .bouton.ecoute:hover, .main-header .boutons .bouton.ecoute:focus {
+  background-color: rgba(93, 137, 162, 0.04);
+  border: 1px solid rgb(93, 137, 162);
+}
+@media (min-width: 1024px) {
+  .main-header .boutons {
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+    margin-top: 0;
+  }
+  .main-header .boutons .bouton {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-right: 0.8rem;
+    margin-bottom: 0;
+  }
+  .main-header .boutons .bouton:last-of-type {
+    margin-right: 0;
+  }
+  .main-header .boutons .bouton.ecoute, .main-header .boutons .bouton.ecoute:hover, .main-header .boutons .bouton.ecoute:focus {
+    background-color: var(--bleu-fonce);
+    border-color: var(--bleu-fonce);
+    color: var(--blanc);
+  }
 }
 
 html {

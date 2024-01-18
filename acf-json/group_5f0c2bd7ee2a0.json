@@ -149,6 +149,38 @@
             ]
         },
         {
+            "key": "field_65a999ffe95f3",
+            "label": "Header : bouton 1 (à votre écoute)",
+            "name": "lapeyre_header_bouton_1",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_65a99a2ce95f4",
+            "label": "Header : bouton 2 (j'ai un projet)",
+            "name": "lapeyre_header_bouton_2",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_65983ebf5f969",
             "label": "Footer : icônes avantages",
             "name": "lapeyre_footer_icones",
@@ -547,5 +579,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705539251
+    "modified": 1705613909
 }

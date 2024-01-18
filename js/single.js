@@ -79,6 +79,9 @@
 			$(bouton).attr('aria-expanded','false');
 			
 		}
+
+		/****************** TODO compteur de visites en AJAX *************************/	
+
 	
 	}); //fin document ready
 })( jQuery );

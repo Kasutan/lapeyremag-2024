@@ -432,7 +432,8 @@ function kasutan_boutons_partage($avec_titre) {
 }
 
 //Navigation par univers
-function kasutan_affiche_nav_univers($exclure=false) {
+//Avec une variante si !$key -> liens vers les sous-catégories de type $key mais avec avec image et nom de la catégorie parente
+function kasutan_affiche_nav_univers($exclure=false,$key=false) {
 	if(!function_exists('get_field')) {
 		return;
 	}
@@ -447,7 +448,6 @@ function kasutan_affiche_nav_univers($exclure=false) {
 		foreach($cats as $cat) {
 			$term_id=$cat->term_id;
 			$nom=$cat->name;
-			$lien=get_term_link($cat);
 
 			if($cat->parent) {
 				//C'est une catégorie enfant
@@ -472,6 +472,23 @@ function kasutan_affiche_nav_univers($exclure=false) {
 			}
 			if(!$image_id) {
 				$image_id=esc_attr(get_field('lapeyre_banniere_defaut','option'));
+			}
+
+			//Lien vers le parent ou vers une cat enfant ?
+			$lien=get_term_link($cat); //pour la version vers cat parent et aussi en fallback
+
+			if($key) {
+				$enfants=get_categories(
+					array( 'parent' => $term_id )
+				);
+				foreach($enfants as $enfant_id) {
+					$enfant=get_term($enfant_id);
+					$nom_enfant=$enfant->name;
+					if(strpos(strtolower($nom_enfant),$key) !== false) {
+						//On a trouvé la catégorie enfant de type $key
+						$lien=get_term_link($enfant);
+					}
+				}
 			}
 			
 			printf('<a href="%s" class="slide">%s <div class="nom">%s</div></a>',

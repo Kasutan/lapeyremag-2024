@@ -8,19 +8,6 @@
  * @license      GPL-2.0+
 **/
 
-/**TODO fonctions helpers pour les catégories
- * 
- * shortcode helper pour parcourir toutes les sous-catégories et leur associer un custom field avec l'une des trois options $types=['guide','tendance','tutoriel'] d'après leur nom. Puis laisser ce champ accessible en BO pour permettre de renommer les sous-cats tout en gardant la logique. 
- * 
- * ajouter pour chaque option un champ ACF pour stocker le titre avec article "nos guides" "les tendances" "nos tutoriels" et un picto (pour le bloc de navigation par types d'articles). 
- * 
- * fonction pour identifier de quel type est une sous-catégorie 
- * 
- * mettre les sous-catégories dans le bon ordre (avec plugin, fait en local, à refaire sur le serveur)
- * 
- * obtenir toutes les catégories qui ont en meta une option pour le type d'article (utile pour construire les pages d'un type d'article) -> on pourra avoir un bloc ACF unique avec juste en option un choix parmi les mots-clés $types=['guide','tendance','tutoriel']
-*/
-
 $cat=get_queried_object();
 $term_id=$cat->term_id;
 $name=$cat->name;
@@ -43,6 +30,7 @@ $image=$sous_titre=false;
 $titre=$name;
 if($has_parent) $titre_loop=$name.' '.$parent_name;
 $titres_sections=array();
+$key_pour_cette_sous_cat=false;
 
 if(function_exists('get_field')) {
 	//Bannière parent ou enfant : dans les champs ACF de la catégorie
@@ -71,6 +59,8 @@ if(function_exists('get_field')) {
 		$key=esc_attr(get_sub_field('key'));
 		if(strpos(strtolower($name),$key) !== false) {
 			//On a trouvé le type qui correspond à la catégorie actuelle
+			//On l'enregistre pour construire plus tard la nav par univers
+			$key_pour_cette_sous_cat=$key;
 
 			// Pour avoir le titre avec article
 			$page=get_sub_field('page');
@@ -161,6 +151,9 @@ echo '<main class="site-main">';
 		printf('<section class="has-beige-clair-background-color"> Prête à lancer votre projet ? Infos dans les champs personnalisés de la la catégorie parente : %s</section>',$parent_name);
 
 		printf('<section> Voulez-vous découvrir autres articles ? Navigation vers archive univers x même type d article que la page actuelle. Exclure la page actuelle de la navigation</section>');
+		if(function_exists('kasutan_affiche_nav_univers')) {
+			kasutan_affiche_nav_univers($parent_id,$key_pour_cette_sous_cat);
+		}
 
 	} else {
 

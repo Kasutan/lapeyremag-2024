@@ -96,7 +96,7 @@ function kasutan_affiche_post_tags($infos) {
 /**
  * Afficher un slider d'articles
  */
-function kasutan_affiche_slider($posts,$tag_titre='h3',$avec_index=false) {
+function kasutan_affiche_slider($posts,$tag_titre='h3') {
 	if(empty($posts)) {
 		return;
 	}

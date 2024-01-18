@@ -31,7 +31,7 @@ if(function_exists('kasutan_affiche_slider') && !empty($posts)) :
 	printf('<section class="acf-populaires %s">', $className);
 
 		printf('<h2 class="titre-section">%s</h2>',$titre);
-		kasutan_affiche_slider($posts,'h3',true); //avec index
+		kasutan_affiche_slider($posts,'h3');
 
 	echo '</section>';
 endif;

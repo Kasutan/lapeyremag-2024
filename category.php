@@ -150,7 +150,6 @@ echo '<main class="site-main">';
 
 		printf('<section class="has-beige-clair-background-color"> Prête à lancer votre projet ? Infos dans les champs personnalisés de la la catégorie parente : %s</section>',$parent_name);
 
-		printf('<section> Voulez-vous découvrir autres articles ? Navigation vers archive univers x même type d article que la page actuelle. Exclure la page actuelle de la navigation</section>');
 		if(function_exists('kasutan_affiche_nav_univers')) {
 			kasutan_affiche_nav_univers($parent_id,$key_pour_cette_sous_cat);
 		}
@@ -209,8 +208,9 @@ echo '<main class="site-main">';
 			}
 		}
 
-
-		printf('<section> Voulez-vous découvrir autres articles ? Navigation vers archive univers de niveau 1. Exclure la page univers actuelle de la navigation</section>');
+		if(function_exists('kasutan_affiche_nav_univers')) {
+			kasutan_affiche_nav_univers($term_id);
+		}
 	}
 
 

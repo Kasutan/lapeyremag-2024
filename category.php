@@ -148,8 +148,9 @@ echo '<main class="site-main">';
 	
 		endif;
 
-		printf('<section class="has-beige-clair-background-color"> Prête à lancer votre projet ? Infos dans les champs personnalisés de la la catégorie parente : %s</section>',$parent_name);
-
+		if($parent_id && function_exists('kasutan_affiche_projet')) {
+			kasutan_affiche_projet($parent_id,$parent_name);
+		}
 		if(function_exists('kasutan_affiche_nav_univers')) {
 			kasutan_affiche_nav_univers($parent_id,$key_pour_cette_sous_cat);
 		}

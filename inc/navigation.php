@@ -23,7 +23,7 @@ class etcode_sublevel_walker extends Walker_Nav_Menu
 
 function kasutan_desktop_nav() {
 	echo '<nav id="site-navigation" class="nav-main" aria-label="menu principal">';
-		printf('<a href="#" id="ouvrir-menu-desktop"><span>Produits</span>%s</a>',kasutan_picto(array('icon'=>'chevron-bas')));
+		printf('<button id="ouvrir-produits-desktop" class="anim-trait"><span class="texte" data-text="Produits">Produits</span><span class="picto">%s</span></button>',kasutan_picto(array('icon'=>'chevron-bas')));
 		kasutan_affiche_navigation1();
 		echo '<div class="boutons">';
 			kasutan_affiche_boutons_header(true);
@@ -44,7 +44,7 @@ function kasutan_mobile_nav() {
 		</button>
 		<nav class="menu-mobile">
 		<?php
-		printf('<a href="#" id="ouvrir-menu-mobile"><span>Produits</span>%s</a>',kasutan_picto(array('icon'=>'chevron-droite')));
+		printf('<button id="ouvrir-produits-mobile">Produits<span class="picto">%s</span></button>',kasutan_picto(array('icon'=>'chevron-droite')));
 		kasutan_affiche_navigation1();
 		echo '</nav>';
 		echo '<div class="boutons">';
@@ -64,7 +64,7 @@ function kasutan_affiche_navigation1() {
 				$attr='target="_blank" rel="noopener noreferrer"';
 			}
 
-			printf('<a href="%s" class="%s" %s>%s</a>',$lien->href,strtolower($lien->class),$attr,$lien->text);
+			printf('<a href="%s" class="%s anim-trait" %s><span class="texte" data-text="%s"> %s</span></a>',$lien->href,strtolower($lien->class),$attr,$lien->text,$lien->text);
 		}
 	}
 }

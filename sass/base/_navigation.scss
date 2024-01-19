@@ -55,7 +55,7 @@ p.fil-ariane {
 	align-items: center;
 	color: var(--gris-600);
 	display: flex;
-	height:6rem;
+	height: 6rem;
 	margin-bottom: 0;
 
 	//couper avec ... si trop long
@@ -64,7 +64,7 @@ p.fil-ariane {
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
-	
+
 
 
 	a {
@@ -103,8 +103,8 @@ p.fil-ariane {
 		&.desktop {
 			align-items: flex-start;
 			display: flex;
-			height:unset;
-			padding-top:2.4rem;
+			height: unset;
+			padding-top: 2.4rem;
 			padding-bottom: 2.4rem;
 
 		}
@@ -123,6 +123,7 @@ p.fil-ariane {
 
 .nav-main {
 	display: none; // tous les menus sont cachés en mobile
+
 	.menu {
 		display: flex;
 		list-style: none;
@@ -146,13 +147,15 @@ button.menu-toggle {
 		outline: none;
 	}
 }
+
 #menu-close {
 	height: unset;
 	padding: 0.8rem;
-	position:absolute;
+	position: absolute;
 	width: width;
-	right:2rem;
-	top:2rem;
+	right: 2rem;
+	top: 2rem;
+
 	svg {
 		height: 1.6rem;
 		width: 1.6rem;
@@ -162,25 +165,26 @@ button.menu-toggle {
 .volet-navigation {
 	display: flex;
 	flex-direction: column;
-	height:100%;
-	left:-100%;
-	max-width:80vw;
+	height: 100%;
+	left: -100%;
+	max-width: 80vw;
 	overflow-x: hidden;
 	overflow-y: auto;
 	padding: 6.4rem 0 2rem; //pour placer la croix pour fermer
 	position: fixed;
 	top: 0;
-	transition:left var(--transition);
+	transition: left var(--transition);
 	width: 31.5rem;
 	z-index: 25; //au-dessus du header sticky et du sommaire
 }
+
 .volet-navigation.toggled {
-	left:0;
+	left: 0;
 }
 
 .admin-bar .volet-navigation {
-	height:calc(100% - 46px);
-	top:46px;
+	height: calc(100% - 46px);
+	top: 46px;
 }
 
 @include bp(lg) {
@@ -238,37 +242,39 @@ button.menu-toggle {
 	}
 
 	.menu-mobile {
-		border-top:1px solid var(--gris-300);
+		border-top: 1px solid var(--gris-300);
 		display: flex;
 		flex-direction: column;
 	}
 
 	/*Styles éléments de niveau 1*/
-	.menu-mobile > a {
+	.menu-mobile>a {
 		align-items: center;
 		display: flex;
 		justify-content: space-between;
 		min-height: 4.4rem;
-		order:3;
-		padding:0 2rem;
+		order: 3;
+		padding: 0 2rem;
 		text-decoration: none;
 		text-transform: uppercase;
-		&:hover, &:focus {
-			color:unset;
+
+		&:hover,
+		&:focus {
+			color: unset;
 		}
 
 		//Styles spéciaux et modif ordre pour certains liens
 		&.promo {
 			background-color: var(--bleu-tres-clair);
 			border-left: 0.4rem solid var(--rouge);
-			color:var(--rouge);
-			order:1;
-			padding-left:1.6rem;
+			color: var(--rouge);
+			order: 1;
+			padding-left: 1.6rem;
 		}
 
 		&.event {
-			color:var(--bleu-fonce);
-			order:2;
+			color: var(--bleu-fonce);
+			order: 2;
 		}
 
 	}
@@ -314,48 +320,107 @@ button.menu-toggle {
 
 /*Style liens de menus MENU PRINCIPAL */
 .nav-main {
-	align-items:stretch;
+	align-items: stretch;
 	background-color: var(--bleu-tres-clair);
 	height: 100%;
-	padding:1.2rem 4.4rem 0;
+	padding: 1.2rem 4.4rem 0;
 	width: 100%;
 
 	@include bp(lg) {
 		display: flex;
 	}
-	
-	
 
 	a {
 		text-decoration: none;
 	}
 
 	//styles spécifiques aux liens de premier niveau
-	& > a {
+	&>a {
 		@include font-body-s;
-		align-items: flex-start;
-		border-bottom:solid 4px var(--sauge);
+		align-items: center;
 		display: flex;
 		margin-right: 3.2rem;
+		position: relative;
 		text-transform: uppercase;
-		&.promo {
-			color:var(--rouge);
+
+
+		//https://css-tricks.com/bold-on-hover-without-the-layout-shift/
+		.texte {
+			align-items: center;
+			display: inline-flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+			&:after {
+				content: attr(data-text);
+				content: attr(data-text) / "";
+				height: 0;
+				visibility: hidden;
+				overflow: hidden;
+				user-select: none;
+				pointer-events: none;
+				font-weight: 700; //pour que l'élément occupe déjà la bonne largeur avant hover
+	
+				@media speech {
+					display: none;
+				}
+			}
 		}
+
+		&.promo {
+			color: var(--rouge);
+			font-weight: 700;
+		}
+
 		&.event {
-			color:var(--bleu-fonce);
+			color: var(--bleu-fonce);
+			font-weight: 700;
+
+			&::after {
+				background-color: currentColor;
+			}
+		}
+
+	
+
+		&:hover,
+		&:focus {
+			color:var(--texte);
+			&.promo {
+				color:var(--rouge);
+			}
+			&.event {
+				color:var(--bleu-fonce);
+			}
+			.texte {
+				font-weight: 700;
+			}
+		}
+	}
+
+	//Trait animé au survol
+	.anim-trait {
+		position: relative;
+		&::after {
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			content: "";
+			width: 100%;
+			height: 4px;
+			background-color: var(--rouge);
+			transition: transform 0.3s ease 0s;
+			transform: scaleX(0);
+			transform-origin: right center 0px;
 		}
 		&:hover,
 		&:focus {
-			color:rgb(37, 36, 39);
-			font-weight: 700;
+			&::after {
+				transform: scaleX(1);
+				transform-origin: left center 0px;
+			}
 		}
 	}
-	.gwbmpc .expanded-menu-hover::after {
-		transform: scaleX(1);
-	  
-		transform-origin: left center 0px;
-	  
-	  }
 
 	//Logique affichage sous-menu - TODO à refaire
 	.sub-menu {
@@ -424,8 +489,37 @@ button.menu-toggle {
 }
 
 
-
-
+/*--------------------------------------------------------------
+## Mega menu produits
+--------------------------------------------------------------*/
+/*Bouton pour ouvrir*/
+#ouvrir-produits-mobile {
+	align-items: center;
+	background-color: transparent;
+	border:none;
+	display: flex;
+	justify-content: space-between;
+	min-height: 4.4rem;
+	order:3;
+	padding:0 2rem;
+	text-align: left;
+}
+#ouvrir-produits-desktop {
+	align-items: center;
+	background-color: transparent;
+	border:none;
+	display: flex;
+	font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  padding:0;
+	justify-content: space-between;
+	margin-right: 3.2rem;
+	text-align: left;
+	.picto {
+		margin-left: 1rem;
+	}
+}
 
 /*Animations*/
 @keyframes animTrait {

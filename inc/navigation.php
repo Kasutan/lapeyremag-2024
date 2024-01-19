@@ -39,11 +39,11 @@ function kasutan_desktop_nav() {
 
 function kasutan_mobile_nav() {
 	?>
-	<button class="menu-toggle picto" id="menu-toggle" aria-controls="volet-navigation"  aria-label="Ouvrir volet de navigation">
+	<button class="menu-toggle picto" id="menu-toggle" aria-controls="volet-navigation"  aria-label="Ouvrir le volet de navigation">
 		<?php echo kasutan_picto(array('icon'=>'menu', 'class'=>'menu', 'size'=>'28'));?>
 	</button>
 	<div class="volet-navigation"  id="volet-navigation">
-		<button class="menu-toggle picto" id="menu-close"  aria-label="Fermer volet de navigation">
+		<button class="menu-toggle picto fermer-menu" id="menu-close"  aria-label="Fermer le volet de navigation">
 			<?php echo kasutan_picto(array('icon'=>'close', 'class' => 'fermer-menu','size'=>'28'));?>
 		</button>
 		<nav class="menu-mobile">
@@ -54,6 +54,9 @@ function kasutan_mobile_nav() {
 		echo '<div class="boutons">';
 			kasutan_affiche_boutons_header();
 		echo '</div>';
+
+		kasutan_affiche_menu_produits('mobile');
+
 	echo '</div>'; //Fin volet navigation
 }
 
@@ -109,7 +112,11 @@ function kasutan_affiche_menu_produits($contexte) {
 		echo '<div id="overlay-produits"></div>';
 		printf('<div id="menu-produits-%s" class="menu-produits %s">',$contexte,$contexte);
 			echo '<div class="niveau niveau-1">';
-				echo '<p class="titre-menu">Produits</p>';
+				if($contexte=="desktop") {
+					echo '<p class="titre-menu">Produits</p>';
+				} else {
+					kasutan_affiche_top_menu_produit('Produits');
+				}
 				$classe="produit actif";
 				foreach($produits as $cat) {
 					printf('<button aria-controls="panneau-%s" class="%s niv1"><span class="texte">%s</span>%s</button>',$cat->uniqueID,$classe,$cat->name,kasutan_picto(array('icon'=>'chevron-droite')));
@@ -167,4 +174,12 @@ function kasutan_affiche_panneau_menu($uniqueID,$permalink,$children,$niveau) {
 			);
 	echo '</div>';
 
+}
+
+function kasutan_affiche_top_menu_produit($label) {
+	echo '<div class="top-menu">';
+		printf('<button class="menu-toggle fermer-panneau" aria-label="Fermer ce panneau">%s</button>',kasutan_picto(array('icon'=>'fleche-gauche')));
+		printf('<p class="titre-menu">%s</p>',$label);
+		printf('<button class="menu-toggle avec-picto fermer-menu" aria-label="Fermer le volet de navigation">%s</button>',kasutan_picto(array('icon'=>'close')));
+	echo '</div>';
 }

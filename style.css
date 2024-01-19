@@ -2002,14 +2002,27 @@ button.menu-toggle:focus {
   text-align: left;
 }
 #ouvrir-produits-desktop .picto {
+  flex-shrink: 0;
   margin-left: 1rem;
 }
 
 .site-header {
-  overflow-y: visible;
+  overflow: visible;
 }
 
+@media (min-width: 1024px) {
+  #overlay-produits {
+    display: none;
+    height: 100vw;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 2;
+  }
+}
 .menu-produits {
+  display: none;
   position: relative;
   width: 100%;
 }
@@ -2041,6 +2054,15 @@ button.menu-toggle:focus {
   text-align: left;
   text-transform: unset;
   width: 100%;
+}
+.menu-produits button.produit .texte {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.menu-produits button.produit svg {
+  margin-left: 1rem;
 }
 .menu-produits button.produit svg path {
   fill: rgb(189, 189, 189);
@@ -2105,7 +2127,7 @@ button.menu-toggle:focus {
   position: absolute;
   top: calc(100% - 0.4rem);
   width: calc(100% - 4.8rem);
-  z-index: 1;
+  z-index: 3;
 }
 .menu-produits.desktop .niveau-1 {
   background: rgb(238, 238, 238);
@@ -2150,6 +2172,7 @@ button.menu-toggle:focus {
   right: 1.2rem;
   top: 1.2rem;
   width: 4rem;
+  z-index: 2;
 }
 .menu-produits.desktop #fermer-produits-desktop svg path {
   fill: var(--texte);

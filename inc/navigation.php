@@ -23,7 +23,7 @@ class etcode_sublevel_walker extends Walker_Nav_Menu
 
 function kasutan_desktop_nav() {
 	echo '<nav id="site-navigation" class="nav-main" aria-label="menu principal">';
-		printf('<button id="ouvrir-produits-desktop" class="anim-trait"><span class="texte" data-text="Produits">Produits</span><span class="picto">%s</span></button>',kasutan_picto(array('icon'=>'chevron-bas')));
+		printf('<button id="ouvrir-produits-desktop" class="anim-trait" aria-controls="menu-produits-desktop" aria-expanded="false"><span class="texte" data-text="Produits">Produits</span><span class="picto">%s</span></button>',kasutan_picto(array('icon'=>'chevron-bas')));
 		kasutan_affiche_navigation1();
 		echo '<div class="boutons">';
 			kasutan_affiche_boutons_header(true);
@@ -106,6 +106,7 @@ function kasutan_affiche_menu_produits($contexte) {
 	//Elements obtenus par API
 	$produits=get_option('lapeyre_headers_produits',false);
 	if(!empty($produits)) {
+		echo '<div id="overlay-produits"></div>';
 		printf('<div id="menu-produits-%s" class="menu-produits %s">',$contexte,$contexte);
 			echo '<div class="niveau niveau-1">';
 				echo '<p class="titre-menu">Produits</p>';

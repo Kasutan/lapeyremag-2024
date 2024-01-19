@@ -116,6 +116,29 @@
 			}
 		}
 
+		/********* Ouverture et fermeture du menu produit **********/
+		var boutonMenuProduits=$('#ouvrir-produits-desktop');
+		var menuProduits=$('#menu-produits-desktop');
+		var overlayProduits=$('#overlay-produits ');
+		$(boutonMenuProduits).click(function(){
+			$(this).attr('aria-expanded','true');
+			$(menuProduits).fadeIn();
+			$(overlayProduits).show();
+		})
+		//Fermer au clic sur le bouton avec le picto close
+		$('#fermer-produits-desktop').click(function(){
+			$(menuProduits).fadeOut();
+			$(boutonMenuProduits).attr('aria-expanded','false');
+			$(overlayProduits).hide();
+		});
+		//Fermer au clic n'importe où à l'extérieur du menu
+		$(overlayProduits).click(function(){
+			$(menuProduits).fadeOut();
+			$(boutonMenuProduits).attr('aria-expanded','false');
+			$(overlayProduits).hide();
+		});
+
+
 		/********* Navigation dans menu produit **********/
 		//Au chargement de la page, activer les premiers panneaux de niveau 2 et 3
 		var premierPanneau=$('.niveau-2:first-of-type');

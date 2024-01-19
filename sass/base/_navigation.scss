@@ -524,17 +524,30 @@ button.menu-toggle {
 	text-align: left;
 
 	.picto {
+		flex-shrink:0;
 		margin-left: 1rem;
 	}
 }
 
 .site-header {
-	overflow-y: visible;
+	overflow: visible;
 }
+@include bp(lg) {
+	#overlay-produits {
+		display: none;
+		height:100vw;
+		left:0;
+		position: fixed;
+		top:0;
+		width:100vw;
+		z-index:2; //Pour passer devant le bandeau défilant
+	}
+}
+
 .menu-produits {
+	display: none; //affiché en JS
 	position: relative;
 	width:100%;
-
 
 	.titre-menu {
 		@include font-headline-s;
@@ -563,7 +576,14 @@ button.menu-toggle {
 		text-align: left;
 		text-transform: unset;
 		width:100%;
+		.texte {
+			display: block;
+			overflow: hidden;
+			text-overflow:ellipsis;
+			white-space:nowrap;
+		}
 		svg {
+			margin-left: 1rem;
 			path {
 				fill:rgb(189, 189, 189);
 			}
@@ -624,8 +644,6 @@ button.menu-toggle {
 		}
 	}
 
-
-
 	&.desktop {
 		background-color: #fff;
 		border-radius: 8px;
@@ -635,7 +653,7 @@ button.menu-toggle {
 		position: absolute;
 		top:calc(100% - 0.4rem);
 		width:calc(100% - 4.8rem);
-		z-index: 1;
+		z-index: 3;
 
 		.niveau-1 {
 			background: rgb(238, 238, 238);
@@ -684,6 +702,7 @@ button.menu-toggle {
 			right:1.2rem;
 			top:1.2rem;
 			width:4rem;
+			z-index: 2;
 			svg path {
 				fill:var(--texte);
 			}

@@ -28,7 +28,11 @@ function kasutan_desktop_nav() {
 		echo '<div class="boutons">';
 			kasutan_affiche_boutons_header(true);
 		echo '</div>';
+
 	echo '</nav>';
+
+	kasutan_affiche_menu_produits('desktop');
+
 	
 }
 
@@ -60,9 +64,11 @@ function kasutan_affiche_navigation1() {
 		foreach($liens as $lien) {
 			$attr='';
 
+			/*
+			Target non fourni pour ces objets
 			if($lien->target != "none") {
 				$attr='target="_blank" rel="noopener noreferrer"';
-			}
+			}*/
 
 			printf('<a href="%s" class="%s anim-trait" %s><span class="texte" data-text="%s"> %s</span></a>',$lien->href,strtolower($lien->class),$attr,$lien->text,$lien->text);
 		}
@@ -94,6 +100,70 @@ function kasutan_affiche_boutons_header() {
 			wp_kses_post( $bouton2['title'] )
 		);
 	}
+}
 
-	
+function kasutan_affiche_menu_produits($contexte) {
+	//Elements obtenus par API
+	$produits=get_option('lapeyre_headers_produits',false);
+	if(!empty($produits)) {
+		printf('<div id="menu-produits-%s" class="menu-produits %s">',$contexte,$contexte);
+			echo '<div class="niveau niveau-1">';
+				echo '<p class="titre-menu">Produits</p>';
+				$classe="produit actif";
+				foreach($produits as $cat) {
+					printf('<button aria-controls="panneau-%s" class="%s niv1"><span class="texte">%s</span>%s</button>',$cat->uniqueID,$classe,$cat->name,kasutan_picto(array('icon'=>'chevron-droite')));
+
+					kasutan_affiche_panneau_menu($cat->uniqueID,$cat->permalink,$cat->children,2);
+
+					$classe="produit";
+				}
+
+				printf('<a href="#" class="lien-bas-panneau rouge"><span class="texte">Voir les bonnes affaires</span>%s</a>',kasutan_picto(array('icon'=>'chevron-droite'))); //TODO champs ACF
+
+			echo '</div>';
+			
+			printf('<button id="fermer-produits-desktop"  aria-label="Fermer le menu produits">%s</button>', kasutan_picto(array('icon'=>'close')));
+		echo '</div>'; //.menu-produits
+	}
+
+}
+
+function kasutan_affiche_panneau_menu($uniqueID,$permalink,$children,$niveau) {
+	if($niveau===2) {
+		$label="Découvrir l'univers";
+	} else if($niveau===3) {
+		$label="Voir tous les produits";
+	}
+	printf('<div class="niveau niveau-%s" id="panneau-%s">',$niveau,$uniqueID);
+
+		if($niveau===2) {
+			$label="Découvrir l'univers";
+			$classe="produit actif";
+
+			foreach($children as $cat) {
+				printf('<button aria-controls="panneau-%s" class="%s niv2"><span class="texte">%s</span>%s</button>',$cat->uniqueID,$classe,$cat->name,kasutan_picto(array('icon'=>'chevron-droite')));
+
+				$classe="produit";
+
+				kasutan_affiche_panneau_menu($cat->uniqueID,$cat->permalink,$cat->children,3);
+			}
+
+		} else if($niveau===3) {
+			$label="Voir tous les produits";
+			echo '<div class="liste-produits">';
+				foreach($children as $cat) {
+					printf('<a href="%s" class="lien-produit"><span class="texte">%s</span></a>',$cat->permalink,$cat->name);
+				}
+
+			echo '</div>';
+		}
+
+		
+		printf('<a href="%s" class="lien-bas-panneau"><span class="texte">%s</span>%s</a>',
+				$permalink,
+				$label,
+				kasutan_picto(array('icon'=>'chevron-droite'))
+			);
+	echo '</div>';
+
 }

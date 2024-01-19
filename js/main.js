@@ -116,6 +116,38 @@
 			}
 		}
 
+		/********* Navigation dans menu produit **********/
+		//Au chargement de la page, activer les premiers panneaux de niveau 2 et 3
+		var premierPanneau=$('.niveau-2:first-of-type');
+		$(premierPanneau).addClass('actif');
+		$(premierPanneau).find('.niveau-3:first-of-type').addClass('actif');
+
+		var boutonsProduits=$('button.produit');
+		$(boutonsProduits).click(function(){
+			var panneau=$('#'+$(this).attr('aria-controls'));
+
+			
+			if($(this).hasClass('niv1')) {
+				//Désactiver les boutons de niveau 1 et de niveau 2
+				$('.niv1, .niv2').removeClass('actif');
+				//Désactiver les panneaux de niveau 2 et de niveau 3
+				$('.niveau-2, .niveau-3').removeClass('actif');
+
+				//Activer aussi le premier bouton de niveau 2 et le panneau de niveau 3 que ce bouton contrôle
+				var bouton2=$(panneau).find('button:first-of-type');
+				$(bouton2).addClass('actif');
+				var panneau3=$('#'+$(bouton2).attr('aria-controls'));
+				$(panneau3).addClass('actif');
+			} else {
+				//On désactive les boutons de niveau 2
+				$('.niv2').removeClass('actif');
+				//Désactiver les panneaux de niveau 3
+				$('.niveau-3').removeClass('actif');
+			}
+			//Dans les 2 cas on active le bouton cliqué et le panneau qu'il contrôle
+			$(this).addClass('actif');
+			$(panneau).addClass('actif');
+		});
 
 		/********* Défilement des sliders articles ou autres objets **********/
 		//Vérifier si on a besoin de la navigation

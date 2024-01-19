@@ -169,7 +169,7 @@ function kasutan_scripts() {
 		wp_enqueue_script( 'jquery' );
 	}
 
-	wp_enqueue_script( 'lapeyremag-navigation', get_template_directory_uri() . '/js/min/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'lapeyremag-navigation', get_template_directory_uri() . '/js/min/navigation.js', array(), filemtime( get_template_directory() . '/js/min/navigation.js'), true );
 
 	wp_enqueue_script( 'lapeyremag-skip-link-focus-fix', get_template_directory_uri() . '/js/min/skip-link-focus-fix.js', array(), '20151215', true );
 

@@ -2005,6 +2005,156 @@ button.menu-toggle:focus {
   margin-left: 1rem;
 }
 
+.site-header {
+  overflow-y: visible;
+}
+
+.menu-produits {
+  position: relative;
+  width: 100%;
+}
+.menu-produits .titre-menu {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2.8rem;
+  text-transform: uppercase;
+}
+.menu-produits .niveau {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 45rem;
+  padding: 2.4rem 2rem;
+  width: 100%;
+}
+.menu-produits button.produit {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  font-weight: 400;
+  justify-content: space-between;
+  padding: 0;
+  padding-bottom: 8px;
+  text-align: left;
+  text-transform: unset;
+  width: 100%;
+}
+.menu-produits button.produit svg path {
+  fill: rgb(189, 189, 189);
+}
+.menu-produits button.produit.bold, .menu-produits button.produit.actif, .menu-produits button.produit:hover, .menu-produits button.produit:focus {
+  font-weight: 700;
+  text-align: left;
+}
+.menu-produits button.produit.bold svg path, .menu-produits button.produit.actif svg path, .menu-produits button.produit:hover svg path, .menu-produits button.produit:focus svg path {
+  fill: var(--texte);
+}
+.menu-produits .lien-produit {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2rem;
+  font-weight: 400;
+  padding-bottom: 8px;
+  padding-right: 0.8rem;
+  text-decoration: none;
+}
+.menu-produits .lien-produit:hover, .menu-produits .lien-produit:focus {
+  color: var(--texte);
+  font-weight: 700;
+}
+.menu-produits .lien-produit .texte {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.menu-produits .lien-bas-panneau {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  align-items: center;
+  color: rgb(93, 137, 162);
+  display: flex;
+  margin-top: auto;
+  text-decoration: none;
+}
+.menu-produits .lien-bas-panneau svg {
+  margin-left: 1rem;
+}
+.menu-produits .lien-bas-panneau svg path {
+  fill: rgb(93, 137, 162);
+}
+.menu-produits .lien-bas-panneau:hover .texte, .menu-produits .lien-bas-panneau:focus .texte {
+  text-decoration: underline;
+}
+.menu-produits .lien-bas-panneau.rouge {
+  color: var(--rouge);
+}
+.menu-produits .lien-bas-panneau.rouge svg path {
+  fill: var(--rouge);
+}
+.menu-produits.desktop {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 4px 2px, rgba(0, 0, 0, 0.03) 0px 2px 1px 0p;
+  left: 2.4rem;
+  overflow: hidden;
+  position: absolute;
+  top: calc(100% - 0.4rem);
+  width: calc(100% - 4.8rem);
+  z-index: 1;
+}
+.menu-produits.desktop .niveau-1 {
+  background: rgb(238, 238, 238);
+  width: 25%;
+}
+.menu-produits.desktop .niveau-2 {
+  background-color: rgb(245, 245, 245);
+  left: 25%;
+  position: absolute;
+  top: 0;
+  width: 25%;
+}
+.menu-produits.desktop .niveau-3 {
+  background-color: #fff;
+  left: 100%;
+  position: absolute;
+  top: 0;
+  width: 200%;
+}
+.menu-produits.desktop .niveau-2, .menu-produits.desktop .niveau-3 {
+  padding-top: 7.6rem;
+}
+.menu-produits.desktop .niveau-2.actif, .menu-produits.desktop .niveau-3.actif {
+  z-index: 1;
+}
+.menu-produits.desktop .liste-produits {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.menu-produits.desktop .liste-produits .lien-produit {
+  width: 50%;
+}
+.menu-produits.desktop #fermer-produits-desktop {
+  background-color: transparent;
+  border: none;
+  height: 4rem;
+  padding: 1.2rem;
+  position: absolute;
+  right: 1.2rem;
+  top: 1.2rem;
+  width: 4rem;
+}
+.menu-produits.desktop #fermer-produits-desktop svg path {
+  fill: var(--texte);
+}
+
 /*Animations*/
 @keyframes animTrait {
   from {

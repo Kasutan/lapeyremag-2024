@@ -17,6 +17,7 @@ if(array_key_exists('className',$block)) {
 $titre=wp_kses_post( get_field('titre') );
 $main=esc_attr(get_field('article_principal'));
 $posts=get_field('posts');
+$count=count($posts);
 if(!empty($main)) :
 	printf('<section class="acf acf-featured %s">', $className);
 

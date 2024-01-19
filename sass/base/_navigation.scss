@@ -360,7 +360,7 @@ button.menu-toggle {
 				user-select: none;
 				pointer-events: none;
 				font-weight: 700; //pour que l'élément occupe déjà la bonne largeur avant hover
-	
+
 				@media speech {
 					display: none;
 				}
@@ -381,17 +381,20 @@ button.menu-toggle {
 			}
 		}
 
-	
+
 
 		&:hover,
 		&:focus {
-			color:var(--texte);
+			color: var(--texte);
+
 			&.promo {
-				color:var(--rouge);
+				color: var(--rouge);
 			}
+
 			&.event {
-				color:var(--bleu-fonce);
+				color: var(--bleu-fonce);
 			}
+
 			.texte {
 				font-weight: 700;
 			}
@@ -401,6 +404,7 @@ button.menu-toggle {
 	//Trait animé au survol
 	.anim-trait {
 		position: relative;
+
 		&::after {
 			position: absolute;
 			bottom: 0px;
@@ -413,6 +417,7 @@ button.menu-toggle {
 			transform: scaleX(0);
 			transform-origin: right center 0px;
 		}
+
 		&:hover,
 		&:focus {
 			&::after {
@@ -496,28 +501,193 @@ button.menu-toggle {
 #ouvrir-produits-mobile {
 	align-items: center;
 	background-color: transparent;
-	border:none;
+	border: none;
 	display: flex;
 	justify-content: space-between;
 	min-height: 4.4rem;
-	order:3;
-	padding:0 2rem;
+	order: 3;
+	padding: 0 2rem;
 	text-align: left;
 }
+
 #ouvrir-produits-desktop {
 	align-items: center;
 	background-color: transparent;
-	border:none;
+	border: none;
 	display: flex;
 	font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.6rem;
-  padding:0;
+	font-weight: 400;
+	line-height: 1.6rem;
+	padding: 0;
 	justify-content: space-between;
 	margin-right: 3.2rem;
 	text-align: left;
+
 	.picto {
 		margin-left: 1rem;
+	}
+}
+
+.site-header {
+	overflow-y: visible;
+}
+.menu-produits {
+	position: relative;
+	width:100%;
+
+
+	.titre-menu {
+		@include font-headline-s;
+		font-weight: 700;
+		margin-bottom: 2.8rem;
+		text-transform: uppercase;
+	}
+	.niveau {
+		display: flex;
+		flex-direction: column;
+		height:100%;
+		min-height:45rem;
+		padding:2.4rem 2rem;
+		width:100%;
+	}
+
+	button.produit {
+		align-items: center;
+		background-color: transparent;
+		border:none;
+		display: flex;
+		font-weight: 400;
+		justify-content: space-between;
+		padding:0;
+		padding-bottom: 8px;
+		text-align: left;
+		text-transform: unset;
+		width:100%;
+		svg {
+			path {
+				fill:rgb(189, 189, 189);
+			}
+		}
+		&.bold, &.actif, &:hover, &:focus {
+			font-weight: 700;
+			text-align: left;
+			svg path {
+				fill:var(--texte);
+			}
+		}
+	}
+
+	.lien-produit {
+		@include font-body-m;
+		font-weight: 400;
+		padding-bottom: 8px;
+		padding-right: 0.8rem;
+		text-decoration: none;
+		&:hover, &:focus {
+			color:var(--texte);
+			font-weight: 700;
+		}
+		.texte {
+			display: block;
+			overflow: hidden;
+			text-overflow:ellipsis;
+			white-space:nowrap;
+		}
+	}
+
+	.lien-bas-panneau {
+		@include font-body-s;
+		align-items: center;
+		color:rgb(93, 137, 162);
+		display: flex;
+		margin-top: auto;
+		text-decoration: none;
+		svg {
+			margin-left: 1rem;
+			path {
+				fill:rgb(93, 137, 162);
+			}
+		}
+		&:hover, &:focus {
+			.texte {
+				text-decoration:underline; //TODO ligne animée
+			}
+		}
+
+		&.rouge {
+			color:var(--rouge);
+			svg {
+				path {
+					fill:var(--rouge);
+				}
+			}
+		}
+	}
+
+
+
+	&.desktop {
+		background-color: #fff;
+		border-radius: 8px;
+		box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 4px 2px, rgba(0, 0, 0, 0.03) 0px 2px 1px 0p;
+		left:2.4rem;
+		overflow: hidden;
+		position: absolute;
+		top:calc(100% - 0.4rem);
+		width:calc(100% - 4.8rem);
+		z-index: 1;
+
+		.niveau-1 {
+			background: rgb(238, 238, 238);
+			width:25%;
+		}
+		.niveau-2 {
+			background-color:rgb(245, 245, 245);
+			left:25%;
+			position:absolute;
+			top:0;
+			width:25%;
+		}
+		.niveau-3 {
+			background-color: #fff;
+			left:100%;
+			position:absolute;
+			top:0;
+			width:200%;
+		}
+
+		.niveau-2, .niveau-3 {
+			padding-top: 7.6rem;
+			&.actif {
+				z-index:1;
+			}
+		}
+
+		.liste-produits {
+			align-items: flex-start;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap ;
+			justify-content: flex-start;
+			.lien-produit {
+				width:50%;
+			}
+		}
+
+		
+		#fermer-produits-desktop {
+			background-color: transparent;
+			border:none;
+			height:4rem;
+			padding:1.2rem;
+			position: absolute;
+			right:1.2rem;
+			top:1.2rem;
+			width:4rem;
+			svg path {
+				fill:var(--texte);
+			}
+		}
 	}
 }
 

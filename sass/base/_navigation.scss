@@ -526,6 +526,14 @@ button.menu-toggle {
 	.picto {
 		flex-shrink:0;
 		margin-left: 1rem;
+		transition:transform var(--transition);
+	}
+
+	&[aria-expanded=true] {
+		font-weight: 700;
+		.picto {
+			transform:rotateX(180deg);
+		}
 	}
 }
 

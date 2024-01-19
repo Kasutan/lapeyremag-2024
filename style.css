@@ -2004,6 +2004,13 @@ button.menu-toggle:focus {
 #ouvrir-produits-desktop .picto {
   flex-shrink: 0;
   margin-left: 1rem;
+  transition: transform var(--transition);
+}
+#ouvrir-produits-desktop[aria-expanded=true] {
+  font-weight: 700;
+}
+#ouvrir-produits-desktop[aria-expanded=true] .picto {
+  transform: rotateX(180deg);
 }
 
 .site-header {

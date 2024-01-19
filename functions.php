@@ -175,7 +175,7 @@ function kasutan_scripts() {
 
 	wp_enqueue_script( 'lapeyremag-owl-carousel',get_template_directory_uri() . '/lib/owlcarousel/owl.carousel.min.js', array('jquery'), '2.3.4', true );
 
-	wp_enqueue_script( 'lapeyremag-scripts', get_template_directory_uri() . '/js/min/main.js', array('jquery','lapeyremag-owl-carousel'), '', true );
+	wp_enqueue_script( 'lapeyremag-scripts', get_template_directory_uri() . '/js/min/main.js', array('jquery','lapeyremag-owl-carousel'), filemtime( get_template_directory() . '/js/min/main.js'), true );
 
 	if(is_single()) {
 		wp_enqueue_script( 'lapeyremag-single-scripts', get_template_directory_uri() . '/js/min/single.js', array('jquery'), filemtime( get_template_directory() . '/js/min/single.js'), true );

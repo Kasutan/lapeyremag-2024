@@ -39,7 +39,8 @@ function kasutan_desktop_nav() {
 
 function kasutan_mobile_nav() {
 	?>
-	<button class="menu-toggle picto" id="menu-toggle" aria-controls="volet-navigation"  aria-label="Ouvrir le volet de navigation">
+	<div id="overlay-mobile"></div>
+	<button class="menu-toggle picto" id="volet-ouvrir" aria-controls="volet-navigation"  aria-label="Ouvrir le volet de navigation">
 		<?php echo kasutan_picto(array('icon'=>'menu', 'class'=>'menu', 'size'=>'28'));?>
 	</button>
 	<div class="volet-navigation"  id="volet-navigation">
@@ -109,7 +110,8 @@ function kasutan_affiche_menu_produits($contexte) {
 	//Elements obtenus par API
 	$produits=get_option('lapeyre_headers_produits',false);
 	if(!empty($produits)) {
-		echo '<div id="overlay-produits"></div>';
+		if($contexte==="desktop") echo '<div id="overlay-produits"></div>';
+
 		printf('<div id="menu-produits-%s" class="menu-produits %s">',$contexte,$contexte);
 			echo '<div class="niveau niveau-1">';
 				if($contexte=="desktop") {
@@ -117,43 +119,42 @@ function kasutan_affiche_menu_produits($contexte) {
 				} else {
 					kasutan_affiche_top_menu_produit('Produits');
 				}
-				$classe="produit actif";
 				foreach($produits as $cat) {
-					printf('<button aria-controls="panneau-%s" class="%s niv1"><span class="texte">%s</span>%s</button>',$cat->uniqueID,$classe,$cat->name,kasutan_picto(array('icon'=>'chevron-droite')));
+					printf('<button aria-controls="panneau-%s-%s" class="produit niv1"><span class="texte">%s</span>%s</button>',$contexte,$cat->uniqueID,$cat->name,kasutan_picto(array('icon'=>'chevron-droite')));
 
-					kasutan_affiche_panneau_menu($cat->uniqueID,$cat->permalink,$cat->children,2);
+					kasutan_affiche_panneau_menu($contexte,$cat->uniqueID,$cat->permalink,$cat->children,2,$cat->name);
 
-					$classe="produit";
 				}
 
-				printf('<a href="#" class="lien-bas-panneau rouge"><span class="texte">Voir les bonnes affaires</span>%s</a>',kasutan_picto(array('icon'=>'chevron-droite'))); //TODO champs ACF
+				printf('<a href="#" class="lien-extra rouge"><span class="texte">Voir les bonnes affaires</span>%s</a>',kasutan_picto(array('icon'=>'chevron-droite'))); //TODO champs ACF
 
 			echo '</div>';
 			
-			printf('<button id="fermer-produits-desktop"  aria-label="Fermer le menu produits">%s</button>', kasutan_picto(array('icon'=>'close')));
+			if($contexte==="desktop") printf('<button id="fermer-produits-desktop"  aria-label="Fermer le menu produits">%s</button>', kasutan_picto(array('icon'=>'close')));
 		echo '</div>'; //.menu-produits
 	}
 
 }
 
-function kasutan_affiche_panneau_menu($uniqueID,$permalink,$children,$niveau) {
+function kasutan_affiche_panneau_menu($contexte,$uniqueID,$permalink,$children,$niveau,$name) {
 	if($niveau===2) {
 		$label="Découvrir l'univers";
 	} else if($niveau===3) {
 		$label="Voir tous les produits";
 	}
-	printf('<div class="niveau niveau-%s" id="panneau-%s">',$niveau,$uniqueID);
-
+	printf('<div class="niveau niveau-%s" id="panneau-%s-%s">',$niveau,$contexte,$uniqueID);
+		if($contexte==='mobile') {
+			kasutan_affiche_top_menu_produit($name);
+		}
 		if($niveau===2) {
 			$label="Découvrir l'univers";
-			$classe="produit actif";
 
 			foreach($children as $cat) {
-				printf('<button aria-controls="panneau-%s" class="%s niv2"><span class="texte">%s</span>%s</button>',$cat->uniqueID,$classe,$cat->name,kasutan_picto(array('icon'=>'chevron-droite')));
+				$uniqueID2=rand(0,10000000); //Regénérer un ID vraiment unique car la sous-catégorie peut être affichée dans plusieurs univers (ex portes de garage)
 
-				$classe="produit";
+				printf('<button aria-controls="panneau-%s-%s" class="produit niv2"><span class="texte">%s</span>%s</button>',$contexte,$uniqueID2,$cat->name,kasutan_picto(array('icon'=>'chevron-droite')));
 
-				kasutan_affiche_panneau_menu($cat->uniqueID,$cat->permalink,$cat->children,3);
+				kasutan_affiche_panneau_menu($contexte,$uniqueID2,$cat->permalink,$cat->children,3,$cat->name);
 			}
 
 		} else if($niveau===3) {
@@ -167,7 +168,7 @@ function kasutan_affiche_panneau_menu($uniqueID,$permalink,$children,$niveau) {
 		}
 
 		
-		printf('<a href="%s" class="lien-bas-panneau"><span class="texte">%s</span>%s</a>',
+		printf('<a href="%s" class="lien-extra"><span class="texte">%s</span>%s</a>',
 				$permalink,
 				$label,
 				kasutan_picto(array('icon'=>'chevron-droite'))

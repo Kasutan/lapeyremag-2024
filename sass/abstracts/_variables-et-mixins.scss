@@ -141,7 +141,12 @@ $colors: (
 	@else if $point == xxl {
 		@media #{$xxl} { @content; }
 		}
+
+	@else if $point == mobile {
+		@media (max-width:1024px) { @content; }
+	}
 }
+
 
 
 /*--------------------------------------------------------------

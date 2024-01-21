@@ -16,7 +16,7 @@ a:visited {
 a:hover,
 a:active,
 a:focus {
-	color: var(--bleu-tres-fonce); //TODO vérifier
+	//color: var(--bleu-tres-fonce); 
 	text-decoration: underline;
 }
 
@@ -238,26 +238,8 @@ button.menu-toggle {
 }
 
 /* Style liens de menu VOLET NAVIGATION MOBILE */
-//TODO styles sous-menus
 .volet-navigation {
 	background-color: var(--blanc);
-
-	/*Logique affichage sous-menu*/
-	.sub-menu {
-		display: none;
-		//animation JS pour ouvrir/refermer
-	}
-
-	.picto-angle {
-		background-color: transparent;
-		display: inline-block;
-		transition: transform var(--transition);
-	}
-
-	button.js-ouvert .picto-angle {
-		transform-origin: center;
-		transform: rotate(90deg);
-	}
 
 	.menu-mobile {
 		border-top: 1px solid var(--gris-300);
@@ -297,42 +279,6 @@ button.menu-toggle {
 
 	}
 
-	button.ouvrir-sous-menu {
-		background-color: transparent;
-		min-width: unset;
-		margin-bottom: 0;
-		padding: 0 1.2rem 0 0;
-		position: relative;
-		top: 2px;
-
-		svg path {
-			fill: var(--rouge-texte);
-		}
-
-		&:focus {
-			outline: none;
-		}
-	}
-
-	.sub-menu {
-		background-color: #fff;
-		flex-basis: 100%;
-		flex-shrink: 0;
-		padding-top: 0.5rem;
-		padding-left: 2.8rem;
-
-		li {
-			margin-bottom: 0.8rem;
-
-			a {
-				color: var(--gris-1);
-			}
-
-			&.current-menu-item a {
-				color: var(--sauge);
-			}
-		}
-	}
 }
 
 
@@ -445,70 +391,6 @@ button.menu-toggle {
 		}
 	}
 
-	//Logique affichage sous-menu - TODO à refaire
-	.sub-menu {
-		float: left;
-		margin-top: 0px;
-		position: absolute;
-		top: 90%;
-		top: 100%;
-		left: -999em;
-		z-index: 10;
-	}
-
-	>li {
-		//affichage du sous-menu
-		position: relative;
-
-		&:hover,
-		&.focus,
-		&:focus-within {
-
-			//classe .focus ajoutée en JS
-			.sub-menu {
-				animation: animSousMenu 0.45s cubic-bezier(0.7, 0, 0.3, 1) both;
-				display: flex;
-				flex-direction: column;
-				left: 0;
-				opacity: 1;
-				max-width: 50rem;
-				min-width: 30rem;
-				max-height: 80vh;
-				overflow-y: auto;
-			}
-		}
-	}
-
-	//TODO à refaire Style sous-menu
-	.sub-menu {
-		background-color: #fff;
-		box-shadow: 0 3px 3px rgba(18, 75, 90, 0.2);
-		list-style: none;
-		margin: 0;
-		padding: 0;
-
-		li {
-			padding: 0;
-		}
-
-		a {
-			display: block;
-			padding: 0.8rem 1.5rem 1.3rem;
-			transition: all var(--transition);
-
-			&:hover,
-			&:focus {
-				color: var(--blanc);
-				background-color: var(--sauge);
-			}
-		}
-
-		li.current-menu-item a {
-			background-color: var(--sauge);
-			color: var(--blanc);
-		}
-	}
-
 }
 
 
@@ -520,18 +402,24 @@ button.menu-toggle {
 	align-items: center;
 	background-color: transparent;
 	border: none;
+	border-radius: 0;
 	display: flex;
 	justify-content: space-between;
 	min-height: 4.4rem;
 	order: 3;
 	padding: 0 2rem;
 	text-align: left;
+	&:focus {
+		border-radius: 0;
+		outline: none;
+	}
 }
 
 #ouvrir-produits-desktop {
 	align-items: center;
 	background-color: transparent;
 	border: none;
+	border-radius: 0;
 	display: flex;
 	font-size: 1.2rem;
 	font-weight: 400;
@@ -541,6 +429,10 @@ button.menu-toggle {
 	margin-right: 3.2rem;
 	text-align: left;
 
+	&:focus {
+		border-radius: 0;
+		outline: none;
+	}
 	.picto {
 		flex-shrink:0;
 		margin-left: 1rem;
@@ -645,6 +537,7 @@ button.menu-toggle {
 		align-items: center;
 		background-color: transparent;
 		border:none;
+		border-radius: 0;
 		display: flex;
 		font-weight: 400;
 		justify-content: space-between;

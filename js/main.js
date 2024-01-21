@@ -35,27 +35,6 @@
 				
 		}
 		
-		/********* Ouvrir-fermer les sous-menus mobile **********/
-		var ouvrirSousMenu=$('.volet-navigation .ouvrir-sous-menu');
-		if(ouvrirSousMenu.length>0) {
-			ouvrirSousMenu.click(function(e) {
-				var sousMenu=$(this).siblings('.sub-menu');
-
-				if($(this).hasClass('js-ouvert')) {
-					//le sous-menu était ouvert, on le referme
-					$(this).removeClass('js-ouvert');
-					$(sousMenu).slideUp();
-				} else {
-					//on referme tous les sous-menus
-					ouvrirSousMenu.removeClass('js-ouvert');
-					$('.volet-navigation .sub-menu').slideUp();
-
-					//on ouvre celui demandé
-					$(this).addClass('js-ouvert');
-					$(sousMenu).slideDown();
-				}
-			});
-		}
 		
 		/********* Header sticky on scroll up **********/
 
@@ -139,6 +118,8 @@
 			$('#menu-produits-desktop .niveau-2, #menu-produits-desktop .niveau-3').removeClass('actif');
 			//Activer le premier bouton de niveau 1
 			$('#menu-produits-desktop .niv1:first-of-type').addClass('actif');
+			//Mettre le focus sur ce bouton
+			$('#menu-produits-desktop .niv1:first-of-type').focus();
 			
 			//Activer les premiers panneaux de niveau 2 et 3
 			var premierPanneau=$('#menu-produits-desktop .niveau-2:first-of-type');
@@ -157,10 +138,13 @@
 			fermerMenuProduitDesktop();
 		});
 
+		//TODO fermer quand on clique sur touche ESC (après avoir vérifié qu'il est ouvert)
+
 		function fermerMenuProduitDesktop() {
 			$(menuProduits).fadeOut();
 			$(boutonMenuProduits).attr('aria-expanded','false');
 			$(overlayProduits).hide();
+			$(boutonMenuProduits).focus();
 		}
 
 		/********* Navigation dans menu produit DESKTOP**********/
@@ -205,6 +189,7 @@
 			$(volet).addClass('toggled');
 			$(overlay).addClass('actif');
 			$('body').css('overflow','hidden');
+			//TODO mettre le focus sur le premier lien
 		})
 
 		//Ouvrir menu produits
@@ -212,20 +197,23 @@
 			$(this).attr('aria-expanded','true');
 			$(menuProduitsMobile).addClass('actif');
 			$(menuProduitsMobile).find('.niveau-1').addClass('actif');
+			//TODO mettre le focus sur le lien bonnes affaires
 		});
 
 		//Fermer un panneau du menu produit au clic sur son bouton avec le picto fleche
 		$('.fermer-panneau').click(function(){
 			var panneauAFermer=$(this).parent('.top-menu').parent('.niveau');
 			$(panneauAFermer).removeClass('actif');
+
 			//Si c'est un panneau de niveau 1, on ferme aussi le menu produits
 			if($(panneauAFermer).hasClass('niveau-1')) {
 				fermerMenuProduitsMobile();
+			} else {
+				//TODO restore focus sur le premier lien du panneau précédent (il a maintenant la classe actif - il peut y en avoir plusieurs !)
 			}
-			//TODO restore focus
 		});
 
-		//Fermer tout le volet de naviagation au clic sur n'importe quel bouton avec le picto close
+		//Fermer tout le volet de navigation au clic sur n'importe quel bouton avec le picto close
 		$('.fermer-menu').click(function() {
 			fermerVoletMobile();
 		})
@@ -240,7 +228,9 @@
 			$(menuProduitsMobile).find('.niveau').removeClass('actif');
 			$(boutonMenuProduitsMobile).attr('aria-expanded','false');
 
-			//TODO restore focus
+			//Restaurer focus sur le bouton pour l'ouvrir
+			$(boutonMenuProduitsMobile).focus();
+
 		}
 
 		function fermerVoletMobile() {
@@ -254,8 +244,11 @@
 			//Restaurer scroll vertical
 			$('body').css('overflow','unset');
 			
-			//TODO restore focus
+			//Restaurer focus
+			$(boutonVolet).focus();
 		}
+
+		//TODO fermer quand on clique sur touche ESC (après avoir vérifié que le volet de navigation est ouvert)
 
 
 		/********* Navigation dans menu produit MOBILE **********/
@@ -263,6 +256,7 @@
 		$('#menu-produits-mobile button.produit').click(function(){
 			var panneau=$('#'+$(this).attr('aria-controls'));
 			$(panneau).addClass('actif');
+			//TODO déplacer le focus sur le premier lien du panneau qu'on vient d'ouvrir (si besoin)
 		});
 
 		/********* Défilement des sliders articles ou autres objets **********/

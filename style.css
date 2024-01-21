@@ -1588,7 +1588,6 @@ a:visited {
 a:hover,
 a:active,
 a:focus {
-  color: var(--bleu-tres-fonce);
   text-decoration: underline;
 }
 
@@ -1775,20 +1774,7 @@ button.menu-toggle:focus {
 /* Style liens de menu VOLET NAVIGATION MOBILE */
 .volet-navigation {
   background-color: var(--blanc);
-  /*Logique affichage sous-menu*/
   /*Styles éléments de niveau 1*/
-}
-.volet-navigation .sub-menu {
-  display: none;
-}
-.volet-navigation .picto-angle {
-  background-color: transparent;
-  display: inline-block;
-  transition: transform var(--transition);
-}
-.volet-navigation button.js-ouvert .picto-angle {
-  transform-origin: center;
-  transform: rotate(90deg);
 }
 .volet-navigation .menu-mobile {
   border-top: 1px solid var(--gris-300);
@@ -1818,36 +1804,6 @@ button.menu-toggle:focus {
 .volet-navigation .menu-mobile > a.event {
   color: var(--bleu-fonce);
   order: 2;
-}
-.volet-navigation button.ouvrir-sous-menu {
-  background-color: transparent;
-  min-width: unset;
-  margin-bottom: 0;
-  padding: 0 1.2rem 0 0;
-  position: relative;
-  top: 2px;
-}
-.volet-navigation button.ouvrir-sous-menu svg path {
-  fill: var(--rouge-texte);
-}
-.volet-navigation button.ouvrir-sous-menu:focus {
-  outline: none;
-}
-.volet-navigation .sub-menu {
-  background-color: #fff;
-  flex-basis: 100%;
-  flex-shrink: 0;
-  padding-top: 0.5rem;
-  padding-left: 2.8rem;
-}
-.volet-navigation .sub-menu li {
-  margin-bottom: 0.8rem;
-}
-.volet-navigation .sub-menu li a {
-  color: var(--gris-1);
-}
-.volet-navigation .sub-menu li.current-menu-item a {
-  color: var(--sauge);
 }
 
 /*Style liens de menus MENU PRINCIPAL */
@@ -1940,52 +1896,6 @@ button.menu-toggle:focus {
   transform: scaleX(1);
   transform-origin: left center 0px;
 }
-.nav-main .sub-menu {
-  float: left;
-  margin-top: 0px;
-  position: absolute;
-  top: 90%;
-  top: 100%;
-  left: -999em;
-  z-index: 10;
-}
-.nav-main > li {
-  position: relative;
-}
-.nav-main > li:hover .sub-menu, .nav-main > li.focus .sub-menu, .nav-main > li:focus-within .sub-menu {
-  animation: animSousMenu 0.45s cubic-bezier(0.7, 0, 0.3, 1) both;
-  display: flex;
-  flex-direction: column;
-  left: 0;
-  opacity: 1;
-  max-width: 50rem;
-  min-width: 30rem;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-.nav-main .sub-menu {
-  background-color: #fff;
-  box-shadow: 0 3px 3px rgba(18, 75, 90, 0.2);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.nav-main .sub-menu li {
-  padding: 0;
-}
-.nav-main .sub-menu a {
-  display: block;
-  padding: 0.8rem 1.5rem 1.3rem;
-  transition: all var(--transition);
-}
-.nav-main .sub-menu a:hover, .nav-main .sub-menu a:focus {
-  color: var(--blanc);
-  background-color: var(--sauge);
-}
-.nav-main .sub-menu li.current-menu-item a {
-  background-color: var(--sauge);
-  color: var(--blanc);
-}
 
 /*--------------------------------------------------------------
 ## Mega menu produits
@@ -1995,6 +1905,7 @@ button.menu-toggle:focus {
   align-items: center;
   background-color: transparent;
   border: none;
+  border-radius: 0;
   display: flex;
   justify-content: space-between;
   min-height: 4.4rem;
@@ -2002,11 +1913,16 @@ button.menu-toggle:focus {
   padding: 0 2rem;
   text-align: left;
 }
+#ouvrir-produits-mobile:focus {
+  border-radius: 0;
+  outline: none;
+}
 
 #ouvrir-produits-desktop {
   align-items: center;
   background-color: transparent;
   border: none;
+  border-radius: 0;
   display: flex;
   font-size: 1.2rem;
   font-weight: 400;
@@ -2015,6 +1931,10 @@ button.menu-toggle:focus {
   justify-content: space-between;
   margin-right: 3.2rem;
   text-align: left;
+}
+#ouvrir-produits-desktop:focus {
+  border-radius: 0;
+  outline: none;
 }
 #ouvrir-produits-desktop .picto {
   flex-shrink: 0;
@@ -2110,6 +2030,7 @@ button.menu-toggle:focus {
   align-items: center;
   background-color: transparent;
   border: none;
+  border-radius: 0;
   display: flex;
   font-weight: 400;
   justify-content: space-between;

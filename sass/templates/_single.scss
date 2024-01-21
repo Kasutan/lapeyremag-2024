@@ -8,7 +8,6 @@
 
 .single-post {
 
-	//TODO limiter largeur du contenu (sauf blocs spéciaux images) 
 	
 	--height-encart:26rem;
 
@@ -22,6 +21,13 @@
 		background-color: var(--beige-clair);
 		padding-left:var(--padding-x-lg);
 		padding-right:var(--padding-x-lg);
+	}
+
+	//Limiter largeur de certains éléments
+	.entry-content > {
+		h2, h3, h4, h5, h5, ol, ul, p {
+			@include largeur-60;
+		}
 	}
 
 
@@ -156,14 +162,6 @@
 		}
 	
 	}
-
-	//Limiter largeur de certains éléments
-	.entry-content > {
-		h2, h3, h4, h5, h5, ol, ul, p {
-			@include largeur-60;
-		}
-	}
-	
 
 
 	.bottom-footer {

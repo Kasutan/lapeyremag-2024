@@ -127,7 +127,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "site-settings"
+                "value": "site-settings-types"
             }
         ]
     ],
@@ -140,5 +140,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704966785
+    "modified": 1705854639
 }

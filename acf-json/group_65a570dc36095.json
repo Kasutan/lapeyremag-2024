@@ -73,7 +73,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "site-settings"
+                "value": "site-settings-posts"
             }
         ]
     ],
@@ -86,5 +86,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705547564
+    "modified": 1705854652
 }

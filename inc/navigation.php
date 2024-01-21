@@ -109,6 +109,9 @@ function kasutan_affiche_boutons_header() {
 function kasutan_affiche_menu_produits($contexte) {
 	//Elements obtenus par API
 	$produits=get_option('lapeyre_headers_produits',false);
+	//Element statique : champ ACF
+	$affaires=get_option('options_lapeyre_header_affaires',false);
+
 	if(!empty($produits)) {
 		if($contexte==="desktop") echo '<div id="overlay-produits"></div>';
 
@@ -126,8 +129,14 @@ function kasutan_affiche_menu_produits($contexte) {
 
 				}
 
-				printf('<a href="#" class="lien-extra rouge"><span class="texte">Voir les bonnes affaires</span>%s</a>',kasutan_picto(array('icon'=>'chevron-droite'))); //TODO champs ACF
-
+				if($affaires) {
+					printf('<a href="%s" class="lien-extra rouge" target="%s" rel="noopener noreferrer"><span class="texte">%s</span>%s</a>',
+						esc_url($affaires['url']),
+						esc_attr($affaires['target']),
+						wp_kses_post( $affaires['title'] ),
+						kasutan_picto(array('icon'=>'chevron-droite'))
+					);
+				}
 			echo '</div>';
 			
 			if($contexte==="desktop") printf('<button id="fermer-produits-desktop"  aria-label="Fermer le menu produits">%s</button>', kasutan_picto(array('icon'=>'close')));

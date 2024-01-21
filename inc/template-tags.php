@@ -154,8 +154,7 @@ function kasutan_affiche_nav_slider($total) {
 */
 function kasutan_fil_ariane() {
 
-	//TODO créer champ
-	$accueil_url=get_option('lpm_accueil_url');
+	$accueil_url=get_option('options_lapeyre_cible_home_ariane','false');
 	if(empty($accueil_url)) {
 		$accueil_url="/accueil-temporaire";
 	}

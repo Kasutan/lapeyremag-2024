@@ -121,6 +121,38 @@ class BE_ACF_Customizations {
 				'capability' => 'manage_options',
 
 			));
+
+			acf_add_options_sub_page(array(
+				'menu_title' 	=> 'En-tête et menu',
+				'page_title'	=> 'Réglages de l\'en-tête et du menu principal',
+				'menu_slug' => 'site-settings-header',
+				'parent_slug' 	=> 'site-settings',
+				'capability'	=> 'edit_posts'
+			));
+
+			acf_add_options_sub_page(array(
+				'menu_title' 	=> 'Pied de page',
+				'page_title'	=> 'Réglages du pied de page',
+				'menu_slug' => 'site-settings-footer',
+				'parent_slug' 	=> 'site-settings',
+				'capability'	=> 'edit_posts'
+			));
+
+			acf_add_options_sub_page(array(
+				'menu_title' 	=> 'Articles',
+				'page_title'	=> 'Réglages des articles individuels',
+				'menu_slug' => 'site-settings-posts',
+				'parent_slug' 	=> 'site-settings',
+				'capability'	=> 'edit_posts'
+			));
+
+			acf_add_options_sub_page(array(
+				'menu_title' 	=> 'Types d\'articles',
+				'page_title'	=> 'Réglages des pages "Types d\'articles" (tendances, guides et tutos)',
+				'menu_slug' => 'site-settings-types',
+				'parent_slug' 	=> 'site-settings',
+				'capability'	=> 'edit_posts'
+			));
 		}
 	}
 

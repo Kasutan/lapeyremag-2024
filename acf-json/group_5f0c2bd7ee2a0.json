@@ -1,6 +1,6 @@
 {
     "key": "group_5f0c2bd7ee2a0",
-    "title": "En-tête et pied de page",
+    "title": "Réglages pour l'en-tête",
     "fields": [
         {
             "key": "field_6597e1f4090a5",
@@ -17,6 +17,23 @@
                 "id": ""
             },
             "default_value": "https:\/\/www.lapeyre.fr\/",
+            "placeholder": ""
+        },
+        {
+            "key": "field_65ad44aaecca5",
+            "label": "Header : URL cible du Accueil dans le fil d'ariane",
+            "name": "lapeyre_cible_home_ariane",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
             "placeholder": ""
         },
         {
@@ -150,7 +167,7 @@
         },
         {
             "key": "field_65a999ffe95f3",
-            "label": "Header : bouton 1 (à votre écoute)",
+            "label": "Menu : bouton 1 (à votre écoute)",
             "name": "lapeyre_header_bouton_1",
             "aria-label": "",
             "type": "link",
@@ -166,7 +183,7 @@
         },
         {
             "key": "field_65a99a2ce95f4",
-            "label": "Header : bouton 2 (j'ai un projet)",
+            "label": "Menu : bouton 2 (j'ai un projet)",
             "name": "lapeyre_header_bouton_2",
             "aria-label": "",
             "type": "link",
@@ -181,348 +198,12 @@
             "return_format": "array"
         },
         {
-            "key": "field_65983ebf5f969",
-            "label": "Footer : icônes avantages",
-            "name": "lapeyre_footer_icones",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "row",
-            "pagination": 0,
-            "min": 1,
-            "max": 4,
-            "collapsed": "field_65983f035f96b",
-            "button_label": "Ajouter un élément",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_65983eec5f96a",
-                    "label": "Image",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "preview_size": "medium",
-                    "parent_repeater": "field_65983ebf5f969"
-                },
-                {
-                    "key": "field_65983f035f96b",
-                    "label": "Titre",
-                    "name": "titre",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_65983ebf5f969"
-                },
-                {
-                    "key": "field_65983f0c5f96c",
-                    "label": "Sous-titre",
-                    "name": "sous-titre",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_65983ebf5f969"
-                }
-            ]
-        },
-        {
-            "key": "field_659848def8968",
-            "label": "Footer : bloc \"suivez-nous\"",
-            "name": "lapeyre_footer_social",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_65984902f8969",
-                    "label": "Titre",
-                    "name": "titre",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "Suivez-nous",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_6598490cf896a",
-                    "label": "Sous-titre",
-                    "name": "sous-titre",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "Sur nos réseaux, retrouvez nos actualités, nos inspirations et\r\nnos conseils pour réaliser vos projets de rénovation.",
-                    "maxlength": "",
-                    "rows": 3,
-                    "placeholder": "",
-                    "new_lines": "br"
-                },
-                {
-                    "key": "field_65984934f896b",
-                    "label": "Lien vers Facebook",
-                    "name": "facebook",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "https:\/\/www.facebook.com\/Lapeyre",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_65984972edebe",
-                    "label": "Lien vers Pinterest",
-                    "name": "pinterest",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "https:\/\/www.pinterest.com\/lapeyre\/",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_65984989edebf",
-                    "label": "Lien vers Instagram",
-                    "name": "instagram",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "https:\/\/www.instagram.com\/lapeyreofficiel\/",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_659849a0edec0",
-                    "label": "Lien vers YouTube",
-                    "name": "youtube",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "https:\/\/www.youtube.com\/c\/lapeyre",
-                    "placeholder": ""
-                }
-            ]
-        },
-        {
-            "key": "field_659c2525dd047",
-            "label": "Footer : titres des colonnes du sitemap",
-            "name": "lapeyre_footer_cols",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_659c25c303679",
-                    "label": "Titre de la colonne 1",
-                    "name": "titre_1",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_659c25e40367a",
-                    "label": "Titre de la colonne 2",
-                    "name": "titre_2",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_659c25ea0367b",
-                    "label": "Titre de la colonne 3",
-                    "name": "titre_3",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_659c25ec0367c",
-                    "label": "Titre de la colonne 4",
-                    "name": "titre_4",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                }
-            ]
-        },
-        {
-            "key": "field_6598519679757",
-            "label": "Footer : politique de confidentialité",
-            "name": "lapeyre_footer_confidentialite",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_65985530e7497",
-            "label": "Footer : lien vers l'espace pro",
-            "name": "lapeyre_footer_pro",
+            "key": "field_65ad47a307c4b",
+            "label": "Menu : lien bonnes affaires",
+            "name": "lapeyre_header_affaires",
             "aria-label": "",
             "type": "link",
-            "instructions": "",
+            "instructions": "Affiché dans le premier panneau du menu produits",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -531,34 +212,6 @@
                 "id": ""
             },
             "return_format": "array"
-        },
-        {
-            "key": "field_659c3df5fd45c",
-            "label": "Footer : logos des moyens de paiement",
-            "name": "lapeyre_footer_paiement",
-            "aria-label": "",
-            "type": "gallery",
-            "instructions": "Au format PNG, images blanches",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "insert": "append",
-            "preview_size": "medium"
         }
     ],
     "location": [
@@ -566,7 +219,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "site-settings"
+                "value": "site-settings-header"
             }
         ]
     ],
@@ -579,5 +232,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705613909
+    "modified": 1705854994
 }

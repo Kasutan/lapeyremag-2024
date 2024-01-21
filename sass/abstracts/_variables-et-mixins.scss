@@ -187,6 +187,17 @@ $colors: (
 	margin-right: auto;
 }
 
+@mixin largeur-93 {
+	max-width:93rem;
+	margin-left:auto;
+	margin-right: auto;
+}
+
+@mixin largeur-60 {
+	max-width:60rem;
+	margin-left:auto;
+	margin-right: auto;
+}
 
 @mixin screen-reader-text {
 	border: 0;

@@ -45,6 +45,7 @@
 	}
 
 	@include bp(lg) {
+		@include largeur-93;
 		margin-bottom: 8rem;
 		padding:4rem;
 

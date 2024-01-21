@@ -1,0 +1,43 @@
+{
+    "key": "group_65ad4caa9c357",
+    "title": "Mode d'emploi",
+    "fields": [
+        {
+            "key": "field_65ad4caa58205",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<a href=\"mode-emploi\" target=\"_blank\">Page mode d'emploi (privée)<\/a>\r\n\r\n<a href=\"\/revetements-sol-mur\/tutoriels-revetements\/comment-poser-du-parquet-stratifie\"  target=\"_blank\">Article de démo<\/a>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1705856818
+}

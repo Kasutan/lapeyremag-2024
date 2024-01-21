@@ -72,7 +72,8 @@
                 "jaune": "jaune",
                 "violet": "violet",
                 "bleu": "bleu",
-                "sauge": "sauge"
+                "sauge": "sauge",
+                "orange": "orange"
             },
             "default_value": "sauge",
             "return_format": "value",
@@ -219,5 +220,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705543952
+    "modified": 1705855681
 }

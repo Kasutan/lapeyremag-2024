@@ -292,11 +292,11 @@ p, h1, h2, h3, h4, h5, h6 {
   --beige: #F4EADE;
   --sauge: #AAC5B5;
   --rose: #E6658B;
-  --orange: #E6A74A;
   --ocre: #CC7364;
   --jaune: #D4CE5D;
   --violet: #8779B7;
   --bleu: #6EBACB;
+  --orange: #E6A74A;
   --bleu-fonce: #5D89A2;
   --bleu-tres-fonce: #3D6881;
   --bleu-tres-clair: #EFF3F6;
@@ -416,27 +416,6 @@ a.wp-block-button__link.has-rose-color:visited, a.wp-block-button__link.has-rose
   color: #E6658B;
 }
 
-.has-orange-color {
-  color: #E6A74A;
-}
-
-.has-orange-background-color {
-  background-color: #E6A74A;
-}
-
-a.wp-block-button__link.has-orange-background-color {
-  background-color: #E6A74A;
-}
-a.wp-block-button__link.has-orange-background-color:focus-visible {
-  outline-color: #E6A74A;
-}
-a.wp-block-button__link.has-orange-color {
-  color: #E6A74A;
-}
-a.wp-block-button__link.has-orange-color:visited, a.wp-block-button__link.has-orange-color:hover, a.wp-block-button__link.has-orange-color:focus, a.wp-block-button__link.has-orange-color:active {
-  color: #E6A74A;
-}
-
 .has-ocre-color {
   color: #CC7364;
 }
@@ -519,6 +498,27 @@ a.wp-block-button__link.has-bleu-color {
 }
 a.wp-block-button__link.has-bleu-color:visited, a.wp-block-button__link.has-bleu-color:hover, a.wp-block-button__link.has-bleu-color:focus, a.wp-block-button__link.has-bleu-color:active {
   color: #6EBACB;
+}
+
+.has-orange-color {
+  color: #E6A74A;
+}
+
+.has-orange-background-color {
+  background-color: #E6A74A;
+}
+
+a.wp-block-button__link.has-orange-background-color {
+  background-color: #E6A74A;
+}
+a.wp-block-button__link.has-orange-background-color:focus-visible {
+  outline-color: #E6A74A;
+}
+a.wp-block-button__link.has-orange-color {
+  color: #E6A74A;
+}
+a.wp-block-button__link.has-orange-color:visited, a.wp-block-button__link.has-orange-color:hover, a.wp-block-button__link.has-orange-color:focus, a.wp-block-button__link.has-orange-color:active {
+  color: #E6A74A;
 }
 
 .has-bleu-fonce-color {

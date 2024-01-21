@@ -19,16 +19,20 @@
 	}
 
 	.titre-cat {
-		@include font-headline-xs;
+		@include font-headline-s;
 		color:#1F1416;
 		margin-bottom: 2rem;
 		text-transform: uppercase;
 	}
 
 	.bouton-wrap {
-		display: flex;
-		justify-content: center;
+		
 		padding:0 var(--padding-x-lg);
+		.bouton {
+			display: block;
+			margin:0 auto;
+			max-width:36rem;
+		}
 
 	}
 

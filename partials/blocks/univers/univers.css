@@ -40,6 +40,11 @@
   padding: 0 var(--padding-x-lg);
   text-align: center;
 }
+.acf-univers .section-cat .titre-cat {
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 2.4rem;
+}
 .acf-univers .label-types {
   margin-bottom: 0.8rem;
 }

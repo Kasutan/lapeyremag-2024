@@ -22,7 +22,11 @@
 
 	//Style des blocs par catégories et de leur navigation dans un composant SASS section-cat (réutilisés dans l'archive de la catégorie parente)
 
-	//On ne garde ici que les styles des tags
+	//On ne garde ici que les styles des tags et du titre de la catégorie
+
+	.section-cat .titre-cat {
+		@include font-headline-xs;
+	}
 
 	.label-types {
 		margin-bottom: 0.8rem;

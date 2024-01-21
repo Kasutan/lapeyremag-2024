@@ -2709,6 +2709,14 @@ form.search-form.search-header, .pictos-header .magasin {
 .site-footer .social .sous-titre {
   margin-bottom: 1.6rem;
 }
+.site-footer .social .sous-titre br {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .site-footer .social .sous-titre br {
+    display: block;
+  }
+}
 .site-footer .main-footer {
   background-color: var(--beige);
   padding: 2rem var(--padding-x-lg);
@@ -3217,6 +3225,9 @@ section.no-results .entry-title {
   position: absolute;
   top: 0;
 }
+.single-post .bottom-footer {
+  padding-bottom: 5rem;
+}
 @media (min-width: 1024px) {
   .single-post {
     --height-encart:27.8rem;
@@ -3270,6 +3281,9 @@ section.no-results .entry-title {
     font-size: 8.4rem;
     line-height: 7.2rem;
     margin-right: 2.4rem;
+  }
+  .single-post .bottom-footer {
+    padding-bottom: 1.6rem;
   }
 }
 
@@ -3782,6 +3796,7 @@ section.no-results .entry-title {
 .nav-univers {
   background-color: #fff;
   padding: 6rem var(--padding-x-lg);
+  padding-right: 0;
   --ws:14.3rem;
 }
 .nav-univers .titre-section {
@@ -3789,6 +3804,7 @@ section.no-results .entry-title {
   font-weight: 700;
   line-height: 2.4rem;
   margin-bottom: 4rem;
+  padding-right: var(--padding-x-lg);
   text-align: center;
 }
 .nav-univers .slide {
@@ -3818,12 +3834,16 @@ section.no-results .entry-title {
 }
 .nav-univers .slider.js-center {
   justify-content: center;
+  padding-right: var(--padding-x-lg);
 }
 .nav-univers .slider.js-center .slide {
   margin-bottom: 0;
 }
 .nav-univers .slider.js-center .slide:last-of-type {
   margin-right: 0;
+}
+.nav-univers .nav-slider {
+  padding-right: var(--padding-x-lg);
 }
 @media (min-width: 1024px) {
   .nav-univers {
@@ -3833,6 +3853,10 @@ section.no-results .entry-title {
     font-size: 2.6rem;
     font-weight: 700;
     line-height: 3.2rem;
+    padding-right: 0;
+  }
+  .nav-univers .slider.js-center, .nav-univers .nav-slider {
+    padding-right: 0;
   }
 }
 
@@ -4059,17 +4083,20 @@ nav.reseaux button:hover, nav.reseaux button:focus {
   display: none;
 }
 .section-cat .titre-cat {
-  font-size: 1.6rem;
-  font-weight: 900;
+  font-size: 2rem;
+  font-weight: 700;
   line-height: 2.4rem;
   color: #1F1416;
   margin-bottom: 2rem;
   text-transform: uppercase;
 }
 .section-cat .bouton-wrap {
-  display: flex;
-  justify-content: center;
   padding: 0 var(--padding-x-lg);
+}
+.section-cat .bouton-wrap .bouton {
+  display: block;
+  margin: 0 auto;
+  max-width: 36rem;
 }
 @media (min-width: 1024px) {
   .section-cat .nav-cat {

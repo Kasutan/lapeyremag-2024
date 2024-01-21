@@ -53,6 +53,14 @@
 		}
 		.sous-titre {
 			margin-bottom: 1.6rem;
+			br {
+				display: none;
+			}
+			@include bp(lg) {
+				br {
+					display: block;
+				}
+			}
 		}
 		
 	}

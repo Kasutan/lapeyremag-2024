@@ -1,10 +1,12 @@
 .nav-univers {
 	background-color: #fff;
 	padding:6rem var(--padding-x-lg);
+	padding-right:0;
 	--ws:14.3rem;
 	.titre-section {
 		@include font-headline-s;
 		margin-bottom: 4rem;
+		padding-right: var(--padding-x-lg);
 		text-align: center;
 	}
 
@@ -34,6 +36,7 @@
 
 	.slider.js-center {
 		justify-content: center;
+		padding-right: var(--padding-x-lg);
 		.slide {
 			margin-bottom: 0;
 		}
@@ -41,13 +44,23 @@
 			margin-right: 0;
 		}
 	}
+	.nav-slider {
+		padding-right: var(--padding-x-lg);
+	}
 
 	@include bp(lg) {
 		padding:8rem var(--padding-x-lg);
 
 		.titre-section {
 			@include font-headline-m;
+			padding-right: 0;
 		}
+
+		.slider.js-center, .nav-slider {
+			padding-right: 0;;
+		}
+
+		
 	}
 
 }

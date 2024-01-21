@@ -155,8 +155,8 @@
 
 	}
 
-	@include bp(md) {
-		
+	.bottom-footer {
+		padding-bottom: 5rem; //Pour voir les derniers liens malgré sommaire sticky au bas de l'écran
 	}
 
 	@include bp(lg) {
@@ -213,6 +213,10 @@
 				line-height: 7.2rem;
 				margin-right: 2.4rem;
 			}
+		}
+
+		.bottom-footer {
+			padding-bottom:1.6rem; //Reset valeur générale
 		}
 	}
 }

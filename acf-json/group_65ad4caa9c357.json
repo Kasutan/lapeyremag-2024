@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "<a href=\"mode-emploi\" target=\"_blank\">Page mode d'emploi (privée)<\/a>\r\n\r\n<a href=\"\/revetements-sol-mur\/tutoriels-revetements\/comment-poser-du-parquet-stratifie\"  target=\"_blank\">Article de démo<\/a>",
+            "message": "<a href=\"mode-emploi\" target=\"_blank\">Page mode d'emploi (privée)<\/a>\r\n\r\n<a href=\"\/revetements-sol-mur\/tutoriels-revetements\/comment-poser-du-parquet-stratifie\"  target=\"_blank\">Article de démo<\/a> (remplacer la vidéo et l'audio avant de mettre en ligne !)",
             "new_lines": "wpautop",
             "esc_html": 0
         }
@@ -39,5 +39,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705856818
+    "modified": 1705874994
 }

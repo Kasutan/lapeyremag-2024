@@ -254,6 +254,28 @@ figure {
 	}
 }
 
+.wp-block-embed.is-type-video {
+	border-radius: 8px;
+	overflow:hidden;
+	margin:4rem auto;
+	@include bp(lg) {
+		margin:8rem auto;
+	}
+}
+
+.wp-block-audio {
+	@include largeur-84;
+	border-radius: 30px;
+	height:4rem;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	overflow:hidden;
+
+	@include bp(lg) {
+		margin:8rem auto;
+	}
+}
+
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/

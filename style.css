@@ -1547,6 +1547,33 @@ figure figcaption {
   border-radius: 8px;
 }
 
+.wp-block-embed.is-type-video {
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 4rem auto;
+}
+@media (min-width: 1024px) {
+  .wp-block-embed.is-type-video {
+    margin: 8rem auto;
+  }
+}
+
+.wp-block-audio {
+  max-width: 84rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+  height: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .wp-block-audio {
+    margin: 8rem auto;
+  }
+}
+
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/

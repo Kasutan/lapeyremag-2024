@@ -1,0 +1,72 @@
+.savoir {
+	background-color: var(--blanc);
+	border-radius:12px;
+	margin-bottom: 4rem;
+	padding:3rem 4rem;
+
+	.titre {
+		@include font-headline-s;
+		margin-bottom: 2rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	
+	.infos {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+	}
+
+	li {
+		align-items: center;
+		display: flex;
+		margin-bottom: 4px;
+	}
+
+	li strong, svg:nth-of-type(1) {
+		margin-left: 8px;
+	}
+	
+	svg:nth-of-type(1) path {
+		fill:var(--bleu-tres-fonce);
+		
+	}
+
+	.niveau-2, .niveau-3 {
+		svg:nth-of-type(2) path {
+			fill:var(--bleu-tres-fonce);
+		}
+	}
+
+	.niveau-3 {
+		svg:nth-of-type(3) path {
+			fill:var(--bleu-tres-fonce);
+		}
+	}
+
+	@include bp(lg) {
+		margin-bottom: 8rem;
+		padding:4rem;
+
+		.titre {
+			@include font-headline-xl;
+			margin-bottom: 2.4rem;
+		}
+
+		.infos {
+			flex-direction: row;
+			justify-content: center;
+		}
+
+		li {
+			@include font-body-m;
+			margin-bottom: 0;
+			
+			&:not(:first-of-type) {
+				border-left:solid 1px var(--texte);
+				margin-left: 2rem;
+				padding-left: 2rem;
+			}
+		}
+	}
+}

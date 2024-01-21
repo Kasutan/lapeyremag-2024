@@ -3986,6 +3986,70 @@ nav.reseaux button:hover, nav.reseaux button:focus {
   background-color: transparent;
 }
 
+.savoir {
+  background-color: var(--blanc);
+  border-radius: 12px;
+  margin-bottom: 4rem;
+  padding: 3rem 4rem;
+}
+.savoir .titre {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.savoir .infos {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.savoir li {
+  align-items: center;
+  display: flex;
+  margin-bottom: 4px;
+}
+.savoir li strong, .savoir svg:nth-of-type(1) {
+  margin-left: 8px;
+}
+.savoir svg:nth-of-type(1) path {
+  fill: var(--bleu-tres-fonce);
+}
+.savoir .niveau-2 svg:nth-of-type(2) path, .savoir .niveau-3 svg:nth-of-type(2) path {
+  fill: var(--bleu-tres-fonce);
+}
+.savoir .niveau-3 svg:nth-of-type(3) path {
+  fill: var(--bleu-tres-fonce);
+}
+@media (min-width: 1024px) {
+  .savoir {
+    margin-bottom: 8rem;
+    padding: 4rem;
+  }
+  .savoir .titre {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+    margin-bottom: 2.4rem;
+  }
+  .savoir .infos {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .savoir li {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+    margin-bottom: 0;
+  }
+  .savoir li:not(:first-of-type) {
+    border-left: solid 1px var(--texte);
+    margin-left: 2rem;
+    padding-left: 2rem;
+  }
+}
+
 .section-cat {
   padding-bottom: 4rem;
 }

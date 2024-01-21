@@ -27,7 +27,7 @@ add_action( 'tha_entry_top', 'kasutan_fil_ariane', 5 );
 add_action( 'tha_entry_top', 'kasutan_single_banniere', 10 );
 
 
-//Boutons de partage, temps de lecture, résumé et sommaire
+//Boutons de partage, temps de lecture, résumé et  sommaire, bloc "à savoir"
 add_action('tha_entry_content_before', 'kasutan_single_entry_content_before');
 function kasutan_single_entry_content_before() {
 	if(get_post_type() !== 'post') {
@@ -46,9 +46,11 @@ function kasutan_single_entry_content_before() {
 		}
 	echo '</div>';
 
-	$intro="";
+	$intro=$savoir=$titre_savoir="";
 	if(function_exists('get_field')) {
 		$intro=wp_kses_post(get_field('lapeyre_intro'));
+		$savoir=get_field('lapeyre_savoir');//champ de type groupe
+		$titre_savoir=wp_kses_post(get_field('lapeyre_savoir_titre','option'));
 	}
 
 	if($intro) printf('<div class="intro">%s</div>',$intro);
@@ -59,6 +61,38 @@ function kasutan_single_entry_content_before() {
 			kasutan_picto(array('icon'=>'chevron-bas'))
 		);
 	}
+
+	//Bloc "à savoir avant de se lancer"
+	if(!empty($savoir) && $savoir['afficher']) {
+		
+		echo '<div class="savoir">';
+			if($titre_savoir) printf('<p class="titre">%s</p>',$titre_savoir);
+			echo '<ul class="infos">';
+
+				if($savoir['niveau'] && function_exists('kasutan_picto')) {
+					printf('<li class="niveau-%s">Difficulté&nbsp;: %s %s %s <strong>%s</strong>',
+						$savoir['niveau']['value'],
+						kasutan_picto(array('icon'=>'star-wired')),
+						kasutan_picto(array('icon'=>'star-wired')),
+						kasutan_picto(array('icon'=>'star-wired')),
+						$savoir['niveau']['label']
+					);
+				}
+
+				if($savoir['heures']) {
+					$label="heure";
+					if($savoir['heures']>1) {
+						$label="heures";
+					}
+					printf('<li>Temps estimé&nbsp;: <strong>%s %s</strong>',esc_attr($savoir['heures']),$label);
+				} 
+
+				if($savoir['etapes']) printf('<li>Étapes&nbsp;: <strong>%s</strong>',esc_attr($savoir['etapes']));
+
+			echo "</ul>";
+		echo '</div>';
+	}
+	
 	
 }
 

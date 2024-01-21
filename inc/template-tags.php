@@ -371,7 +371,7 @@ function kasutan_single_banniere() {
 
 			echo '<div class="dates">';
 				printf('<p>écrit le : <strong>%s</strong></p>', get_the_date('d F Y'));
-				if($date_modif)	printf('<p>modifié le : <strong>%s</strong></p>',$date_modif);
+				if($date_modif)	printf('<p>mis à jour le : <strong>%s</strong></p>',$date_modif);
 
 			echo '</div>';//.dates
 		echo '</div>'; //.encart

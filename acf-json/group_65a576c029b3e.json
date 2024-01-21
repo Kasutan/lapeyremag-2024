@@ -86,6 +86,114 @@
             "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_65ad5c2b99b8e",
+            "label": "Bloc \"À savoir...\"",
+            "name": "lapeyre_savoir",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_65ad5c4699b8f",
+                    "label": "Afficher ce bloc ?",
+                    "name": "afficher",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "Cocher cette case pour afficher le bloc",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_65ad5c6699b90",
+                    "label": "Niveau",
+                    "name": "niveau",
+                    "aria-label": "",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "1": "Facile",
+                        "2": "Moyen",
+                        "3": "Difficile"
+                    },
+                    "default_value": "",
+                    "return_format": "array",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "layout": "vertical",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_65ad5cb399b91",
+                    "label": "Temps en heures",
+                    "name": "heures",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_65ad5ccd99b92",
+                    "label": "Nombre d'étapes",
+                    "name": "etapes",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -102,9 +210,15 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "discussion",
+        "comments",
+        "format",
+        "tags",
+        "send-trackbacks"
+    ],
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705600692
+    "modified": 1705860353
 }

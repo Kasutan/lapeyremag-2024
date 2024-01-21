@@ -17,6 +17,75 @@ hr {
 	margin-bottom: 1.5em;
 }
 
+
+blockquote, .wp-block-pullquote {
+	
+	margin: 4rem auto;
+	max-width: 77.4rem;
+	padding :0;
+	position: relative;
+	text-align: left;
+
+	p {
+		color:var(--bleu-tres-fonce);
+		font-style: italic;
+		font-size: 2rem;
+		font-weight: 900;
+		line-height: 2.4rem;
+		margin-bottom: 0;
+		padding:0 2.7rem;
+		position: relative;
+
+		&::before, &::after {
+			font-size: 3.2rem;
+			font-style: normal;
+			line-height: 3.2rem;
+			position:absolute;
+		}
+		&::before {
+			content: '“';
+			left: 0;
+			top:0;
+		}
+	
+		&::after {
+			bottom:0;
+			content: '”';
+			right: 0;
+		}
+	}
+
+	
+
+
+	cite {
+		display: none;
+	}
+
+	@include bp(lg) {
+		margin:8rem auto;
+		p {
+			font-size: 2.6rem;
+			line-height: 3.2rem;
+		}
+
+		cite {
+			@include font-body-s;
+			color:var(--texte);
+			display: block;
+			font-style: italic;
+			margin-right: 2.7rem;
+			margin-top: 1.2rem;
+			text-align: right;
+			&::before {
+				content:'-';
+				display: inline-block;
+				margin-right: 1ch;
+			}
+		}
+	}
+}
+
 .entry-content {
 	p + ul:not([class]), p + ol:not([class]) {
 		margin-top: -1em;
@@ -40,6 +109,7 @@ hr {
 		padding-left: 2ch;
 		margin-bottom: 1em;
 	}
+
 }
 /*
 ul:not([class]),

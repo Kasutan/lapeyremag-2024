@@ -165,43 +165,6 @@ i {
 	font-style: italic;
 }
 
-//TODO déplacer dans elements ?
-blockquote {
-	color:var(--bleu-tres-fonce);
-	font-size: 2rem;
-	font-weight: 900;
-	line-height: 2.4rem;
-	margin: 4rem 0;
-	padding: 0 27px;
-	position: relative;
-
-	//TODO quotes marks before & after
-
-	cite {
-		display: none;
-	}
-
-	@include bp(lg) {
-		font-size: 2.6rem;
-		line-height: 3.2rem;
-
-		//TODO bleed en desktop
-
-		cite {
-			@include font-body-s;
-			color:var(--texte);
-			display: block;
-			font-style: italic;
-			text-align: right;
-			&::before {
-				content:'-';
-				display: inline-block;
-				margin-right: 1ch;
-			}
-		}
-	}
-}
-
 mark,
 ins {
 	background: var(--beige);

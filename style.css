@@ -1090,39 +1090,6 @@ i {
   font-style: italic;
 }
 
-blockquote {
-  color: var(--bleu-tres-fonce);
-  font-size: 2rem;
-  font-weight: 900;
-  line-height: 2.4rem;
-  margin: 4rem 0;
-  padding: 0 27px;
-  position: relative;
-}
-blockquote cite {
-  display: none;
-}
-@media (min-width: 1024px) {
-  blockquote {
-    font-size: 2.6rem;
-    line-height: 3.2rem;
-  }
-  blockquote cite {
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.6rem;
-    color: var(--texte);
-    display: block;
-    font-style: italic;
-    text-align: right;
-  }
-  blockquote cite::before {
-    content: "-";
-    display: inline-block;
-    margin-right: 1ch;
-  }
-}
-
 mark,
 ins {
   background: var(--beige);
@@ -1344,6 +1311,68 @@ hr {
   border: 0;
   height: 1px;
   margin-bottom: 1.5em;
+}
+
+blockquote, .wp-block-pullquote {
+  margin: 4rem auto;
+  max-width: 77.4rem;
+  padding: 0;
+  position: relative;
+  text-align: left;
+}
+blockquote p, .wp-block-pullquote p {
+  color: var(--bleu-tres-fonce);
+  font-style: italic;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 2.4rem;
+  margin-bottom: 0;
+  padding: 0 2.7rem;
+  position: relative;
+}
+blockquote p::before, blockquote p::after, .wp-block-pullquote p::before, .wp-block-pullquote p::after {
+  font-size: 3.2rem;
+  font-style: normal;
+  line-height: 3.2rem;
+  position: absolute;
+}
+blockquote p::before, .wp-block-pullquote p::before {
+  content: "“";
+  left: 0;
+  top: 0;
+}
+blockquote p::after, .wp-block-pullquote p::after {
+  bottom: 0;
+  content: "”";
+  right: 0;
+}
+blockquote cite, .wp-block-pullquote cite {
+  display: none;
+}
+@media (min-width: 1024px) {
+  blockquote, .wp-block-pullquote {
+    margin: 8rem auto;
+  }
+  blockquote p, .wp-block-pullquote p {
+    font-size: 2.6rem;
+    line-height: 3.2rem;
+  }
+  blockquote cite, .wp-block-pullquote cite {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6rem;
+    color: var(--texte);
+    display: block;
+    font-style: italic;
+    margin-right: 2.7rem;
+    margin-top: 1.2rem;
+    text-align: right;
+  }
+  blockquote cite::before, .wp-block-pullquote cite::before {
+    content: "-";
+    display: inline-block;
+    margin-right: 1ch;
+  }
 }
 
 .entry-content p + ul:not([class]), .entry-content p + ol:not([class]) {
@@ -3148,7 +3177,7 @@ section.no-results .entry-title {
   position: absolute;
   top: 0;
 }
-.single-post h2, .single-post h3, .single-post h4, .single-post h5, .single-post h5, .single-post ol, .single-post ul, .single-post p {
+.single-post .entry-content > h2, .single-post .entry-content > h3, .single-post .entry-content > h4, .single-post .entry-content > h5, .single-post .entry-content > h5, .single-post .entry-content > ol, .single-post .entry-content > ul, .single-post .entry-content > p {
   max-width: 60rem;
   margin-left: auto;
   margin-right: auto;

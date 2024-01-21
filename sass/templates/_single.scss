@@ -157,10 +157,13 @@
 	
 	}
 
-	//Limiter largeur de certains blocs natifs
-	h2, h3, h4, h5, h5, ol, ul, p {
-		@include largeur-60;
+	//Limiter largeur de certains éléments
+	.entry-content > {
+		h2, h3, h4, h5, h5, ol, ul, p {
+			@include largeur-60;
+		}
 	}
+	
 
 
 	.bottom-footer {

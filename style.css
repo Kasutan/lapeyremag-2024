@@ -2432,6 +2432,11 @@ button.menu-toggle:focus {
   .category .section-cat .nav-cat {
     margin-bottom: 2.4rem;
   }
+  .category .section-cat .titre-cat {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 3.2rem;
+  }
   .category .section-cat .loop {
     column-gap: 2rem;
     display: grid;
@@ -2747,8 +2752,9 @@ form.search-form.search-header, .pictos-header .magasin {
 .site-footer a.cookies svg path {
   transition: all var(--transition);
 }
-.site-footer a.cookies:hover svg path, .site-footer a.cookies:focus svg path {
-  fill: var(--bleu-tres-fonce);
+.site-footer a.cookies:hover, .site-footer a.cookies:focus {
+  color: var(--texte);
+  text-decoration: underline;
 }
 .site-footer .bouton.pro {
   font-size: 1.2rem;
@@ -2782,7 +2788,14 @@ form.search-form.search-header, .pictos-header .magasin {
 }
 .site-footer .sitemap .col a:hover, .site-footer .sitemap .col a:focus {
   color: var(--texte);
-  text-decoration: underline;
+  font-weight: 700;
+}
+.site-footer .sitemap .col a.Promo {
+  color: var(--rouge);
+  font-weight: 700;
+}
+.site-footer .sitemap .col a.Promo:hover, .site-footer .sitemap .col a.Promo:focus {
+  color: var(--rouge);
 }
 .site-footer .sitemap .toggle-col {
   align-items: center;
@@ -3087,7 +3100,7 @@ section.no-results .entry-title {
   margin-bottom: 4rem;
   padding-bottom: 2rem;
 }
-.single-post p.temps {
+.single-post .single-metas p.temps {
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.6rem;
@@ -3097,11 +3110,11 @@ section.no-results .entry-title {
   margin-bottom: 0;
   margin-top: 1.8rem;
 }
-.single-post p.temps .picto {
+.single-post .single-metas p.temps .picto {
   margin-right: 6px;
   width: 2rem;
 }
-.single-post p.temps strong {
+.single-post .single-metas p.temps strong {
   margin-right: 0.5ch;
 }
 .single-post .sommaire {
@@ -3935,7 +3948,13 @@ section.no-results .entry-title {
     padding: 8rem var(--padding-x-lg) 4.6rem;
   }
   .projet .texte {
+    max-width: 40rem;
     padding-left: 4rem;
+  }
+  .projet .desc {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
   }
   .projet .bouton {
     display: inline-block;
@@ -4067,9 +4086,9 @@ nav.reseaux button:hover, nav.reseaux button:focus {
     grid-row: 1;
   }
   .section-cat .titre-cat {
-    font-size: 2rem;
+    font-size: 2.6rem;
     font-weight: 700;
-    line-height: 2.4rem;
+    line-height: 3.2rem;
     margin-bottom: 0;
   }
   .section-cat .bouton-wrap {
@@ -4236,6 +4255,7 @@ nav.reseaux button:hover, nav.reseaux button:focus {
   line-height: 1.6rem;
   align-items: center;
   display: flex;
+  margin-bottom: 2px;
 }
 .vignette .temps .picto {
   margin-right: 6px;

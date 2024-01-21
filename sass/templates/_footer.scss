@@ -106,9 +106,8 @@
 			transition:all var(--transition);
 		}
 		&:hover,&:focus {
-			svg path {
-				fill:var(--bleu-tres-fonce);
-			}
+			color:var(--texte);
+			text-decoration: underline;
 		}
 	}
 
@@ -147,7 +146,14 @@
 				text-decoration: none;
 				&:hover, &:focus {
 					color:var(--texte);
-					text-decoration: underline;
+					font-weight: 700;
+				}
+				&.Promo {
+					color:var(--rouge);
+					font-weight: 700;
+					&:hover, &:focus {
+						color:var(--rouge);
+					}
 				}
 			}
 			

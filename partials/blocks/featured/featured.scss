@@ -41,7 +41,13 @@
 			flex-wrap: wrap;
 		}
 		.tag {
+			color:var(--gris-800);
 			margin-right: 0.8rem;
+			&.type {
+				background-color: var(--blanc);
+				border-color:var(--blanc);
+				color:var(--texte);
+			}
 		}
 		.titre {
 			@include font-headline-m;
@@ -56,7 +62,11 @@
 			position: relative;
 		}
 		.temps {
-			@include font-body-l;
+			@include font-body-m;
+			strong {
+				font-weight: 700;
+			}
+
 			.picto {
 				margin-right: 8px;
 				width:2.4rem;
@@ -78,6 +88,9 @@
 		padding-right: var(--padding-x-lg);
 		.titre-section, .vignette.featured, .nav-slider {
 			margin-right:0;
+		}
+		.vignette.featured {
+			height:48rem;
 		}
 	}
 }

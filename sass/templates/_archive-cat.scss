@@ -34,6 +34,9 @@
 			.nav-cat {
 				margin-bottom: 2.4rem;
 			}
+			.titre-cat {
+				@include font-headline-m;
+			}
 			.loop {
 				column-gap:2rem;
 				display: grid;

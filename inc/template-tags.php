@@ -154,9 +154,10 @@ function kasutan_affiche_nav_slider($total) {
 */
 function kasutan_fil_ariane() {
 
+	//TODO créer champ
 	$accueil_url=get_option('lpm_accueil_url');
 	if(empty($accueil_url)) {
-		$accueil_url="https://www.lapeyre.fr/c/magazine";
+		$accueil_url="/accueil-temporaire";
 	}
 
 	//Une version desktop et une version mobile tronquée avec bouton retour

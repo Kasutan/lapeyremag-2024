@@ -97,4 +97,9 @@
   .nav-page-type {
     --pt:8rem;
   }
+  .nav-page-type .titre-section {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    margin-bottom: 1.2rem;
+  }
 }

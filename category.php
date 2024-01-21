@@ -118,7 +118,7 @@ echo '<main class="site-main">';
 				$count=0;
 				while ( have_posts() ) : the_post();
 					$count++;
-					get_template_part( 'partials/archive',null,array('balise_title'=>'h3'));
+					get_template_part( 'partials/archive',null,array('tag_titre'=>'h3'));
 				endwhile;
 		
 				echo '</ul>';

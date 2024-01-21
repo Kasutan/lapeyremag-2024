@@ -50,9 +50,10 @@
 				$(liens).append('<li><a href="#ancre-'+index+'">'+newNom+'</a></li>');
 			})
 
-			//Refermer le sommaire en mobile uniquement
+			//Refermer le sommaire au chargement de la page
+			fermerSommaire(liens,bouton);
+
 			if(width<1014) {
-				fermerSommaire(liens,bouton);
 				//Au clic sur un lien interne en mobile, refermer le sommaire
 				$(liens).find('a').click(function() {
 					fermerSommaire(liens,bouton);

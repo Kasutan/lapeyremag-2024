@@ -28,7 +28,12 @@
 		padding:8rem var(--padding-x-lg) 4.6rem;
 
 		.texte {
+			max-width:40rem;
 			padding-left: 4rem;
+		}
+
+		.desc {
+			@include font-body-m;
 		}
 
 		.bouton {

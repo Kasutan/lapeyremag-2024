@@ -73,7 +73,12 @@
     padding-bottom: 4.8rem;
   }
   .acf-univers .titre-section {
-    margin-bottom: 3.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .acf-univers .section-cat .titre-cat {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.4rem;
   }
   .acf-univers .nav-types {
     align-items: center;

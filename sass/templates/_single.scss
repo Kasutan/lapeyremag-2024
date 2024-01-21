@@ -7,6 +7,9 @@
 }
 
 .single-post {
+
+	//TODO limiter largeur du contenu (sauf blocs spéciaux images) 
+	
 	--height-encart:26rem;
 
 	div.entry-content {
@@ -23,23 +26,25 @@
 		border-bottom: solid 1px var(--gris-400);
 		margin-bottom: 4rem;
 		padding-bottom: 2rem;
+
+		p.temps {
+			@include font-body-s;
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			margin-bottom: 0;
+			margin-top: 1.8rem;
+			.picto {
+				margin-right: 6px;
+				width:2rem;
+			}
+			strong {
+				margin-right: 0.5ch;
+			}
+		}
 	}
 
-	p.temps {
-		@include font-body-s;
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		margin-bottom: 0;
-		margin-top: 1.8rem;
-		.picto {
-			margin-right: 6px;
-			width:2rem;
-		}
-		strong {
-			margin-right: 0.5ch;
-		}
-	}
+	
 
 	.sommaire {
 		background-color:var(--blanc);

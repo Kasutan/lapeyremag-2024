@@ -26,7 +26,7 @@ if(!empty($main)) :
 		//On affiche d'abord l'article principal
 		global $post;
 		$post=$main;
-		get_template_part( 'partials/archive', null,array('balise_title'=>'h3','index'=>$count,'featured'=>true) );
+		get_template_part( 'partials/archive', null,array('tag'=>'div','tag_titre'=>'h3','index'=>$count,'featured'=>true) );
 		wp_reset_postdata();
 
 		//Puis les suivants sous forme de slider

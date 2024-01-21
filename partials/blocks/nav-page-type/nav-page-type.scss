@@ -82,5 +82,10 @@
 
 	@include bp(lg) {
 		--pt:8rem;
+		.titre-section {
+			font-size: 2.8rem;
+			line-height: 3.2rem;
+			margin-bottom: 1.2rem;
+		}
 	}
 } 

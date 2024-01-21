@@ -60,7 +60,13 @@
   flex-wrap: wrap;
 }
 .acf-featured .vignette.featured .tag {
+  color: var(--gris-800);
   margin-right: 0.8rem;
+}
+.acf-featured .vignette.featured .tag.type {
+  background-color: var(--blanc);
+  border-color: var(--blanc);
+  color: var(--texte);
 }
 .acf-featured .vignette.featured .titre {
   font-size: 2.6rem;
@@ -82,8 +88,11 @@
 }
 .acf-featured .vignette.featured .temps {
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 2rem;
+}
+.acf-featured .vignette.featured .temps strong {
+  font-weight: 700;
 }
 .acf-featured .vignette.featured .temps .picto {
   margin-right: 8px;
@@ -102,5 +111,8 @@
   }
   .acf-featured .titre-section, .acf-featured .vignette.featured, .acf-featured .nav-slider {
     margin-right: 0;
+  }
+  .acf-featured .vignette.featured {
+    height: 48rem;
   }
 }

@@ -1,0 +1,96 @@
+{
+    "key": "group_65ad72d7eb506",
+    "title": "Bloc images sur-mesure",
+    "fields": [
+        {
+            "key": "field_65ad72d7f1b0b",
+            "label": "Bloc avec une, deux ou trois images et deux options de largeur",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "Bloc avec une, deux ou trois images et deux options de largeur. Pour un rendu conforme aux maquettes, utilisez ce bloc à la place du bloc image natif.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_65ad8a3841f4f",
+            "label": "Largeur du bloc",
+            "name": "largeur",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "max-width-84": "largeur normale (840px max)",
+                "full": "pleine largeur (1120px max)"
+            },
+            "default_value": "max-width-84",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_65ad732b0345e",
+            "label": "Images",
+            "name": "images",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min": 1,
+            "max": 3,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/images"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1705872114
+}

@@ -159,28 +159,6 @@ dd {
 	margin: 0 1.5em 1.5em;
 }
 
-img {
-	height: auto;
-	/* Make sure images are scaled correctly. */
-	max-width: 100%;
-	/* Adhere to container width. */
-
-	&.emoji {
-		width: 2ch;
-		display: inline-block;
-		position: relative;
-		top: 3px;
-	}
-}
-
-figure {
-	margin: 1em 0;
-	/* Extra wide images within figure tags don't overflow the content area. */
-	figcaption {
-		text-align: center;
-	}
-}
-
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
@@ -245,6 +223,36 @@ object {
 	max-width: 100%;
 }
 
+
+img {
+	height: auto;
+	/* Make sure images are scaled correctly. */
+	max-width: 100%;
+	/* Adhere to container width. */
+
+	&.emoji {
+		width: 2ch;
+		display: inline-block;
+		position: relative;
+		top: 3px;
+	}
+}
+
+figure {
+	margin: 1em 0;
+	/* Extra wide images within figure tags don't overflow the content area. */
+	figcaption {
+		text-align: center;
+	}
+}
+
+.entry-content > .wp-block-image {
+	margin:4rem 0;
+	img {
+		border:solid 1px var(--gris-400);
+		border-radius:8px;
+	}
+}
 
 /*--------------------------------------------------------------
 ## Captions

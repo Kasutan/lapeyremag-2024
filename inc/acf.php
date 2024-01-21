@@ -262,6 +262,16 @@ class BE_ACF_Customizations {
 			false,
 			array('type','navigation','accueil')
 		);
+
+		/*********Bloc images***************/
+		$this->helper_register_block_type( 
+			'images',
+			'Bloc images sur-mesure',
+			'Bloc avec une, deux ou trois images et deux options de largeur.',
+			'tagcloud', 
+			false,
+			array('images','lapeyre','article')
+		);
 		
 	}
 }

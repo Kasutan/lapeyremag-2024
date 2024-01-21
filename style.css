@@ -286,6 +286,10 @@ p, h1, h2, h3, h4, h5, h6 {
   max-width: 60rem;
 }
 
+.max-width-84 {
+  max-width: 84rem;
+}
+
 :root {
   --blanc: #fff;
   --beige-clair: #F9F4EE;
@@ -1441,27 +1445,6 @@ dd {
   margin: 0 1.5em 1.5em;
 }
 
-img {
-  height: auto;
-  /* Make sure images are scaled correctly. */
-  max-width: 100%;
-  /* Adhere to container width. */
-}
-img.emoji {
-  width: 2ch;
-  display: inline-block;
-  position: relative;
-  top: 3px;
-}
-
-figure {
-  margin: 1em 0;
-  /* Extra wide images within figure tags don't overflow the content area. */
-}
-figure figcaption {
-  text-align: center;
-}
-
 table {
   margin: 0 0 1.5em;
   width: 100%;
@@ -1533,6 +1516,35 @@ embed,
 iframe,
 object {
   max-width: 100%;
+}
+
+img {
+  height: auto;
+  /* Make sure images are scaled correctly. */
+  max-width: 100%;
+  /* Adhere to container width. */
+}
+img.emoji {
+  width: 2ch;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+}
+
+figure {
+  margin: 1em 0;
+  /* Extra wide images within figure tags don't overflow the content area. */
+}
+figure figcaption {
+  text-align: center;
+}
+
+.entry-content > .wp-block-image {
+  margin: 4rem 0;
+}
+.entry-content > .wp-block-image img {
+  border: solid 1px var(--gris-400);
+  border-radius: 8px;
 }
 
 /*--------------------------------------------------------------
@@ -3540,120 +3552,6 @@ section.no-results .entry-title {
   .entry-title.sans-banniere {
     margin-bottom: 7.2rem;
   }
-}
-
-.wp-block-group.alignfull {
-  --wp--style--block-gap:0;
-}
-.wp-block-group.alignfull .wp-block-image, .wp-block-group.alignfull .wp-block-columns > .wp-block-column {
-  margin: 0;
-}
-.wp-block-group.alignfull .wp-block-column > .wp-block-image {
-  height: 100%;
-}
-.wp-block-group.alignfull .wp-block-column > .wp-block-image img {
-  height: 100%;
-  width: 100%;
-}
-.wp-block-group.alignfull .wp-block-columns {
-  margin-bottom: 0;
-}
-.wp-block-group.bloc-bleu {
-  background-color: var(--bleu);
-  padding: 3rem;
-}
-.wp-block-group.bloc-bleu p, .wp-block-group.bloc-bleu h3, .wp-block-group.bloc-bleu h4 {
-  color: var(--blanc);
-}
-@media screen and (max-width: 781px) {
-  .wp-block-group.bloc-bleu {
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: -1.8em;
-  }
-}
-@media screen and (max-width: 781px) and (min-width: 1920px) {
-  .wp-block-group.bloc-bleu {
-    width: var(--largeur-max);
-  }
-}
-.wp-block-group.coordonnees .has-big-font-size {
-  font-size: 2rem;
-}
-.wp-block-group.coordonnees p {
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.wp-block-columns {
-  gap: 2rem;
-}
-.wp-block-columns.alignfull {
-  margin-bottom: 0;
-  padding: var(--margin-y-2) var(--padding-x);
-}
-.wp-block-columns a.wp-block-button__link {
-  min-width: 10rem;
-}
-.wp-block-columns.villes-membres {
-  font-size: 500;
-  margin-bottom: var(--margin-y);
-  padding: 3.5rem;
-}
-@media screen and (max-width: 767px) {
-  .wp-block-columns.villes-membres {
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    padding: 3.3rem calc(3 * var(--padding-x)) 6rem;
-  }
-}
-@media screen and (max-width: 767px) and (min-width: 1920px) {
-  .wp-block-columns.villes-membres {
-    width: var(--largeur-max);
-  }
-}
-@media (min-width: 1440px) {
-  .wp-block-columns.villes-membres .wp-block-column {
-    padding-left: 5rem;
-  }
-}
-.wp-block-columns.villes-membres ul {
-  padding-left: 2rem;
-}
-
-.wp-block-column.gap-fallback {
-  padding-left: 2em;
-}
-@supports (font-size: clamp(1em, 10vw, 10em)) {
-  .wp-block-column.gap-fallback {
-    padding-left: 0;
-  }
-}
-
-.wp-block-image.alignwide {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  padding: 0;
-}
-@media (min-width: 1920px) {
-  .wp-block-image.alignwide {
-    width: var(--largeur-max);
-  }
-}
-@media (min-width: 1024px) {
-  .wp-block-image.alignwide {
-    padding: 0 var(--padding-x);
-  }
-}
-
-.wp-block-code {
-  background-color: lightgrey;
-  margin-bottom: var(--margin-y-2);
-  padding: 2rem;
-  font-style: italic;
 }
 
 .filtre-archive {

@@ -153,6 +153,13 @@ class BE_ACF_Customizations {
 				'parent_slug' 	=> 'site-settings',
 				'capability'	=> 'edit_posts'
 			));
+			acf_add_options_sub_page(array(
+				'menu_title' 	=> 'APIs',
+				'page_title'	=> 'Paramètres pour les appels aux APIs',
+				'menu_slug' => 'site-settings-apis',
+				'parent_slug' 	=> 'site-settings',
+				'capability'	=> 'edit_posts'
+			));
 		}
 	}
 

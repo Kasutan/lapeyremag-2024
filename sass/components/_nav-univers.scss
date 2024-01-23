@@ -24,7 +24,9 @@
 		text-decoration: none;
 	}
 	img {
-		aspect-ratio: 1;
+		height:12.5rem;
+		object-fit: cover;
+		width:12.5rem;
 		margin-bottom: 0.8rem;
 	}
 	.nom {

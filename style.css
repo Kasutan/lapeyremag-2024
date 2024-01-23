@@ -1695,7 +1695,7 @@ p.fil-ariane.desktop {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-/*Logique pour afficher/masquer éléments du menu mobile et sous-menus*/
+/*Logique pour afficher/masquer éléments du menu mobile*/
 .nav-main {
   display: none;
 }
@@ -1752,7 +1752,7 @@ button.menu-toggle:focus {
 .volet-navigation {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   left: -100%;
   max-width: 80vw;
   overflow-x: hidden;
@@ -1764,13 +1764,19 @@ button.menu-toggle:focus {
   width: 31.5rem;
   z-index: 25;
 }
+@media (orientation: landscape) {
+  .volet-navigation {
+    height: 100vw;
+    overflow-x: auto;
+  }
+}
 
 .volet-navigation.toggled {
   left: 0;
 }
 
 .admin-bar .volet-navigation {
-  height: calc(100% - 46px);
+  height: calc(100vh - 46px);
   top: 46px;
 }
 
@@ -1806,6 +1812,7 @@ button.menu-toggle:focus {
   border-top: 1px solid var(--gris-300);
   display: flex;
   flex-direction: column;
+  margin-bottom: 4rem;
 }
 .volet-navigation .menu-mobile > a {
   align-items: center;
@@ -1986,8 +1993,9 @@ button.menu-toggle:focus {
   }
 }
 .menu-produits.mobile, .menu-produits.mobile .niveau {
-  height: 100%;
+  height: 100vh;
   left: -100%;
+  overflow-y: auto;
   position: absolute;
   top: 0;
   transition: left var(--transition);
@@ -1995,6 +2003,12 @@ button.menu-toggle:focus {
 }
 .menu-produits.mobile.actif, .menu-produits.mobile .niveau.actif {
   left: 0;
+}
+@media (orientation: landscape) {
+  .menu-produits.mobile, .menu-produits.mobile .niveau {
+    height: 100vw;
+    overflow-x: auto;
+  }
 }
 .menu-produits.mobile .niveau {
   background-color: #fff;
@@ -3657,7 +3671,9 @@ section.no-results .entry-title {
   text-decoration: none;
 }
 .nav-univers img {
-  aspect-ratio: 1;
+  height: 12.5rem;
+  object-fit: cover;
+  width: 12.5rem;
   margin-bottom: 0.8rem;
 }
 .nav-univers .nom {

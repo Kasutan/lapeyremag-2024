@@ -8,6 +8,39 @@
  * @license      GPL-2.0+
 **/
 
+/*
+ * Whitelist specific Gutenberg blocks (paragraph, heading, image and lists)
+ *
+ * @author Misha Rudrastyh
+ * @link https://rudrastyh.com/gutenberg/remove-default-blocks.html#allowed_block_types_all
+ */
+add_filter( 'allowed_block_types_all', 'kasutan_allowed_block_types', 25, 2 );
+ 
+function kasutan_allowed_block_types( $allowed_blocks, $editor_context ) {
+ 
+	return array(
+		'core/image',
+		'core/paragraph',
+		'core/heading',
+		'core/list',
+		'core/list-item',
+		'core/pullquote',
+		'core/audio',
+		'core/file',
+		'core/video',
+		'core/spacer',
+		'core/html',
+		'core/embed',
+		'acf/featured',
+		'acf/univers',
+		'acf/types',
+		'acf/populaires',
+		'acf/nav-page-type',
+		'acf/images'
+	);
+ 
+}
+
 /**
 * Dont Update the Theme
 *

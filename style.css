@@ -1568,6 +1568,16 @@ figure figcaption {
   margin-bottom: 4rem;
   overflow: hidden;
 }
+.wp-block-audio audio {
+  display: block;
+  height: 4rem;
+  width: 100%;
+}
+.wp-block-audio audio::-webkit-media-controls-panel {
+  background-color: var(--blanc);
+  color: var(--texte);
+  border-radius: 30px;
+}
 @media (min-width: 1024px) {
   .wp-block-audio {
     margin: 8rem auto;

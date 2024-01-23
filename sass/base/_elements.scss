@@ -271,6 +271,19 @@ figure {
 	margin-bottom: 4rem;
 	overflow:hidden;
 
+	//Pour voir le player sur Chrome
+	//Styles d'après https://dev.to/sh20raj/styling-the-html5-tag-with-css-and-webkit-properties-nf3
+	audio {
+		display: block;
+		height:4rem;
+		width:100%;
+		&::-webkit-media-controls-panel {
+			background-color: var(--blanc);
+			color: var(--texte);
+			border-radius: 30px;
+		}
+	}
+
 	@include bp(lg) {
 		margin:8rem auto;
 	}

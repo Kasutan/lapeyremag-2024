@@ -44,7 +44,7 @@ input[type="submit"] {
 ## Boutons bleus dans le header
 --------------------------------------------------------------*/
 
-.main-header .boutons {
+.main-header .boutons, .volet-navigation .boutons {
 	margin-top: auto;
 	padding:0 2rem;
 	.bouton {

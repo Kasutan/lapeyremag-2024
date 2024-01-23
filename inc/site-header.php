@@ -3,10 +3,13 @@
  * Actions sur le header
  **************************/
 
+add_action('tha_header_before','kasutan_volet_mobile_nav',10);
+//callback définie dans navigation.pho
+
 add_action('tha_header_top','kasutan_header_bandeau',5);
 //callback définie plus bas dans ce fichier
 
-add_action('kasutan_main_header','kasutan_mobile_nav',5);
+add_action('kasutan_main_header','kasutan_bouton_mobile_nav',5);
 //callback définie dans navigation.php
 
 add_action('kasutan_main_header','kasutan_header_logo',10);

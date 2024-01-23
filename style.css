@@ -1248,11 +1248,11 @@ input[type=submit] {
 /*--------------------------------------------------------------
 ## Boutons bleus dans le header
 --------------------------------------------------------------*/
-.main-header .boutons {
+.main-header .boutons, .volet-navigation .boutons {
   margin-top: auto;
   padding: 0 2rem;
 }
-.main-header .boutons .bouton {
+.main-header .boutons .bouton, .volet-navigation .boutons .bouton {
   align-items: center;
   display: flex;
   flex-shrink: 0;
@@ -1260,26 +1260,26 @@ input[type=submit] {
   margin-bottom: 1.2rem;
   padding: 0.8rem 1.2rem;
 }
-.main-header .boutons .bouton svg {
+.main-header .boutons .bouton svg, .volet-navigation .boutons .bouton svg {
   margin-right: 6px;
 }
-.main-header .boutons .bouton.ecoute {
+.main-header .boutons .bouton.ecoute, .volet-navigation .boutons .bouton.ecoute {
   border: 1px solid rgba(93, 137, 162, 0.5);
   color: rgb(93, 137, 162);
 }
-.main-header .boutons .bouton.ecoute:hover, .main-header .boutons .bouton.ecoute:focus {
+.main-header .boutons .bouton.ecoute:hover, .main-header .boutons .bouton.ecoute:focus, .volet-navigation .boutons .bouton.ecoute:hover, .volet-navigation .boutons .bouton.ecoute:focus {
   background-color: rgba(93, 137, 162, 0.04);
   border: 1px solid rgb(93, 137, 162);
 }
 @media (min-width: 1024px) {
-  .main-header .boutons {
+  .main-header .boutons, .volet-navigation .boutons {
     align-items: center;
     display: flex;
     margin-left: auto;
     margin-top: 0;
     padding: 0 0 1.2rem;
   }
-  .main-header .boutons .bouton {
+  .main-header .boutons .bouton, .volet-navigation .boutons .bouton {
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.6rem;
@@ -1288,10 +1288,10 @@ input[type=submit] {
     margin-right: 0.8rem;
     margin-bottom: 0;
   }
-  .main-header .boutons .bouton:last-of-type {
+  .main-header .boutons .bouton:last-of-type, .volet-navigation .boutons .bouton:last-of-type {
     margin-right: 0;
   }
-  .main-header .boutons .bouton.ecoute, .main-header .boutons .bouton.ecoute:hover, .main-header .boutons .bouton.ecoute:focus {
+  .main-header .boutons .bouton.ecoute, .main-header .boutons .bouton.ecoute:hover, .main-header .boutons .bouton.ecoute:focus, .volet-navigation .boutons .bouton.ecoute, .volet-navigation .boutons .bouton.ecoute:hover, .volet-navigation .boutons .bouton.ecoute:focus {
     background-color: var(--bleu-fonce);
     border-color: var(--bleu-fonce);
     color: var(--blanc);
@@ -1972,10 +1972,6 @@ button.menu-toggle:focus {
 }
 #ouvrir-produits-desktop[aria-expanded=true] .picto {
   transform: rotateX(180deg);
-}
-
-.site-header {
-  overflow: visible;
 }
 
 @media (min-width: 1024px) {

@@ -4,18 +4,6 @@
 **/
 
 
-/* walker for primary menu sub nav */
-class etcode_sublevel_walker extends Walker_Nav_Menu
-{
-	function start_lvl( &$output, $depth = 0, $args = array() ) {
-		$output .=sprintf('<button class="ouvrir-sous-menu picto"><span class="screen-reader-text">Montrer ou masquer le sous-menu</span><span class="picto-angle">%s</span></button><ul class="sub-menu">',kasutan_picto(array('icon'=>'angle')) );
-	}
-	function end_lvl( &$output, $depth = 0, $args = array() ) {
-		$output .= "</ul>";
-	}
-}
-
-
 /**
 * Navigation
 *
@@ -37,12 +25,9 @@ function kasutan_desktop_nav() {
 }
 
 
-function kasutan_mobile_nav() {
+function kasutan_volet_mobile_nav() {
 	?>
 	<div id="overlay-mobile"></div>
-	<button class="menu-toggle picto" id="volet-ouvrir" aria-controls="volet-navigation"  aria-label="Ouvrir le volet de navigation">
-		<?php echo kasutan_picto(array('icon'=>'menu', 'class'=>'menu', 'size'=>'28'));?>
-	</button>
 	<div class="volet-navigation"  id="volet-navigation">
 		<button class="menu-toggle picto fermer-menu" id="menu-close"  aria-label="Fermer le volet de navigation">
 			<?php echo kasutan_picto(array('icon'=>'close', 'class' => 'fermer-menu','size'=>'28'));?>
@@ -59,6 +44,16 @@ function kasutan_mobile_nav() {
 		kasutan_affiche_menu_produits('mobile');
 
 	echo '</div>'; //Fin volet navigation
+}
+
+
+
+function kasutan_bouton_mobile_nav() {
+	?>
+	<button class="menu-toggle picto" id="volet-ouvrir" aria-controls="volet-navigation"  aria-label="Ouvrir le volet de navigation">
+		<?php echo kasutan_picto(array('icon'=>'menu', 'class'=>'menu', 'size'=>'28'));?>
+	</button>
+	<?php
 }
 
 function kasutan_affiche_navigation1() {
@@ -146,6 +141,11 @@ function kasutan_affiche_menu_produits($contexte) {
 }
 
 function kasutan_affiche_panneau_menu($contexte,$uniqueID,$permalink,$children,$niveau,$name) {
+	$url_produits=esc_url(get_option('options_lapeyre_cible_produits',false)); // option ACF
+	if(empty($url_produits)) {
+		$url_produits="https://www.lapeyre.fr/produits";
+	}
+
 	if($niveau===2) {
 		$label="Découvrir l'univers";
 	} else if($niveau===3) {
@@ -170,7 +170,7 @@ function kasutan_affiche_panneau_menu($contexte,$uniqueID,$permalink,$children,$
 			$label="Voir tous les produits";
 			echo '<div class="liste-produits">';
 				foreach($children as $cat) {
-					printf('<a href="%s" class="lien-produit"><span class="texte">%s</span></a>',$cat->permalink,$cat->name);
+					printf('<a href="%s%s" class="lien-produit"><span class="texte">%s</span></a>',$url_produits,$cat->permalink,$cat->name);
 				}
 
 			echo '</div>';

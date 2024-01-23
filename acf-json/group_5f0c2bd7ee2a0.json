@@ -212,6 +212,23 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_65afeebc1edd6",
+            "label": "Menu : base pour l'URL des produits",
+            "name": "lapeyre_cible_produits",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Pour chaque produit, cette base sera complétée avec la portion d'url obtenue via l'API.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/www.lapeyre.fr\/produits",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -232,5 +249,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705854994
+    "modified": 1706029053
 }

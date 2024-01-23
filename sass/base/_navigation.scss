@@ -447,9 +447,7 @@ button.menu-toggle {
 	}
 }
 
-.site-header {
-	overflow: visible;
-}
+
 @include bp(lg) {
 	#overlay-produits {
 		display: none;

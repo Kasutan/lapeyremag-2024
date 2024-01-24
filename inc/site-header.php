@@ -31,7 +31,7 @@ add_action('kasutan_main_header','kasutan_desktop_nav',40);
 function kasutan_header_bandeau() {
 	$bandeau=get_option('lapeyre_headers_bandeau',false);
 	if($bandeau && is_array($bandeau)) :
-		echo '<ul class="bandeau-header">';
+		echo '<div class="bandeau-header"><div class="messages-wrap"><ul class="messages">';
 		$messages=[];
 		foreach($bandeau as $elem) :
 			$show=true;
@@ -91,16 +91,12 @@ function kasutan_header_bandeau() {
 			);
 		}
 
-		//Cas particulier où il n'y a que deux messages.
-		if($total===2) {
-			//Pour que le défilement fonctionne bien, on duplique les 2 messages
-			printf('<li data-position="2" data-next="3" >%s</li>',$messages[0]);
-			printf('<li data-position="3" data-next="0" >%s</li>',$messages[1]);
-			
-		}
-
 	
-		echo '</ul>';
+		echo '</ul></div>';
+		if(function_exists('kasutan_picto')) {
+			printf('<button id="fermer-bandeau" class="avec-picto fermer-bandeau"><span class="sr-text">Fermer le bandeau défilant</span>%s</button>',kasutan_picto(array('icon'=>'close')));
+		}
+		echo '</div>';
 	endif;
 }
 

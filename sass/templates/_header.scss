@@ -8,52 +8,73 @@
 ## Bandeau header
 --------------------------------------------------------------*/
 .bandeau-header {
+	align-items: center;
 	background-color: rgb(37, 36, 39);
-	height:46px; //valeur par défaut au chargement de la page, corrigée en JS
-	overflow: hidden;
-	padding: 0px;
+	display: flex;
+	height:4.8rem;
+	padding: 1.4rem 2rem 1.3rem;
 	position: relative;
 
-	@include bp(md) {
-		height:26px; //valeur par défaut au chargement de la page, corrigée en JS
+	button {
+		align-items: center;
+		display: flex;
+		height:2.4rem;
+		justify-content: center;
+		padding:0 4px;
+		width:2.4rem;
+		svg path {
+			fill:rgb(189, 189, 189);
+		}
+	}
+
+	.messages-wrap {
+		overflow-x: hidden;
+	}
+	.messages {
+		animation: 20s linear 0s infinite normal none running defilement-rtl;
+		display: flex;
+		overflow: visible;
+		padding-right: 30px;
+		transform:translateX(100%);
+		&:hover, &:focus {
+			animation-play-state: paused;
+		}
 	}
 
 	li {
-		align-items: center;
 		background-color: rgb(37, 36, 39);
-		color:var(--blanc);
-		display: flex;
-		justify-content: center;
+		color:rgb(189, 189, 189);
 		margin-bottom: 0px;
-		opacity: 0; //ne pas voir les messages non actifs au chargement de la page
-		padding: 3px var(--padding-x);
-		position: absolute;
-		text-align: center;
-		top: 100%;
-		transition: top 0.5s linear;
+		margin-right: 4rem;
+		opacity: 1;
 		width: 100%;
-		z-index: 0;
-		&.active {
-			opacity: 1;
-			position: relative;
-			top: 0;
-			z-index: 2;
-		}
-		&.last-active {
-			position: absolute;
-			top: -100%;
-			z-index: 1;
-		}
+	
 
 		p {
 			margin-bottom: 0;
+			white-space: nowrap;
 		}
 		a {
 			color: inherit;
-			text-decoration: underline;
+			text-decoration: none;
 		}
 	}
+
+	
+	@include bp(lg) {
+
+		li {
+			margin-right: 12rem;
+		}
+		
+	}
 }
+
+@keyframes defilement-rtl {
+	100% { 
+	  transform:translateX(-100%);
+	}
+  }
 
 /*--------------------------------------------------------------
 ## Main header

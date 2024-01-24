@@ -1241,6 +1241,17 @@ a.wp-block-button__link.bleu {
   border-color: var(--bleu-fonce);
   color: var(--blanc);
 }
+button.avec-picto,
+input[type=button].avec-picto,
+input[type=reset].avec-picto,
+input[type=submit].avec-picto,
+a.bouton.avec-picto,
+a.wp-block-button__link.avec-picto {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
 input[type=submit] {
   -webkit-appearance: none;
 }
@@ -2420,52 +2431,64 @@ button.menu-toggle:focus {
 ## Bandeau header
 --------------------------------------------------------------*/
 .bandeau-header {
-  background-color: rgb(37, 36, 39);
-  height: 46px;
-  overflow: hidden;
-  padding: 0px;
-  position: relative;
-}
-@media (min-width: 768px) {
-  .bandeau-header {
-    height: 26px;
-  }
-}
-.bandeau-header li {
   align-items: center;
   background-color: rgb(37, 36, 39);
-  color: var(--blanc);
   display: flex;
-  justify-content: center;
-  margin-bottom: 0px;
-  opacity: 0;
-  padding: 3px var(--padding-x);
-  position: absolute;
-  text-align: center;
-  top: 100%;
-  transition: top 0.5s linear;
-  width: 100%;
-  z-index: 0;
-}
-.bandeau-header li.active {
-  opacity: 1;
+  height: 4.8rem;
+  padding: 1.4rem 2rem 1.3rem;
   position: relative;
-  top: 0;
-  z-index: 2;
 }
-.bandeau-header li.last-active {
-  position: absolute;
-  top: -100%;
-  z-index: 1;
+.bandeau-header button {
+  align-items: center;
+  display: flex;
+  height: 2.4rem;
+  justify-content: center;
+  padding: 0 4px;
+  width: 2.4rem;
+}
+.bandeau-header button svg path {
+  fill: rgb(189, 189, 189);
+}
+.bandeau-header .messages-wrap {
+  overflow-x: hidden;
+}
+.bandeau-header .messages {
+  animation: 20s linear 0s infinite normal none running defilement-rtl;
+  display: flex;
+  overflow: visible;
+  padding-right: 30px;
+  transform: translateX(100%);
+}
+.bandeau-header .messages:hover, .bandeau-header .messages:focus {
+  animation-play-state: paused;
+}
+.bandeau-header li {
+  background-color: rgb(37, 36, 39);
+  color: rgb(189, 189, 189);
+  margin-bottom: 0px;
+  margin-right: 4rem;
+  opacity: 1;
+  width: 100%;
 }
 .bandeau-header li p {
   margin-bottom: 0;
+  white-space: nowrap;
 }
 .bandeau-header li a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
+}
+@media (min-width: 1024px) {
+  .bandeau-header li {
+    margin-right: 12rem;
+  }
 }
 
+@keyframes defilement-rtl {
+  100% {
+    transform: translateX(-100%);
+  }
+}
 /*--------------------------------------------------------------
 ## Main header
 --------------------------------------------------------------*/

@@ -3,38 +3,21 @@
 	$( document ).ready(function() {
 		var width=$(window).width();
 		
-		/****Défilement du bandeau supérieur */
-		var messages=$('.bandeau-header li');
-		if(messages.length>1) {
-			//il y a plusieurs messages (s'il n'y en a qu'un, pas de défilement)
-
-			//Trouver le message le plus haut
-			var max=0;
-			$(messages).each(function(index, elem) {
-				if($(elem).outerHeight() > max) {
-					max=$(elem).outerHeight();
-				}
-			});
-			//imposer la hauteur max au bandeau et à chaque message
-			$('.bandeau-header, .bandeau-header li').css('height',max+'px');
-
-
-			//corriger data-next pour le dernier message
-			$('.bandeau-header li:last-of-type').attr('data-next',"0");
-
-			
-	
-	
-			setInterval(function(){ 
-				$('.bandeau-header li.last-active').removeClass();
-				var active = $('.bandeau-header li.active');
-				var next=$(active).attr('data-next');
-				$(active).addClass('last-active');
-				$('.bandeau-header li[data-position='+next+']').addClass('active');
-			}, 7000);
-				
+		/****Masquer le bandeau supérieur */
+		var bandeau=$('.bandeau-header');
+		var masquer=localStorage.getItem('lapeyre_masquer_bandeau');
+		if(masquer==="oui") {
+			//Le visiteur a déjà interagi avec le bandeau et l'a masqué, on le cache dès le chargement de la page
+			$(bandeau).hide();
+		} else {
+			//on surveille l'interaction avec la croix
+			$('#fermer-bandeau').click(function() {
+				//Cacher le bandeau
+				$(bandeau).slideUp();
+				//Enregistrer ce choix pour la session 
+				localStorage.setItem('lapeyre_masquer_bandeau','oui');
+			})
 		}
-		
 		
 		/********* Header sticky on scroll up **********/
 

@@ -108,7 +108,7 @@ function kasutan_footer_sitemap() {
 
 			
 
-			printf('<nav class="col col-%s" id="sitemap-%s">',$i,$i,$i);
+			printf('<nav class="col" id="sitemap-%s">',$i);
 
 			if($i===1) {
 

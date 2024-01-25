@@ -31,7 +31,7 @@ if(have_rows('lapeyre_types_articles','option')) :
 		}
 		$index=0;
 		printf('<div class="slider-wrap" data-total="%s" data-active="0">',$total);
-		echo '<div class="slider-drag"><ul class="slider">';
+		echo '<div class="slider-drag"><div class="slider">';
 			while(have_rows('lapeyre_types_articles','option')) : the_row();
 
 				$key=esc_attr(get_sub_field('key'));
@@ -47,7 +47,7 @@ if(have_rows('lapeyre_types_articles','option')) :
 				}
 
 			endwhile;
-			echo '</ul></div>';
+			echo '</div></div>';
 			if(function_exists('kasutan_affiche_nav_slider')) {
 				kasutan_affiche_nav_slider($total);
 			}

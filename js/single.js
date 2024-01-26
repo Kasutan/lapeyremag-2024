@@ -16,7 +16,6 @@
 					navigator.clipboard.writeText(text).then( () => {
 						/* success */
 
-						$(this).find('.avant').hide();
 						$(this).find('.apres').show();
 						},
 						() => {

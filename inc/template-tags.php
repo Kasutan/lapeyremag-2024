@@ -426,7 +426,7 @@ function kasutan_boutons_partage($avec_titre) {
 	echo '<div class="partage social">';
 		if($titre) printf('<p class="titre-partage">%s</p>',$titre);
 		echo '<nav class="reseaux">';
-			printf('<button class="copier-url" title="Copier le lien" data-url="%s">%s</button>',$permalink_brut,$picto);
+			printf('<button class="copier-url" title="Copier le lien" data-url="%s">%s<div class="apres">Lien copié &#x2713;</div></button>',$permalink_brut,$picto);
 			foreach($canaux as $canal) {
 				printf('<a href="%s" class="%s" title="%s" target="_blank" rel="noopener noreferrer">%s</a>',$urls[$canal],$canal,$labels[$canal],
 				kasutan_picto(array('icon'=>$canal)));

@@ -2,20 +2,38 @@ nav.reseaux {
 	align-items: center;
 	display: flex;
 	justify-content: center;
-	a, button {
-		align-items: center;
-		border:solid 1px var(--gris-500);
-		border-radius: 8px;;
-		display: flex;
-		height:4.4rem;
-		justify-content: center;
-		margin:0 8px;
-		width:4.4rem;
-	}
+
+	a,
 	button {
-		padding:0;
-		&:hover,&:focus {
+		align-items: center;
+		border: solid 1px var(--gris-500);
+		border-radius: 8px;
+		;
+		display: flex;
+		height: 4.4rem;
+		justify-content: center;
+		margin: 0 8px;
+		width: 4.4rem;
+	}
+
+	button {
+		padding: 0;
+		position: relative;
+
+		&:hover,
+		&:focus {
 			background-color: transparent;
+		}
+
+		.apres {
+			@include font-body-s;
+			bottom: -2rem;
+			display: none;
+			left: 0;
+			position: absolute;
+			text-transform: lowercase;
+			white-space: nowrap;
+
 		}
 	}
 }

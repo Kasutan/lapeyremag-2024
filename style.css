@@ -3933,7 +3933,8 @@ nav.reseaux {
   display: flex;
   justify-content: center;
 }
-nav.reseaux a, nav.reseaux button {
+nav.reseaux a,
+nav.reseaux button {
   align-items: center;
   border: solid 1px var(--gris-500);
   border-radius: 8px;
@@ -3945,9 +3946,21 @@ nav.reseaux a, nav.reseaux button {
 }
 nav.reseaux button {
   padding: 0;
+  position: relative;
 }
 nav.reseaux button:hover, nav.reseaux button:focus {
   background-color: transparent;
+}
+nav.reseaux button .apres {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  bottom: -2rem;
+  display: none;
+  left: 0;
+  position: absolute;
+  text-transform: lowercase;
+  white-space: nowrap;
 }
 
 .savoir {

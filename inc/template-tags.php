@@ -262,12 +262,10 @@ function kasutan_fil_ariane() {
 *
 */
 function kasutan_page_banniere() {
-	//TODO simplifier (une seule image desktop et mobile si on la demande au bon format)
 
-	$image_id=$image_mobile_id=$titre=$sous_titre="";
+	$image_id==$titre=$sous_titre="";
 	if(function_exists('get_field')) {
 		$image_id=esc_attr(get_field('lapeyre_banniere_image'));
-		$image_mobile_id=esc_attr(get_field('lapeyre_banniere_image_mobile'));
 		$titre=wp_kses_post(get_field('lapeyre_banniere_titre'));
 		$sous_titre=wp_kses_post(get_field('lapeyre_banniere_sous_titre'));
 	}
@@ -279,12 +277,8 @@ function kasutan_page_banniere() {
 	if(empty($image_id)) {
 		printf('<h1 class="entry-title sans-banniere">%s</h1>',$titre);
 	} else {
-		if(empty($image_mobile_id)) {
-			$image_mobile_id=$image_id;
-		}
 		printf('<div class="page-banniere">');
-			echo wp_get_attachment_image( $image_mobile_id, 'medium_large',false,array('decoding'=>'async','loading'=>'eager','class'=>'mobile'));
-			echo wp_get_attachment_image( $image_id, 'banniere',false,array('decoding'=>'async','loading'=>'eager','class'=>'desktop'));
+			echo wp_get_attachment_image( $image_id, 'banniere',false,array('decoding'=>'async','loading'=>'eager'));
 			echo '<div class="overlay"></div>';
 			printf('<h1 class="entry-title">%s</h1>',$titre);
 			if($sous_titre) printf('<p class="sous-titre">%s</p>',$sous_titre);

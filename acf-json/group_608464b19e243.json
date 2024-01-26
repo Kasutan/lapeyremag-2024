@@ -4,36 +4,11 @@
     "fields": [
         {
             "key": "field_608464c388d03",
-            "label": "Image bannière desktop",
+            "label": "Image bannière",
             "name": "lapeyre_banniere_image",
             "aria-label": "",
             "type": "image",
-            "instructions": "Format recommandé JPG. Taille recommandée : 1920px de large par 600px de haut.\r\nSi cette image est absente, on affichera simplement le titre en noir sur fond blanc.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "jpg, jpeg",
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_659d1ef1eda5b",
-            "label": "Image bannière mobile",
-            "name": "lapeyre_banniere_image_mobile",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Format recommandé JPG. Taille recommandée : 768px de large par 512px de haut.\r\nSi cette image est absente, on utilisera l'image bannière desktop (mais elle sera zoomée)",
+            "instructions": "Format recommandé JPG. Format JPG, taille recommandée 1920px de large x 1280px de haut\r\nSi cette image est absente, on affichera simplement le titre en noir sur fond blanc.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -116,5 +91,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704986087
+    "modified": 1706294610
 }

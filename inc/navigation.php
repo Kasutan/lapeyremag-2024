@@ -119,6 +119,9 @@ function kasutan_affiche_menu_produits($contexte) {
 		if($contexte==="desktop") echo '<div id="overlay-produits"></div>';
 
 		printf('<div id="menu-produits-%s" class="menu-produits %s">',$contexte,$contexte);
+		
+			if($contexte==="desktop") printf('<button id="fermer-produits-desktop"  aria-label="Fermer le menu produits">%s</button>', kasutan_picto_simple('close'));
+
 			echo '<div class="niveau niveau-1">';
 				if($contexte=="desktop") {
 					echo '<p class="titre-menu">Produits</p>';
@@ -146,7 +149,7 @@ function kasutan_affiche_menu_produits($contexte) {
 				}
 			echo '</div>';
 			
-			if($contexte==="desktop") printf('<button id="fermer-produits-desktop"  aria-label="Fermer le menu produits">%s</button>', kasutan_picto_simple('close'));
+			
 		echo '</div>'; //.menu-produits
 	}
 

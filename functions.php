@@ -86,18 +86,6 @@ if ( ! function_exists( 'kasutan_setup' ) ) :
 		) );
 
 
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		//TODO supprimer
-		add_theme_support( 'custom-logo', array(
-			'height'      => 71,
-			'width'       => 213,
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
 
 		// Gutenberg
 
@@ -157,8 +145,7 @@ add_theme_support( 'disable-custom-colors' );
  * Enqueue scripts and styles.
  */
 function kasutan_scripts() {
-	//TODO enlever les scripts OWL si on ne s'en sert pas finalement
-	wp_enqueue_style( 'lapeyremag-owl-carousel', get_template_directory_uri() . '/lib/owlcarousel/owl.carousel.min.css',array(),'2.3.4');
+
 	wp_enqueue_style( 'lapeyremag-style', get_stylesheet_uri(),array(), filemtime( get_template_directory() . '/style.css' ) );
 	
 
@@ -171,9 +158,7 @@ function kasutan_scripts() {
 
 	wp_enqueue_script( 'lapeyremag-skip-link-focus-fix', get_template_directory_uri() . '/js/min/skip-link-focus-fix.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'lapeyremag-owl-carousel',get_template_directory_uri() . '/lib/owlcarousel/owl.carousel.min.js', array('jquery'), '2.3.4', true );
-
-	wp_enqueue_script( 'lapeyremag-scripts', get_template_directory_uri() . '/js/min/main.js', array('jquery','lapeyremag-owl-carousel'), filemtime( get_template_directory() . '/js/min/main.js'), true );
+	wp_enqueue_script( 'lapeyremag-scripts', get_template_directory_uri() . '/js/min/main.js', array('jquery'), filemtime( get_template_directory() . '/js/min/main.js'), true );
 
 	if(is_single()) {
 		wp_enqueue_script( 'lapeyremag-single-scripts', get_template_directory_uri() . '/js/min/single.js', array('jquery'), filemtime( get_template_directory() . '/js/min/single.js'), true );

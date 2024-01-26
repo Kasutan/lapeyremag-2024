@@ -171,7 +171,6 @@ function kasutan_footer_confidentialite() {
 		echo '<div class="politique" id="politique">';
 		echo $confidentialite;
 
-		//TODO : vérifier que la classe suffit pour déclencher l'ouverture du volet one trust
 		?>
 		<a href="#politique" class="ot-sdk-show-settings cookies">
 			<span>Paramétrer les cookies</span>

@@ -151,6 +151,7 @@ p.fil-ariane {
 }
 
 button.menu-toggle {
+	border-radius: 0;
 	display: block;
 	height: 3rem;
 	padding: 0;
@@ -163,6 +164,9 @@ button.menu-toggle {
 
 	&:focus {
 		outline: none;
+	}
+	&:focus-visible {
+		outline:dashed 2px;
 	}
 }
 
@@ -419,6 +423,10 @@ button.menu-toggle {
 		border-radius: 0;
 		outline: none;
 	}
+	&:focus-visible {
+		border-radius: 0;
+		outline: dashed 2px;
+	}
 }
 
 #ouvrir-produits-desktop {
@@ -577,6 +585,15 @@ button.menu-toggle {
 		}
 	}
 
+	&.desktop button.produit {
+		&:focus {
+			outline: none;
+		}
+		&:focus-visible {
+			text-decoration: underline;
+		}
+	}
+
 	&.mobile button.produit {
 		min-height:4.4rem;
 		order:2; //pour que order:1 sur lien-extra fonctionne
@@ -700,6 +717,10 @@ button.menu-toggle {
 			justify-content: flex-start;
 			.lien-produit {
 				width:50%;
+				&:focus {
+					outline: none;
+					text-decoration: underline;
+				}
 			}
 		}
 		
@@ -716,6 +737,12 @@ button.menu-toggle {
 			svg path {
 				fill:var(--texte);
 			}
+			&:focus-visible {
+				outline: none;
+				svg path {
+					fill:var(--bleu-fonce);
+				}
+			} 
 		}
 	}
 }

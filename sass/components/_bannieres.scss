@@ -23,9 +23,6 @@
 		top: 0;
 		width: 100%;
 
-		&.desktop {
-			display: none;
-		}
 	}
 
 	.overlay {
@@ -60,18 +57,6 @@
 		margin-bottom: 0.8rem;
 		text-align: center;
 		text-transform: uppercase;
-	}
-
-	@include bp(md) {
-		img {
-			&.mobile {
-				display: none;
-			}
-
-			&.desktop {
-				display: block;
-			}
-		}
 	}
 
 	@include bp(lg) {
@@ -224,10 +209,6 @@
 		position: absolute;
 		top: 0;
 		width: 100%;
-
-		&.desktop {
-			display: none;
-		}
 	}
 
 	.overlay {

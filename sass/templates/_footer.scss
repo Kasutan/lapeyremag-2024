@@ -248,7 +248,7 @@
 			flex-grow:0;
 			height:1.6rem;
 				//Hack grossir certains logos
-				//TODO se baser sur l'attribut alt ?
+				//SI BESOIN se baser sur l'attribut alt ?
 				&:nth-of-type(2),&:nth-of-type(5) {
 					height:2.6rem;
 				}

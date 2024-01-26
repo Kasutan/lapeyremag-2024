@@ -24,3 +24,5 @@ node_modules/
 
 # fichiers divers
 script-plugins-kasutan.sh
+partials/menu_produits_desktop.html
+partials/menu_produits_mobile.html

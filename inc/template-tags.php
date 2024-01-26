@@ -263,7 +263,7 @@ function kasutan_fil_ariane() {
 */
 function kasutan_page_banniere() {
 
-	$image_id==$titre=$sous_titre="";
+	$image_id=$titre=$sous_titre="";
 	if(function_exists('get_field')) {
 		$image_id=esc_attr(get_field('lapeyre_banniere_image'));
 		$titre=wp_kses_post(get_field('lapeyre_banniere_titre'));

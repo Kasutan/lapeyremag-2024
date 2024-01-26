@@ -11,7 +11,7 @@
 
 function kasutan_desktop_nav() {
 	echo '<nav id="site-navigation" class="nav-main" aria-label="menu principal">';
-		printf('<button id="ouvrir-produits-desktop" class="anim-trait" aria-controls="menu-produits-desktop" aria-expanded="false"><span class="texte" data-text="Produits">Produits</span><span class="picto">%s</span></button>',kasutan_picto(array('icon'=>'chevron-bas')));
+		printf('<button id="ouvrir-produits-desktop" class="anim-trait" aria-controls="menu-produits-desktop" aria-expanded="false"><span class="texte" data-text="Produits">Produits</span><span class="picto">%s</span></button>',kasutan_picto_simple('chevron-bas'));
 		kasutan_affiche_navigation1();
 		echo '<div class="boutons">';
 			kasutan_affiche_boutons_header(true);
@@ -34,7 +34,7 @@ function kasutan_volet_mobile_nav() {
 		</button>
 		<nav class="menu-mobile">
 		<?php
-		printf('<button id="ouvrir-produits-mobile">Produits<span class="picto">%s</span></button>',kasutan_picto(array('icon'=>'chevron-droite')));
+		printf('<button id="ouvrir-produits-mobile">Produits<span class="picto">%s</span></button>',kasutan_picto_simple('chevron-droite'));
 		kasutan_affiche_navigation1();
 		echo '</nav>';
 		echo '<div class="boutons">';
@@ -83,19 +83,27 @@ function kasutan_affiche_boutons_header() {
 	$bouton2=get_field('lapeyre_header_bouton_2','option');
 
 	if($bouton1) {
-		printf('<a href="%s" class="bouton ecoute" target="%s" rel="noopener noreferrer">%s<span>%s</span></a>',
+		$attr='';
+		if($bouton1['target'] === "_blank") {
+			$attr='target="_blank" rel="noopener noreferrer"';
+		}
+		printf('<a href="%s" class="bouton ecoute" %s>%s<span>%s</span></a>',
 			esc_url($bouton1['url']),
-			esc_attr($bouton1['target']),
-			kasutan_picto(array('icon'=>'ecoute')),
+			$attr,
+			kasutan_picto_simple('ecoute'),
 			wp_kses_post( $bouton1['title'] )
 		);
 	}
 
 	if($bouton2) {
-		printf('<a href="%s" class="bouton bleu" target="%s" rel="noopener noreferrer">%s<span>%s</span></a>',
+		$attr='';
+		if($bouton2['target'] === "_blank") {
+			$attr='target="_blank" rel="noopener noreferrer"';
+		}
+		printf('<a href="%s" class="bouton bleu" %s>%s<span>%s</span></a>',
 			esc_url($bouton2['url']),
-			esc_attr($bouton2['target']),
-			kasutan_picto(array('icon'=>'projet')),
+			$attr,
+			kasutan_picto_simple('projet'),
 			wp_kses_post( $bouton2['title'] )
 		);
 	}
@@ -118,23 +126,27 @@ function kasutan_affiche_menu_produits($contexte) {
 					kasutan_affiche_top_menu_produit('Produits');
 				}
 				foreach($produits as $cat) {
-					printf('<button aria-controls="panneau-%s-%s" class="produit niv1"><span class="texte">%s</span>%s</button>',$contexte,$cat->uniqueID,$cat->name,kasutan_picto(array('icon'=>'chevron-droite')));
+					printf('<button aria-controls="panneau-%s-%s" class="produit niv1"><span class="texte">%s</span>%s</button>',$contexte,$cat->uniqueID,$cat->name,kasutan_picto_simple('chevron-droite'));
 
 					kasutan_affiche_panneau_menu($contexte,$cat->uniqueID,$cat->permalink,$cat->children,2,$cat->name);
 
 				}
 
 				if($affaires) {
-					printf('<a href="%s" class="lien-extra rouge" target="%s" rel="noopener noreferrer"><span class="texte">%s</span>%s</a>',
+					$attr='';
+					if($affaires['target'] === "_blank") {
+						$attr='target="_blank" rel="noopener noreferrer"';
+					}
+					printf('<a href="%s" class="lien-extra rouge" %s><span class="texte">%s</span>%s</a>',
 						esc_url($affaires['url']),
-						esc_attr($affaires['target']),
+						$attr,
 						wp_kses_post( $affaires['title'] ),
-						kasutan_picto(array('icon'=>'chevron-droite'))
+						kasutan_picto_simple('chevron-droite')
 					);
 				}
 			echo '</div>';
 			
-			if($contexte==="desktop") printf('<button id="fermer-produits-desktop"  aria-label="Fermer le menu produits">%s</button>', kasutan_picto(array('icon'=>'close')));
+			if($contexte==="desktop") printf('<button id="fermer-produits-desktop"  aria-label="Fermer le menu produits">%s</button>', kasutan_picto_simple('close'));
 		echo '</div>'; //.menu-produits
 	}
 
@@ -161,7 +173,7 @@ function kasutan_affiche_panneau_menu($contexte,$uniqueID,$permalink,$children,$
 			foreach($children as $cat) {
 				$uniqueID2=rand(0,10000000); //Regénérer un ID vraiment unique car la sous-catégorie peut être affichée dans plusieurs univers (ex portes de garage)
 
-				printf('<button aria-controls="panneau-%s-%s" class="produit niv2"><span class="texte">%s</span>%s</button>',$contexte,$uniqueID2,$cat->name,kasutan_picto(array('icon'=>'chevron-droite')));
+				printf('<button aria-controls="panneau-%s-%s" class="produit niv2"><span class="texte">%s</span>%s</button>',$contexte,$uniqueID2,$cat->name,kasutan_picto_simple('chevron-droite'));
 
 				kasutan_affiche_panneau_menu($contexte,$uniqueID2,$cat->permalink,$cat->children,3,$cat->name);
 			}
@@ -180,7 +192,7 @@ function kasutan_affiche_panneau_menu($contexte,$uniqueID,$permalink,$children,$
 		printf('<a href="%s" class="lien-extra"><span class="texte">%s</span>%s</a>',
 				$permalink,
 				$label,
-				kasutan_picto(array('icon'=>'chevron-droite'))
+				kasutan_picto_simple('chevron-droite')
 			);
 	echo '</div>';
 
@@ -188,8 +200,8 @@ function kasutan_affiche_panneau_menu($contexte,$uniqueID,$permalink,$children,$
 
 function kasutan_affiche_top_menu_produit($label) {
 	echo '<div class="top-menu">';
-		printf('<button class="menu-toggle fermer-panneau" aria-label="Fermer ce panneau">%s</button>',kasutan_picto(array('icon'=>'fleche-gauche')));
+		printf('<button class="menu-toggle fermer-panneau" aria-label="Fermer ce panneau">%s</button>',kasutan_picto_simple('fleche-gauche'));
 		printf('<p class="titre-menu">%s</p>',$label);
-		printf('<button class="menu-toggle avec-picto fermer-menu" aria-label="Fermer le volet de navigation">%s</button>',kasutan_picto(array('icon'=>'close')));
+		printf('<button class="menu-toggle avec-picto fermer-menu" aria-label="Fermer le volet de navigation">%s</button>',kasutan_picto_simple('close'));
 	echo '</div>';
 }

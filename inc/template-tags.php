@@ -387,6 +387,10 @@ function kasutan_boutons_partage($avec_titre) {
 	$lien=urlencode($permalink_brut);
 	$titre=urlencode(get_the_title());
 
+	$picto=kasutan_picto_simple('lien');
+	if($avec_titre) {
+		$picto=kasutan_picto_simple('lien-2');
+	}
 	$media=false;
 	if(has_post_thumbnail()) {
 		$media=get_the_post_thumbnail_url(null, 'large');
@@ -422,7 +426,7 @@ function kasutan_boutons_partage($avec_titre) {
 	echo '<div class="partage social">';
 		if($titre) printf('<p class="titre-partage">%s</p>',$titre);
 		echo '<nav class="reseaux">';
-			printf('<button class="copier" id="copier-url" title="Copier le lien" data-url="%s">%s</button>',$permalink_brut,kasutan_picto(array('icon'=>'lien')));
+			printf('<button class="copier-url" title="Copier le lien" data-url="%s">%s</button>',$permalink_brut,$picto);
 			foreach($canaux as $canal) {
 				printf('<a href="%s" class="%s" title="%s" target="_blank" rel="noopener noreferrer">%s</a>',$urls[$canal],$canal,$labels[$canal],
 				kasutan_picto(array('icon'=>$canal)));
@@ -531,7 +535,7 @@ function kasutan_affiche_nav_univers($exclure=false,$key=false) {
 			);
 		}
 		$vignettes=ob_get_clean();
-		echo '<section class="nav-univers">';
+		echo '<div class="nav-univers">';
 			if($titre) printf('<p class="h2 titre-section">%s</p>',$titre);
 			printf('<div class="slider-wrap" data-total="%s" data-active="0">',$total);
 				echo '<div class="slider-drag"><nav class="slider slider-univers">';
@@ -539,7 +543,7 @@ function kasutan_affiche_nav_univers($exclure=false,$key=false) {
 				echo '</nav></div>';
 				kasutan_affiche_nav_slider($total);
 			echo '</div>'; //.slider-wrap
-		echo '</section>';
+		echo '</div>';
 	}
 }
 
@@ -563,7 +567,7 @@ function kasutan_affiche_projet($term_id,$nom) {
 		return;
 	}
 
-	echo '<section class="projet">';
+	echo '<div class="projet">';
 		if($image) {
 			echo wp_get_attachment_image($image, 'large');
 		}
@@ -571,12 +575,16 @@ function kasutan_affiche_projet($term_id,$nom) {
 			printf('<p class="nom">%s</p>',$nom);
 			printf('<p class="titre">%s</p>',$titre);
 			if($desc) printf('<div class="desc">%s</div>',$desc);
-			printf('<a href="%s" class="bouton bleu" target="%s" rel="noopener noreferrer">%s</a>',
+			$attr='';
+			if($lien['target'] === "_blank") {
+				$attr='target="_blank" rel="noopener noreferrer"';
+			}
+			printf('<a href="%s" class="bouton bleu" %s>%s</a>',
 				esc_url($lien['url']),
-				esc_attr($lien['target']),
+				$attr,
 				wp_kses_post( $lien['title'] )
 			);
 		echo '</div>';
-	echo '</section>';
+	echo '</div>';
 
 }

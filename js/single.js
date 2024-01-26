@@ -8,7 +8,7 @@
 		//https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText
 		//Attention fonctionnalité désactivée pour localhost sur Chrome et probablement sur Firefox et/ou uniquement autorisée en httpS
 
-		var boutonCopier=$('#copier-url');
+		var boutonCopier=$('.copier-url');
 		if(boutonCopier.length > 0) {
 			boutonCopier.click(function(){
 				let text=$(this).attr('data-url');

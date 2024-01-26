@@ -147,10 +147,10 @@ function kasutan_picto( $atts = array() ) {
 			$class .= ' ' . esc_attr( $atts['class'] );
 
 	
-		$svg = preg_replace( '/^<svg /', '<svg class="' . $class . '"', trim( $icon ) );
+		$svg = preg_replace( '/^<svg /', '<svg class="' . $class . '" ', trim( $icon ) );
 		
 		$svg  = preg_replace( "/([\n\t]+)/", ' ', $svg ); // Remove newlines & tabs.
-		$svg  = preg_replace( '/>\s*</', '><', $svg ); // Remove white space between SVG tags.
+		//$svg  = preg_replace( '/>\s*</', '><', $svg ); // Remove white space between SVG tags.
 
 		if( !empty( $atts['label'] ) ) {
 			$svg = str_replace( '<svg class', '<svg aria-label="' . esc_attr( $atts['label'] ) . '" class', $svg );
@@ -158,6 +158,22 @@ function kasutan_picto( $atts = array() ) {
 		}
 
 		return $svg;
+}
+
+function kasutan_picto_simple($icon) {
+
+	if(!$icon) {
+		return;
+	}
+
+	$icon_path = get_theme_file_path( '/icons/' . $icon . '.svg' );
+	if( ! file_exists( $icon_path ) ) {
+		return;
+	}
+
+	$icon = file_get_contents( $icon_path );
+	
+	return $icon;
 }
 
 /**

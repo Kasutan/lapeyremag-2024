@@ -3,12 +3,6 @@
  * Navigation
 **/
 
-
-/**
-* Navigation
-*
-*/
-
 function kasutan_desktop_nav() {
 	echo '<nav id="site-navigation" class="nav-main" aria-label="menu principal">';
 		printf('<button id="ouvrir-produits-desktop" class="anim-trait" aria-controls="menu-produits-desktop" aria-expanded="false"><span class="texte" data-text="Produits">Produits</span><span class="picto">%s</span></button>',kasutan_picto_simple('chevron-bas'));
@@ -110,6 +104,13 @@ function kasutan_affiche_boutons_header() {
 }
 
 function kasutan_affiche_menu_produits($contexte) {
+	require get_template_directory().'/partials/menu_produits_'.$contexte.'.html';
+}
+
+
+//Cette fonction est appelée dans les 2 contextes desktop et mobile par la fonction Produits:Update() du plugin Lapeyre Headers & Footers, qui est elle-même déclenchée par un événement cron lapeyre_headers_update_cache
+function kasutan_prepare_html_menu_produits($contexte) {
+	ob_start();
 	//Elements obtenus par API
 	$produits=get_option('lapeyre_headers_produits',false);
 	//Element statique : champ ACF
@@ -152,6 +153,9 @@ function kasutan_affiche_menu_produits($contexte) {
 			
 		echo '</div>'; //.menu-produits
 	}
+
+	$menu_produits=ob_get_clean();
+	file_put_contents(get_template_directory().'/partials/menu_produits_'.$contexte.'.html',$menu_produits);
 
 }
 

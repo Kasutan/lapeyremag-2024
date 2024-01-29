@@ -123,11 +123,26 @@ function kasutan_prepare_html_menu_produits($contexte) {
 		
 			if($contexte==="desktop") printf('<button id="fermer-produits-desktop"  aria-label="Fermer le menu produits">%s</button>', kasutan_picto_simple('close'));
 
+			$lien_affaires='';
+			if($affaires) {
+				$attr='';
+				if($affaires['target'] === "_blank") {
+					$attr='target="_blank" rel="noopener noreferrer"';
+				}
+				$lien_affaires=sprintf('<a href="%s" class="lien-extra rouge" %s><span class="texte">%s</span>%s</a>',
+					esc_url($affaires['url']),
+					$attr,
+					wp_kses_post( $affaires['title'] ),
+					kasutan_picto_simple('chevron-droite')
+				);
+			}
+
 			echo '<div class="niveau niveau-1">';
 				if($contexte=="desktop") {
 					echo '<p class="titre-menu">Produits</p>';
 				} else {
 					kasutan_affiche_top_menu_produit('Produits');
+					echo $lien_affaires; //lien bonnes affaires affiché en haut du panneau en mobile
 				}
 				foreach($produits as $cat) {
 					printf('<button aria-controls="panneau-%s-%s" class="produit niv1"><span class="texte">%s</span>%s</button>',$contexte,$cat->uniqueID,$cat->name,kasutan_picto_simple('chevron-droite'));
@@ -136,18 +151,10 @@ function kasutan_prepare_html_menu_produits($contexte) {
 
 				}
 
-				if($affaires) {
-					$attr='';
-					if($affaires['target'] === "_blank") {
-						$attr='target="_blank" rel="noopener noreferrer"';
-					}
-					printf('<a href="%s" class="lien-extra rouge" %s><span class="texte">%s</span>%s</a>',
-						esc_url($affaires['url']),
-						$attr,
-						wp_kses_post( $affaires['title'] ),
-						kasutan_picto_simple('chevron-droite')
-					);
+				if($contexte=="desktop") {
+					echo $lien_affaires; //lien bonnes affaires affiché en bas du panneau en desktop
 				}
+				
 			echo '</div>';
 			
 			
@@ -170,13 +177,19 @@ function kasutan_affiche_panneau_menu($contexte,$uniqueID,$permalink,$children,$
 	} else if($niveau===3) {
 		$label="Voir tous les produits";
 	}
+	$lien_extra='';
+	$lien_extra=sprintf('<a href="%s" class="lien-extra"><span class="texte">%s</span>%s</a>',
+		$permalink,
+		$label,
+		kasutan_picto_simple('chevron-droite')
+	);
+
 	printf('<div class="niveau niveau-%s" id="panneau-%s-%s">',$niveau,$contexte,$uniqueID);
 		if($contexte==='mobile') {
 			kasutan_affiche_top_menu_produit($name);
+			echo $lien_extra; //Lien extra en haut du panneau en mobile
 		}
 		if($niveau===2) {
-			$label="Découvrir l'univers";
-
 			foreach($children as $cat) {
 				$uniqueID2=rand(0,10000000); //Regénérer un ID vraiment unique car la sous-catégorie peut être affichée dans plusieurs univers (ex portes de garage)
 
@@ -186,7 +199,6 @@ function kasutan_affiche_panneau_menu($contexte,$uniqueID,$permalink,$children,$
 			}
 
 		} else if($niveau===3) {
-			$label="Voir tous les produits";
 			echo '<div class="liste-produits">';
 				foreach($children as $cat) {
 					printf('<a href="%s%s" class="lien-produit"><span class="texte">%s</span></a>',$url_produits,$cat->permalink,$cat->name);
@@ -195,12 +207,10 @@ function kasutan_affiche_panneau_menu($contexte,$uniqueID,$permalink,$children,$
 			echo '</div>';
 		}
 
+		if($contexte==='desktop') {
+			echo $lien_extra; //Lien extra en bas du panneau en mobile
+		}
 		
-		printf('<a href="%s" class="lien-extra"><span class="texte">%s</span>%s</a>',
-				$permalink,
-				$label,
-				kasutan_picto_simple('chevron-droite')
-			);
 	echo '</div>';
 
 }

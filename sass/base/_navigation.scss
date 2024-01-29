@@ -596,7 +596,6 @@ button.menu-toggle {
 
 	&.mobile button.produit {
 		min-height:4.4rem;
-		order:2; //pour que order:1 sur lien-extra fonctionne
 		padding:0 2rem;
 		svg path {
 			fill:var(--texte);
@@ -648,7 +647,6 @@ button.menu-toggle {
 
 	&.mobile .lien-extra {
 		background-color: var(--bleu-tres-clair);
-		order:1;
 		min-height:4.4rem;
 		padding:0 2rem;
 		justify-content: space-between;

@@ -2132,7 +2132,6 @@ button.menu-toggle:focus-visible {
 }
 .menu-produits.mobile button.produit {
   min-height: 4.4rem;
-  order: 2;
   padding: 0 2rem;
 }
 .menu-produits.mobile button.produit svg path {
@@ -2180,7 +2179,6 @@ button.menu-toggle:focus-visible {
 }
 .menu-produits.mobile .lien-extra {
   background-color: var(--bleu-tres-clair);
-  order: 1;
   min-height: 4.4rem;
   padding: 0 2rem;
   justify-content: space-between;

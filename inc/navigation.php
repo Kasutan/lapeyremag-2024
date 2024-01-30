@@ -144,10 +144,14 @@ function kasutan_prepare_html_menu_produits($contexte) {
 					kasutan_affiche_top_menu_produit('Produits');
 					echo $lien_affaires; //lien bonnes affaires affiché en haut du panneau en mobile
 				}
+
+				$index=0;
 				foreach($produits as $cat) {
-					printf('<button aria-controls="panneau-%s-%s" class="produit niv1"><span class="texte">%s</span>%s</button>',$contexte,$cat->uniqueID,$cat->name,kasutan_picto_simple('chevron-droite'));
+					printf('<button aria-controls="panneau-%s-%s" class="produit niv1" data-index="%s"><span class="texte">%s</span>%s</button>',$contexte,$cat->uniqueID,$index,$cat->name,kasutan_picto_simple('chevron-droite'));
 
 					kasutan_affiche_panneau_menu($contexte,$cat->uniqueID,$cat->permalink,$cat->children,2,$cat->name);
+
+					$index++;
 
 				}
 
@@ -189,13 +193,16 @@ function kasutan_affiche_panneau_menu($contexte,$uniqueID,$permalink,$children,$
 			kasutan_affiche_top_menu_produit($name);
 			echo $lien_extra; //Lien extra en haut du panneau en mobile
 		}
+		$index=0;
 		if($niveau===2) {
 			foreach($children as $cat) {
 				$uniqueID2=rand(0,10000000); //Regénérer un ID vraiment unique car la sous-catégorie peut être affichée dans plusieurs univers (ex portes de garage)
 
-				printf('<button aria-controls="panneau-%s-%s" class="produit niv2"><span class="texte">%s</span>%s</button>',$contexte,$uniqueID2,$cat->name,kasutan_picto_simple('chevron-droite'));
+				printf('<button aria-controls="panneau-%s-%s" class="produit niv2" data-index="%s"><span class="texte">%s</span>%s</button>',$contexte,$uniqueID2,$index,$cat->name,kasutan_picto_simple('chevron-droite'));
 
 				kasutan_affiche_panneau_menu($contexte,$uniqueID2,$cat->permalink,$cat->children,3,$cat->name);
+
+				$index++;
 			}
 
 		} else if($niveau===3) {

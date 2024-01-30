@@ -267,11 +267,25 @@
 					} else if ($(boutonMenuProduits).attr('aria-expanded') === 'true') {
 						fermerMenuProduitDesktop();
 					}
-				} /*else if (event.key == "ArrowUp") {
-					console.log('up');
-				} else if (event.key == "ArrowDown") {
-					console.log('down');
-				}*/
+				} else if (event.key == "ArrowDown" || event.key == "ArrowUp") {
+					var boutonFocus=$('button.produit:focus');
+					if(boutonFocus.length > 0) {
+						event.preventDefault();//pour éviter de scroller en desktop et de refermer le menu alors qu'on est en train de naviguer dedans
+						
+						var index=parseInt($(boutonFocus).attr('data-index'));
+						var boutons=$(boutonFocus).parent('.niveau').children('button.produit');
+						var total=boutons.length;
+
+						if(event.key == "ArrowDown" && index < total - 1) {
+						
+							var nextBouton=$(boutonFocus).parent('.niveau').children('button.produit')[index+1];
+							$(nextBouton).focus();
+						} else if(event.key == "ArrowUp" && index > 0) {
+							var nextBouton=$(boutonFocus).parent('.niveau').children('button.produit')[index-1];
+							$(nextBouton).focus();
+						}
+					}
+				}
 
 
 			});

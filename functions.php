@@ -158,7 +158,9 @@ function kasutan_scripts() {
 
 	wp_enqueue_script( 'lapeyremag-skip-link-focus-fix', get_template_directory_uri() . '/js/min/skip-link-focus-fix.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'lapeyremag-scripts', get_template_directory_uri() . '/js/min/main.js', array('jquery'), filemtime( get_template_directory() . '/js/min/main.js'), true );
+	wp_enqueue_script( 'lapeyremag-jquery-ui-draggable', get_template_directory_uri() . '/js/min/jquery-ui-draggable.min.js', array('jquery'), '1.13.2', true );
+
+	wp_enqueue_script( 'lapeyremag-scripts', get_template_directory_uri() . '/js/min/main.js', array('jquery','lapeyremag-jquery-ui-draggable'), filemtime( get_template_directory() . '/js/min/main.js'), true );
 
 	if(is_single()) {
 		wp_enqueue_script( 'lapeyremag-single-scripts', get_template_directory_uri() . '/js/min/single.js', array('jquery'), filemtime( get_template_directory() . '/js/min/single.js'), true );

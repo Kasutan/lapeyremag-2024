@@ -304,6 +304,7 @@
 				var vWidth = $(slides).outerWidth();
 				var sliderWidth = vWidth * nb + 20 * (nb - 1);
 				if (sliderWidth <= $(this).outerWidth()) {
+					//On n'a pas besoin de la navigation
 					$(this).find('.nav-slider').hide();
 					//reset la position du slider
 					$(this).find('.slider').css('left', 0);
@@ -312,9 +313,17 @@
 					$(this).find('.slider-univers').addClass('js-center');
 
 				} else {
+					//On a besoin de la navigation
 					$(this).find('.nav-slider').show();
 					//Cas particulier du slider par univers
 					$(this).find('.slider-univers').removeClass('js-center');
+
+					//Rendre ce slider draggable ****************/
+					var snapWidth=vWidth+20;
+					$(this).find('.slider').draggable({
+						axis: "x" , 
+						grid:[ snapWidth, snapWidth ]
+					});
 				}
 			});
 		}
@@ -394,6 +403,44 @@
 				}
 			});
 		}
+
+		//Mettre à jour les éléments de navigation quand un slider est "draggé"
+		//Voir https://api.jqueryui.com/draggable/#event-stop
+		$( ".slider" ).on( "dragstop", function( event, ui ) {
+
+			var slider=ui.helper;
+			var block = $(slider).parents('.slider-wrap');
+			var flecheGauche = $(block).find('.gauche');
+			var flecheDroite = $(block).find('.droite');
+			var dots = $(block).find('.dot');
+			var slideWidth = $(slider).find('.slide').outerWidth() + 20;
+			var newSlide = -1 * ui.position.left / slideWidth;
+			var newSlide = parseInt(newSlide);
+			console.log('newSlide', newSlide);
+
+			var total = parseInt(block.attr('data-total'));
+			var derniere = total - 1;
+
+			if (newSlide >= 0 && newSlide <= derniere) {
+				
+				block.attr('data-active', newSlide);
+				//actualiser les dots
+				$(dots).removeClass('active');
+				$(block).find('.dot[data-target="' + newSlide + '"]').addClass('active');
+			}
+			if (newSlide == 0) {
+				$(flecheGauche).attr('disabled', true);
+				$(flecheDroite).attr('disabled', false);
+			} else if (newSlide == derniere) {
+				$(flecheGauche).attr('disabled', false);
+				$(flecheDroite).attr('disabled', true);
+			} else {
+				$(flecheGauche).attr('disabled', false);
+				$(flecheDroite).attr('disabled', false);
+			}
+
+		} );
+
 
 		/********* Cas particulier du slider de navigation par type de page**********/
 		var sliderNavPage = $('.nav-page-type .slider-wrap');

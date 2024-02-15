@@ -23,9 +23,12 @@ form.search-form {
 	}
 
 	&.search-header {
-		border:solid 1px var(--gris-300);
+		border:solid 1px #c4c4c4;
 		border-radius: 8px;
 		margin:0 2rem;
+		&:focus-within {
+			border-color:rgb(33,33,33);
+		}
 		input.search-field {
 			border:none;
 			color:var(--texte);

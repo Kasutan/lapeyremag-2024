@@ -1,6 +1,5 @@
 .site-header {
 	background-color: var(--blanc);
-	border-bottom:solid 1px var(--gris-300);
 	z-index:10;
 }
 
@@ -12,6 +11,7 @@
 	background-color: rgb(37, 36, 39);
 	display: flex;
 	height:4.8rem;
+	justify-content: space-between;
 	padding: 1.4rem 2rem 1.3rem;
 	position: relative;
 
@@ -90,6 +90,7 @@
 }
 .logo {
 	max-width:var(--taille-logo);
+	max-height:68px;
 }
 form.search-form.search-header, .pictos-header .magasin {
 	display: none;
@@ -103,7 +104,7 @@ form.search-form.search-header, .pictos-header .magasin {
 		@include font-body-m;
 		align-items: center;
 		display: flex;
-		margin-right:1.4rem;
+		margin-right:1.6rem;
 		position: relative;
 		text-decoration: none;
 
@@ -111,8 +112,8 @@ form.search-form.search-header, .pictos-header .magasin {
 			background-color: var(--gris-300);
 			content:' ';
 			display: inline-block;
-			height:2.4rem;
-			margin-left: 1.4rem;
+			height:2.8rem;
+			margin-left: 1.6rem;
 			width:1px;
 		}
 		&:last-of-type {
@@ -131,7 +132,7 @@ form.search-form.search-header, .pictos-header .magasin {
 @include bp(lg) {
 	.main-header {
 		--taille-logo:21.3rem;
-		grid-template-columns: var(--taille-logo) 1fr 43rem;
+		grid-template-columns: var(--taille-logo) 1fr 44.5rem;
 		grid-template-rows:auto auto;
 		padding:0;
 	}
@@ -146,7 +147,7 @@ form.search-form.search-header, .pictos-header .magasin {
 	}
 
 	.pictos-header {
-		padding-right: 4.4rem;
+		padding-right: 4.8rem;
 		
 		.magasin {
 			display: flex;
@@ -158,8 +159,7 @@ form.search-form.search-header, .pictos-header .magasin {
 			margin-left: 8px;
 		}
 		svg {
-			position: relative;
-			top:-1px;
+			max-width: 2rem;
 		}
 	}
 

@@ -23,6 +23,12 @@
 
 		var listePosts = new List('archive-filtrable', optionsListe);
 
+		//Masquer la pagination s'il n'y a qu'une seule page
+		//Une seule fois au chargement de la page suffit, aucune action sur la page ne fera apparaitre plus de posts
+		if((listePosts.size()/listePosts.page)<=1){
+			$('.pagination-wrap').hide();
+		}
+
 		//Mettre à jour le compte
 		updateCount();
 

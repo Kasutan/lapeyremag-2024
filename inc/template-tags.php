@@ -173,6 +173,20 @@ function kasutan_fil_ariane() {
 		$accueil_url
 	);
 
+	//Puis le lien vers l'accueil du magazine (sauf pour la page d'accueil du magazine)
+	$accueil_magazine=get_option('options_lapeyre_cible_magazine_ariane','false');
+	if(!is_front_page()) {
+		$front_page_ID=get_option('page_on_front');
+		$prev_url=get_the_permalink($front_page_ID);
+		$prev_name=get_the_title($front_page_ID);
+
+		printf('<a href="%s">%s</a><span class="sep">|</span>',
+			$prev_url,
+			$prev_name
+		);
+	}
+	
+
 	if(is_page()) {
 		//Pour les pages ordinaires, ajouter le titre de la page
 		$title=strip_tags(get_the_title());

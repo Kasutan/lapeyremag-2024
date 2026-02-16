@@ -7,12 +7,12 @@
     "lib": "lib"
   },
   "dependencies": {
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-v4": "^4.0.0-alpha.5",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-clean-css": "^4.3.0"
+    "gulp-v4": "^4.0.0-alpha.5"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

@@ -101,29 +101,31 @@ form.search-form.search-header, .pictos-header .magasin {
 	display: flex;
 	justify-content: flex-end;
 	a {
-		@include font-body-m;
+		@include font-body-s;
 		align-items: center;
 		display: flex;
+		flex-direction: column;
+		font-weight: 600;
 		margin-right:1.6rem;
 		position: relative;
 		text-decoration: none;
 
-		&::after {
-			background-color: var(--gris-300);
-			content:' ';
-			display: inline-block;
-			height:2.8rem;
-			margin-left: 1.6rem;
-			width:1px;
-		}
 		&:last-of-type {
 			margin-right: 0;
-			&::after {
-				display: none;
-			}
+		}
+
+		svg {
+			fill:var(--texte);
+		}
+
+		.label {
+			display: none;
+			text-align: center;
 		}
 	}
-	.label-compte {
+
+	//Seulement deux pictos affichés en mobile
+	.magasin, .rdv {
 		display: none;
 	}
 }

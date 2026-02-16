@@ -33,7 +33,7 @@
   --gris-500: #9E9E9E;
   --gris-600: #757575;
   --gris-800: #424242;
-  --texte: #212121;
+  --texte: #252427;
   --noir-titre: #1F1416;
   --noir: #000000;
 }
@@ -438,24 +438,24 @@ a.wp-block-button__link.has-gris-800-color:visited, a.wp-block-button__link.has-
 }
 
 .has-texte-color {
-  color: #212121;
+  color: #252427;
 }
 
 .has-texte-background-color {
-  background-color: #212121;
+  background-color: #252427;
 }
 
 a.wp-block-button__link.has-texte-background-color {
-  background-color: #212121;
+  background-color: #252427;
 }
 a.wp-block-button__link.has-texte-background-color:focus-visible {
-  outline-color: #212121;
+  outline-color: #252427;
 }
 a.wp-block-button__link.has-texte-color {
-  color: #212121;
+  color: #252427;
 }
 a.wp-block-button__link.has-texte-color:visited, a.wp-block-button__link.has-texte-color:hover, a.wp-block-button__link.has-texte-color:focus, a.wp-block-button__link.has-texte-color:active {
-  color: #212121;
+  color: #252427;
 }
 
 .has-noir-titre-color {
